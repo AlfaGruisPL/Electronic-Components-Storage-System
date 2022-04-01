@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Logowanie do magazynu</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+
+    <ion-tab-button tab="map">
+      <ion-icon name="eye-outline"></ion-icon>
+      <ion-label>Zbadaj</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="map">
+      <ion-icon name="person-add-outline"></ion-icon>
+      <ion-label>Rejestracja</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="about">
+      <ion-icon name="information-circle"></ion-icon>
+      <ion-label>Informacje</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+
+
+
+<ion-content>
+  <div class="loginDiv">
+    <table>
+      <tr>
+        <th colspan="2"><h1>Logowanie </h1></th>
+      </tr>
+      <tr>
+        <td>Login:</td><td> <input [ngClass]="{'bad':badLogin}" class="loginInput"></td>
+      </tr>
+      <tr>
+        <td >Hasło:</td><td> <input  [ngClass]="{'bad':badPassword}"  class="loginInput"></td>
+      </tr>
+      <tr *ngIf="badPassword == true || badLogin == true">
+        <td></td><td class="loginButton"><span style="color:red">Popraw dane logowania</span></td>
+      </tr>
+
+      <tr>
+        <td></td><td class="loginButton"><input type="button" value="Zaloguj" (click)="login()"> </td>
+      </tr>
+    </table>
+  </div>
+
+
+</ion-content>
