@@ -1,0 +1,15 @@
+#container{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  div{
+    border:2px solid white;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vw ;
+  }
+}
