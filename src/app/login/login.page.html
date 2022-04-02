@@ -4,27 +4,24 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-tabs>
-  <ion-tab-bar slot="bottom">
 
-    <ion-tab-button tab="map">
-      <ion-icon name="eye-outline"></ion-icon>
-      <ion-label>Zbadaj</ion-label>
-    </ion-tab-button>
+<ion-footer class="ion-no-border" style="display: flex;justify-content: center">
 
-    <ion-tab-button tab="map">
-      <ion-icon name="person-add-outline"></ion-icon>
-      <ion-label>Rejestracja</ion-label>
-    </ion-tab-button>
+  <ion-tab-button (click)="getInfo()">
+    <ion-icon name="eye-outline"></ion-icon>
+    <ion-label>Zbadaj</ion-label>
+  </ion-tab-button>
 
-    <ion-tab-button tab="about">
-      <ion-icon name="information-circle"></ion-icon>
-      <ion-label>Informacje</ion-label>
-    </ion-tab-button>
-  </ion-tab-bar>
-</ion-tabs>
+  <ion-tab-button>
+    <ion-icon name="person-add-outline"></ion-icon>
+    <ion-label>Rejestracja</ion-label>
+  </ion-tab-button>
 
-
+  <ion-tab-button >
+    <ion-icon name="information-circle"></ion-icon>
+    <ion-label>Informacje</ion-label>
+  </ion-tab-button>
+</ion-footer>
 
 <ion-content>
   <div class="loginDiv">
