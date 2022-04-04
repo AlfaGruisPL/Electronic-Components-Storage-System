@@ -1,49 +1,79 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
+import { BarcodeScanner, BarcodeScanResult } from '@ionic-native/barcode-scanner/ngx';
+import { AlertController, ToastController } from '@ionic/angular';
+import { ApiService } from '../_services/api.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  public login:string = "admin";
+  public password:string = "123456";
   badPassword=false;
   badLogin = false;
-  constructor(private _router:Router,private qrScanner: QRScanner) { }
+  text:string = "..."
+  format:string = "..."
+  constructor(private _router:Router,private barcodeScanner: BarcodeScanner,public alertController: AlertController,private _api:ApiService,public toastController: ToastController) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+
   }
-  login(){
-    setTimeout(()=>{
-      this._router.navigate(["home"])
-    },1000)
-this.badLogin= true;
-this.badPassword=true;
+  logIn(){
+    if(this.login.length < 1){
+      this.badLogin= true;
+    }else {
+      this.badLogin= false;
+    }
+    if(this.password.length < 1){
+      this.badPassword= true;
+    }else {
+      this.badPassword= false;
+    }
+    if(this.login.length>0 && this.password.length>0){
+      this._api.login(this.login,this.password).then( async data => {
+        const toast = await this.toastController.create({
+          message: 'Logowanie udane',
+          duration: 2000
+        });
+        toast.present();
+        this._router.navigate(['home'])
+      }).catch(async data => {
+        const toast = await this.toastController.create({
+          message: 'Logowanie nie udane',
+          duration: 2000
+        });
+      })
+    }
   }
 
   getInfo():void{
-    this.qrScanner.prepare()
-      .then((status: QRScannerStatus) => {
-        if (status.authorized) {
-          // camera permission was granted
+    this.barcodeScanner.scan({
+      showTorchButton : true, // iOS and Android
+      torchOn: false, // Android, launch with the torch switched on (if   available)
+      prompt : "Nakieruj na kod QR który chcesz zeskanować", // Android
+      resultDisplayDuration: 0, // Android, display scanned text for X ms. 0 suppresses it entirely, default 1500
+    }).then(barcodeData => {
+      this.text = barcodeData.text.toString();
+      this.format = barcodeData.format.toString();
+    }).catch(async err => {
+      const alert = await this.alertController.create({
+        header: 'UWAGA',
+        message: 'Bład otwarcia skanera QR codów - ' + err,
+        buttons: ['Rozumiem']
+      });
 
+      await alert.present();
+      console.log('Error',);
+    });
+  }
 
-          // start scanning
-          let scanSub = this.qrScanner.scan().subscribe((text: string) => {
-            console.log('Scanned something', text);
-
-            this.qrScanner.hide(); // hide camera preview
-            scanSub.unsubscribe(); // stop scanning
-          });
-
-        } else if (status.denied) {
-          // camera permission was permanently denied
-          // you must use QRScanner.openSettings() method to guide the user to the settings page
-          // then they can grant the permission from there
-        } else {
-          // permission was denied, but not permanently. You can ask for permission again at a later time.
-        }
-      })
-      .catch((e: any) => console.log('Error is', e));
+  getInformationPage(){
+    this._router.navigate(["home"])
+  }
+  getRegisterPage(){
+    this._router.navigate(["register"])
   }
 }
