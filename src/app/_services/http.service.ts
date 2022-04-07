@@ -3,13 +3,17 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import { HTTP } from '@ionic-native/http/ngx';
 import { Capacitor } from '@capacitor/core';
+import { Network } from '@awesome-cordova-plugins/network/ngx';
+import { ToastController } from '@ionic/angular';
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
-  private adresApi = "https://magazynapi.efennec.cfolks.pl/index.php/";
+  private adresApi = 'https://www.magazynapi.efennec.cfolks.pl/index.php/';
 
-  constructor(private _http: HttpClient,private http:HTTP) {
+
+
+  constructor(private _http: HttpClient,private http:HTTP,private network: Network,public toastController: ToastController) {
   }
 
  private post_(url: string, body: any, options: any): Observable<any> {
@@ -20,24 +24,43 @@ export class HttpService {
     return this._http.get(url, options)
   }
   post(url:string,body: any, options: any):Promise<any>{
-    return new Promise(((resolve, reject) => {
-     // if(Capacitor.isNativePlatform() == false) //browser
+      return new Promise(((resolve, reject) => {
+      if(Capacitor.isNativePlatform() == false) { //mobile
         this.post_(this.adresApi+url,body,options).subscribe(next=>{
-          console.log(next)
-        resolve(next)
+            resolve(next)
           },
-          error=>{     console.log(error)
+          error=>{
             reject(error);
           });
-    /*  if(Capacitor.isNativePlatform() == true) // mobile
-        this.http.post(this.adresApi+url,body,options).then(data=>{
-          resolve(data)
-        }).catch(data=>{
-          reject(data);
-        })
-*/
-    }))
+      }else {
+        var encoded = btoa(JSON.stringify(body))
+          this.http.setServerTrustMode('nocheck')
+          this.http.post(this.adresApi + url + "?data=" + encoded, {}, {}).then(a => {
+            resolve(JSON.parse(a['data']));
+          }).catch(b => {
+            reject(this.errorAnalize(b))
+          });
+
+        }
+    }));
   }
+
+  errorAnalize(data: any): any {
+    if (data['status'] == "-6") {
+      setTimeout(async () => {
+        const toast = await this.toastController.create({
+          message: 'Brak połączenia z internetem',
+          duration: 4000
+        });
+        toast.present();
+      },1)
+
+    }
+    return data;
+
+  }
+
+
 }
 
 

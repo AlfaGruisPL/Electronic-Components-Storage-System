@@ -18,8 +18,11 @@ export class LoginPage implements OnInit {
   format:string = "..."
   constructor(private _router:Router,private barcodeScanner: BarcodeScanner,public alertController: AlertController,private _api:ApiService,public toastController: ToastController) { }
 
-  async ngOnInit() {
-
+  ngOnInit() {
+  if(this._api.tokenExist()){
+    alert(true)
+    this._router.navigate(['panel'])
+  }
   }
   logIn(){
     if(this.login.length < 1){
@@ -45,6 +48,7 @@ export class LoginPage implements OnInit {
           message: 'Logowanie nie udane',
           duration: 2000
         });
+        toast.present();
       })
     }
   }
