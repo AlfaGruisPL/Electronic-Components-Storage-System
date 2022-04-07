@@ -8,22 +8,14 @@ import { HTTP } from '@ionic-native/http/ngx';
 export class ApiService {
   private token:string = "";
   constructor(private _http: HttpService,private http:HTTP) { }
-  private adresApi = "https://magazynapi.efennec.cfolks.pl/index.php/";
 
   login(email:string,password:string):Promise<boolean>{
     return new Promise<boolean>(((resolve, reject) => {
       var json = {};
       json['email']= "admin";
       json['password']="123456";
-      this._http.post("login",json,this.getHeader()).subscribe(next=>{
-        alert(next)
-        alert(JSON.stringify(next))
-      },error=>{
-        alert(error)
-        alert(JSON.stringify(error))
-      })
-     /* this.http.setServerTrustMode('nocheck')
-      this.http.post(this.adresApi+'login',json,this.getHeader()).then(
+      this.http.setServerTrustMode('nocheck')
+      this._http.post('login',json,this.getHeader()).then(
         next=>{
           this.token=next['token'];
           alert(123)
@@ -35,7 +27,7 @@ export class ApiService {
          alert(JSON.stringify(error))
 reject(false);
         }
-      )*/
+      )
 
 
 
