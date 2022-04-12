@@ -19,9 +19,36 @@ export class LoginPage {
   constructor(private _router:Router,private barcodeScanner: BarcodeScanner,public alertController: AlertController,private _api:ApiService,public toastController: ToastController) { }
 
 
-  ionViewDidEnter() {
-    if(this._api.tokenExist() === true){
-      this._router.navigate(['./home'])
+  async ionViewDidEnter() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Prompt!',
+      label:"Czy chcesz zostać wylogowanu:",
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: 'Ok',
+          handler: () => {
+            console.log('Confirm Ok');
+          }
+        }
+      ]
+    });
+    alert.present();
+    if (this._api.tokenExist() === true) {
+     // var czyWylogować = prompt("Czy chcesz zostać wylogowany ?")
+   //   console.log(czyWylogować)
+      /*   if(czyWylogować == true){
+           this._api.clearToken();
+         }else{
+         this._router.navigate(['./home'])
+         }*/
     }
   }
   logIn(){

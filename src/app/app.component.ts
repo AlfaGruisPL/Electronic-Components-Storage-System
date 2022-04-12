@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {NavigationEnd, Router, RouterEvent } from '@angular/router';
 import { Capacitor } from '@capacitor/core';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
@@ -8,15 +10,5 @@ import { Capacitor } from '@capacitor/core';
 })
 export class AppComponent implements OnInit{
   ngOnInit() {
-  /* var obj = {};
-    obj[1] = 342
-    var encoded = btoa(JSON.stringify(obj))
-alert((encoded))
-
-
-    var actual = JSON.parse(atob(encoded))
-    alert(actual)*/
   }
-  constructor() {}//     if() {
-
 }

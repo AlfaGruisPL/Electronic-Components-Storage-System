@@ -33,6 +33,9 @@ export class ApiService {
   public tokenExist():boolean{
     return this.token.length > 5
   }
+  public clearToken():void{
+    this.token="";
+  }
   private getHeader():any{
     let httpOptions = {
         'Cache-Control': 'no-cache, no-store, must-revalidate, post-check=0, pre-check=0',
