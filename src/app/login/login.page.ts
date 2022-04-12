@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BarcodeScanner, BarcodeScanResult } from '@ionic-native/barcode-scanner/ngx';
 import { AlertController, ToastController } from '@ionic/angular';
@@ -9,7 +9,7 @@ import { ApiService } from '../_services/api.service';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class LoginPage {
   public login:string = "admin";
   public password:string = "123456";
   badPassword=false;
@@ -18,11 +18,11 @@ export class LoginPage implements OnInit {
   format:string = "..."
   constructor(private _router:Router,private barcodeScanner: BarcodeScanner,public alertController: AlertController,private _api:ApiService,public toastController: ToastController) { }
 
-  ngOnInit() {
-  if(this._api.tokenExist()){
-    alert(true)
-    this._router.navigate(['panel'])
-  }
+
+  ionViewDidEnter() {
+    if(this._api.tokenExist() === true){
+      this._router.navigate(['./home'])
+    }
   }
   logIn(){
     if(this.login.length < 1){

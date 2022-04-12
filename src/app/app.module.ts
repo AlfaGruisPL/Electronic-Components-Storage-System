@@ -14,11 +14,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { HTTP } from '@ionic-native/http/ngx';
 import { Network } from '@awesome-cordova-plugins/network/ngx';
 import { LoginGuard } from './_quards/login.guard';
+import { LeaveGuard } from './_quards/leave.guard';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule,FormsModule],
-  providers: [ { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },BarcodeScanner,HttpService,ApiService,HTTP,Network,LoginGuard],
+  providers: [ { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },LeaveGuard,BarcodeScanner,HttpService,ApiService,HTTP,Network,LoginGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

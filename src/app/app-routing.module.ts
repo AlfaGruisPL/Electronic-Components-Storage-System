@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { LoginGuard } from './_quards/login.guard';
+import { LeaveGuard } from './_quards/leave.guard';
 
 const routes: Routes = [
   {
     path: 'home',
     canActivate:[LoginGuard],
+   // canDeactivate:[LeaveGuard],
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
@@ -17,6 +19,7 @@ const routes: Routes = [
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
   {
+
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'
