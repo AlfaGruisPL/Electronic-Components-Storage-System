@@ -45,6 +45,31 @@ export class HttpService {
     }));
   }
 
+  get(url:string, options: any):Promise<any>{
+    return new Promise(((resolve, reject) => {
+      if(Capacitor.isNativePlatform() == false) { //mobile
+
+        this.get_(this.adresApi+url,options).subscribe(next=>{
+            resolve(next)
+          },
+          error=>{
+            reject(error);
+          });
+      }else {
+        this.http.setServerTrustMode('nocheck')
+        this.http.get(this.adresApi + url, {}, {}).then(a => {
+          //alert(JSON.stringify(a))
+          resolve(JSON.parse(a['data']));
+        }).catch(b => {
+          alert(JSON.stringify(b))
+          reject(this.errorAnalize(b))
+        });
+
+      }
+    }));
+  }
+
+
   errorAnalize(data: any): any {
     if (data['status'] == "-6") {
       setTimeout(async () => {

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { BarcodeScanner, BarcodeScanResult } from '@ionic-native/barcode-scanner/ngx';
 import { AlertController, ToastController } from '@ionic/angular';
 import { ApiService } from '../_services/api.service';
+import { QrcodeService } from '../_services/qrcode.service';
 
 @Component({
   selector: 'app-login',
@@ -14,41 +15,31 @@ export class LoginPage {
   public password:string = "123456";
   badPassword=false;
   badLogin = false;
-  text:string = "..."
-  format:string = "..."
-  constructor(private _router:Router,private barcodeScanner: BarcodeScanner,public alertController: AlertController,private _api:ApiService,public toastController: ToastController) { }
+  constructor(private _router:Router ,public alertController: AlertController, private _qr: QrcodeService ,private _api:ApiService,public toastController: ToastController) { }
 
 
   async ionViewDidEnter() {
     const alert = await this.alertController.create({
-      cssClass: 'my-custom-class',
-      header: 'Prompt!',
-      label:"Czy chcesz zostać wylogowanu:",
+      header: 'Potwierdzasz wylogowanie?',
       buttons: [
         {
-          text: 'Cancel',
+          text: 'Nie',
           role: 'cancel',
           cssClass: 'secondary',
           handler: () => {
-            console.log('Confirm Cancel');
+            this._router.navigate(['./home'])
           }
         }, {
-          text: 'Ok',
+          text: 'Tak',
           handler: () => {
-            console.log('Confirm Ok');
+            this._api.clearToken();
           }
         }
       ]
     });
-    alert.present();
+
     if (this._api.tokenExist() === true) {
-     // var czyWylogować = prompt("Czy chcesz zostać wylogowany ?")
-   //   console.log(czyWylogować)
-      /*   if(czyWylogować == true){
-           this._api.clearToken();
-         }else{
-         this._router.navigate(['./home'])
-         }*/
+      alert.present();
     }
   }
   logIn(){
@@ -81,23 +72,8 @@ export class LoginPage {
   }
 
   getInfo():void{
-    this.barcodeScanner.scan({
-      showTorchButton : true, // iOS and Android
-      torchOn: false, // Android, launch with the torch switched on (if   available)
-      prompt : "Nakieruj na kod QR który chcesz zeskanować", // Android
-      resultDisplayDuration: 0, // Android, display scanned text for X ms. 0 suppresses it entirely, default 1500
-    }).then(barcodeData => {
-      this.text = barcodeData.text.toString();
-      this.format = barcodeData.format.toString();
-    }).catch(async err => {
-      const alert = await this.alertController.create({
-        header: 'UWAGA',
-        message: 'Bład otwarcia skanera QR codów - ' + err,
-        buttons: ['Rozumiem']
-      });
-
-      await alert.present();
-      console.log('Error',);
+    this._qr.getInfo().then(data=>{
+      this._router.navigate(["/information/"+data.text.toString()+"/"+data.format.toString()])
     });
   }
 

@@ -2,6 +2,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { HttpService } from './http.service';
 import { HTTP } from '@ionic-native/http/ngx';
+import { Subscription } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -28,7 +29,16 @@ export class ApiService {
 
     }));
   }
-
+  public getDefault(postfix: string): Promise<Array<any>> {
+    return new Promise<Array<any>>((resolve, reject) => {
+      var Tstart = new Date().getTime();
+      this._http.get(postfix, this.getHeader()).then(next=>{
+      resolve(next)
+      }).catch(error=>{
+        reject(error)
+      });
+    });
+  }
 
   public tokenExist():boolean{
     return this.token.length > 5
