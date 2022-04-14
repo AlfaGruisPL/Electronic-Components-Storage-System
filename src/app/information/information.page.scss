@@ -1,0 +1,52 @@
+h1{
+  text-align: center;
+}
+h4{
+  text-align: center;
+  font-size: 25px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top:100px;
+}
+table{
+  width: 100%;
+  margin-top: 10px;
+  tr{
+border-bottom: 1px solid grey;
+
+  label{
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    width: 150px;
+    display: block;
+  }
+    span{
+      display: block;
+      padding-right: 10px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    td{
+
+    }
+  }
+
+}
+.elementImageDiv{
+display: flex;
+  justify-content: center;
+padding-top: 20px;
+  padding-bottom: 20px;
+  flex-wrap: wrap;
+  label{
+    padding-bottom: 7px;
+  }
+}
+.elementImage{
+  width: 70%;
+}
+.tdWithButton{
+  height: 50px; display: block
+}
