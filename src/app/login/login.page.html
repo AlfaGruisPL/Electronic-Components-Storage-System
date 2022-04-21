@@ -14,15 +14,13 @@
     <ion-icon name="person-add-outline"></ion-icon>
     <ion-label>Rejestracja</ion-label>
   </ion-tab-button>
-  
 
-  <ion-tab-button >
+
+  <ion-tab-button>
     <ion-icon name="information-circle"></ion-icon>
     <ion-label>bla bla bla</ion-label>
   </ion-tab-button>
 </ion-footer>
-
-
 
 
 <ion-content>
@@ -32,20 +30,24 @@
         <th colspan="2"><h1>Logowanie</h1></th>
       </tr>
       <tr>
-        <td>Login:</td><td> <input [(ngModel)]="login" [ngClass]="{'bad':badLogin}" class="loginInput"></td>
+        <td>Login:</td>
+        <td><input [(ngModel)]="login" [ngClass]="{'bad':badLogin}" class="loginInput"></td>
       </tr>
       <tr>
-        <td >Hasło:</td><td> <input [(ngModel)]="password"  [ngClass]="{'bad':badPassword}"  class="loginInput"></td>
+        <td>Hasło:</td>
+        <td><input [(ngModel)]="password" [ngClass]="{'bad':badPassword}" class="loginInput"></td>
       </tr>
       <tr>
-        <td colspan="2" >Zapamiętaj dane:&nbsp;&nbsp;&nbsp;<input type="checkbox" [(ngModel)]="keedPass"></td>
+        <td colspan="2">Zapamiętaj dane:&nbsp;&nbsp;&nbsp;<input [(ngModel)]="keedPass" type="checkbox"></td>
       </tr>
       <tr *ngIf="badPassword == true || badLogin == true">
-        <td></td><td class="loginButton"><span style="color:red">Popraw dane logowania</span></td>
+        <td></td>
+        <td class="loginButton"><span style="color:red">Popraw dane logowania</span></td>
       </tr>
 
       <tr>
-        <td></td><td class="loginButton"><input type="button" value="Zaloguj" (click)="logIn()"> </td>
+        <td></td>
+        <td class="loginButton"><input (click)="logIn()" type="button" value="Zaloguj"></td>
       </tr>
     </table>
 
@@ -53,4 +55,4 @@
 
 
 </ion-content>
-<app-bottom-menu></app-bottom-menu>
+

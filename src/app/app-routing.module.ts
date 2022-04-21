@@ -1,27 +1,31 @@
-import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { LoginGuard } from './_quards/login.guard';
-import { LeaveGuard } from './_quards/leave.guard';
+import {NgModule} from '@angular/core';
+import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
+import {LoginGuard} from './_quards/login.guard';
 
 const routes: Routes = [
   {
     path: 'home',
-    canActivate:[LoginGuard],
-   // canDeactivate:[LeaveGuard],
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    canActivate: [LoginGuard],
+    // canDeactivate:[LeaveGuard],
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
+  },
+  {
+    path: 'search',
+    loadChildren: () => import('./home/search/search.module').then(m => m.SearchPageModule)
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)
   },
   {
     path: 'information/:text/:format',
-    loadChildren: () => import('./information/information.module').then( m => m.InformationPageModule)
+    loadChildren: () => import('./information/information.module').then(m => m.InformationPageModule)
   },
   {
     path: 'register',
-    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+    loadChildren: () => import('./register/register.module').then(m => m.RegisterPageModule)
   },
+
   {
 
     path: '',
@@ -33,17 +37,14 @@ const routes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full'
   },
-  {
-    path: 'information',
-    loadChildren: () => import('./information/information.module').then( m => m.InformationPageModule)
-  },
 
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

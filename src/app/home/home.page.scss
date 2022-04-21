@@ -1,15 +1,44 @@
-#container{
+#container {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  div{
-    border:2px solid white;
+
+  button {
+    border: 2px solid white;
     width: 50vw;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50vw ;
+    height: 50vw;
+
+
+  }
+}
+
+.icon {
+  //display: flex;
+  //flex-direction: column !important;
+  //justify-content: space-between !important;
+  position: relative;
+  background-color: #242424;
+  box-shadow: 1px 1px 3px 1px #606060;
+
+  &:hover {
+    background-color: #1a1a1a;
+    cursor: pointer;
+    color: #328a50;
+  }
+
+  label {
+    position: absolute;
+    bottom: 10px;
+    font-size: 20px;
+  }
+
+  ion-icon {
+    color: #1faf58;
+    font-size: 74px;
   }
 }
