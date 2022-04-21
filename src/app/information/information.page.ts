@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ApiResponse } from '../_modal/api-response';
 import { ElementClass } from '../_modal/element';
+import { Miejsce } from '../_modal/miejsce';
 import { QrOut } from '../_modal/qr-out';
 import { ApiService } from '../_services/api.service';
+import { FooterService } from '../_services/footer.service';
 import { QrcodeService } from '../_services/qrcode.service';
 
 @Component({
@@ -14,7 +17,9 @@ export class InformationPage implements OnInit {
   public mode:string ="";
   public element: ElementClass;
   public modalPlaceIsOpen = false;
-  constructor(private route: ActivatedRoute,private _router:Router,private _api: ApiService,private _qr: QrcodeService) { }
+  public miejsca:Array<Miejsce> = [];
+  //public miejsce:Miejsce = undefined;
+  constructor(private route: ActivatedRoute,private _router:Router,public _api: ApiService,public _footer:FooterService) { }
   public displayDescription = false;
   ngOnInit() {
     this.route.params.subscribe(
@@ -24,8 +29,10 @@ export class InformationPage implements OnInit {
           this._api.getDefault("elementInfo/"+params.text.split("_")[1]).then(data=>{
             this.element = data['value'][0];
           })
-        }else if(params.text.charAt(0).toUpperCase() == "M"&& params.text.charAt(1)=="_") {
-          this.mode = "miejsce"
+        }else if(params.text.charAt(0).toUpperCase() == "O"&& params.text.charAt(1)=="_") {
+          this.mode = "miejsca"
+          this.getMiejsce(params.text.split("_")[1]);
+
         } else{
           this.mode = "nieZnane"
         }
@@ -33,19 +40,21 @@ export class InformationPage implements OnInit {
       }
     );
   }
-  getInfo():void{
-    this._qr.getInfo().then(data=>{
-      this._router.navigate(["/information/"+data.text.toString()+"/"+data.format.toString()])
-    });
-  }
-  ToMenu():void{
-    this._router.navigate(['/home'])
-  }
-  openModalPlacePrimary():void{
+
+  openModalPlace(id:number|string):void{
+    this.miejsca = [];
       this.modalPlaceIsOpen= !this.modalPlaceIsOpen
+      this.getMiejsce(id);
   }
+    private getMiejsce(id:number|string):void {
+      this._api.getDefault('miejsca/'+id).then((data:ApiResponse)=>{
+        // @ts-ignore
+        var value = Array<Miejsce>(data.value);
+        value[0].forEach(miej=>{
+          var miejscaTMP = new Miejsce(miej.id,miej.id_rodzica,miej.id_zdjecia,miej.nazwa);
+          this.miejsca.push(miejscaTMP);
+        })
 
-  openModalPlaceTemporary():void{
-
-  }
+      })
+    }
 }

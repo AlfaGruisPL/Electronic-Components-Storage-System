@@ -3,12 +3,16 @@ import { Injectable } from '@angular/core';
 import { HttpService } from './http.service';
 import { HTTP } from '@ionic-native/http/ngx';
 import { Subscription } from 'rxjs';
+import { Storage } from '@ionic/storage-angular';
+import { Router } from '@angular/router';
+import { ApiResponse } from '../_modal/api-response';
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
   private token:string = "";
-  constructor(private _http: HttpService,private http:HTTP) { }
+  private _storage: Storage | null = null;
+  constructor(private storage: Storage,private _http: HttpService,private http:HTTP,private _router:Router) { }
 
   login(email:string,password:string):Promise<boolean>{
     return new Promise<boolean>(((resolve, reject) => {
@@ -21,7 +25,12 @@ export class ApiService {
           resolve(true);
         }).catch(
         error=>{
-         reject(false);
+          if(error['status']=="401"){
+            this.clearToken();
+            this._router.navigate([''])
+            alert("Wylogowanie automatyczne: "+error['status'])
+          }
+          reject(error);
         });
 
 
@@ -29,13 +38,18 @@ export class ApiService {
 
     }));
   }
-  public getDefault(postfix: string): Promise<Array<any>> {
+  public getDefault(postfix: string): Promise<ApiResponse|any> {
     return new Promise<Array<any>>((resolve, reject) => {
       var Tstart = new Date().getTime();
       this._http.get(postfix, this.getHeader()).then(next=>{
       resolve(next)
       }).catch(error=>{
-        reject(error)
+        if(error['status']=="401"){
+          this.clearToken();
+          this._router.navigate([''])
+          alert("Wylogowanie automatyczne: "+error['status'])
+        }
+        reject(error);
       });
     });
   }
@@ -43,8 +57,11 @@ export class ApiService {
   public tokenExist():boolean{
     return this.token.length > 5
   }
-  public clearToken():void{
-    this.token="";
+  public async clearToken() {
+    const storage = await this.storage.create();
+    this._storage = storage;
+    this._storage.clear()
+    this.token = "";
   }
   private getHeader():any{
     let httpOptions = {

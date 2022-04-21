@@ -1,20 +1,26 @@
 <ion-header>
   <ion-toolbar>
     <ion-title *ngIf="mode=='element'">Informacje na temat elementu:</ion-title>
+    <ion-title *ngIf="mode=='miejsca'">Informacje na temat miejsca:</ion-title>
   </ion-toolbar>
 </ion-header>
 
 
 <ion-footer class="ion-no-border" style="display: flex;justify-content: center">
 
-  <ion-tab-button (click)="getInfo()">
+  <ion-tab-button (click)="_footer.getInfo()">
     <ion-icon name="eye-outline"></ion-icon>
     <ion-label>Zbadaj</ion-label>
   </ion-tab-button>
 
-  <ion-tab-button (click)="ToMenu()">
+  <ion-tab-button (click)="_footer.ToMenu()" *ngIf="_api.tokenExist()">
     <ion-icon name="person-add-outline"></ion-icon>
     <ion-label>Menu</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button (click)="_footer.ToLogin()"  *ngIf="!_api.tokenExist()">
+    <ion-icon name="person-add-outline"></ion-icon>
+    <ion-label>Logowanie</ion-label>
   </ion-tab-button>
 
   <ion-tab-button >
@@ -26,7 +32,28 @@
 
 
 
-<ion-content>
+
+
+<ion-content *ngIf="mode=='miejsca'">
+  <ng-container *ngIf="miejsca[0]?.nazwa.length <=0">
+    <h4>Miejsca nie znaleziono w bazie danych</h4>
+  </ng-container>
+  <table>
+    <tr>
+      <td><label>Nazwa:</label> </td>
+      <td><span>{{miejsca[0]?.nazwa}}</span></td>
+    </tr>
+  </table>
+
+
+
+
+
+
+
+</ion-content>
+
+<ion-content *ngIf="mode=='element'">
   <ng-container *ngIf="element?.nazwa.length <=0">
     <h4>Elementu nie znaleziono w bazie danych</h4>
   </ng-container>
@@ -57,19 +84,12 @@
 
   </div>
   <table>
-    <tr>
-      <td><label>Opis:</label> </td>
-      <td [ngClass]="{'tdWithButton':!displayDescription}"><ion-button *ngIf="!displayDescription" color="success" (click)="displayDescription = !displayDescription" >
-        Wyświetl
-        </ion-button>
 
-        <span ><p *ngIf="displayDescription"> {{element?.opis}}</p></span></td>
-    </tr>
     <tr>
       <td><label>Lokalizacja podstawowa:</label>
        </td>
       <td><span style="display: flex;align-items: center">{{element?.nazwaMiejscaPodstawowego}}&nbsp;&nbsp;&nbsp;
-        <ion-button (click)="openModalPlacePrimary()">
+        <ion-button (click)="openModalPlace(element.id_lokalizacji_podstawowej)">
           <ion-icon name="help-outline"></ion-icon>
         </ion-button></span>
 
@@ -78,9 +98,17 @@
     <tr>
       <td><label>Lokalizacja tymczasowa:</label> </td>
       <td><span style="display: flex;align-items: center">{{element?.nazwaMiejsca}}&nbsp;&nbsp;&nbsp;
-        <ion-button (click)="openModalPlaceTemporary()">
+        <ion-button (click)="openModalPlace(element.lokalizacjaIdMijesca)">
           <ion-icon name="help-outline"></ion-icon>
       </ion-button></span></td>
+    </tr>
+    <tr>
+      <td><label>Opis:</label> </td>
+      <td [ngClass]="{'tdWithButton':!displayDescription}"><ion-button *ngIf="!displayDescription" color="success" (click)="displayDescription = !displayDescription" >
+        Wyświetl
+      </ion-button>
+
+        <span ><p *ngIf="displayDescription"> {{element?.opis}}</p></span></td>
     </tr>
   </table>
 </ng-container>
@@ -96,16 +124,34 @@
   <ng-template>
     <ion-header>
       <ion-toolbar>
-        <ion-title >Lokalizacja:
-          <ion-button  color="success" (click)="modalPlaceIsOpen = false" >
+        <ion-title         >
+          <ion-button  color="success" (click)="modalPlaceIsOpen = false" style="float: right">
           Zamknij
         </ion-button>
       </ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content>
+      <ion-note class="ion-note-title" color="success">Lokalizacja miejsca</ion-note>
+      <ion-list>
+        <ion-item *ngFor="let x of miejsca; last as isLast">
+          <ion-label>{{x.nazwa}}</ion-label>
+          <ion-note class="arrow" slot="start">
+            <ion-icon *ngIf="!isLast" name="arrow-down-outline"></ion-icon>
+            <ion-icon *ngIf="isLast" name="cube-outline"></ion-icon>
+          </ion-note>
+        </ion-item>
+        <ion-item>    <ion-label style="color:green">{{element.nazwa}}</ion-label>
+          <ion-note class="arrow" slot="start">
+            <ion-icon name="arrow-forward-circle-outline"></ion-icon>
+          </ion-note>
+
+        </ion-item>
+      </ion-list>
 
     </ion-content>
 
   </ng-template>
 </ion-modal>
+
+<app-bottom-menu></app-bottom-menu>

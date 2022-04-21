@@ -28,7 +28,7 @@ export class QrcodeService {
           buttons: ['Rozumiem']
         });
 
-        resolve({text:"K_1",format:"test"})
+        resolve({text:"O_9",format:"brak"})
         await alert.present();
         reject(err)
       });

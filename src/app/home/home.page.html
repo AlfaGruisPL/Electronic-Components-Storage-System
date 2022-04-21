@@ -8,7 +8,7 @@
 
 <ion-footer class="ion-no-border" style="display: flex;justify-content: center">
 
-  <ion-tab-button>
+  <ion-tab-button (click)="getInfo()">
     <ion-icon name="eye-outline"></ion-icon>
     <ion-label>Zbadaj</ion-label>
   </ion-tab-button>
@@ -34,9 +34,9 @@
   </ion-header>
 
   <div id="container">
-  <div>
-    Wyszukaj2
-  </div>
+    <div>
+      Wyszukaj2
+    </div>
     <div>
       Wyporzycz
     </div>

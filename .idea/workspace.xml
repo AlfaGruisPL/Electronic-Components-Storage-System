@@ -1,84 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
+    <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6d1fddc-25f1-4a98-a59b-05fb675db7de" name="Changes" comment="praca">
-      <change afterPath="$PROJECT_DIR$/src/app/_modal/qr-out.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/_services/qrcode.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/android/icon/drawable-hdpi-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-hdpi-icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/android/icon/drawable-ldpi-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-ldpi-icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/android/icon/drawable-mdpi-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-mdpi-icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/android/icon/drawable-xhdpi-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-xhdpi-icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/android/icon/drawable-xxhdpi-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-xxhdpi-icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/android/icon/drawable-xxxhdpi-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-xxxhdpi-icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-hdpi-screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-land-hdpi-screen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-ldpi-screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-land-ldpi-screen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-mdpi-screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-land-mdpi-screen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-xhdpi-screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-land-xhdpi-screen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-xxhdpi-screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-land-xxhdpi-screen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-xxxhdpi-screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-land-xxxhdpi-screen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-hdpi-screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-hdpi-screen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-ldpi-screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-ldpi-screen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-mdpi-screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-mdpi-screen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-xhdpi-screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-xhdpi-screen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxhdpi-screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxhdpi-screen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxxhdpi-screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxxhdpi-screen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-1024.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-1024.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-20.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-20.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-20@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-20@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-20@3x.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-20@3x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-24@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-24@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-27.5@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-27.5@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-29.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-29.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-29@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-29@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-29@3x.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-29@3x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-40.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-40.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-40@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-40@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-40@3x.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-40@3x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-44@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-44@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-50.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-50.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-50@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-50@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-60.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-60.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-60@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-60@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-60@3x.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-60@3x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-72.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-72.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-72@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-72@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-76.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-76.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-76@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-76@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-83.5@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-83.5@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-86@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-86@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon-98@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-98@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/icon/icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/icon/icon@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/icon/icon@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/splash/Default-2436h.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-2436h.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/splash/Default-568h@2x~iphone.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-568h@2x~iphone.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/splash/Default-667h.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-667h.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/splash/Default-736h.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-736h.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape-2436h.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape-2436h.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape-736h.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape-736h.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape@2x~ipad.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape@2x~ipad.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape@~ipadpro.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape@~ipadpro.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape~ipad.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape~ipad.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait@2x~ipad.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait@2x~ipad.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait@~ipadpro.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait@~ipadpro.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait~ipad.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait~ipad.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/splash/Default@2x~iphone.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/splash/Default@2x~iphone.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/splash/Default@2x~universal~anyany.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/splash/Default@2x~universal~anyany.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ios/splash/Default~iphone.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ios/splash/Default~iphone.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/splash.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/splash.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capacitor.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/capacitor.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_modal/element.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_modal/element.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_quards/login.guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_quards/login.guard.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/_services/api.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/api.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/_services/http.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/http.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_services/qrcode.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/qrcode.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/home/home.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/home.page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/home/home.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/home.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/information/information.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/information/information.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/information/information.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/information/information.page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/information/information.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/information/information.page.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/login/login.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/login.page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/login/login.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/login.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/global.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,10 +62,13 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cidr.known.project.marker" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="format.on.save" value="true" />
     <property name="javascript.karma.karma_node_package_dir" value="$PROJECT_DIR$/node_modules/@angular/cli" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../~magazyn" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -131,10 +77,11 @@
     <property name="optimize.imports.on.save" value="true" />
     <property name="rearrange.code.on.save" value="true" />
     <property name="settings.editor.selected.configurable" value="actions.on.save" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="Shell Script.Start">
+  <component name="RunManager" selected="Shell Script.Wyślij na telefon">
     <configuration name="Tests (app)" type="JavaScriptTestRunnerKarma">
       <config-file value="$PROJECT_DIR$/karma.conf.js" />
       <karma-package-dir value="" />
@@ -199,7 +146,11 @@
       <workItem from="1649787646855" duration="9000" />
       <workItem from="1649922135843" duration="5600000" />
       <workItem from="1649928325056" duration="11942000" />
-      <workItem from="1649950546816" duration="803000" />
+      <workItem from="1649950546816" duration="1189000" />
+      <workItem from="1650009024860" duration="4521000" />
+      <workItem from="1650022103174" duration="780000" />
+      <workItem from="1650292984747" duration="18862000" />
+      <workItem from="1650449523590" duration="15000" />
     </task>
     <task id="LOCAL-00001" summary="kolejny dzień">
       <created>1649786916461</created>
@@ -215,7 +166,21 @@
       <option name="project" value="LOCAL" />
       <updated>1649796041744</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="praca">
+      <created>1649951700315</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1649951700315</updated>
+    </task>
+    <task id="LOCAL-00004" summary="praca">
+      <created>1649951727901</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1649951727901</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -4,7 +4,8 @@ import { BarcodeScanner, BarcodeScanResult } from '@ionic-native/barcode-scanner
 import { AlertController, ToastController } from '@ionic/angular';
 import { ApiService } from '../_services/api.service';
 import { QrcodeService } from '../_services/qrcode.service';
-
+import { Storage } from '@ionic/storage-angular';
+import { FooterService } from '../_services/footer.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -14,12 +15,19 @@ export class LoginPage {
   public login:string = "admin";
   public password:string = "123456";
   badPassword=false;
+  private _storage: Storage | null = null;
   badLogin = false;
-  constructor(private _router:Router ,public alertController: AlertController, private _qr: QrcodeService ,private _api:ApiService,public toastController: ToastController) { }
+  public keedPass = false;
+  constructor(private storage: Storage,
+              private _router:Router,
+              public _footer: FooterService,
+              public alertController: AlertController,
+              private _api:ApiService,
+              public toastController: ToastController) { }
 
 
   async ionViewDidEnter() {
-    const alert = await this.alertController.create({
+    const alertI = await this.alertController.create({
       header: 'Potwierdzasz wylogowanie?',
       buttons: [
         {
@@ -39,7 +47,29 @@ export class LoginPage {
     });
 
     if (this._api.tokenExist() === true) {
-      alert.present();
+      alertI.present();
+    }else {
+
+      const storage = await this.storage.create();
+      this._storage = storage;
+      this.storage.get("login").then(log=>{
+
+        this.storage.get("password").then(pass=>{
+
+
+            if(log.length>0 && pass.length>0) {
+              this.login = log;
+              this.password = pass;
+              this.logInF();
+            }
+        }).catch(b=>{
+          //alert(b)
+        })
+      }).catch(a=>{
+        //alert(a)
+      })
+
+
     }
   }
   logIn(){
@@ -54,33 +84,41 @@ export class LoginPage {
       this.badPassword= false;
     }
     if(this.login.length>0 && this.password.length>0){
-      this._api.login(this.login,this.password).then( async data => {
-        const toast = await this.toastController.create({
-          message: 'Logowanie udane',
-          duration: 2000
-        });
-        toast.present();
-        this._router.navigate(['home'])
-      }).catch(async data => {
-        const toast = await this.toastController.create({
-          message: 'Logowanie nie udane',
-          duration: 2000
-        });
-        toast.present();
-      })
+
+     this.logInF();
     }
+
   }
 
-  getInfo():void{
-    this._qr.getInfo().then(data=>{
-      this._router.navigate(["/information/"+data.text.toString()+"/"+data.format.toString()])
-    });
+
+  private logInF(){
+    this._api.login(this.login,this.password).then( async data => {
+      const toast = await this.toastController.create({
+        message: 'Logowanie udane',
+        duration: 200,
+        position:'top'
+      });
+      if(  this.keedPass == true){
+        const storage = await this.storage.create();
+        this._storage = storage;
+        this._storage.set("login",this.login)
+        this._storage.set("password",this.password)
+      }
+
+      toast.present();
+      this._router.navigate(['home'])
+    }).catch(async data => {
+      const toast = await this.toastController.create({
+        message: 'Logowanie nie udane',
+        duration: 2000
+      });
+      toast.present();
+    })
   }
+
 
   getInformationPage(){
     this._router.navigate(["home"])
   }
-  getRegisterPage(){
-    this._router.navigate(["register"])
-  }
+
 }

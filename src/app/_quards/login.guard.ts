@@ -15,7 +15,7 @@ export class LoginGuard implements CanActivate {
     if(this._api.tokenExist()){
       return true;
     }else {
-      //this._router.navigate(['./login'])
+      this._router.navigate(['./login'])
       return false;
     }
   }
