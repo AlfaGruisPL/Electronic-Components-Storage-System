@@ -30,14 +30,21 @@
 </ion-footer>
 
 
+<ion-content *ngIf="mode=='wait'" >
+  <div style="display: flex;justify-content: center;align-items: center;width: 100%;height: 100%;flex-wrap:wrap;flex-direction: column">
+    <h3 style="text-align: center">Trwa wyszukiwanie, proszę czekać...</h3>
+    <ion-spinner style="width: 80px;height: 80px;"></ion-spinner>
+  </div>
 
-
-
+</ion-content>
 
 <ion-content *ngIf="mode=='miejsca'">
-  <ng-container *ngIf="miejsca[0]?.nazwa.length <=0">
+
+  <ng-container *ngIf="miejsca[0]?.nazwa.length <=0 else wyszukiwanie">
     <h4>Miejsca nie znaleziono w bazie danych</h4>
   </ng-container>
+
+
   <table>
     <tr>
       <td><label>Nazwa:</label> </td>
@@ -153,5 +160,3 @@
 
   </ng-template>
 </ion-modal>
-
-<app-bottom-menu></app-bottom-menu>

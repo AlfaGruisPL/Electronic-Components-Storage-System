@@ -14,7 +14,8 @@ import { QrcodeService } from '../_services/qrcode.service';
   styleUrls: ['./information.page.scss'],
 })
 export class InformationPage implements OnInit {
-  public mode:string ="";
+
+  public mode:string ="wait";
   public element: ElementClass;
   public modalPlaceIsOpen = false;
   public miejsca:Array<Miejsce> = [];
@@ -25,6 +26,7 @@ export class InformationPage implements OnInit {
     this.route.params.subscribe(
       (params: QrOut) => {
         if(params.text.charAt(0).toUpperCase() == "K"&& params.text.charAt(1)=="_"){
+
           this.mode = "element"
           this._api.getDefault("elementInfo/"+params.text.split("_")[1]).then(data=>{
             this.element = data['value'][0];
@@ -47,7 +49,7 @@ export class InformationPage implements OnInit {
       this.getMiejsce(id);
   }
     private getMiejsce(id:number|string):void {
-      this._api.getDefault('miejsca/'+id).then((data:ApiResponse)=>{
+      this._api.getDefault('miejsce/'+id).then((data:ApiResponse)=>{
         // @ts-ignore
         var value = Array<Miejsce>(data.value);
         value[0].forEach(miej=>{

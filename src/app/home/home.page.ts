@@ -21,4 +21,7 @@ public  logOut():void{
       this._router.navigate(["/information/"+data.text.toString()+"/"+data.format.toString()])
     });
   }
+  ToSearch():void{
+    this._router.navigate(['../search'])
+  }
 }

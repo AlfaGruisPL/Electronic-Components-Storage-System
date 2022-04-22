@@ -1,15 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Wyszukiwarka</ion-title>
+    <ion-title>Wyszukiwarka"</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-footer>
+
+
+<ion-footer class="ion-no-border" style="display: flex;justify-content: center">
+
   <ion-tab-button (click)="_footer.getInfo()">
     <ion-icon name="eye-outline"></ion-icon>
     <ion-label>Zbadaj</ion-label>
   </ion-tab-button>
 
-  <ion-tab-button (click)="_footer.tologOut()">
+  <ion-tab-button >
     <ion-icon name="person-add-outline"></ion-icon>
     <ion-label>Wyloguj</ion-label>
   </ion-tab-button>
@@ -18,9 +21,34 @@
     <ion-icon name="information-circle"></ion-icon>
     <ion-label>Informacje</ion-label>
   </ion-tab-button>
-
 </ion-footer>
 
 <ion-content>
+<label class="searchLabel">Wyszukaj:</label><input class="searchText" type="text" [(ngModel)]="searchInput" (keyup)="checkList()">
+  <ion-item-divider class="searchListTitle">
+    <div style="position: relative;width: 100%">
+    <ion-label>
+      Elementy: <ion-toggle color="primary" style="position: absolute;  top:-10px;right:6px" [(ngModel)]="displayElements"></ion-toggle>
+    </ion-label>
+    </div>
+  </ion-item-divider>
+  <ion-list *ngIf="displayElements" >
+    <ion-item class="searchList" *ngFor="let element of findList" (click)="goToElement(element.id)">
+      <ion-label>{{element.nazwa}}</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-item-divider>
+    <div style="position: relative;width: 100%">
+    <ion-label>
+      Miejsca: <ion-toggle color="primary" style="position: absolute;  top:-10px;right: 6px" [(ngModel)]="displayPlaces"></ion-toggle>
+    </ion-label>
+    </div>
+  </ion-item-divider>
+  <ion-list *ngIf="displayPlaces" >
+    <ion-item class="searchList" *ngFor="let place of findListPlace" >
+      <ion-label>{{place.nazwa}}</ion-label>
+    </ion-item>
+  </ion-list>
+
 
 </ion-content>
