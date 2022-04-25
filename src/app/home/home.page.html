@@ -33,16 +33,16 @@
   </ion-header>
 
   <div id="container">
-    <button class="icon"  (click)="ToSearch()" >
+    <button (click)="ToSearch()" class="icon">
       <ion-icon name="search-outline"></ion-icon>
       <label>Wyszukaj
       </label>
     </button>
-    <button class="icon">
+    <button (click)="toHire()" class="icon">
       <ion-icon name="wallet-outline"></ion-icon>
       <label>Wypożycz </label>
     </button>
-    <button class="icon">
+    <button (click)="toTransfer()" class="icon">
       <ion-icon name="swap-horizontal-outline"></ion-icon>
       <label>Przenieś </label>
     </button>
