@@ -6,4 +6,49 @@
 
 <ion-content>
 
+  <ng-container *ngIf="state ===0">
+    <h3>Zeskanuj element:</h3>
+    <button (click)="scanElement()" class="nextButton ">Zeskanuj element</button>
+  </ng-container>
+
+  <ng-container *ngIf="state ===1">
+    <h3>Zeskanuj miesjce docelowe:</h3>
+    <button (click)="scanTargetPlace()" class="nextButton ">Zeskanuj element</button>
+  </ng-container>
+
+  <ng-container *ngIf="state ===2">
+    <h3>Podsumowanie:</h3>
+    <table>
+      <tr>
+        <td>
+          Nazwa elementu:
+        </td>
+        <td>
+          Arduino
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Miejsce pierwotne:
+        </td>
+        <td>
+          szafa1
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Miejsce docelowe:
+        </td>
+        <td>
+          szafa2
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button class="nextButton ">Akceptuj</button>
+        </td>
+      </tr>
+    </table>
+
+  </ng-container>
 </ion-content>
