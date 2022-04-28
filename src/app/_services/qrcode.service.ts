@@ -35,7 +35,7 @@ export class QrcodeService {
     }));
   }
 
-  getInfoAdv(promptText: string): Promise<QrOut> {
+  getInfoAdv(promptText: string, def: string): Promise<QrOut> {
     return new Promise<QrOut>(((resolve, reject) => {
       this.barcodeScanner.scan({
         showTorchButton: true,
@@ -52,7 +52,7 @@ export class QrcodeService {
           buttons: ['Rozumiem']
         });
 
-        resolve({text: 'O_9', format: 'brak'});
+        resolve({text: def, format: 'default'});
         await alert.present();
         reject(err)
       });

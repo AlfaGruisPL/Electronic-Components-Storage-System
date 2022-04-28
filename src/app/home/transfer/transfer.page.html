@@ -7,48 +7,58 @@
 <ion-content>
 
   <ng-container *ngIf="state ===0">
-    <h3>Zeskanuj element:</h3>
-    <button (click)="scanElement()" class="nextButton ">Zeskanuj element</button>
-  </ng-container>
+    <div class="menu">
+      <h3>Zeskanuj element:</h3>
+      <button (click)="scanElement()" class="nextButton ">
+        <ion-icon name="search-outline"></ion-icon>
+        <ion-icon name="cube-outline"></ion-icon>
 
+      </button>
+    </div>
+  </ng-container>
   <ng-container *ngIf="state ===1">
-    <h3>Zeskanuj miesjce docelowe:</h3>
-    <button (click)="scanTargetPlace()" class="nextButton ">Zeskanuj element</button>
+    <div class="menu">
+      <h3>Zeskanuj miejsce docelowe:</h3>
+      <button (click)="scanTargetPlace()" class="nextButton ">
+        <ion-icon name="search-outline"></ion-icon>
+        <ion-icon name="earth-outline"></ion-icon>
+
+      </button>
+    </div>
   </ng-container>
 
   <ng-container *ngIf="state ===2">
-    <h3>Podsumowanie:</h3>
-    <table>
-      <tr>
-        <td>
-          Nazwa elementu:
-        </td>
-        <td>
-          Arduino
-        </td>
-      </tr>
-      <tr>
-        <td>
-          Miejsce pierwotne:
-        </td>
-        <td>
-          szafa1
-        </td>
-      </tr>
-      <tr>
-        <td>
-          Miejsce docelowe:
-        </td>
-        <td>
-          szafa2
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2">
-          <button class="nextButton ">Akceptuj</button>
-        </td>
-      </tr>
-    </table>
-
+    <div class="menu">
+      <h3>Podsumowanie:</h3>
+      <table class="menuTable">
+        <tr>
+          <td>
+            Nazwa elementu:
+          </td>
+          <td>
+            {{element.nazwa}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Miejsce pierwotne:
+          </td>
+          <td>
+            {{element.nazwaMiejsca}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Miejsce docelowe:
+          </td>
+          <td>
+            {{miejsce?.nazwa}}
+          </td>
+        </tr>
+      </table>
+      <button (click)="accept()" class="nextButton ">
+        <ion-icon name="checkmark-outline" style="color: green;"></ion-icon>
+      </button>
+    </div>
   </ng-container>
 </ion-content>
