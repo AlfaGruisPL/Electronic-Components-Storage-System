@@ -20,13 +20,16 @@
     </ion-list-header>
     <ion-list>
       <ion-item *ngFor="let k of [1,2,3,4,5]">
-        <ion-label style="margin-top: 2px;">
-          <h2 style="margin-bottom:2px;margin-top: 2px;">HubStruck Notifications</h2>
-          <br>
-          <ion-icon name="arrow-up-outline"></ion-icon>
-          Pudełko 2
-          <ion-icon name="arrow-down-outline"></ion-icon>
-          Pudełko 3
+        <ion-label>
+          <h2 style="margin-bottom:2px;margin-top: 2px;">Raspberry PI 2GB 🐸<span style="color:red">❤</span>🐰</h2>
+          <span class="textInList">
+
+           <!--   <ion-icon name="arrow-up-outline"></ion-icon>-->
+            <ion-icon name="exit-outline"></ion-icon>&nbsp;<a (click)="toPlace()" class="listButton">Pudełko 2k k kk kk  kkk k k k2k k kk kk  kkk k k k</a>
+            <br>
+            <!--  <ion-icon name="arrow-down-outline"></ion-icon>-->
+            <ion-icon name="enter-outline"></ion-icon>&nbsp;<a (click)="toPlace()" class="listButton">Pudełko 3 k k kk kk  kkk k k k</a>
+         </span>
         </ion-label>
 
         <ion-note slot="end">

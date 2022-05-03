@@ -34,3 +34,16 @@
     font-size: 25px;
   }
 }
+
+.textInList {
+  color: #6800ff;
+}
+
+.listButton {
+  color: #07e300;
+  text-decoration: underline;
+
+  &:hover, &:focus, &:active {
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,217 @@
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_22_04_2022_13_16_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_22_04_2022_13_16_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_22_04_2022_13_16_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_22_04_2022_13_16_[Changes]/shelved.patch	(revision 8a74a3dc4536bfff0fe69db95ef55564b282ba23)
++++ /dev/null	(revision 8a74a3dc4536bfff0fe69db95ef55564b282ba23)
+@@ -1,106 +0,0 @@
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"NONE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"f6d1fddc-25f1-4a98-a59b-05fb675db7de\" name=\"Changes\" comment=\"praca\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/capacitor.config.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/capacitor.config.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/package-lock.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/package-lock.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/package.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/package.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/app/_modal/element.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/app/_modal/element.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/app/_quards/login.guard.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/app/_quards/login.guard.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/app/_services/api.service.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/app/_services/api.service.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/app/_services/qrcode.service.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/app/_services/qrcode.service.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/app/app.component.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/app/app.component.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/app/app.module.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/app/app.module.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/app/home/home.page.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/app/home/home.page.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/app/home/home.page.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/app/home/home.page.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/app/information/information.page.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/app/information/information.page.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/app/information/information.page.scss\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/app/information/information.page.scss\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/app/information/information.page.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/app/information/information.page.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/app/login/login.page.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/app/login/login.page.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/app/login/login.page.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/app/login/login.page.ts\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FormatOnSaveOptions\">\r\n    <option name=\"myRunOnSave\" value=\"true\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitSEFilterConfiguration\">\r\n    <file-type-list>\r\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\r\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\r\n      <filtered-out-file-type name=\"TAG\" />\r\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\r\n    </file-type-list>\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"OptimizeOnSaveOptions\">\r\n    <option name=\"myRunOnSave\" value=\"true\" />\r\n  </component>\r\n  <component name=\"ProblemsViewState\">\r\n    <option name=\"selectedTabId\" value=\"CurrentFile\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"27C6AmCzNNaUCZypcGiYrcx05m3\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.cidr.known.project.marker\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"cidr.known.project.marker\" value=\"true\" />\r\n    <property name=\"dart.analysis.tool.window.visible\" value=\"false\" />\r\n    <property name=\"format.on.save\" value=\"true\" />\r\n    <property name=\"javascript.karma.karma_node_package_dir\" value=\"$PROJECT_DIR$/node_modules/@angular/cli\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/../~magazyn\" />\r\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\r\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\r\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\r\n    <property name=\"optimize.imports.on.save\" value=\"true\" />\r\n    <property name=\"rearrange.code.on.save\" value=\"true\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"actions.on.save\" />\r\n    <property name=\"show.migrate.to.gradle.popup\" value=\"false\" />\r\n    <property name=\"ts.external.directory.path\" value=\"C:\\Program Files\\JetBrains\\WebStorm 2021.2.3\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Shell Script.Wyślij na telefon\">\r\n    <configuration name=\"Tests (app)\" type=\"JavaScriptTestRunnerKarma\">\r\n      <config-file value=\"$PROJECT_DIR$/karma.conf.js\" />\r\n      <karma-package-dir value=\"\" />\r\n      <working-directory value=\"$PROJECT_DIR$\" />\r\n      <node-interpreter value=\"project\" />\r\n      <envs />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"E2E Tests (app)\" type=\"JavaScriptTestRunnerProtractor\">\r\n      <config-file value=\"$PROJECT_DIR$/e2e/protractor.conf.js\" />\r\n      <node-interpreter value=\"project\" />\r\n      <protractor-package value=\"\" />\r\n      <protractor-options value=\"\" />\r\n      <envs />\r\n      <scope-kind value=\"ALL\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"Angular Application\" type=\"JavascriptDebugType\" uri=\"http://localhost:4200\">\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"Angular CLI Server\" type=\"js.build_tools.npm\">\r\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\r\n      <command value=\"run\" />\r\n      <scripts>\r\n        <script value=\"start\" />\r\n      </scripts>\r\n      <node-interpreter value=\"project\" />\r\n      <envs />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <list>\r\n      <item itemvalue=\"JavaScript Debug.Angular Application\" />\r\n      <item itemvalue=\"Karma.Tests (app)\" />\r\n      <item itemvalue=\"npm.Angular CLI Server\" />\r\n      <item itemvalue=\"Protractor.E2E Tests (app)\" />\r\n      <item itemvalue=\"Shell Script.Wyślij na telefon\" />\r\n      <item itemvalue=\"Shell Script.Start\" />\r\n    </list>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"f6d1fddc-25f1-4a98-a59b-05fb675db7de\" name=\"Changes\" comment=\"\" />\r\n      <created>1648811579704</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1648811579704</updated>\r\n      <workItem from=\"1648811580816\" duration=\"749000\" />\r\n      <workItem from=\"1648812338302\" duration=\"1036000\" />\r\n      <workItem from=\"1649147854048\" duration=\"9000\" />\r\n      <workItem from=\"1649147882221\" duration=\"8000\" />\r\n      <workItem from=\"1649147892766\" duration=\"1890000\" />\r\n      <workItem from=\"1649151015141\" duration=\"611000\" />\r\n      <workItem from=\"1649151809826\" duration=\"335000\" />\r\n      <workItem from=\"1649152222339\" duration=\"5836000\" />\r\n      <workItem from=\"1649762013080\" duration=\"392000\" />\r\n      <workItem from=\"1649762686228\" duration=\"407000\" />\r\n      <workItem from=\"1649763185451\" duration=\"1558000\" />\r\n      <workItem from=\"1649764767974\" duration=\"3681000\" />\r\n      <workItem from=\"1649786460323\" duration=\"226000\" />\r\n      <workItem from=\"1649786702118\" duration=\"273000\" />\r\n      <workItem from=\"1649787646855\" duration=\"9000\" />\r\n      <workItem from=\"1649922135843\" duration=\"5600000\" />\r\n      <workItem from=\"1649928325056\" duration=\"11942000\" />\r\n      <workItem from=\"1649950546816\" duration=\"1189000\" />\r\n      <workItem from=\"1650009024860\" duration=\"4521000\" />\r\n      <workItem from=\"1650022103174\" duration=\"780000\" />\r\n      <workItem from=\"1650292984747\" duration=\"18862000\" />\r\n      <workItem from=\"1650449523590\" duration=\"15000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"kolejny dzień\">\r\n      <created>1649786916461</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1649786916461</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"praca\">\r\n      <created>1649796041744</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1649796041744</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"praca\">\r\n      <created>1649951700315</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1649951700315</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"praca\">\r\n      <created>1649951727901</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1649951727901</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"5\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"kolejny dzień\" />\r\n    <MESSAGE value=\"praca\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"praca\" />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	(revision e3b95d87fed1e20a015d684e034086a938539ba6)
+-+++ b/.idea/workspace.xml	(date 1650626095704)
+-@@ -1,27 +1,11 @@
+- <?xml version="1.0" encoding="UTF-8"?>
+- <project version="4">
+-   <component name="AutoImportSettings">
+--    <option name="autoReloadType" value="NONE" />
+-+    <option name="autoReloadType" value="SELECTIVE" />
+-   </component>
+-   <component name="ChangeListManager">
+-     <list default="true" id="f6d1fddc-25f1-4a98-a59b-05fb675db7de" name="Changes" comment="praca">
+-       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/capacitor.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/capacitor.config.ts" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/app/_modal/element.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_modal/element.ts" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/app/_quards/login.guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_quards/login.guard.ts" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/app/_services/api.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/api.service.ts" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/app/_services/qrcode.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/qrcode.service.ts" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/app/home/home.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/home.page.html" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/app/home/home.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/home.page.ts" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/app/information/information.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/information/information.page.html" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/app/information/information.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/information/information.page.scss" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/app/information/information.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/information/information.page.ts" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/app/login/login.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/login.page.html" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/app/login/login.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/login.page.ts" afterDir="false" />
+-     </list>
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-@@ -62,13 +46,10 @@
+-   <component name="PropertiesComponent">
+-     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+-     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+--    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+-     <property name="WebServerToolWindowFactoryState" value="false" />
+--    <property name="cidr.known.project.marker" value="true" />
+--    <property name="dart.analysis.tool.window.visible" value="false" />
+-     <property name="format.on.save" value="true" />
+-     <property name="javascript.karma.karma_node_package_dir" value="$PROJECT_DIR$/node_modules/@angular/cli" />
+--    <property name="last_opened_file_path" value="$PROJECT_DIR$/../~magazyn" />
+-+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+-     <property name="node.js.detected.package.eslint" value="true" />
+-     <property name="node.js.detected.package.tslint" value="true" />
+-     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+-@@ -77,7 +58,6 @@
+-     <property name="optimize.imports.on.save" value="true" />
+-     <property name="rearrange.code.on.save" value="true" />
+-     <property name="settings.editor.selected.configurable" value="actions.on.save" />
+--    <property name="show.migrate.to.gradle.popup" value="false" />
+-     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+-     <property name="vue.rearranger.settings.migration" value="true" />
+-   </component>
+-@@ -146,11 +126,7 @@
+-       <workItem from="1649787646855" duration="9000" />
+-       <workItem from="1649922135843" duration="5600000" />
+-       <workItem from="1649928325056" duration="11942000" />
+--      <workItem from="1649950546816" duration="1189000" />
+--      <workItem from="1650009024860" duration="4521000" />
+--      <workItem from="1650022103174" duration="780000" />
+--      <workItem from="1650292984747" duration="18862000" />
+--      <workItem from="1650449523590" duration="15000" />
+-+      <workItem from="1649950546816" duration="803000" />
+-     </task>
+-     <task id="LOCAL-00001" summary="kolejny dzień">
+-       <created>1649786916461</created>
+-@@ -166,21 +142,7 @@
+-       <option name="project" value="LOCAL" />
+-       <updated>1649796041744</updated>
+-     </task>
+--    <task id="LOCAL-00003" summary="praca">
+--      <created>1649951700315</created>
+--      <option name="number" value="00003" />
+--      <option name="presentableId" value="LOCAL-00003" />
+--      <option name="project" value="LOCAL" />
+--      <updated>1649951700315</updated>
+--    </task>
+--    <task id="LOCAL-00004" summary="praca">
+--      <created>1649951727901</created>
+--      <option name="number" value="00004" />
+--      <option name="presentableId" value="LOCAL-00004" />
+--      <option name="project" value="LOCAL" />
+--      <updated>1649951727901</updated>
+--    </task>
+--    <option name="localTasksCounter" value="5" />
+-+    <option name="localTasksCounter" value="3" />
+-     <servers />
+-   </component>
+-   <component name="TypeScriptGeneratedFilesManager">
+-@@ -196,7 +158,6 @@
+-         </entry>
+-       </map>
+-     </option>
+--    <option name="oldMeFiltersMigrated" value="true" />
+-   </component>
+-   <component name="VcsManagerConfiguration">
+-     <MESSAGE value="kolejny dzień" />
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_21_04_2022_14_39__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_21_04_2022_14_39__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_21_04_2022_14_39__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_21_04_2022_14_39__Changes_.xml	(revision 8a74a3dc4536bfff0fe69db95ef55564b282ba23)
++++ /dev/null	(revision 8a74a3dc4536bfff0fe69db95ef55564b282ba23)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_21_04_2022_14_39_[Changes]" date="1650544793054" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_04_2022_14_39_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 21.04.2022 14:39 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_21_04_2022_14_49__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_21_04_2022_14_49__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_21_04_2022_14_49__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_21_04_2022_14_49__Changes_.xml	(revision 8a74a3dc4536bfff0fe69db95ef55564b282ba23)
++++ /dev/null	(revision 8a74a3dc4536bfff0fe69db95ef55564b282ba23)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_21_04_2022_14_49_[Changes]" date="1650545397522" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_04_2022_14_49_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 21.04.2022 14:49 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_22_04_2022_13_16__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_22_04_2022_13_16__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_22_04_2022_13_16__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_22_04_2022_13_16__Changes_.xml	(revision 8a74a3dc4536bfff0fe69db95ef55564b282ba23)
++++ /dev/null	(revision 8a74a3dc4536bfff0fe69db95ef55564b282ba23)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_22_04_2022_13_16_[Changes]" date="1650626179464" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_04_2022_13_16_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 22.04.2022 13:16 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"NONE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"f6d1fddc-25f1-4a98-a59b-05fb675db7de\" name=\"Changes\" comment=\"dodanie opcji do menu (page)\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/app/_services/qrcode.service.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/app/_services/qrcode.service.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/app/home/transfer/transfer.page.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/app/home/transfer/transfer.page.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/app/home/transfer/transfer.page.scss\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/app/home/transfer/transfer.page.scss\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/app/home/transfer/transfer.page.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/app/home/transfer/transfer.page.ts\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FormatOnSaveOptions\">\r\n    <option name=\"myRunOnSave\" value=\"true\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitSEFilterConfiguration\">\r\n    <file-type-list>\r\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\r\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\r\n      <filtered-out-file-type name=\"TAG\" />\r\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\r\n    </file-type-list>\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"OptimizeOnSaveOptions\">\r\n    <option name=\"myRunOnSave\" value=\"true\" />\r\n  </component>\r\n  <component name=\"ProblemsViewState\">\r\n    <option name=\"selectedTabId\" value=\"CurrentFile\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"27C6AmCzNNaUCZypcGiYrcx05m3\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.cidr.known.project.marker\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"cidr.known.project.marker\" value=\"true\" />\r\n    <property name=\"dart.analysis.tool.window.visible\" value=\"false\" />\r\n    <property name=\"format.on.save\" value=\"true\" />\r\n    <property name=\"javascript.karma.karma_node_package_dir\" value=\"$PROJECT_DIR$/node_modules/@angular/cli\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/../spalanie\" />\r\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\r\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\r\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\r\n    <property name=\"optimize.imports.on.save\" value=\"true\" />\r\n    <property name=\"rearrange.code.on.save\" value=\"true\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"actions.on.save\" />\r\n    <property name=\"show.migrate.to.gradle.popup\" value=\"false\" />\r\n    <property name=\"ts.external.directory.path\" value=\"D:\\MagazynMobile\\node_modules\\typescript\\lib\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Shell Script.Start\">\r\n    <configuration name=\"Tests (app)\" type=\"JavaScriptTestRunnerKarma\">\r\n      <config-file value=\"$PROJECT_DIR$/karma.conf.js\" />\r\n      <karma-package-dir value=\"$PROJECT_DIR$/node_modules/@angular/cli\" />\r\n      <working-directory value=\"$PROJECT_DIR$\" />\r\n      <node-interpreter value=\"project\" />\r\n      <envs />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"E2E Tests (app)\" type=\"JavaScriptTestRunnerProtractor\">\r\n      <config-file value=\"$PROJECT_DIR$/e2e/protractor.conf.js\" />\r\n      <node-interpreter value=\"project\" />\r\n      <protractor-package value=\"\" />\r\n      <protractor-options value=\"\" />\r\n      <envs />\r\n      <scope-kind value=\"ALL\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"Angular Application\" type=\"JavascriptDebugType\" uri=\"http://localhost:4200\">\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"Angular CLI Server\" type=\"js.build_tools.npm\">\r\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\r\n      <command value=\"run\" />\r\n      <scripts>\r\n        <script value=\"start\" />\r\n      </scripts>\r\n      <node-interpreter value=\"project\" />\r\n      <envs />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <list>\r\n      <item itemvalue=\"JavaScript Debug.Angular Application\" />\r\n      <item itemvalue=\"Karma.Tests (app)\" />\r\n      <item itemvalue=\"npm.Angular CLI Server\" />\r\n      <item itemvalue=\"Protractor.E2E Tests (app)\" />\r\n      <item itemvalue=\"Shell Script.Wyślij na telefon\" />\r\n      <item itemvalue=\"Shell Script.Start\" />\r\n    </list>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"f6d1fddc-25f1-4a98-a59b-05fb675db7de\" name=\"Changes\" comment=\"\" />\r\n      <created>1648811579704</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1648811579704</updated>\r\n      <workItem from=\"1648811580816\" duration=\"749000\" />\r\n      <workItem from=\"1648812338302\" duration=\"1036000\" />\r\n      <workItem from=\"1649147854048\" duration=\"9000\" />\r\n      <workItem from=\"1649147882221\" duration=\"8000\" />\r\n      <workItem from=\"1649147892766\" duration=\"1890000\" />\r\n      <workItem from=\"1649151015141\" duration=\"611000\" />\r\n      <workItem from=\"1649151809826\" duration=\"335000\" />\r\n      <workItem from=\"1649152222339\" duration=\"5836000\" />\r\n      <workItem from=\"1649762013080\" duration=\"392000\" />\r\n      <workItem from=\"1649762686228\" duration=\"407000\" />\r\n      <workItem from=\"1649763185451\" duration=\"1558000\" />\r\n      <workItem from=\"1649764767974\" duration=\"3681000\" />\r\n      <workItem from=\"1649786460323\" duration=\"226000\" />\r\n      <workItem from=\"1649786702118\" duration=\"273000\" />\r\n      <workItem from=\"1649787646855\" duration=\"9000\" />\r\n      <workItem from=\"1649922135843\" duration=\"5600000\" />\r\n      <workItem from=\"1649928325056\" duration=\"11942000\" />\r\n      <workItem from=\"1649950546816\" duration=\"1189000\" />\r\n      <workItem from=\"1650009024860\" duration=\"4521000\" />\r\n      <workItem from=\"1650022103174\" duration=\"780000\" />\r\n      <workItem from=\"1650292984747\" duration=\"18862000\" />\r\n      <workItem from=\"1650449523590\" duration=\"15000\" />\r\n      <workItem from=\"1650716906133\" duration=\"1249000\" />\r\n      <workItem from=\"1650880480629\" duration=\"1118000\" />\r\n      <workItem from=\"1650895835254\" duration=\"133000\" />\r\n      <workItem from=\"1650960273379\" duration=\"375000\" />\r\n      <workItem from=\"1650973859465\" duration=\"559000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"kolejny dzień\">\r\n      <created>1649786916461</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1649786916461</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"praca\">\r\n      <created>1649796041744</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1649796041744</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"praca\">\r\n      <created>1649951700315</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1649951700315</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"praca\">\r\n      <created>1649951727901</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1649951727901</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"idea sync\">\r\n      <created>1650659683324</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1650659683324</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"dodanie opcji do menu (page)\">\r\n      <created>1650877833323</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1650877833323</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"dodanie opcji do menu (page)\">\r\n      <created>1650877841128</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1650877841128</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"8\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"kolejny dzień\" />\r\n    <MESSAGE value=\"praca\" />\r\n    <MESSAGE value=\"idea sync\" />\r\n    <MESSAGE value=\"dodanie opcji do menu (page)\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"dodanie opcji do menu (page)\" />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 8a74a3dc4536bfff0fe69db95ef55564b282ba23)
++++ b/.idea/workspace.xml	(date 1651581533558)
+@@ -4,13 +4,7 @@
+     <option name="autoReloadType" value="NONE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="f6d1fddc-25f1-4a98-a59b-05fb675db7de" name="Changes" comment="dodanie opcji do menu (page)">
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/app/_services/qrcode.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/qrcode.service.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.scss" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.ts" afterDir="false" />
+-    </list>
++    <list default="true" id="f6d1fddc-25f1-4a98-a59b-05fb675db7de" name="Changes" comment="dodanie opcji do menu (page)3" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -56,7 +50,7 @@
+     <property name="dart.analysis.tool.window.visible" value="false" />
+     <property name="format.on.save" value="true" />
+     <property name="javascript.karma.karma_node_package_dir" value="$PROJECT_DIR$/node_modules/@angular/cli" />
+-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../spalanie" />
++    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+     <property name="node.js.detected.package.eslint" value="true" />
+     <property name="node.js.detected.package.tslint" value="true" />
+     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+@@ -144,6 +138,7 @@
+       <workItem from="1650895835254" duration="133000" />
+       <workItem from="1650960273379" duration="375000" />
+       <workItem from="1650973859465" duration="559000" />
++      <workItem from="1651171561727" duration="65000" />
+     </task>
+     <task id="LOCAL-00001" summary="kolejny dzień">
+       <created>1649786916461</created>
+@@ -194,7 +189,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1650877841128</updated>
+     </task>
+-    <option name="localTasksCounter" value="8" />
++    <task id="LOCAL-00008" summary="dodanie opcji do menu (page)3">
++      <created>1651171596277</created>
++      <option name="number" value="00008" />
++      <option name="presentableId" value="LOCAL-00008" />
++      <option name="project" value="LOCAL" />
++      <updated>1651171596277</updated>
++    </task>
++    <option name="localTasksCounter" value="9" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -216,7 +218,8 @@
+     <MESSAGE value="praca" />
+     <MESSAGE value="idea sync" />
+     <MESSAGE value="dodanie opcji do menu (page)" />
+-    <option name="LAST_COMMIT_MESSAGE" value="dodanie opcji do menu (page)" />
++    <MESSAGE value="dodanie opcji do menu (page)3" />
++    <option name="LAST_COMMIT_MESSAGE" value="dodanie opcji do menu (page)3" />
+   </component>
+   <component name="XSLT-Support.FileAssociations.UIState">
+     <expand />

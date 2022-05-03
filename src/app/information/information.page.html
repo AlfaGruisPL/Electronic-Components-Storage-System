@@ -42,13 +42,29 @@
     <h4>Miejsca nie znaleziono w bazie danych</h4>
   </ng-container>
 
+  <ng-template #wyszukiwanie>
+    <table>
+      <tr>
+        <td><label>Nazwa:</label></td>
+        <td><span>{{miejsca[0]?.nazwa}}</span></td>
+      </tr>
+      <tr>
+        <td><label>Lokalizacja:</label></td>
+        <td>
+          <ion-button (click)="openModalLocalization(3)">
+            <ion-icon name="help-outline"></ion-icon>
+          </ion-button>
+        </td>
+      </tr>
+    </table>
+    <div class="elementImageDiv">
+      <label>Zdjęcie miejsca:</label>
+      <img class="elementImage"
+           src="https://www.creativehobby.pl/pol_pl_Wykrojnik-do-papieru-Krolik-Kroliczek-4-3x7-8-cm-36277_3.jpg">
 
-  <table>
-    <tr>
-      <td><label>Nazwa:</label></td>
-      <td><span>{{miejsca[0]?.nazwa}}</span></td>
-    </tr>
-  </table>
+    </div>
+
+  </ng-template>
 
 
 </ion-content>
@@ -142,7 +158,7 @@
             <ion-icon *ngIf="isLast" name="cube-outline"></ion-icon>
           </ion-note>
         </ion-item>
-        <ion-item>
+        <ion-item *ngIf="mode === 'element'">
           <ion-label style="color:green">{{element.nazwa}}</ion-label>
           <ion-note class="arrow" slot="start">
             <ion-icon name="arrow-forward-circle-outline"></ion-icon>

@@ -1,57 +1,69 @@
-h1{
+h1 {
   text-align: center;
 }
-h4{
+
+h4 {
   text-align: center;
   font-size: 25px;
   padding-left: 10px;
   padding-right: 10px;
-  padding-top:100px;
+  padding-top: 100px;
 }
-table{
+
+table {
   width: 100%;
   margin-top: 10px;
-  tr{
-border-bottom: 1px solid grey;
 
-  label{
-    padding-left: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+  tr {
+    border-bottom: 1px solid grey;
 
-    width: 150px;
-    display: block;
-  }
-    span{
+    label {
+      padding-left: 10px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      width: 150px;
+      display: block;
+    }
+
+    span {
       display: block;
       padding-right: 10px;
       padding-top: 10px;
       padding-bottom: 10px;
     }
-    td{
+
+    td {
 
     }
   }
 
 }
-.elementImageDiv{
-display: flex;
+
+.elementImageDiv {
+  display: flex;
   justify-content: center;
-padding-top: 20px;
+  padding-top: 20px;
   padding-bottom: 20px;
   flex-wrap: wrap;
-  label{
+  flex-direction: column;
+  align-items: center;
+
+  label {
     padding-bottom: 7px;
   }
 }
-.elementImage{
+
+.elementImage {
   width: 70%;
 }
-.tdWithButton{
-  height: 50px; display: block
+
+.tdWithButton {
+  height: 50px;
+  display: block
 }
 
-.ion-note-title{
+.ion-note-title {
   width: 100%;
   display: block;
   padding-top: 10px;
@@ -60,12 +72,14 @@ padding-top: 20px;
   font-size: 28px;
 
 }
-.arrow{
+
+.arrow {
   font-size: 30px;
-  color:white;
+  color: white;
 }
-.lokalizacja_title{
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-  }
+
+.lokalizacja_title {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}

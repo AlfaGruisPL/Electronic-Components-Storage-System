@@ -4,6 +4,7 @@ import {ApiService} from '../../_services/api.service';
 import {ElementClass} from '../../_modal/element';
 import {AlertController} from '@ionic/angular';
 import {Miejsce} from '../../_modal/miejsce';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-transfer',
@@ -19,7 +20,11 @@ export class TransferPage implements OnInit {
   public miejsce: Miejsce;
   public placePrimary: Miejsce;
 
-  constructor(private qrCode: QrcodeService, private _api: ApiService, private alertController: AlertController) {
+  constructor(
+    private qrCode: QrcodeService,
+    private _api: ApiService,
+    private alertController: AlertController,
+    private router: Router) {
   }
 
   ngOnInit() {
@@ -70,5 +75,9 @@ export class TransferPage implements OnInit {
 
   accept(): void {
     console.log(this.placeID);
+  }
+
+  toPlace(): void {
+    this.router.navigate(['information/O_9/brak']);
   }
 }
