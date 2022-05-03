@@ -20,18 +20,12 @@
 
   <ion-tab-button>
     <ion-icon name="information-circle"></ion-icon>
-    <ion-label>Informacje</ion-label>
+    <ion-label>Ustawienia</ion-label>
   </ion-tab-button>
 </ion-footer>
 
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
   <div id="container">
     <button (click)="ToSearch()" class="icon">
       <ion-icon name="search-outline"></ion-icon>
@@ -40,11 +34,11 @@
     </button>
     <button (click)="toHire()" class="icon">
       <ion-icon name="wallet-outline"></ion-icon>
-      <label>Wypożycz </label>
+      <label>Wypożyczenia (lista+nowe)</label>
     </button>
     <button (click)="toTransfer()" class="icon">
       <ion-icon name="swap-horizontal-outline"></ion-icon>
-      <label>Przenieś </label>
+      <label>Przenoszenia</label>
     </button>
   </div>
 </ion-content>

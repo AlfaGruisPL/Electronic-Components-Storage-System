@@ -21,11 +21,11 @@ export class FooterService {
   }
 
   ToLogin(): void {
-
+    this._router.navigate(['/login']);
   }
 
   ToMenu(): void {
-
+    this._router.navigate(['/home']);
   }
 
   tologOut(): void {

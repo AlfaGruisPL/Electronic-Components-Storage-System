@@ -8,13 +8,32 @@
 
   <ng-container *ngIf="state ===0">
     <div class="menu">
-      <h3>Zeskanuj element:</h3>
+      <h3>Aby rozpocząć przenoszenie zeskanuj element:</h3>
       <button (click)="scanElement()" class="nextButton ">
         <ion-icon name="search-outline"></ion-icon>
         <ion-icon name="cube-outline"></ion-icon>
-
       </button>
     </div>
+    <br>
+    <ion-list-header>
+      <ion-label style="font-size: 25px">Historia przenoszeń</ion-label>
+    </ion-list-header>
+    <ion-list>
+      <ion-item *ngFor="let k of [1,2,3,4,5]">
+        <ion-label style="margin-top: 2px;">
+          <h2 style="margin-bottom:2px;margin-top: 2px;">HubStruck Notifications</h2>
+          <br>
+          <ion-icon name="arrow-up-outline"></ion-icon>
+          Pudełko 2
+          <ion-icon name="arrow-down-outline"></ion-icon>
+          Pudełko 3
+        </ion-label>
+
+        <ion-note slot="end">
+          {{tempData| date :'dd.LL.y H:mm'}}
+        </ion-note>
+      </ion-item>
+    </ion-list>
   </ng-container>
   <ng-container *ngIf="state ===1">
     <div class="menu">

@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {QrcodeService} from '../../_services/qrcode.service';
-import {ApiService} from "../../_services/api.service";
-import {ElementClass} from "../../_modal/element";
-import {AlertController} from "@ionic/angular";
-import {Miejsce} from "../../_modal/miejsce";
+import {ApiService} from '../../_services/api.service';
+import {ElementClass} from '../../_modal/element';
+import {AlertController} from '@ionic/angular';
+import {Miejsce} from '../../_modal/miejsce';
 
 @Component({
   selector: 'app-transfer',
@@ -12,8 +12,9 @@ import {Miejsce} from "../../_modal/miejsce";
 })
 export class TransferPage implements OnInit {
   public state = 0;
-  public elementID = "";
-  public placeID = "";
+  public elementID = '';
+  public placeID = '';
+  public tempData = new Date();
   public element: ElementClass;
   public miejsce: Miejsce;
   public placePrimary: Miejsce;
@@ -26,12 +27,12 @@ export class TransferPage implements OnInit {
   }
 
   scanElement(): void {
-    this.qrCode.getInfoAdv('Zeskanuj element:', "K_3").then(k => {
-      this.elementID = k['text'].split("_")[1];
+    this.qrCode.getInfoAdv('Zeskanuj element:', 'K_3').then(k => {
+      this.elementID = k.text.split('_')[1];
 
-      this._api.getDefault("elementInfo/" + this.elementID).then(async data => {
-        if (data['value'][0] != undefined) {
-          this.element = data['value'][0];
+      this._api.getDefault('elementInfo/' + this.elementID).then(async data => {
+        if (data.value[0] != undefined) {
+          this.element = data.value[0];
           this.state = 1;
         } else {
           const alert = await this.alertController.create({
@@ -42,18 +43,18 @@ export class TransferPage implements OnInit {
           await alert.present();
           this.state = 0;
         }
-      })
+      });
     });
   }
 
   scanTargetPlace(): void {
-    this.qrCode.getInfoAdv('Zeskanuj miejsce docelowe:', "0_9").then(k => {
-      this.placeID = k['text'].split("_")[1];
+    this.qrCode.getInfoAdv('Zeskanuj miejsce docelowe:', '0_9').then(k => {
+      this.placeID = k.text.split('_')[1];
 
-      this._api.getDefault("miejsce/" + this.placeID).then(async data => {
-        if (data['value'][0] != undefined) {
+      this._api.getDefault('miejsce/' + this.placeID).then(async data => {
+        if (data.value[0] != undefined) {
           this.state = 2;
-          this.miejsce = data['value'][0];
+          this.miejsce = data.value[0];
         } else {
           const alert = await this.alertController.create({
             header: 'UWAGA',
@@ -63,11 +64,11 @@ export class TransferPage implements OnInit {
           await alert.present();
           this.state = 1;
         }
-      })
+      });
     });
   }
 
   accept(): void {
-    console.log(this.placeID)
+    console.log(this.placeID);
   }
 }

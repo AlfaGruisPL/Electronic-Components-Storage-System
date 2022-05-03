@@ -18,20 +18,18 @@
     <ion-label>Menu</ion-label>
   </ion-tab-button>
 
-  <ion-tab-button (click)="_footer.ToLogin()"  *ngIf="!_api.tokenExist()">
+  <ion-tab-button (click)="_footer.ToLogin()" *ngIf="!_api.tokenExist()">
     <ion-icon name="person-add-outline"></ion-icon>
     <ion-label>Logowanie</ion-label>
   </ion-tab-button>
 
-  <ion-tab-button >
-    <ion-icon name="information-circle"></ion-icon>
-    <ion-label>bla bla bla</ion-label>
-  </ion-tab-button>
+
 </ion-footer>
 
 
-<ion-content *ngIf="mode=='wait'" >
-  <div style="display: flex;justify-content: center;align-items: center;width: 100%;height: 100%;flex-wrap:wrap;flex-direction: column">
+<ion-content *ngIf="mode=='wait'">
+  <div
+    style="display: flex;justify-content: center;align-items: center;width: 100%;height: 100%;flex-wrap:wrap;flex-direction: column">
     <h3 style="text-align: center">Trwa wyszukiwanie, proszę czekać...</h3>
     <ion-spinner style="width: 80px;height: 80px;"></ion-spinner>
   </div>
@@ -47,15 +45,10 @@
 
   <table>
     <tr>
-      <td><label>Nazwa:</label> </td>
+      <td><label>Nazwa:</label></td>
       <td><span>{{miejsca[0]?.nazwa}}</span></td>
     </tr>
   </table>
-
-
-
-
-
 
 
 </ion-content>
@@ -65,77 +58,78 @@
     <h4>Elementu nie znaleziono w bazie danych</h4>
   </ng-container>
 
-<ng-container *ngIf="element?.nazwa.length > 0">
-  <table>
-    <tr>
-      <td><label>Nazwa:</label> </td>
-      <td><span>{{element?.nazwa}}</span></td>
-    </tr>
-    <tr>
-      <td><label>Nazwa orginalna:</label> </td>
-      <td><span>{{element?.nazwa_orginalna}}</span></td>
-    </tr>
-    <tr>
-      <td><label>Kategoria :</label> </td>
-      <td><span>{{element?.nazwa_kategorii}}</span></td>
-    </tr>
-    <tr>
-      <td><label>Możliwość wyporzyczenia:</label> </td>
-      <td><span *ngIf="element?.mozliwosc_wypozyczania == 0">Nie</span>
-        <span *ngIf="element?.mozliwosc_wypozyczania == 1">Tak</span></td>
-    </tr>
-  </table>
-  <div class="elementImageDiv">
-    <label>Zdjęcie elementu:</label>
-    <img class="elementImage"src ="https://www.creativehobby.pl/pol_pl_Wykrojnik-do-papieru-Krolik-Kroliczek-4-3x7-8-cm-36277_3.jpg">
+  <ng-container *ngIf="element?.nazwa.length > 0">
+    <table>
+      <tr>
+        <td><label>Nazwa:</label></td>
+        <td><span>{{element?.nazwa}}</span></td>
+      </tr>
+      <tr>
+        <td><label>Nazwa orginalna:</label></td>
+        <td><span>{{element?.nazwa_orginalna}}</span></td>
+      </tr>
+      <tr>
+        <td><label>Kategoria :</label></td>
+        <td><span>{{element?.nazwa_kategorii}}</span></td>
+      </tr>
+      <tr>
+        <td><label>Możliwość wyporzyczenia:</label></td>
+        <td><span *ngIf="element?.mozliwosc_wypozyczania == 0">Nie</span>
+          <span *ngIf="element?.mozliwosc_wypozyczania == 1">Tak</span></td>
+      </tr>
+    </table>
+    <div class="elementImageDiv">
+      <label>Zdjęcie elementu:</label>
+      <img class="elementImage"
+           src="https://www.creativehobby.pl/pol_pl_Wykrojnik-do-papieru-Krolik-Kroliczek-4-3x7-8-cm-36277_3.jpg">
 
-  </div>
-  <table>
+    </div>
+    <table>
 
-    <tr>
-      <td><label>Lokalizacja podstawowa:</label>
-       </td>
-      <td><span style="display: flex;align-items: center">{{element?.nazwaMiejscaPodstawowego}}&nbsp;&nbsp;&nbsp;
+      <tr>
+        <td><label>Lokalizacja podstawowa:</label>
+        </td>
+        <td><span style="display: flex;align-items: center">{{element?.nazwaMiejscaPodstawowego}}&nbsp;&nbsp;&nbsp;
         <ion-button (click)="openModalPlace(element.id_lokalizacji_podstawowej)">
           <ion-icon name="help-outline"></ion-icon>
         </ion-button></span>
 
-      </td>
-    </tr>
-    <tr>
-      <td><label>Lokalizacja tymczasowa:</label> </td>
-      <td><span style="display: flex;align-items: center">{{element?.nazwaMiejsca}}&nbsp;&nbsp;&nbsp;
+        </td>
+      </tr>
+      <tr>
+        <td><label>Lokalizacja tymczasowa:</label></td>
+        <td><span style="display: flex;align-items: center">{{element?.nazwaMiejsca}}&nbsp;&nbsp;&nbsp;
         <ion-button (click)="openModalPlace(element.lokalizacjaIdMijesca)">
           <ion-icon name="help-outline"></ion-icon>
       </ion-button></span></td>
-    </tr>
-    <tr>
-      <td><label>Opis:</label> </td>
-      <td [ngClass]="{'tdWithButton':!displayDescription}"><ion-button *ngIf="!displayDescription" color="success" (click)="displayDescription = !displayDescription" >
-        Wyświetl
-      </ion-button>
+      </tr>
+      <tr>
+        <td><label>Opis:</label></td>
+        <td [ngClass]="{'tdWithButton':!displayDescription}">
+          <ion-button (click)="displayDescription = !displayDescription" *ngIf="!displayDescription" color="success">
+            Wyświetl
+          </ion-button>
 
-        <span ><p *ngIf="displayDescription"> {{element?.opis}}</p></span></td>
-    </tr>
-  </table>
-</ng-container>
+          <span><p *ngIf="displayDescription"> {{element?.opis}}</p></span></td>
+      </tr>
+    </table>
+  </ng-container>
 
 </ion-content>
 
 
-
 <ion-modal
+  [animated]="true"
   [isOpen]="modalPlaceIsOpen"
-  [swipeToClose]="true"
-  [animated]="true">
+  [swipeToClose]="true">
   <ng-template>
     <ion-header>
       <ion-toolbar>
-        <ion-title         >
-          <ion-button  color="success" (click)="modalPlaceIsOpen = false" style="float: right">
-          Zamknij
-        </ion-button>
-      </ion-title>
+        <ion-title>
+          <ion-button (click)="modalPlaceIsOpen = false" color="success" style="float: right">
+            Zamknij
+          </ion-button>
+        </ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content>
@@ -148,7 +142,8 @@
             <ion-icon *ngIf="isLast" name="cube-outline"></ion-icon>
           </ion-note>
         </ion-item>
-        <ion-item>    <ion-label style="color:green">{{element.nazwa}}</ion-label>
+        <ion-item>
+          <ion-label style="color:green">{{element.nazwa}}</ion-label>
           <ion-note class="arrow" slot="start">
             <ion-icon name="arrow-forward-circle-outline"></ion-icon>
           </ion-note>
