@@ -4,19 +4,19 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6d1fddc-25f1-4a98-a59b-05fb675db7de" name="Changes" comment="praca">
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_05_2022_14_38_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_05_2022_14_38__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_04_2022_20_44__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_04_2022_20_44__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_04_2022_20_47__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_04_2022_20_47__Changes_.xml" afterDir="false" />
+    <list default="true" id="f6d1fddc-25f1-4a98-a59b-05fb675db7de" name="Changes" comment="work 03">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_05_2022_14_38__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_05_2022_14_38__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_services/api.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/api.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_services/footer.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/footer.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_services/http.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/http.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/search/search.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/search/search.page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/information/information.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/information/information.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/information/information.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/information/information.page.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/information/information.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/information/information.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/login.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/login.page.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +63,7 @@
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="format.on.save" value="true" />
     <property name="javascript.karma.karma_node_package_dir" value="$PROJECT_DIR$/node_modules/@angular/cli" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../~horseManager" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -73,10 +73,10 @@
     <property name="rearrange.code.on.save" value="true" />
     <property name="settings.editor.selected.configurable" value="actions.on.save" />
     <property name="show.migrate.to.gradle.popup" value="false" />
-    <property name="ts.external.directory.path" value="D:\MagazynMobile\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="C:\Users\alfag\Desktop\~MagazynMobile\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="Shell Script.Wyślij na telefon">
+  <component name="RunManager" selected="Shell Script.Start">
     <configuration name="Tests (app)" type="JavaScriptTestRunnerKarma">
       <config-file value="$PROJECT_DIR$/karma.conf.js" />
       <karma-package-dir value="$PROJECT_DIR$/node_modules/@angular/cli" />
@@ -146,13 +146,9 @@
       <workItem from="1650022103174" duration="780000" />
       <workItem from="1650292984747" duration="18862000" />
       <workItem from="1650449523590" duration="15000" />
-      <workItem from="1650716906133" duration="1249000" />
-      <workItem from="1650880480629" duration="1118000" />
-      <workItem from="1650895835254" duration="133000" />
-      <workItem from="1650960273379" duration="375000" />
-      <workItem from="1650973859465" duration="559000" />
-      <workItem from="1651171561727" duration="65000" />
-      <workItem from="1651581390146" duration="5200000" />
+      <workItem from="1650716906133" duration="909000" />
+      <workItem from="1651574214435" duration="3550000" />
+      <workItem from="1651650856342" duration="9316000" />
     </task>
     <task id="LOCAL-00001" summary="kolejny dzień">
       <created>1649786916461</created>
@@ -189,28 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650659683324</updated>
     </task>
-    <task id="LOCAL-00006" summary="dodanie opcji do menu (page)">
-      <created>1650877833323</created>
+    <task id="LOCAL-00006" summary="pracaf">
+      <created>1651180448115</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1650877833323</updated>
+      <updated>1651180448115</updated>
     </task>
-    <task id="LOCAL-00007" summary="dodanie opcji do menu (page)">
-      <created>1650877841128</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1650877841128</updated>
-    </task>
-    <task id="LOCAL-00008" summary="dodanie opcji do menu (page)3">
-      <created>1651171596277</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1651171596277</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,14 +208,14 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="kolejny dzień" />
-    <MESSAGE value="idea sync" />
-    <MESSAGE value="dodanie opcji do menu (page)" />
-    <MESSAGE value="dodanie opcji do menu (page)3" />
     <MESSAGE value="praca" />
-    <option name="LAST_COMMIT_MESSAGE" value="praca" />
+    <MESSAGE value="idea sync" />
+    <MESSAGE value="pracaf" />
+    <option name="LAST_COMMIT_MESSAGE" value="pracaf" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

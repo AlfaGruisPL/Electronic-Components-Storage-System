@@ -4,28 +4,27 @@
   </ion-toolbar>
 </ion-header>
 
-
 <ion-footer class="ion-no-border" style="display: flex;justify-content: center">
+  <ion-tab-button (click)="_footer.back()">
+    <ion-icon name="arrow-back-outline"></ion-icon>
+    <ion-label>Cofnij</ion-label>
+  </ion-tab-button>
 
   <ion-tab-button (click)="_footer.getInfo()">
     <ion-icon name="eye-outline"></ion-icon>
     <ion-label>Zbadaj</ion-label>
   </ion-tab-button>
 
-  <ion-tab-button>
+  <ion-tab-button (click)="_footer.ToMenu()">
     <ion-icon name="person-add-outline"></ion-icon>
     <ion-label>Menu</ion-label>
   </ion-tab-button>
-
-
-  <ion-tab-button>
-    <ion-icon name="information-circle"></ion-icon>
-    <ion-label>Informacje</ion-label>
-  </ion-tab-button>
 </ion-footer>
 
+
 <ion-content>
-  <label class="searchLabel">Wyszukaj:</label><input (keyup)="checkList()" [(ngModel)]="searchInput" class="searchText"
+  <label class="searchLabel">Wyszukaj:</label><input (keyup)="checkList()" [(ngModel)]="searchInput"
+                                                     class="searchText"
                                                      type="text">
   <ion-item-divider class="searchListTitle">
     <div style="position: relative;width: 100%">

@@ -7,6 +7,10 @@
 
 
 <ion-footer class="ion-no-border" style="display: flex;justify-content: center">
+  <ion-tab-button (click)="_footer.back()">
+    <ion-icon name="arrow-back-outline"></ion-icon>
+    <ion-label>Cofnij</ion-label>
+  </ion-tab-button>
 
   <ion-tab-button (click)="_footer.getInfo()">
     <ion-icon name="eye-outline"></ion-icon>
@@ -46,12 +50,12 @@
     <table>
       <tr>
         <td><label>Nazwa:</label></td>
-        <td><span>{{miejsca[0]?.nazwa}}</span></td>
+        <td><span>{{miejsca[miejsca.length - 1]?.nazwa}}</span></td>
       </tr>
       <tr>
         <td><label>Lokalizacja:</label></td>
         <td>
-          <ion-button (click)="openModalLocalization(3)">
+          <ion-button (click)="openModalPlace(miejsca[miejsca.length -1]?.id)">
             <ion-icon name="help-outline"></ion-icon>
           </ion-button>
         </td>

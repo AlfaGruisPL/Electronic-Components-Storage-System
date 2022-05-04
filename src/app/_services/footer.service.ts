@@ -1,13 +1,14 @@
 import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
 import {QrcodeService} from './qrcode.service';
+import {Location} from '@angular/common'
 
 @Injectable({
   providedIn: 'root'
 })
 export class FooterService {
 
-  constructor(private _router: Router, private _qr: QrcodeService) {
+  constructor(private _router: Router, private _qr: QrcodeService, private location: Location) {
   }
 
   getInfo(): void {
@@ -29,6 +30,9 @@ export class FooterService {
   }
 
   tologOut(): void {
+  }
 
+  back(): void {
+    this.location.back();
   }
 }

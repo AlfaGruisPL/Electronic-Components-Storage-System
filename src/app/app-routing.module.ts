@@ -26,11 +26,8 @@ const routes: Routes = [
     loadChildren: () => import('./register/register.module').then(m => m.RegisterPageModule)
   },
   {
-    path: 'search',
-    loadChildren: () => import('./home/search/search.module').then(m => m.SearchPageModule)
-  },
-  {
     path: 'transfer',
+    canActivate: [LoginGuard],
     loadChildren: () => import('./home/transfer/transfer.module').then(m => m.TransferPageModule)
   },
   {
