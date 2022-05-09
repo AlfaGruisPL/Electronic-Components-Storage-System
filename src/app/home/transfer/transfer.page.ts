@@ -15,6 +15,7 @@ import {FooterService} from "../../_services/footer.service";
   styleUrls: ['./transfer.page.scss'],
 })
 export class TransferPage implements OnInit {
+  cp: number = 1;
   public state = 0;
   public elementID = '';
   public placeID = '';
@@ -42,7 +43,12 @@ export class TransferPage implements OnInit {
       // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
       const values = <Array<Transfer>>data.value;
       this.transferList = values;
-
+      /*  this.transferList = this.transferList.concat(values);
+        this.transferList = this.transferList.concat(values);
+        this.transferList = this.transferList.concat(values);
+        this.transferList = this.transferList.concat(values);
+        this.transferList = this.transferList.concat(values);
+        this.transferList = this.transferList.concat(values);*/
     });
   }
 

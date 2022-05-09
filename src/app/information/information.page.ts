@@ -33,7 +33,7 @@ export class InformationPage implements OnInit {
           this._api.getDefault("elementInfo/" + params.text.split("_")[1]).then(data => {
             this.element = data['value'][0];
           })
-        } else if (params.text.charAt(0).toUpperCase() == "O" && params.text.charAt(1) == "_") {
+        } else if (params.text.charAt(0).toUpperCase() == "&" && params.text.charAt(1) == "_") {
           this.mode = "miejsca"
           this.getMiejsce(params.text.split("_")[1]);
 

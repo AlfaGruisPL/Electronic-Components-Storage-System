@@ -32,7 +32,7 @@ const routes: Routes = [
   },
   {
     path: 'hire',
-    loadChildren: () => import('./home/hire/hire.module').then(m => m.HirePageModule)
+    loadChildren: () => import('./home/hireMenu/hire.module').then(m => m.HirePageModule)
   },
   {
 

@@ -25,7 +25,7 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-ion-footer{
+ion-footer {
   background-color: #8a2500 !important;
 }
 
@@ -34,5 +34,36 @@ ion-footer{
     --background: #8a2500 !important;
     // set icon/text color
     --color: #ffffff !important;
+  }
+}
+
+.pagination-previous, .pagination-next {
+  &.disabled {
+    color: grey !important;
+
+    a {
+      color: grey !important;
+    }
+  }
+
+  color: #5757ff !important;
+
+  a {
+    color: #5757ff !important;
+  }
+
+  color: #5757ff !important;
+}
+
+.ngx-pagination {
+  li {
+    a {
+      color: white;
+
+      &:hover {
+        color: #5050ff;
+        background: #b3b3b3;
+      }
+    }
   }
 }

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Wyporzyczanie</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-footer class="ion-no-border" style="display: flex;justify-content: center">
+  <ion-tab-button (click)="_footer.back()">
+    <ion-icon name="arrow-back-outline"></ion-icon>
+    <ion-label>Cofnij</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button (click)="_footer.getInfo()">
+    <ion-icon name="eye-outline"></ion-icon>
+    <ion-label>Zbadaj</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button (click)="_footer.ToMenu()">
+    <ion-icon name="person-add-outline"></ion-icon>
+    <ion-label>Menu</ion-label>
+  </ion-tab-button>
+</ion-footer>
+
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <button class="icon">
+      <ion-icon name="open-outline"></ion-icon>
+      <label>Wyporzycz
+      </label>
+    </button>
+    <button class="icon">
+      <ion-icon name="receipt-outline"></ion-icon>
+      <label>Moje<br>wyporzyczenia</label>
+    </button>
+    <button class="icon">
+      <ion-icon name="library-outline"></ion-icon>
+      <label>Historia</label>
+    </button>
+  </div>
+</ion-content>
