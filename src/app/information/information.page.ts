@@ -14,7 +14,7 @@ import {FooterService} from '../_services/footer.service';
 })
 export class InformationPage implements OnInit {
 
-  public mode: string = "wait";
+  public mode = 'wait';
   public element: ElementClass;
   public modalPlaceIsOpen = false;
   public miejsca: Array<Miejsce> = [];
@@ -27,20 +27,17 @@ export class InformationPage implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(
       (params: QrOut) => {
-        if (params.text.charAt(0).toUpperCase() == "K" && params.text.charAt(1) == "_") {
-
-          this.mode = "element"
-          this._api.getDefault("elementInfo/" + params.text.split("_")[1]).then(data => {
-            this.element = data['value'][0];
-          })
-        } else if (params.text.charAt(0).toUpperCase() == "&" && params.text.charAt(1) == "_") {
-          this.mode = "miejsca"
-          this.getMiejsce(params.text.split("_")[1]);
-
+        if (params.text.charAt(0).toUpperCase() == 'K' && params.text.charAt(1) == '_') {
+          this.mode = 'element';
+          this._api.getDefault('elementInfo/' + params.text.split('_')[1]).then(data => {
+            this.element = data.value[0];
+          });
+        } else if (params.text.charAt(0).toUpperCase() == '&' && params.text.charAt(1) == '_') {
+          this.mode = 'miejsca';
+          this.getMiejsce(params.text.split('_')[1]);
         } else {
-          this.mode = "nieZnane"
+          this.mode = 'nieZnane';
         }
-
       }
     );
   }
@@ -48,7 +45,7 @@ export class InformationPage implements OnInit {
   openModalLocalization(id: number): void {
     this._api.getDefault('lokalizacja/' + id).then((data: ApiResponse) => {
       // if (data.value[0]['id'].length() > 0) {
-      this.openModalPlace(data.value[0]['id']);
+      this.openModalPlace(data.value[0].id);
       //} else {
       //   alert("Nie znaleziono lokalizacji");
       //  }
@@ -65,12 +62,11 @@ export class InformationPage implements OnInit {
   private getMiejsce(id: number | string): void {
     this._api.getDefault('miejsce/' + id).then((data: ApiResponse) => {
       // @ts-ignore
-      var value = Array<Miejsce>(data.value);
+      const value = Array<Miejsce>(data.value);
       value[0].forEach(miej => {
-        var miejscaTMP = new Miejsce(miej.id, miej.id_rodzica, miej.id_zdjecia, miej.nazwa);
+        const miejscaTMP = new Miejsce(miej.id, miej.id_rodzica, miej.id_zdjecia, miej.nazwa);
         this.miejsca.push(miejscaTMP);
-      })
-
-    })
+      });
+    });
   }
 }

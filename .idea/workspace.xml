@@ -5,30 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6d1fddc-25f1-4a98-a59b-05fb675db7de" name="Changes" comment="work work">
-      <change afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire.page.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire.page.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_04_2022_20_44_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_04_2022_20_44__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_04_2022_20_47_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_04_2022_20_47__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_05_2022_14_38_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_05_2022_14_38__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_05_2022_21_14_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_03_05_2022_21_14__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Run SEND.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/_services/qrcode.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/qrcode.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/hire/hire-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/hire/hire.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/hire/hire.page.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/hire/hire.page.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/hire/hire.page.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/hire/hire.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hireMenu.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/home.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/home.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/transfer/transfer.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/transfer/transfer.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hireMenu.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hireMenu.page.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/information/information.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/information/information.page.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/global.scss" afterDir="false" />
     </list>
@@ -165,7 +149,12 @@
       <workItem from="1651650856342" duration="15360000" />
       <workItem from="1652006025288" duration="2156000" />
       <workItem from="1652109458048" duration="15000" />
-      <workItem from="1652133064299" duration="1374000" />
+      <workItem from="1652133064299" duration="2094000" />
+      <workItem from="1652290062354" duration="604000" />
+      <workItem from="1652546445459" duration="1807000" />
+      <workItem from="1652558216780" duration="2223000" />
+      <workItem from="1652602920924" duration="594000" />
+      <workItem from="1652781640980" duration="2474000" />
     </task>
     <task id="LOCAL-00001" summary="kolejny dzień">
       <created>1649786916461</created>
@@ -216,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651665501040</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="work work">
+      <created>1652136169824</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1652136169824</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Wyporzyczanie:</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-footer class="ion-no-border" style="display: flex;justify-content: center">
+  <ion-tab-button (click)="_footer.back()">
+    <ion-icon name="arrow-back-outline"></ion-icon>
+    <ion-label>Cofnij</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button (click)="_footer.getInfo()">
+    <ion-icon name="eye-outline"></ion-icon>
+    <ion-label>Zbadaj</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button (click)="_footer.ToMenu()">
+    <ion-icon name="person-add-outline"></ion-icon>
+    <ion-label>Menu</ion-label>
+  </ion-tab-button>
+</ion-footer>
+
+<ion-content>
+  <h3>Aby rozpocząć wypożyczanie, zeskanuj element:</h3>
+  <button (click)="scanElement()" class="ScanButton ">
+    <ion-icon name="search-outline"></ion-icon>
+    <ion-icon name="cube-outline"></ion-icon>
+  </button>
+  <table>
+    <tr>
+      <td>
+        Planowany czas wypożyczenia:
+      </td>
+      <td>
+
+        <ion-item>
+          <ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Wybierz czas">
+            <ion-select-option value="brown">1 miesiąc</ion-select-option>
+            <ion-select-option value="blonde">1 tydzień</ion-select-option>
+            <ion-select-option value="black">3 dni</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </td>
+    </tr>
+
+
+    <tr>
+      <td>
+        Uwagi:
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <ion-textarea
+          placeholder="Wpisz tutaj uwagi dostępne do zarządzającego magazynem"
+          rows="11"
+          spellcheck="true" style="border:1px solid grey" wrap="soft"
+        ></ion-textarea>
+      </td>
+    </tr>
+  </table>
+</ion-content>

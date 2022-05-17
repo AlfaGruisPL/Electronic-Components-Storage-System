@@ -1,9 +1,8 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Wyporzyczanie</ion-title>
+    <ion-title>Moje aktywne wyporzyczenia:</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-footer class="ion-no-border" style="display: flex;justify-content: center">
   <ion-tab-button (click)="_footer.back()">
     <ion-icon name="arrow-back-outline"></ion-icon>
@@ -20,23 +19,9 @@
     <ion-label>Menu</ion-label>
   </ion-tab-button>
 </ion-footer>
+<ion-content>
+  <span style="color:red;">
+  asdasd
 
-
-<ion-content [fullscreen]="true">
-  <div id="container">
-    <button (click)="toHire();" class="icon">
-      <ion-icon name="open-outline"></ion-icon>
-      <label>Wyporzycz
-      </label>
-    </button>
-    <button (click)="toHireList();" class="icon">
-      <ion-icon name="receipt-outline"></ion-icon>
-      <label>Moje<br>wyporzyczenia</label>
-    </button>
-    <button (click)="toMyHire();" class="icon">
-      <ion-icon name="library-outline"></ion-icon>
-      <label>Historia</label>
-    </button>
-  </div>
+  </span>
 </ion-content>
-
