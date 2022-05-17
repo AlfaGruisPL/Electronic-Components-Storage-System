@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FooterService} from "../../../_services/footer.service";
+import {FooterService} from '../../../_services/footer.service';
 
 @Component({
   selector: 'app-hire',
