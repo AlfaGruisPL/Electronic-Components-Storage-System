@@ -31,5 +31,4 @@ workspace.xml
 /plugins
 /www
 # do testów włączenie do repozytorium plików androida
-# /android
-# android
+
