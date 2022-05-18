@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FooterService} from '../../../_services/footer.service';
-import {QrcodeService} from "../../../_services/qrcode.service";
-import {ApiService} from "../../../_services/api.service";
+import {QrcodeService} from '../../../_services/qrcode.service';
+import {ApiService} from '../../../_services/api.service';
 
 @Component({
   selector: 'app-hire',
@@ -14,10 +14,13 @@ export class HirePage implements OnInit {
   customPopoverOptions: any = {
     header: 'Wybierz czas wypożyczenia',
     //subHeader: 'Select your hair color',
-    message: 'W przypadku nie oddania na czas, istnieje możliwości przydłużenia wypożyczenia'
+    message: 'W przypadku braku możliwości oddania na czas, istnieje możliwości przydłużenia wypożyczenia'
   };
 
-  constructor(public _footer: FooterService, private qrCode: QrcodeService, private api: ApiService) {
+  constructor(
+    public _footer: FooterService,
+    private qrCode: QrcodeService,
+    private api: ApiService) {
   }
 
   ngOnInit() {

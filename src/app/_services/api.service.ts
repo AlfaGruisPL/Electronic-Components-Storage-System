@@ -55,6 +55,23 @@ export class ApiService {
     });
   }
 
+  public postDefault(postfix: string, dane: any): Promise<ApiResponse | any> {
+    dane['token'] = this.token;
+    return new Promise<Array<any>>((resolve, reject) => {
+      this._http.post(postfix, dane, this.getHeader()).then(next => {
+        resolve(next);
+
+      }).catch(error => {
+        if (error.status === '401') {
+          this.clearToken();
+          this._router.navigate(['']);
+          alert('Wylogowanie automatyczne: ' + error.status);
+        }
+        reject(error);
+      });
+    });
+  }
+
   public tokenExist(): boolean {
     return this.token.length > 5;
   }

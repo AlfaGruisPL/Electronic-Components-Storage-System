@@ -25,6 +25,7 @@ export class TransferPage implements OnInit {
   public placePrimary: Miejsce;
   public transferList: Array<Transfer> = [];
   public buttonAccept = false;
+  public description = '';
 
   constructor(
     private qrCode: QrcodeService,
@@ -89,7 +90,9 @@ export class TransferPage implements OnInit {
 
   accept(): void {
     this.buttonAccept = true;
-    this._api.getDefault('transfer/' + this.elementID + '/' + this.placeID).then(async data => {
+    const dane: any = {};
+    dane['uwagi'] = this.description;
+    this._api.postDefault('transfer/' + this.elementID + '/' + this.placeID, dane).then(async data => {
       const alert = await this.alertController.create({
         header: 'Informacja',
         message: 'Przenoszenie zakończone sukcesem',
