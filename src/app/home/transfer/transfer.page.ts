@@ -43,12 +43,6 @@ export class TransferPage implements OnInit {
       // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
       const values = <Array<Transfer>>data.value;
       this.transferList = values;
-      /*  this.transferList = this.transferList.concat(values);
-        this.transferList = this.transferList.concat(values);
-        this.transferList = this.transferList.concat(values);
-        this.transferList = this.transferList.concat(values);
-        this.transferList = this.transferList.concat(values);
-        this.transferList = this.transferList.concat(values);*/
     });
   }
 

@@ -22,22 +22,22 @@
 
 <ion-content>
   <h3>Aby rozpocząć wypożyczanie, zeskanuj element:</h3>
-  <button (click)="scanElement()" class="ScanButton ">
+  <button (click)="scanElement()" class="ScanButton " style="margin-left: auto;margin-right: auto">
     <ion-icon name="search-outline"></ion-icon>
     <ion-icon name="cube-outline"></ion-icon>
   </button>
-  <table>
+  <table style="width: 100%;">
     <tr>
       <td>
         Planowany czas wypożyczenia:
       </td>
       <td>
-
         <ion-item>
-          <ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Wybierz czas">
-            <ion-select-option value="brown">1 miesiąc</ion-select-option>
-            <ion-select-option value="blonde">1 tydzień</ion-select-option>
-            <ion-select-option value="black">3 dni</ion-select-option>
+          <ion-select [(ngModel)]="hireTime" [interfaceOptions]="customPopoverOptions" interface="popover"
+                      placeholder="Wybierz czas">
+            <ion-select-option value="31">1 miesiąc</ion-select-option>
+            <ion-select-option value="7">1 tydzień</ion-select-option>
+            <ion-select-option value="3">3 dni</ion-select-option>
           </ion-select>
         </ion-item>
       </td>
@@ -54,8 +54,9 @@
         <ion-textarea
           placeholder="Wpisz tutaj uwagi dostępne do zarządzającego magazynem"
           rows="11"
-          spellcheck="true" style="border:1px solid grey" wrap="soft"
+          spellcheck="true" style="border:1px solid grey;width: 100%" wrap="soft"
         ></ion-textarea>
+
       </td>
     </tr>
   </table>
