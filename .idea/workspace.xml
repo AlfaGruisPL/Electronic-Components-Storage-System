@@ -7,8 +7,8 @@
     <list default="true" id="f6d1fddc-25f1-4a98-a59b-05fb675db7de" name="Changes" comment="rozpoczęcie prac nad opcją wypożyczeń">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +68,7 @@
     <property name="ts.external.directory.path" value="C:\Users\alfag\Desktop\~MagazynMobile\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="Shell Script.Start">
+  <component name="RunManager" selected="Shell Script.Wyślij na telefon">
     <configuration name="Tests (app)" type="JavaScriptTestRunnerKarma">
       <config-file value="$PROJECT_DIR$/karma.conf.js" />
       <karma-package-dir value="$PROJECT_DIR$/node_modules/@angular/cli" />
@@ -149,7 +149,10 @@
       <workItem from="1652558216780" duration="2223000" />
       <workItem from="1652602920924" duration="594000" />
       <workItem from="1652781640980" duration="2671000" />
-      <workItem from="1652864340853" duration="2366000" />
+      <workItem from="1652864340853" duration="2983000" />
+      <workItem from="1653062794640" duration="607000" />
+      <workItem from="1653070898505" duration="66000" />
+      <workItem from="1653137753113" duration="2339000" />
     </task>
     <task id="LOCAL-00001" summary="kolejny dzień">
       <created>1649786916461</created>
@@ -221,7 +224,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652784555606</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="rozpoczęcie prac nad opcją wypożyczeń">
+      <created>1652868656456</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1652868656457</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
