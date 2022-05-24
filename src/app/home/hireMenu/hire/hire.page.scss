@@ -20,3 +20,48 @@ h3 {
     }
   }
 }
+
+.accept {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 167px;
+  color: white;
+  background-color: green;
+  border: 2px solid white;
+  box-shadow: 1px 2px 2px 2px white;
+
+  &:disabled {
+    color: #bdbdbd;
+    background-color: #004200;
+    border-color: #bdbdbd;
+    box-shadow: 1px 2px 2px 2px #bdbdbd;
+  }
+
+  &:enabled {
+    &:hover {
+      background-color: #00af00;
+    }
+  }
+}
+
+.toolbar_rules {
+
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+
+
+}
+
+.reg {
+  text-decoration: underline #428cff;
+
+  &:hover {
+    cursor: pointer;
+    color: #7bafff;
+    text-decoration: underline #7bafff;
+  }
+
+}

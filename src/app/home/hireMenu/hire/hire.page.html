@@ -21,23 +21,27 @@
 </ion-footer>
 
 <ion-content>
-  <ng-container *ngIf="elementID === '' else accept">
-    <h3>Aby rozpocząć wypożyczanie, zeskanuj element:</h3>
-    <button (click)="scanElement()" class="ScanButton "
-            style="margin-left: auto;margin-right: auto">
-      <ion-icon name="search-outline"></ion-icon>
-      <ion-icon name="cube-outline"></ion-icon>
-    </button>
-  </ng-container>
+  <h3 *ngIf="rules else accept" style="color:#78c900;"> Kliknij na przycisk aby wypożyczyć:</h3>
   <ng-template #accept>
-    <h3>Kliknij aby wyporzyczyć:</h3>
-    <button (click)="HireAccept()" *ngIf="elementID !== ''" class="ScanButton "
-            style="margin-left: auto;margin-right: auto;color:green;font-size: 167px;">
-      <ion-icon name="checkmark-outline"></ion-icon>
-    </button>
+    <h3 style="color: #ff2424">Aby kontynuować zaakceptuj regulamin:</h3>
+
   </ng-template>
+  <button (click)="HireAccept()" *ngIf="elementID !== ''" [disabled]="!rules" class="ScanButton accept "
+          style="margin-left: auto;margin-right: auto;font-size: 167px;">
+    <ion-icon name="checkmark-outline"></ion-icon>
+  </button>
 
   <table class="tableInfo" style="width: 100%;">
+    <tr>
+      <td colspan="2" style="font-size: 25px;padding-top: 20px;padding-bottom: 20px">
+        <ion-checkbox [(ngModel)]="rules" color="danger" style=" width: 24px;height: 24px;"></ion-checkbox>
+        Akceptacja
+        <a (click)="modalPlaceIsOpen = true" class="reg">
+
+          Regulaminu
+        </a>
+      </td>
+    </tr>
     <tr>
       <td>
         Planowany czas wypożyczenia:
@@ -70,15 +74,78 @@
 
       </td>
     </tr>
-    <tr>
-      <td colspan="2" style="font-size: 25px;padding-top: 20px">
-        <ion-checkbox [(ngModel)]="rules" color="danger" style=" width: 24px;height: 24px;"></ion-checkbox>
-        Akceptacja
-        <a href="">
 
-          Regulaminu
-        </a>
-      </td>
-    </tr>
   </table>
 </ion-content>
+
+<ion-modal
+  [animated]="true"
+  [isOpen]="modalPlaceIsOpen"
+  [swipeToClose]="true">
+  <ng-template>
+    <ion-header class="toolbar_rules">
+
+      <h1>
+        Regulamin
+      </h1>
+      <ion-button (click)="modalPlaceIsOpen = false" color="success">
+        Zamknij
+      </ion-button>
+    </ion-header>
+    <ion-content>
+      <div style="padding: 10px;width: 100%;height: 100%;">
+        <ng-container *ngFor="let k of [1,2,3,4]">
+
+          Proin finibus tellus in diam consequat dictum.<br>
+          Proin finibus tellus in diam consequat dictum.<br>
+          Proin finibus tellus in diam consequat dictum.<br>
+          Proin finibus tellus in diam consequat dictum.<br>
+          <p>
+          </p>
+          <ul>
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+            <li>Vestibulum quis lorem viverra, congue erat sit amet, dignissim tortor.</li>
+          </ul>
+          <p></p>
+          <p>
+          </p>
+          <ul>
+            <li>Proin finibus tellus in diam consequat dictum.</li>
+            <li>Sed ullamcorper enim id mollis porttitor.</li>
+            <li>Curabitur bibendum mauris sit amet dolor tristique, ut tristique orci volutpat.</li>
+          </ul>
+          <p></p>
+          <p>
+          </p>
+          <ul>
+            <li>In ullamcorper felis ut sagittis sollicitudin.</li>
+            <li>In interdum massa eu mi mollis placerat.</li>
+          </ul>
+          <p></p>
+          <p>
+          </p>
+          <ul>
+            <li>Phasellus fringilla turpis ac justo vulputate, ut tincidunt felis laoreet.</li>
+          </ul>
+          <p></p>
+          <p>
+          </p>
+          <ul>
+            <li>In ut urna sed nulla pellentesque tristique.</li>
+            <li>Curabitur nec enim porta, faucibus est ac, luctus justo.</li>
+          </ul>
+        </ng-container>
+        Proin finibus tellus in diam consequat dictum.<br>
+        Proin finibus tellus in diam consequat dictum.<br>
+        Proin finibus tellus in diam consequat dictum.<br>
+        Proin finibus tellus in diam consequat dictum.<br>
+
+
+        <br>
+        <br>
+      </div>
+
+    </ion-content>
+
+  </ng-template>
+</ion-modal>
