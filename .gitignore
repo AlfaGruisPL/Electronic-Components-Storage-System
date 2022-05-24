@@ -30,5 +30,5 @@ workspace.xml
 /platforms
 /plugins
 /www
-/android
-android
+# /android
+# android
