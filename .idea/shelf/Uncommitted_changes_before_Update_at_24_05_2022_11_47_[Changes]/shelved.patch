@@ -1,0 +1,349 @@
+Index: src/app/home/hireMenu/hire/hire.page.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>Wyporzyczanie:</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n<ion-footer class=\"ion-no-border\" style=\"display: flex;justify-content: center\">\r\n  <ion-tab-button (click)=\"_footer.back()\">\r\n    <ion-icon name=\"arrow-back-outline\"></ion-icon>\r\n    <ion-label>Cofnij</ion-label>\r\n  </ion-tab-button>\r\n\r\n  <ion-tab-button (click)=\"_footer.getInfo()\">\r\n    <ion-icon name=\"eye-outline\"></ion-icon>\r\n    <ion-label>Zbadaj</ion-label>\r\n  </ion-tab-button>\r\n\r\n  <ion-tab-button (click)=\"_footer.ToMenu()\">\r\n    <ion-icon name=\"person-add-outline\"></ion-icon>\r\n    <ion-label>Menu</ion-label>\r\n  </ion-tab-button>\r\n</ion-footer>\r\n\r\n<ion-content>\r\n  <ng-container *ngIf=\"elementID === '' else accept\">\r\n    <h3>Aby rozpocząć wypożyczanie, zeskanuj element:</h3>\r\n    <button (click)=\"scanElement()\" class=\"ScanButton \"\r\n            style=\"margin-left: auto;margin-right: auto\">\r\n      <ion-icon name=\"search-outline\"></ion-icon>\r\n      <ion-icon name=\"cube-outline\"></ion-icon>\r\n    </button>\r\n  </ng-container>\r\n  <ng-template #accept>\r\n    <h3>Kliknij aby wyporzyczyć:</h3>\r\n    <button (click)=\"HireAccept()\" *ngIf=\"elementID !== ''\" class=\"ScanButton \"\r\n            style=\"margin-left: auto;margin-right: auto;color:green;font-size: 167px;\">\r\n      <ion-icon name=\"checkmark-outline\"></ion-icon>\r\n    </button>\r\n  </ng-template>\r\n\r\n  <table class=\"tableInfo\" style=\"width: 100%;\">\r\n    <tr>\r\n      <td>\r\n        Planowany czas wypożyczenia:\r\n      </td>\r\n      <td>\r\n        <ion-item>\r\n          <ion-select [(ngModel)]=\"hireTime\" [interfaceOptions]=\"customPopoverOptions\" interface=\"popover\"\r\n                      placeholder=\"Wybierz czas\">\r\n            <ion-select-option value=\"31\">1 miesiąc</ion-select-option>\r\n            <ion-select-option value=\"7\">1 tydzień</ion-select-option>\r\n            <ion-select-option value=\"3\">3 dni</ion-select-option>\r\n          </ion-select>\r\n        </ion-item>\r\n      </td>\r\n    </tr>\r\n\r\n\r\n    <tr>\r\n      <td>\r\n        Uwagi:\r\n      </td>\r\n    </tr>\r\n    <tr>\r\n      <td colspan=\"2\">\r\n        <ion-textarea\r\n          placeholder=\"Wpisz tutaj uwagi dostępne dla zarządzającego magazynem\"\r\n          rows=\"11\"\r\n          spellcheck=\"true\" style=\"border:1px solid grey;width: 100%\" wrap=\"soft\"\r\n        ></ion-textarea>\r\n\r\n      </td>\r\n    </tr>\r\n    <tr>\r\n      <td colspan=\"2\" style=\"font-size: 25px;padding-top: 20px\">\r\n        <ion-checkbox [(ngModel)]=\"rules\" color=\"danger\" style=\" width: 24px;height: 24px;\"></ion-checkbox>\r\n        Akceptacja\r\n        <a href=\"\">\r\n\r\n          Regulaminu\r\n        </a>\r\n      </td>\r\n    </tr>\r\n  </table>\r\n</ion-content>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/app/home/hireMenu/hire/hire.page.html b/src/app/home/hireMenu/hire/hire.page.html
+--- a/src/app/home/hireMenu/hire/hire.page.html	(revision 8d2c41192fb87e27a28879199c21cab8cb9ea66c)
++++ b/src/app/home/hireMenu/hire/hire.page.html	(date 1653302160954)
+@@ -21,21 +21,15 @@
+ </ion-footer>
+ 
+ <ion-content>
+-  <ng-container *ngIf="elementID === '' else accept">
+-    <h3>Aby rozpocząć wypożyczanie, zeskanuj element:</h3>
+-    <button (click)="scanElement()" class="ScanButton "
+-            style="margin-left: auto;margin-right: auto">
+-      <ion-icon name="search-outline"></ion-icon>
+-      <ion-icon name="cube-outline"></ion-icon>
+-    </button>
+-  </ng-container>
++  <h3 *ngIf="rules else accept" style="color:#78c900;"> Kliknij na przycisk aby wypożyczyć:</h3>
+   <ng-template #accept>
+-    <h3>Kliknij aby wyporzyczyć:</h3>
+-    <button (click)="HireAccept()" *ngIf="elementID !== ''" class="ScanButton "
+-            style="margin-left: auto;margin-right: auto;color:green;font-size: 167px;">
+-      <ion-icon name="checkmark-outline"></ion-icon>
+-    </button>
+-  </ng-template>
++    <h3 style="color: #ff2424">Aby kontynuować zaakceptuj regulamin:</h3>
++
++  </ng-template>
++  <button (click)="HireAccept()" *ngIf="elementID !== ''" [disabled]="!rules" class="ScanButton accept "
++          style="margin-left: auto;margin-right: auto;font-size: 167px;">
++    <ion-icon name="checkmark-outline"></ion-icon>
++  </button>
+ 
+   <table class="tableInfo" style="width: 100%;">
+     <tr>
+@@ -74,7 +68,7 @@
+       <td colspan="2" style="font-size: 25px;padding-top: 20px">
+         <ion-checkbox [(ngModel)]="rules" color="danger" style=" width: 24px;height: 24px;"></ion-checkbox>
+         Akceptacja
+-        <a href="">
++        <a (click)="modalPlaceIsOpen = true">
+ 
+           Regulaminu
+         </a>
+@@ -82,3 +76,75 @@
+     </tr>
+   </table>
+ </ion-content>
++
++<ion-modal
++  [animated]="true"
++  [isOpen]="modalPlaceIsOpen"
++  [swipeToClose]="true">
++  <ng-template>
++    <ion-header class="toolbar_rules">
++
++      <h1>
++        Regulamin
++      </h1>
++      <ion-button (click)="modalPlaceIsOpen = false" color="success">
++        Zamknij
++      </ion-button>
++    </ion-header>
++    <ion-content>
++      <div style="padding: 10px;width: 100%;height: 100%;">
++        <ng-container *ngFor="let k of [1,2,3,4]">
++
++          Proin finibus tellus in diam consequat dictum.<br>
++          Proin finibus tellus in diam consequat dictum.<br>
++          Proin finibus tellus in diam consequat dictum.<br>
++          Proin finibus tellus in diam consequat dictum.<br>
++          <p>
++          </p>
++          <ul>
++            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
++            <li>Vestibulum quis lorem viverra, congue erat sit amet, dignissim tortor.</li>
++          </ul>
++          <p></p>
++          <p>
++          </p>
++          <ul>
++            <li>Proin finibus tellus in diam consequat dictum.</li>
++            <li>Sed ullamcorper enim id mollis porttitor.</li>
++            <li>Curabitur bibendum mauris sit amet dolor tristique, ut tristique orci volutpat.</li>
++          </ul>
++          <p></p>
++          <p>
++          </p>
++          <ul>
++            <li>In ullamcorper felis ut sagittis sollicitudin.</li>
++            <li>In interdum massa eu mi mollis placerat.</li>
++          </ul>
++          <p></p>
++          <p>
++          </p>
++          <ul>
++            <li>Phasellus fringilla turpis ac justo vulputate, ut tincidunt felis laoreet.</li>
++          </ul>
++          <p></p>
++          <p>
++          </p>
++          <ul>
++            <li>In ut urna sed nulla pellentesque tristique.</li>
++            <li>Curabitur nec enim porta, faucibus est ac, luctus justo.</li>
++          </ul>
++        </ng-container>
++        Proin finibus tellus in diam consequat dictum.<br>
++        Proin finibus tellus in diam consequat dictum.<br>
++        Proin finibus tellus in diam consequat dictum.<br>
++        Proin finibus tellus in diam consequat dictum.<br>
++
++
++        <br>
++        <br>
++      </div>
++
++    </ion-content>
++
++  </ng-template>
++</ion-modal>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"NONE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"f6d1fddc-25f1-4a98-a59b-05fb675db7de\" name=\"Changes\" comment=\"rozpoczęcie prac nad opcją wypożyczeń\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.scss\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.scss\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.ts\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FormatOnSaveOptions\">\r\n    <option name=\"myRunOnSave\" value=\"true\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitSEFilterConfiguration\">\r\n    <file-type-list>\r\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\r\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\r\n      <filtered-out-file-type name=\"TAG\" />\r\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\r\n    </file-type-list>\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"OptimizeOnSaveOptions\">\r\n    <option name=\"myRunOnSave\" value=\"true\" />\r\n  </component>\r\n  <component name=\"ProblemsViewState\">\r\n    <option name=\"selectedTabId\" value=\"CurrentFile\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"27C6AmCzNNaUCZypcGiYrcx05m3\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.cidr.known.project.marker\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"cidr.known.project.marker\" value=\"true\" />\r\n    <property name=\"dart.analysis.tool.window.visible\" value=\"false\" />\r\n    <property name=\"format.on.save\" value=\"true\" />\r\n    <property name=\"javascript.karma.karma_node_package_dir\" value=\"$PROJECT_DIR$/node_modules/@angular/cli\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\r\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\r\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\r\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\r\n    <property name=\"optimize.imports.on.save\" value=\"true\" />\r\n    <property name=\"rearrange.code.on.save\" value=\"true\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"actions.on.save\" />\r\n    <property name=\"show.migrate.to.gradle.popup\" value=\"false\" />\r\n    <property name=\"ts.external.directory.path\" value=\"C:\\Users\\alfag\\Desktop\\~MagazynMobile\\node_modules\\typescript\\lib\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Shell Script.Wyślij na telefon\">\r\n    <configuration name=\"Tests (app)\" type=\"JavaScriptTestRunnerKarma\">\r\n      <config-file value=\"$PROJECT_DIR$/karma.conf.js\" />\r\n      <karma-package-dir value=\"$PROJECT_DIR$/node_modules/@angular/cli\" />\r\n      <working-directory value=\"$PROJECT_DIR$\" />\r\n      <node-interpreter value=\"project\" />\r\n      <envs />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"E2E Tests (app)\" type=\"JavaScriptTestRunnerProtractor\">\r\n      <config-file value=\"$PROJECT_DIR$/e2e/protractor.conf.js\" />\r\n      <node-interpreter value=\"project\" />\r\n      <protractor-package value=\"\" />\r\n      <protractor-options value=\"\" />\r\n      <envs />\r\n      <scope-kind value=\"ALL\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"Angular Application\" type=\"JavascriptDebugType\" uri=\"http://localhost:4200\">\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"Angular CLI Server\" type=\"js.build_tools.npm\">\r\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\r\n      <command value=\"run\" />\r\n      <scripts>\r\n        <script value=\"start\" />\r\n      </scripts>\r\n      <node-interpreter value=\"project\" />\r\n      <envs />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <list>\r\n      <item itemvalue=\"JavaScript Debug.Angular Application\" />\r\n      <item itemvalue=\"Karma.Tests (app)\" />\r\n      <item itemvalue=\"npm.Angular CLI Server\" />\r\n      <item itemvalue=\"Protractor.E2E Tests (app)\" />\r\n      <item itemvalue=\"Shell Script.Wyślij na telefon\" />\r\n      <item itemvalue=\"Shell Script.Start\" />\r\n    </list>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"f6d1fddc-25f1-4a98-a59b-05fb675db7de\" name=\"Changes\" comment=\"\" />\r\n      <created>1648811579704</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1648811579704</updated>\r\n      <workItem from=\"1648811580816\" duration=\"749000\" />\r\n      <workItem from=\"1648812338302\" duration=\"1036000\" />\r\n      <workItem from=\"1649147854048\" duration=\"9000\" />\r\n      <workItem from=\"1649147882221\" duration=\"8000\" />\r\n      <workItem from=\"1649147892766\" duration=\"1890000\" />\r\n      <workItem from=\"1649151015141\" duration=\"611000\" />\r\n      <workItem from=\"1649151809826\" duration=\"335000\" />\r\n      <workItem from=\"1649152222339\" duration=\"5836000\" />\r\n      <workItem from=\"1649762013080\" duration=\"392000\" />\r\n      <workItem from=\"1649762686228\" duration=\"407000\" />\r\n      <workItem from=\"1649763185451\" duration=\"1558000\" />\r\n      <workItem from=\"1649764767974\" duration=\"3681000\" />\r\n      <workItem from=\"1649786460323\" duration=\"226000\" />\r\n      <workItem from=\"1649786702118\" duration=\"273000\" />\r\n      <workItem from=\"1649787646855\" duration=\"9000\" />\r\n      <workItem from=\"1649922135843\" duration=\"5600000\" />\r\n      <workItem from=\"1649928325056\" duration=\"11942000\" />\r\n      <workItem from=\"1649950546816\" duration=\"1189000\" />\r\n      <workItem from=\"1650009024860\" duration=\"4521000\" />\r\n      <workItem from=\"1650022103174\" duration=\"780000\" />\r\n      <workItem from=\"1650292984747\" duration=\"18862000\" />\r\n      <workItem from=\"1650449523590\" duration=\"15000\" />\r\n      <workItem from=\"1650716906133\" duration=\"909000\" />\r\n      <workItem from=\"1651574214435\" duration=\"3550000\" />\r\n      <workItem from=\"1651650856342\" duration=\"15360000\" />\r\n      <workItem from=\"1652006025288\" duration=\"2156000\" />\r\n      <workItem from=\"1652109458048\" duration=\"15000\" />\r\n      <workItem from=\"1652133064299\" duration=\"2094000\" />\r\n      <workItem from=\"1652290062354\" duration=\"604000\" />\r\n      <workItem from=\"1652546445459\" duration=\"1807000\" />\r\n      <workItem from=\"1652558216780\" duration=\"2223000\" />\r\n      <workItem from=\"1652602920924\" duration=\"594000\" />\r\n      <workItem from=\"1652781640980\" duration=\"2671000\" />\r\n      <workItem from=\"1652864340853\" duration=\"2983000\" />\r\n      <workItem from=\"1653062794640\" duration=\"607000\" />\r\n      <workItem from=\"1653070898505\" duration=\"66000\" />\r\n      <workItem from=\"1653137753113\" duration=\"2339000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"kolejny dzień\">\r\n      <created>1649786916461</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1649786916461</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"praca\">\r\n      <created>1649796041744</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1649796041744</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"praca\">\r\n      <created>1649951700315</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1649951700315</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"praca\">\r\n      <created>1649951727901</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1649951727901</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"idea sync\">\r\n      <created>1650659683324</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1650659683324</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"pracaf\">\r\n      <created>1651180448115</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1651180448115</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"work work\">\r\n      <created>1651665501040</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1651665501040</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"work work\">\r\n      <created>1652136169824</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1652136169824</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"rozpoczęcie prac nad opcją wypożyczeń\">\r\n      <created>1652784499605</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1652784499605</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"rozpoczęcie prac nad opcją wypożyczeń\">\r\n      <created>1652784555606</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1652784555606</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"rozpoczęcie prac nad opcją wypożyczeń\">\r\n      <created>1652868656456</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1652868656457</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"12\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"kolejny dzień\" />\r\n    <MESSAGE value=\"praca\" />\r\n    <MESSAGE value=\"idea sync\" />\r\n    <MESSAGE value=\"pracaf\" />\r\n    <MESSAGE value=\"work work\" />\r\n    <MESSAGE value=\"rozpoczęcie prac nad opcją wypożyczeń\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"rozpoczęcie prac nad opcją wypożyczeń\" />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 8d2c41192fb87e27a28879199c21cab8cb9ea66c)
++++ b/.idea/workspace.xml	(date 1653385556897)
+@@ -5,10 +5,14 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="f6d1fddc-25f1-4a98-a59b-05fb675db7de" name="Changes" comment="rozpoczęcie prac nad opcją wypożyczeń">
++      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire.page.html" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.html" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.scss" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.ts" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/global.scss" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -153,6 +157,9 @@
+       <workItem from="1653062794640" duration="607000" />
+       <workItem from="1653070898505" duration="66000" />
+       <workItem from="1653137753113" duration="2339000" />
++      <workItem from="1653219568947" duration="677000" />
++      <workItem from="1653296522178" duration="6253000" />
++      <workItem from="1653384323467" duration="773000" />
+     </task>
+     <task id="LOCAL-00001" summary="kolejny dzień">
+       <created>1649786916461</created>
+Index: src/app/home/hireMenu/hire/hire.page.scss
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>h3 {\r\n  text-align: center;\r\n}\r\n\r\n.tableInfo {\r\n  margin-top: 10px;\r\n\r\n  tr {\r\n\r\n    td {\r\n      &:first-child {\r\n        padding-left: 10px;\r\n\r\n      }\r\n\r\n      &:last-child {\r\n        padding-right: 10px;\r\n      }\r\n\r\n    }\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/app/home/hireMenu/hire/hire.page.scss b/src/app/home/hireMenu/hire/hire.page.scss
+--- a/src/app/home/hireMenu/hire/hire.page.scss	(revision 8d2c41192fb87e27a28879199c21cab8cb9ea66c)
++++ b/src/app/home/hireMenu/hire/hire.page.scss	(date 1653304346777)
+@@ -20,3 +20,37 @@
+     }
+   }
+ }
++
++.accept {
++  margin-left: auto;
++  margin-right: auto;
++  font-size: 167px;
++  color: white;
++  background-color: green;
++  border: 2px solid white;
++  box-shadow: 1px 2px 2px 2px white;
++
++  &:disabled {
++    color: #bdbdbd;
++    background-color: #004200;
++    border-color: #bdbdbd;
++    box-shadow: 1px 2px 2px 2px #bdbdbd;
++  }
++
++  &:enabled {
++    &:hover {
++      background-color: #00af00;
++    }
++  }
++}
++
++.toolbar_rules {
++
++  display: flex !important;
++  justify-content: space-between !important;
++  align-items: center;
++  padding-left: 10px;
++  padding-right: 10px;
++
++
++}
+Index: src/app/home/hireMenu/hire/hire.page.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import {Component, OnInit} from '@angular/core';\r\nimport {FooterService} from '../../../_services/footer.service';\r\nimport {QrcodeService} from \"../../../_services/qrcode.service\";\r\nimport {ApiService} from \"../../../_services/api.service\";\r\nimport {ToastController} from \"@ionic/angular\";\r\n\r\n@Component({\r\n  selector: 'app-hire',\r\n  templateUrl: './hire.page.html',\r\n  styleUrls: ['./hire.page.scss'],\r\n})\r\nexport class HirePage implements OnInit {\r\n  public hireTime = '31';\r\n  public elementID = '';\r\n  public rules = false;\r\n  customPopoverOptions: any = {\r\n    header: 'Wybierz czas wypożyczenia',\r\n    //subHeader: 'Select your hair color',\r\n    message: 'W przypadku nie oddania na czas, istnieje możliwości przydłużenia wypożyczenia'\r\n  };\r\n\r\n  constructor(public _footer: FooterService,\r\n              private qrCode: QrcodeService,\r\n              private api: ApiService,\r\n              public toastController: ToastController) {\r\n  }\r\n\r\n  ngOnInit() {\r\n  }\r\n\r\n  async HireAccept(): Promise<void> {\r\n    if (this.rules === false) {\r\n      const toast = await this.toastController.create({\r\n        message: 'Aby wyporzyczyć element musisz zaakceptować regulamin',\r\n        duration: 700,\r\n        position: 'top'\r\n      });\r\n      toast.present();\r\n      return;\r\n    }\r\n    this.api.getDefault('hire/' + this.elementID + '/' + this.hireTime).then(dane => {\r\n      console.log(dane);\r\n    });\r\n  }\r\n\r\n  scanElement(): void {\r\n    this.qrCode.getInfoAdv('Zeskanuj miejsce docelowe:', 'K_3').then(k => {\r\n      this.elementID = k.text.split('_')[1];\r\n      this.api.getDefault('elementInfo/' + this.elementID).then(data => {\r\n        console.log(data);\r\n      });\r\n    });\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/app/home/hireMenu/hire/hire.page.ts b/src/app/home/hireMenu/hire/hire.page.ts
+--- a/src/app/home/hireMenu/hire/hire.page.ts	(revision 8d2c41192fb87e27a28879199c21cab8cb9ea66c)
++++ b/src/app/home/hireMenu/hire/hire.page.ts	(date 1653301978521)
+@@ -1,18 +1,20 @@
+-import {Component, OnInit} from '@angular/core';
++import {Component} from '@angular/core';
+ import {FooterService} from '../../../_services/footer.service';
+ import {QrcodeService} from "../../../_services/qrcode.service";
+ import {ApiService} from "../../../_services/api.service";
+ import {ToastController} from "@ionic/angular";
++import {Router} from "@angular/router";
+ 
+ @Component({
+   selector: 'app-hire',
+   templateUrl: './hire.page.html',
+   styleUrls: ['./hire.page.scss'],
+ })
+-export class HirePage implements OnInit {
++export class HirePage {
+   public hireTime = '31';
+   public elementID = '';
+   public rules = false;
++  public modalPlaceIsOpen = false;
+   customPopoverOptions: any = {
+     header: 'Wybierz czas wypożyczenia',
+     //subHeader: 'Select your hair color',
+@@ -22,12 +24,20 @@
+   constructor(public _footer: FooterService,
+               private qrCode: QrcodeService,
+               private api: ApiService,
++              private router: Router,
+               public toastController: ToastController) {
+   }
+ 
+-  ngOnInit() {
++  ionViewWillEnter() {
++    this.scanElement();
++  }
++
++  ionViewDidLeave() {
++    this.elementID = '';
++    this.rules = false;
+   }
+ 
++  // eslint-disable-next-line @typescript-eslint/naming-convention
+   async HireAccept(): Promise<void> {
+     if (this.rules === false) {
+       const toast = await this.toastController.create({
+@@ -38,8 +48,23 @@
+       toast.present();
+       return;
+     }
+-    this.api.getDefault('hire/' + this.elementID + '/' + this.hireTime).then(dane => {
++    this.api.getDefault('hire/' + this.elementID + '/' + this.hireTime).then(async dane => {
+       console.log(dane);
++      const toast = await this.toastController.create({
++        message: 'Wypożyczenie udane',
++        duration: 700,
++        position: 'top'
++      });
++      this.router.navigate(['/hire/hire-list']);
++      toast.present();
++    }).catch(async error => {
++      const toast = await this.toastController.create({
++        message: 'Wypożyczenie nie udane',
++        duration: 700,
++        position: 'top'
++      });
++      this.router.navigate(['/hire']);
++      toast.present();
+     });
+   }
+ 
+Index: src/global.scss
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/*\r\n * App Global CSS\r\n * ----------------------------------------------------------------------------\r\n * Put style rules here that you want to apply globally. These styles are for\r\n * the entire app and not just one component. Additionally, this file can be\r\n * used as an entry point to import other CSS/Sass files to be included in the\r\n * output CSS.\r\n * For more information on global stylesheets, visit the documentation:\r\n * https://ionicframework.com/docs/layout/global-stylesheets\r\n */\r\n\r\n/* Core CSS required for Ionic components to work properly */\r\n@import \"~@ionic/angular/css/core.css\";\r\n\r\n/* Basic CSS for apps built with Ionic */\r\n@import \"~@ionic/angular/css/normalize.css\";\r\n@import \"~@ionic/angular/css/structure.css\";\r\n@import \"~@ionic/angular/css/typography.css\";\r\n@import '~@ionic/angular/css/display.css';\r\n\r\n/* Optional CSS utils that can be commented out */\r\n@import \"~@ionic/angular/css/padding.css\";\r\n@import \"~@ionic/angular/css/float-elements.css\";\r\n@import \"~@ionic/angular/css/text-alignment.css\";\r\n@import \"~@ionic/angular/css/text-transformation.css\";\r\n@import \"~@ionic/angular/css/flex-utils.css\";\r\n\r\nion-footer {\r\n  background-color: #8a2500 !important;\r\n}\r\n\r\n.ion-header {\r\n  ion-toolbar {\r\n    --background: #8a2500 !important;\r\n    // set icon/text color\r\n    --color: #ffffff !important;\r\n  }\r\n}\r\n\r\n.pagination-previous, .pagination-next {\r\n  &.disabled {\r\n    color: grey !important;\r\n\r\n    a {\r\n      color: grey !important;\r\n    }\r\n  }\r\n\r\n  color: #5757ff !important;\r\n\r\n  a {\r\n    color: #5757ff !important;\r\n  }\r\n\r\n  color: #5757ff !important;\r\n}\r\n\r\n.ngx-pagination {\r\n  li {\r\n    a {\r\n      color: white;\r\n\r\n      &:hover {\r\n        color: #5050ff;\r\n        background: #b3b3b3;\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n\r\n.ScanButton {\r\n  border: 2px solid white;\r\n  width: 50vw;\r\n  display: flex;\r\n  justify-content: center;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  height: 50vw;\r\n  font-size: 74px;\r\n\r\n  span {\r\n    font-size: 26px;\r\n    padding-top: 17px;\r\n  }\r\n\r\n  ion-icon {\r\n    &:first-child {\r\n      margin-right: 5px;\r\n    }\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/global.scss b/src/global.scss
+--- a/src/global.scss	(revision 8d2c41192fb87e27a28879199c21cab8cb9ea66c)
++++ b/src/global.scss	(date 1653297827693)
+@@ -78,6 +78,7 @@
+   align-items: center;
+   height: 50vw;
+   font-size: 74px;
++  
+ 
+   span {
+     font-size: 26px;
+Index: src/app/home/hireMenu/hire.page.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>Wyporzyczanie</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-footer class=\"ion-no-border\" style=\"display: flex;justify-content: center\">\r\n  <ion-tab-button (click)=\"_footer.back()\">\r\n    <ion-icon name=\"arrow-back-outline\"></ion-icon>\r\n    <ion-label>Cofnij</ion-label>\r\n  </ion-tab-button>\r\n\r\n  <ion-tab-button (click)=\"_footer.getInfo()\">\r\n    <ion-icon name=\"eye-outline\"></ion-icon>\r\n    <ion-label>Zbadaj</ion-label>\r\n  </ion-tab-button>\r\n\r\n  <ion-tab-button (click)=\"_footer.ToMenu()\">\r\n    <ion-icon name=\"person-add-outline\"></ion-icon>\r\n    <ion-label>Menu</ion-label>\r\n  </ion-tab-button>\r\n</ion-footer>\r\n\r\n\r\n<ion-content [fullscreen]=\"true\">\r\n  <div id=\"container\">\r\n    <button (click)=\"toHire();\" class=\"icon\">\r\n      <ion-icon name=\"open-outline\"></ion-icon>\r\n      <label>Wyporzycz\r\n      </label>\r\n    </button>\r\n    <button (click)=\"toHireList();\" class=\"icon\">\r\n      <ion-icon name=\"receipt-outline\"></ion-icon>\r\n      <label>Moje<br>wyporzyczenia</label>\r\n    </button>\r\n    <button (click)=\"toMyHire();\" class=\"icon\">\r\n      <ion-icon name=\"library-outline\"></ion-icon>\r\n      <label>Historia</label>\r\n    </button>\r\n  </div>\r\n</ion-content>\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/app/home/hireMenu/hire.page.html b/src/app/home/hireMenu/hire.page.html
+--- a/src/app/home/hireMenu/hire.page.html	(revision 8d2c41192fb87e27a28879199c21cab8cb9ea66c)
++++ b/src/app/home/hireMenu/hire.page.html	(date 1653300495116)
+@@ -26,12 +26,12 @@
+   <div id="container">
+     <button (click)="toHire();" class="icon">
+       <ion-icon name="open-outline"></ion-icon>
+-      <label>Wyporzycz
++      <label>Wypożycz
+       </label>
+     </button>
+     <button (click)="toHireList();" class="icon">
+       <ion-icon name="receipt-outline"></ion-icon>
+-      <label>Moje<br>wyporzyczenia</label>
++      <label>Moje<br>wypożyczenia</label>
+     </button>
+     <button (click)="toMyHire();" class="icon">
+       <ion-icon name="library-outline"></ion-icon>
+Index: src/app/app-routing.module.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import {NgModule} from '@angular/core';\r\nimport {PreloadAllModules, RouterModule, Routes} from '@angular/router';\r\nimport {LoginGuard} from './_quards/login.guard';\r\n\r\nconst routes: Routes = [\r\n  {\r\n    path: 'home',\r\n    canActivate: [LoginGuard],\r\n    // canDeactivate:[LeaveGuard],\r\n    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),\r\n  },\r\n  {\r\n    path: 'search',\r\n    loadChildren: () => import('./home/search/search.module').then(m => m.SearchPageModule)\r\n  },\r\n  {\r\n    path: 'login',\r\n    loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)\r\n  },\r\n  {\r\n    path: 'information/:text/:format',\r\n    loadChildren: () => import('./information/information.module').then(m => m.InformationPageModule)\r\n  },\r\n  {\r\n    path: 'register',\r\n    loadChildren: () => import('./register/register.module').then(m => m.RegisterPageModule)\r\n  },\r\n  {\r\n    path: 'transfer',\r\n    canActivate: [LoginGuard],\r\n    loadChildren: () => import('./home/transfer/transfer.module').then(m => m.TransferPageModule)\r\n  },\r\n  {\r\n    path: 'hire',\r\n    loadChildren: () => import('./home/hireMenu/hire.module').then(m => m.HirePageModule)\r\n  },\r\n  {\r\n\r\n    path: '',\r\n    redirectTo: 'login',\r\n    pathMatch: 'full'\r\n  },\r\n  {\r\n    path: '**',\r\n    redirectTo: 'login',\r\n    pathMatch: 'full'\r\n  },\r\n\r\n];\r\n\r\n@NgModule({\r\n  imports: [\r\n    RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})\r\n  ],\r\n  exports: [RouterModule]\r\n})\r\nexport class AppRoutingModule {\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/app/app-routing.module.ts b/src/app/app-routing.module.ts
+--- a/src/app/app-routing.module.ts	(revision 8d2c41192fb87e27a28879199c21cab8cb9ea66c)
++++ b/src/app/app-routing.module.ts	(date 1653302062888)
+@@ -32,6 +32,7 @@
+   },
+   {
+     path: 'hire',
++    canActivate: [LoginGuard],
+     loadChildren: () => import('./home/hireMenu/hire.module').then(m => m.HirePageModule)
+   },
+   {

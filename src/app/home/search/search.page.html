@@ -50,7 +50,7 @@
     </div>
   </ion-item-divider>
   <ion-list *ngIf="displayPlaces">
-    <ion-item *ngFor="let place of findListPlace" class="searchList">
+    <ion-item (click)="goToPlace(place.id)" *ngFor="let place of findListPlace" class="searchList">
       <ion-label>{{place.nazwa}}</ion-label>
     </ion-item>
   </ion-list>

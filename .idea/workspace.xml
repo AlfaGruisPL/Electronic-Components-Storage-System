@@ -4,11 +4,18 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6d1fddc-25f1-4a98-a59b-05fb675db7de" name="Changes" comment="rozpoczęcie prac nad opcją wypożyczeń">
+    <list default="true" id="f6d1fddc-25f1-4a98-a59b-05fb675db7de" name="Changes" comment="Dodanie pliku android do VSC">
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_05_2022_17_09_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_05_2022_17_09__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_05_2022_11_47_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_05_2022_11_47__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_services/api.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/api.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/search/search.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/search/search.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/search/search.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/search/search.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,7 +263,8 @@
     <MESSAGE value="pracaf" />
     <MESSAGE value="work work" />
     <MESSAGE value="rozpoczęcie prac nad opcją wypożyczeń" />
-    <option name="LAST_COMMIT_MESSAGE" value="rozpoczęcie prac nad opcją wypożyczeń" />
+    <MESSAGE value="Dodanie pliku android do VSC" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dodanie pliku android do VSC" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
