@@ -11,7 +11,7 @@ import {FooterService} from '../_services/footer.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage {
-  public login = 'admin';
+  public login = 'mateusz@s.pwste.edu.pl';
   public password = '123456';
   badPassword = false;
   badLogin = false;

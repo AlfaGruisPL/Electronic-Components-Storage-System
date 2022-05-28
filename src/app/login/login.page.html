@@ -31,11 +31,11 @@
       </tr>
       <tr>
         <td>Login:</td>
-        <td><input [(ngModel)]="login" [ngClass]="{'bad':badLogin}" class="loginInput"></td>
+        <td><input [(ngModel)]="login" [ngClass]="{'bad':badLogin}" class="loginInput" type="email"></td>
       </tr>
       <tr>
         <td>Hasło:</td>
-        <td><input [(ngModel)]="password" [ngClass]="{'bad':badPassword}" class="loginInput"></td>
+        <td><input [(ngModel)]="password" [ngClass]="{'bad':badPassword}" class="loginInput" type="password"></td>
       </tr>
       <tr>
         <td colspan="2">Zapamiętaj dane:&nbsp;&nbsp;&nbsp;<input [(ngModel)]="keedPass" type="checkbox"></td>

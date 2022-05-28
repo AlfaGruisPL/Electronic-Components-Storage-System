@@ -118,8 +118,9 @@
       </tr>
       <tr>
         <td><label>Lokalizacja tymczasowa:</label></td>
-        <td><span style="display: flex;align-items: center">{{element?.nazwaMiejsca}}&nbsp;&nbsp;&nbsp;
-        <ion-button (click)="openModalPlace(element.lokalizacjaIdMijesca)">
+        <td *ngIf="element?.nazwaMiejsca?.length > 0 else brak"><span
+          style="display: flex;align-items: center">{{element?.nazwaMiejsca}}&nbsp;&nbsp;&nbsp;
+        <ion-button (click)="openModalPlace(element.lokalizacjaIdMiejsca)">
           <ion-icon name="help-outline"></ion-icon>
       </ion-button></span></td>
       </tr>
@@ -136,7 +137,9 @@
   </ng-container>
 
 </ion-content>
-
+<ng-template #brak>
+  <td><span>- - - Brak - - -</span></td>
+</ng-template>
 
 <ion-modal
   [animated]="true"
