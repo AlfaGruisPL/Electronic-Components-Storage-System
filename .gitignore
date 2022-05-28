@@ -32,3 +32,5 @@ workspace.xml
 /www
 # /android
 # android
+
+/.idea/
