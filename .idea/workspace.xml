@@ -4,9 +4,75 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6d1fddc-25f1-4a98-a59b-05fb675db7de" name="Changes" comment="poprawki">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="f6d1fddc-25f1-4a98-a59b-05fb675db7de" name="Changes" comment="praca">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_05_2022_11_47__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_05_2022_11_47__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/capacitor.build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/androidTest/java/com/getcapacitor/myapp/ExampleInstrumentedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/assets/capacitor.config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/assets/capacitor.plugins.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/io/ionic/magazynMobile/MainActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/drawable-land-hdpi/splash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/drawable-land-mdpi/splash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/drawable-land-xhdpi/splash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/drawable-land-xxhdpi/splash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/drawable-land-xxxhdpi/splash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/drawable-port-hdpi/splash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/drawable-port-mdpi/splash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/drawable-port-xhdpi/splash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/drawable-port-xxhdpi/splash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/drawable-port-xxxhdpi/splash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/drawable/splash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/values/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/values/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/xml/config.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/xml/file_paths.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/test/java/com/getcapacitor/myapp/ExampleUnitTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/capacitor.settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/variables.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_services/api.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/api.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_services/elements.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/elements.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire-list/hire-list.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire-list/hire-list.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +119,7 @@
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="format.on.save" value="true" />
     <property name="javascript.karma.karma_node_package_dir" value="$PROJECT_DIR$/node_modules/@angular/cli" />
-    <property name="last_opened_file_path" value="S:/eFennec/eFennec_school" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -63,7 +129,7 @@
     <property name="rearrange.code.on.save" value="true" />
     <property name="settings.editor.selected.configurable" value="actions.on.save" />
     <property name="show.migrate.to.gradle.popup" value="false" />
-    <property name="ts.external.directory.path" value="C:\Users\alfag\Desktop\~MagazynMobile\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="D:\MagazynMobile\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Shell Script.Wyślij na telefon">
@@ -141,18 +207,8 @@
       <workItem from="1651650856342" duration="15360000" />
       <workItem from="1652006025288" duration="2156000" />
       <workItem from="1652109458048" duration="15000" />
-      <workItem from="1652133064299" duration="2094000" />
-      <workItem from="1652290062354" duration="604000" />
-      <workItem from="1652546445459" duration="1807000" />
-      <workItem from="1652558216780" duration="2223000" />
-      <workItem from="1652602920924" duration="594000" />
-      <workItem from="1652781640980" duration="2671000" />
-      <workItem from="1652864340853" duration="2983000" />
-      <workItem from="1653062794640" duration="607000" />
-      <workItem from="1653070898505" duration="66000" />
-      <workItem from="1653137753113" duration="2339000" />
-      <workItem from="1653426902804" duration="252000" />
-      <workItem from="1653730698756" duration="3676000" />
+      <workItem from="1652133064299" duration="1374000" />
+      <workItem from="1654337561313" duration="1121000" />
     </task>
     <task id="LOCAL-00001" summary="kolejny dzień">
       <created>1649786916461</created>
@@ -203,63 +259,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651665501040</updated>
     </task>
-    <task id="LOCAL-00008" summary="work work">
-      <created>1652136169824</created>
+    <task id="LOCAL-00008" summary="praca">
+      <created>1652891521474</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1652136169824</updated>
+      <updated>1652891521474</updated>
     </task>
-    <task id="LOCAL-00009" summary="rozpoczęcie prac nad opcją wypożyczeń">
-      <created>1652784499605</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1652784499605</updated>
-    </task>
-    <task id="LOCAL-00010" summary="rozpoczęcie prac nad opcją wypożyczeń">
-      <created>1652784555606</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1652784555606</updated>
-    </task>
-    <task id="LOCAL-00011" summary="rozpoczęcie prac nad opcją wypożyczeń">
-      <created>1652868656456</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1652868656457</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Dodanie pliku android do VSC">
-      <created>1653385844710</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1653385844710</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Dodanie pliku android do VSC">
-      <created>1653393854706</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1653393854706</updated>
-    </task>
-    <task id="LOCAL-00014" summary="poprawki">
-      <created>1653736174394</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1653736174398</updated>
-    </task>
-    <task id="LOCAL-00015" summary="poprawki">
-      <created>1653736285335</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1653736285335</updated>
-    </task>
-    <option name="localTasksCounter" value="16" />
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,18 +282,14 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="kolejny dzień" />
-    <MESSAGE value="praca" />
     <MESSAGE value="idea sync" />
     <MESSAGE value="pracaf" />
     <MESSAGE value="work work" />
-    <MESSAGE value="rozpoczęcie prac nad opcją wypożyczeń" />
-    <MESSAGE value="Dodanie pliku android do VSC" />
-    <MESSAGE value="poprawki" />
-    <option name="LAST_COMMIT_MESSAGE" value="poprawki" />
+    <MESSAGE value="praca" />
+    <option name="LAST_COMMIT_MESSAGE" value="praca" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

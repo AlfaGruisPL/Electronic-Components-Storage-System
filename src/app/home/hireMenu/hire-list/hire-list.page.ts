@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FooterService} from "../../../_services/footer.service";
+import {ApiService} from "../../../_services/api.service";
 
 @Component({
   selector: 'app-hire-list',
@@ -8,10 +9,13 @@ import {FooterService} from "../../../_services/footer.service";
 })
 export class HireListPage implements OnInit {
 
-  constructor(public _footer: FooterService) {
+  constructor(public _footer: FooterService, private _api: ApiService) {
   }
 
   ngOnInit() {
+    this._api.getDefault('wyporzyczeniaUzytkownika').then(data => {
+      console.log(data)
+    })
   }
 
 }
