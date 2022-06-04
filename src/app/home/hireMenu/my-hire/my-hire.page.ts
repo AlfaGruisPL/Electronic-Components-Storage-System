@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {FooterService} from "../../../_services/footer.service";
 import {ApiService} from "../../../_services/api.service";
-import {Hire} from "../../../_modal/hire";
+import {FooterService} from "../../../_services/footer.service";
 import {ApiResponse} from "../../../_modal/api-response";
+import {Hire} from "../../../_modal/hire";
+
 
 @Component({
   selector: 'app-my-hire',
@@ -10,6 +11,7 @@ import {ApiResponse} from "../../../_modal/api-response";
   styleUrls: ['./my-hire.page.scss'],
 })
 export class MyHirePage implements OnInit {
+  // @ts-ignore
   public hireList: Array<Hire> = [];
 
   constructor(public _footer: FooterService, private _api: ApiService) {

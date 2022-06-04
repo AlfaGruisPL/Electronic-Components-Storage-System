@@ -10,7 +10,7 @@ import {HttpHeaders} from "@angular/common/http";
   providedIn: 'root'
 })
 export class ApiService {
-  private token = 's03ww930qmwmrc1ktsnchz0jlio0zo7g1b10rzqx9y0fqmyjtjo0desxyicuu2s0di8i8zmmk0ba6i7cxi2pko8lsn10c2oxf';
+  private token = '';
   private _storage: Storage | null = null;
 
   constructor(private storage: Storage, private _http: HttpService, private http: HTTP, private _router: Router) {
