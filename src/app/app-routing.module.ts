@@ -32,6 +32,7 @@ const routes: Routes = [
   },
   {
     path: 'hire',
+    canActivate: [LoginGuard],
     loadChildren: () => import('./home/hireMenu/hire.module').then(m => m.HirePageModule)
   },
   {

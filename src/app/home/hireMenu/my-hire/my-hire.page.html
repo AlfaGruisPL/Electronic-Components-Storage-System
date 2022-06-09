@@ -22,11 +22,15 @@
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let hire of hireList" class="">
-      <ion-label
-        [ngClass]="{'HireAlert': hire.timeToReturn() <= 3, 'HireWarning':hire.timeToReturn() > 3 && hire.timeToReturn() < 7}">{{hire.nazwa_elementu}}
-
+      <ion-label>
+        {{hire.nazwa_elementu}}
       </ion-label>
-      <ion-note slot="end">Termin: {{hire.timeToReturn()}} dni</ion-note>
+      <ion-note
+        [ngClass]="{'HireAlert': hire.timeToReturn() <= 3, 'HireWarning':hire.timeToReturn() > 3 && hire.timeToReturn() < 7}"
+        slot="end">
+        Termin: {{hire.timeToReturn()}} dni
+        <button>Opcje</button>
+      </ion-note>
 
     </ion-item>
   </ion-list>
