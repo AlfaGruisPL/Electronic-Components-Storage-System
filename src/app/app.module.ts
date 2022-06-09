@@ -14,7 +14,7 @@ import {Network} from '@awesome-cordova-plugins/network/ngx';
 import {LoginGuard} from './_quards/login.guard';
 import {LeaveGuard} from './_quards/leave.guard';
 import {IonicStorageModule} from '@ionic/storage-angular';
-import {NgxPaginationModule} from "ngx-pagination";
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
 

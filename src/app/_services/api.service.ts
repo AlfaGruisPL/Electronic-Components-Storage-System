@@ -4,7 +4,7 @@ import {HTTP} from '@ionic-native/http/ngx';
 import {Storage} from '@ionic/storage-angular';
 import {Router} from '@angular/router';
 import {ApiResponse} from '../_modal/api-response';
-import {HttpHeaders} from "@angular/common/http";
+import {HttpHeaders} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'

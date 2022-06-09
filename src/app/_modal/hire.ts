@@ -33,12 +33,25 @@ export class Hire {
     this.nazwa_miejsca_po = nazwa_miejsca_po;
   }
 
-  timeToReturn() {
+  timeToReturn(): number {
+    if (this.id === 0) {
+      return 0;
+    }
     const hireTime = new Date(this.od_kiedy).getTime() + this.planowany_czas_oddania * 24 * 60 * 60;
     var k = (new Date().getTime() - hireTime) / (1000 * 60 * 60 * 24);
     k = k - this.planowany_czas_oddania;
     k = k * -1;
     return Math.round(k);
   }
+
+  returnTime(): Date {
+    if (this.id === 0) {
+      return new Date();
+    }
+
+    const time = new Date(this.od_kiedy).getTime() + this.planowany_czas_oddania * 24 * 60 * 60;
+    return new Date(time)
+  }
 }
+
 

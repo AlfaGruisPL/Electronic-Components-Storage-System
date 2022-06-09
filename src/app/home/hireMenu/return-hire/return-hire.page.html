@@ -1,0 +1,114 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Zwracanie elementu</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <!-- ------------------------------------------- -->
+
+  <ng-container *ngIf="state === 0">
+
+    <div class="container">
+      <button class="icon" (click)="scanElement()">
+        <ion-icon name="open-outline"></ion-icon>
+        <label>Zeskanuj element
+        </label>
+      </button>
+    </div>
+  </ng-container>
+  <!-- ------------------------------------------- -->
+  <ng-container *ngIf="state === 1">
+    <div class="container">
+      <button class="icon" (click)="scanPlace()">
+        <ion-icon name="open-outline"></ion-icon>
+        <label>Zeskanuj miejsce docelowe
+        </label>
+      </button>
+      <br/>
+      <table>
+        <tr>
+          <td>
+            Nazwa elementu
+          </td>
+          <td>
+            {{element?.nazwa}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Poprzednia lokalizacja elementu:
+          </td>
+          <td>
+            {{hire.nazwa_miejsca_przed}}
+            <ion-button (click)="modal.open()">
+              <ion-icon name="help-outline"></ion-icon>
+            </ion-button>
+          </td>
+        </tr>
+      </table>
+
+
+      <app-element-in-place-info [mode]="'miejce'"
+                                 #modal
+                                 [idMiejsca]="hire?.id_miejsca_przed"
+                                 [title]="'Poprzednia lokalizacja'"
+                                 [modalPlaceIsOpen]="modalPlaceIsOpen">
+      </app-element-in-place-info>
+      <br>
+
+    </div>
+  </ng-container>
+  <!-- ------------------------------------------- -->
+
+  <ng-container *ngIf="state === 2">
+    <table class="hireTableInfo">
+      <tr>
+        <td>Nazwa:</td>
+        <td>{{hire?.nazwa_elementu}}</td>
+      </tr>
+      <tr>
+        <td>Data wypożyczenia:</td>
+        <td>{{hire?.od_kiedy}}</td>
+      </tr>
+      <tr>
+        <td>Miejsce pobrania:</td>
+        <td>{{hire?.nazwa_miejsca_przed}}</td>
+      </tr>
+      <tr>
+        <td>Planowana data oddania:</td>
+        <td>{{hire?.returnTime() | date:'y/LL/d, HH:mm'}}</td>
+      </tr>
+      <tr *ngIf="hire?.timeToReturn() >= 0 else template2">
+        <td>Ilość dni do oddania:</td>
+        <td>{{hire?.timeToReturn()}} dni</td>
+      </tr>
+      <ng-template #template2>
+        <tr>
+          <td>Przekroczony czas oddania:</td>
+          <td>{{-1 * hire?.timeToReturn()}} dni</td>
+        </tr>
+      </ng-template>
+      <tr>
+        <td colspan="2">
+          <ion-textarea
+            placeholder="Wpisz tutaj uwagi dostępne dla zarządzającego magazynem"
+            rows="11"
+            spellcheck="true" style="border:1px solid grey;width: 100%" wrap="soft"
+          ></ion-textarea>
+
+        </td>
+      </tr>
+
+
+    </table>
+    <div class="container">
+      <button class="icon" (click)="state=2">
+        <ion-icon name="checkmark-outline"></ion-icon>
+        <label>Oddaj
+        </label>
+      </button>
+    </div>
+  </ng-container>
+
+
+</ion-content>

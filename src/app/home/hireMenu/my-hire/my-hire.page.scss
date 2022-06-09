@@ -7,3 +7,68 @@
   color: red;
   font-weight: bolder;
 }
+
+.hireTableInfo {
+  tr {
+    td {
+      &:first-child {
+        padding-left: 5px;
+
+      }
+
+      &:last-child {
+        padding-right: 5px;
+      }
+
+      padding-top: 7px;
+      padding-bottom: 7px;
+    }
+  }
+}
+
+
+#container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  button {
+    margin-top: 50px;
+    border: 2px solid white;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vw;
+  }
+}
+
+.icon {
+  position: relative;
+  background-color: #242424;
+  box-shadow: 1px 1px 3px 1px #606060;
+
+  &:hover {
+    background-color: #1a1a1a;
+    cursor: pointer;
+    color: #328a50;
+  }
+
+  label {
+    position: absolute;
+    bottom: 10px;
+    font-size: 20px;
+  }
+
+  ion-icon {
+    color: #1faf58;
+    font-size: 74px;
+  }
+}
+
+.hireListOption {
+  border: 1px solid white;
+  padding: 3px 9px 4px 10px;
+  margin-left: 10px;
+}

@@ -11,5 +11,6 @@ export class ElementClass {
   nazwa_kategorii: string;
   nazwaMiejsca: string;
   nazwaMiejscaPodstawowego: string;
+  id_lokalizacji?: number;
 
 }

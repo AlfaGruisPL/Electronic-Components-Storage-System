@@ -141,40 +141,10 @@
   <td><span>- - - Brak - - -</span></td>
 </ng-template>
 
-<ion-modal
-  [animated]="true"
-  [isOpen]="modalPlaceIsOpen"
-  [swipeToClose]="true">
-  <ng-template>
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>
-          <ion-button (click)="modalPlaceIsOpen = false" color="success" style="float: right">
-            Zamknij
-          </ion-button>
-        </ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
-      <ion-note class="ion-note-title" color="success">Lokalizacja miejsca</ion-note>
-      <ion-list>
-        <ion-item *ngFor="let x of miejsca; last as isLast">
-          <ion-label>{{x.nazwa}}</ion-label>
-          <ion-note class="arrow" slot="start">
-            <ion-icon *ngIf="!isLast" name="arrow-down-outline"></ion-icon>
-            <ion-icon *ngIf="isLast" name="cube-outline"></ion-icon>
-          </ion-note>
-        </ion-item>
-        <ion-item *ngIf="mode === 'element'">
-          <ion-label style="color:green">{{element.nazwa}}</ion-label>
-          <ion-note class="arrow" slot="start">
-            <ion-icon name="arrow-forward-circle-outline"></ion-icon>
-          </ion-note>
 
-        </ion-item>
-      </ion-list>
+<app-element-in-place-info [mode]="this.mode"
+                           [setElement]="element"
+                           [title]="'Aktualna lokalizacja'"
+                           [modalPlaceIsOpen]="modalPlaceIsOpen">
+</app-element-in-place-info>
 
-    </ion-content>
-
-  </ng-template>
-</ion-modal>

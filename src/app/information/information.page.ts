@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ApiResponse} from '../_modal/api-response';
 import {ElementClass} from '../_modal/element';
-import {Miejsce} from '../_modal/miejsce';
 import {QrOut} from '../_modal/qr-out';
 import {ApiService} from '../_services/api.service';
 import {FooterService} from '../_services/footer.service';
@@ -17,7 +16,7 @@ export class InformationPage implements OnInit {
   public mode = 'wait';
   public element: ElementClass;
   public modalPlaceIsOpen = false;
-  public miejsca: Array<Miejsce> = [];
+  public miejsceId: any;
   public displayDescription = false;
 
   //public miejsce:Miejsce = undefined;
@@ -34,7 +33,7 @@ export class InformationPage implements OnInit {
           });
         } else if (params.text.charAt(0).toUpperCase() == '&' && params.text.charAt(1) == '_') {
           this.mode = 'miejsca';
-          this.getMiejsce(params.text.split('_')[1]);
+          this.miejsceId = params.text.split('_')[1];
         } else {
           this.mode = 'nieZnane';
         }
@@ -54,19 +53,19 @@ export class InformationPage implements OnInit {
 
 
   openModalPlace(id: number | string): void {
-    this.miejsca = [];
+    // this.miejsca = [];
     this.modalPlaceIsOpen = !this.modalPlaceIsOpen;
-    this.getMiejsce(id);
+    // this.getMiejsce(id);
   }
 
-  private getMiejsce(id: number | string): void {
-    this._api.getDefault('miejsce/' + id).then((data: ApiResponse) => {
-      // @ts-ignore
-      const value = Array<Miejsce>(data.value);
-      value[0].forEach(miej => {
-        const miejscaTMP = new Miejsce(miej.id, miej.id_rodzica, miej.id_zdjecia, miej.nazwa);
-        this.miejsca.push(miejscaTMP);
-      });
-    });
-  }
+  /* private getMiejsce(id: number | string): void {
+     this._api.getDefault('miejsce/' + id).then((data: ApiResponse) => {
+       // @ts-ignore
+       const value = Array<Miejsce>(data.value);
+       value[0].forEach(miej => {
+         const miejscaTMP = new Miejsce(miej.id, miej.id_rodzica, miej.id_zdjecia, miej.nazwa);
+         this.miejsca.push(miejscaTMP);
+       });
+     });
+   }*/
 }
