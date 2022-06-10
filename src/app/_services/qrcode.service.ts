@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BarcodeScanner} from '@ionic-native/barcode-scanner/ngx';
 import {AlertController} from '@ionic/angular';
-import {QrOut} from '../_modal/qr-out';
+import {QrMode, QrOut} from '../_modal/qr-out';
 
 @Injectable({
   providedIn: 'root'
@@ -42,7 +42,14 @@ export class QrcodeService {
         torchOn: false,
         prompt: promptText,
         resultDisplayDuration: 0,
-      }).then(barcodeData => {
+      }).then((barcodeData: QrOut) => {
+        if (barcodeData.text.charAt(0).toUpperCase() === 'K' && barcodeData.text.charAt(1) === '_') {
+          barcodeData.mode = QrMode.element;
+          barcodeData.id = Number(barcodeData.text.split('_')[1]);
+        } else if (barcodeData.text.charAt(0).toUpperCase() === '&' && barcodeData.text.charAt(1) === '_') {
+          barcodeData.mode = QrMode.place;
+          barcodeData.id = Number(barcodeData.text.split('_')[1]);
+        }
         resolve(barcodeData);
         return barcodeData;
       }).catch(async err => {
@@ -51,12 +58,11 @@ export class QrcodeService {
           message: 'Bład otwarcia skanera QR codów - ' + err,
           buttons: ['Rozumiem']
         });
-
         resolve({text: def, format: 'default'});
         await alert.present();
-        reject(err)
+        reject(err);
       });
-    }))
+    }));
   }
 
 

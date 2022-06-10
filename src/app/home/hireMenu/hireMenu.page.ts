@@ -15,6 +15,10 @@ export class HireMenuPage implements OnInit {
   ngOnInit() {
   }
 
+  returnHire() {
+    this.router.navigate(['../hire/return-hire']);
+  }
+
   toHire(): void {
     this.router.navigate(['/hire/hire']);
   }

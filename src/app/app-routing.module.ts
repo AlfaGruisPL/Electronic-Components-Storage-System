@@ -36,17 +36,15 @@ const routes: Routes = [
     loadChildren: () => import('./home/hireMenu/hire.module').then(m => m.HirePageModule)
   },
   {
-
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
     path: '**',
-    redirectTo: 'login',
+    redirectTo: 'home',
     pathMatch: 'full'
-  },
-
+  }
 ];
 
 @NgModule({

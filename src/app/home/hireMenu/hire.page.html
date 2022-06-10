@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Wyporzyczanie</ion-title>
+    <ion-title>Wypożyczenia</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -24,19 +24,24 @@
 
 <ion-content [fullscreen]="true">
   <div id="container">
-    <button (click)="toHire();" class="icon">
+    <ion-button (click)="returnHire();" color="light" class="icon">
+      <ion-icon name="open-outline"></ion-icon>
+      <label>Zwróć
+      </label>
+    </ion-button>
+    <ion-button (click)="toHire();" color="light" class="icon">
       <ion-icon name="open-outline"></ion-icon>
       <label>Wyporzycz
       </label>
-    </button>
-    <button (click)="toMyHire();" class="icon">
+    </ion-button>
+    <ion-button (click)="toMyHire();" color="light" class="icon">
       <ion-icon name="receipt-outline"></ion-icon>
       <label>Moje<br>wyporzyczenia</label>
-    </button>
-    <button (click)="toHireList();" class="icon">
+    </ion-button>
+    <ion-button (click)="toHireList();" color="light" class="icon">
       <ion-icon name="library-outline"></ion-icon>
       <label>Historia</label>
-    </button>
+    </ion-button>
   </div>
 </ion-content>
 

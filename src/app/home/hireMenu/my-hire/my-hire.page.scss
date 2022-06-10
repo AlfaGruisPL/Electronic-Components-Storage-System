@@ -68,7 +68,10 @@
 }
 
 .hireListOption {
-  border: 1px solid white;
-  padding: 3px 9px 4px 10px;
   margin-left: 10px;
+}
+
+.hireListNote {
+  display: flex;
+  align-items: center;
 }

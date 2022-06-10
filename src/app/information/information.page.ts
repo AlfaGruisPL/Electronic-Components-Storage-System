@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {ApiResponse} from '../_modal/api-response';
 import {ElementClass} from '../_modal/element';
 import {QrOut} from '../_modal/qr-out';
 import {ApiService} from '../_services/api.service';
@@ -18,6 +17,7 @@ export class InformationPage implements OnInit {
   public modalPlaceIsOpen = false;
   public miejsceId: any;
   public displayDescription = false;
+  public modalTitle = '';
 
   //public miejsce:Miejsce = undefined;
   constructor(private route: ActivatedRoute, private _router: Router, public _api: ApiService, public _footer: FooterService) {
@@ -29,6 +29,7 @@ export class InformationPage implements OnInit {
         if (params.text.charAt(0).toUpperCase() == 'K' && params.text.charAt(1) == '_') {
           this.mode = 'element';
           this._api.getDefault('elementInfo/' + params.text.split('_')[1]).then(data => {
+            console.log(data.value[0])
             this.element = data.value[0];
           });
         } else if (params.text.charAt(0).toUpperCase() == '&' && params.text.charAt(1) == '_') {
@@ -41,19 +42,10 @@ export class InformationPage implements OnInit {
     );
   }
 
-  openModalLocalization(id: number): void {
-    this._api.getDefault('lokalizacja/' + id).then((data: ApiResponse) => {
-      // if (data.value[0]['id'].length() > 0) {
-      this.openModalPlace(data.value[0].id);
-      //} else {
-      //   alert("Nie znaleziono lokalizacji");
-      //  }
-    });
-  }
 
-
-  openModalPlace(id: number | string): void {
+  openModalPlace(id: number | string, title: string): void {
     // this.miejsca = [];
+    this.modalTitle = title;
     this.modalPlaceIsOpen = !this.modalPlaceIsOpen;
     // this.getMiejsce(id);
   }

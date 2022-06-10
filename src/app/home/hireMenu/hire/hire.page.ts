@@ -55,7 +55,7 @@ export class HirePage {
         duration: 700,
         position: 'top'
       });
-      this.router.navigate(['/hire/hire-list']);
+      this.router.navigate(['/hire/my-hire']);
       toast.present();
     }).catch(async error => {
       const toast = await this.toastController.create({

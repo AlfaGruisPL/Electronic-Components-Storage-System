@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Plugins} from '@capacitor/core';
+import {LoginService} from "./_services/login.service";
 
 const {SplashScreen} = Plugins;
 
@@ -9,7 +10,7 @@ const {SplashScreen} = Plugins;
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor() {
+  constructor(private loginService: LoginService) {
   }
 
   componentDidLoad() {
@@ -18,7 +19,11 @@ export class AppComponent implements OnInit {
   }
 
 
-  ngOnInit() {
+  async ngOnInit() {
+    //console.log('Hej')
+    this.loginService.checkStorage().then(() => {
+    }).catch(() => {
+    })
 
   }
 }

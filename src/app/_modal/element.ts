@@ -9,8 +9,8 @@ export class ElementClass {
   id_lokalizacji_podstawowej: string;
   id_rodzica: string;
   nazwa_kategorii: string;
-  nazwaMiejsca: string;
-  nazwaMiejscaPodstawowego: string;
+  nazwa_lokalizacji: string;
+  nazwa_miejsca_podstawowego: string;
   id_lokalizacji?: number;
 
 }

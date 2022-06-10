@@ -40,14 +40,14 @@ export class ApiService {
   }
 
   public getDefault(postfix: string): Promise<ApiResponse | any> {
-    return new Promise<Array<any>>((resolve, reject) => {
+    return new Promise<Array<ApiResponse>>((resolve, reject) => {
       this._http.get(postfix, this.getHeader(), this.token).then(next => {
         resolve(next);
 
       }).catch(error => {
         if (error.status === 401) {
 
-          console.log(error)
+          console.log(error);
           this.clearToken();
           this._router.navigate(['']);
           alert('Wylogowanie automatyczne: ' + error.status);
@@ -59,7 +59,7 @@ export class ApiService {
 
   public postDefault(postfix: string, dane: any): Promise<ApiResponse | any> {
     dane['token'] = this.token;
-    return new Promise<Array<any>>((resolve, reject) => {
+    return new Promise<Array<ApiResponse>>((resolve, reject) => {
       this._http.post(postfix, dane, this.getHeader()).then(next => {
         resolve(next);
 
@@ -83,6 +83,8 @@ export class ApiService {
     this._storage = storage;
     this._storage.clear();
     this.token = '';
+    this._router.navigate(['/login'])
+    console.log(1)
   }
 
   private getHeader(): any {

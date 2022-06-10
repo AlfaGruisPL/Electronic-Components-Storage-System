@@ -109,8 +109,8 @@
       <tr>
         <td><label>Lokalizacja podstawowa:</label>
         </td>
-        <td><span style="display: flex;align-items: center">{{element?.nazwaMiejscaPodstawowego}}&nbsp;&nbsp;&nbsp;
-        <ion-button (click)="openModalPlace(element.id_lokalizacji_podstawowej)">
+        <td><span style="display: flex;align-items: center">{{element?.nazwa_miejsca_podstawowego}}&nbsp;&nbsp;&nbsp;
+        <ion-button (click)="openModalPlace(element.id_lokalizacji_podstawowej,'Lokalizacja podstawowa')">
           <ion-icon name="help-outline"></ion-icon>
         </ion-button></span>
 
@@ -118,9 +118,9 @@
       </tr>
       <tr>
         <td><label>Lokalizacja tymczasowa:</label></td>
-        <td *ngIf="element?.nazwaMiejsca?.length > 0 else brak"><span
-          style="display: flex;align-items: center">{{element?.nazwaMiejsca}}&nbsp;&nbsp;&nbsp;
-        <ion-button (click)="openModalPlace(element.lokalizacjaIdMiejsca)">
+        <td *ngIf="element?.nazwa_lokalizacji?.length > 0 else brak"><span
+          style="display: flex;align-items: center">{{element?.nazwa_lokalizacji}}&nbsp;&nbsp;&nbsp;
+        <ion-button (click)="openModalPlace(element.lokalizacjaIdMiejsca,'Aktualna lokalizacja')">
           <ion-icon name="help-outline"></ion-icon>
       </ion-button></span></td>
       </tr>
@@ -144,7 +144,7 @@
 
 <app-element-in-place-info [mode]="this.mode"
                            [setElement]="element"
-                           [title]="'Aktualna lokalizacja'"
+                           [title]="modalTitle"
                            [modalPlaceIsOpen]="modalPlaceIsOpen">
 </app-element-in-place-info>
 

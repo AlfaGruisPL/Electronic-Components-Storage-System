@@ -2,8 +2,8 @@ import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {AlertController, ToastController} from '@ionic/angular';
 import {ApiService} from '../_services/api.service';
-import {Storage} from '@ionic/storage-angular';
 import {FooterService} from '../_services/footer.service';
+import {LoginService} from "../_services/login.service";
 
 @Component({
   selector: 'app-login',
@@ -16,9 +16,8 @@ export class LoginPage {
   badPassword = false;
   badLogin = false;
   public keedPass = false;
-  private _storage: Storage | null = null;
 
-  constructor(private storage: Storage,
+  constructor(private loginService: LoginService,
               private _router: Router,
               public _footer: FooterService,
               public alertController: AlertController,
@@ -28,6 +27,10 @@ export class LoginPage {
 
 
   async ionViewDidEnter() {
+    this.loginService.checkStorage().then(() => {
+    }).catch(() => {
+    })
+    /*
     const alertI = await this.alertController.create({
       header: 'Potwierdzasz wylogowanie?',
       buttons: [
@@ -53,7 +56,6 @@ export class LoginPage {
     } else {
 
       const storage = await this.storage.create();
-      // eslint-disable-next-line no-underscore-dangle
       this._storage = storage;
       this.storage.get('login').then(log => {
         this.storage.get('password').then(pass => {
@@ -70,7 +72,7 @@ export class LoginPage {
       });
 
 
-    }
+    }*/
   }
 
   logIn() {
@@ -85,39 +87,10 @@ export class LoginPage {
       this.badPassword = false;
     }
     if (this.login.length > 0 && this.password.length > 0) {
-
-      this.logInF();
+      this.loginService.logInF(this.login, this.password, this.keedPass);
     }
 
   }
 
-  getInformationPage() {
-    this._router.navigate(['home']);
-  }
-
-  private logInF() {
-    this._api.login(this.login, this.password).then(async data => {
-      const toast = await this.toastController.create({
-        message: 'Logowanie udane',
-        duration: 200,
-        position: 'top'
-      });
-      if (this.keedPass == true) {
-        const storage = await this.storage.create();
-        this._storage = storage;
-        this._storage.set('login', this.login);
-        this._storage.set('password', this.password);
-      }
-
-      toast.present();
-      this._router.navigate(['home']);
-    }).catch(async data => {
-      const toast = await this.toastController.create({
-        message: 'Logowanie nie udane',
-        duration: 2000
-      });
-      toast.present();
-    });
-  }
 
 }

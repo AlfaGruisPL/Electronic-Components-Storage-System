@@ -45,6 +45,7 @@
             </ion-button>
           </td>
         </tr>
+
       </table>
 
 
@@ -89,6 +90,12 @@
         </tr>
       </ng-template>
       <tr>
+        <td>Wybrana lokalizacja docelowa</td>
+        <td>
+          {{targetPlace[targetPlace?.length - 1]?.nazwa}}
+        </td>
+      </tr>
+      <tr>
         <td colspan="2">
           <ion-textarea
             placeholder="Wpisz tutaj uwagi dostępne dla zarządzającego magazynem"
@@ -102,7 +109,7 @@
 
     </table>
     <div class="container">
-      <button class="icon" (click)="state=2">
+      <button class="icon" (click)="returnHire()" [disabled]="returnHireButton">
         <ion-icon name="checkmark-outline"></ion-icon>
         <label>Oddaj
         </label>

@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Moje aktywne wyporzyczenia:</ion-title>
+    <ion-title>Moje aktywne wypożyczenia:</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-footer class="ion-no-border" style="display: flex;justify-content: center">
@@ -23,13 +23,20 @@
   <ion-list>
     <ion-item *ngFor="let hire of hireList" class="">
       <ion-label>
-        {{hire.nazwa_elementu}}
+        <h2>{{hire.nazwa_elementu}}</h2>
+        <p>
+          <ion-icon name="enter-outline"></ion-icon>
+          {{hire.od_kiedy| date:'y/LL/dd'}} </p>
+
       </ion-label>
-      <ion-note
-        [ngClass]="{'HireAlert': hire.timeToReturn() <= 3, 'HireWarning':hire.timeToReturn() > 3 && hire.timeToReturn() < 7}"
-        slot="end">
+      <ion-note class="hireListNote"
+                [ngClass]="{'HireAlert': hire.timeToReturn() <= 3, 'HireWarning':hire.timeToReturn() > 3 && hire.timeToReturn() < 7}"
+                slot="end">
+        <span class="hireListEndText">
         Termin: {{hire.timeToReturn()}} dni
-        <button (click)="openModal(hire)" class="hireListOption">Opcje</button>
+        </span>
+        <ion-button (click)="openModal(hire)" color="tertiary" class="hireListOption">Opcje</ion-button>
+
       </ion-note>
 
     </ion-item>
@@ -39,7 +46,6 @@
 <ion-modal
   [animated]="true"
   [isOpen]="modalPlaceIsOpen"
-  (close)="close()"
   [swipeToClose]="true">
   <ng-template>
     <ion-header>

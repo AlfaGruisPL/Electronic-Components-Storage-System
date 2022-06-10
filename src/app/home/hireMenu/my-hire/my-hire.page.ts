@@ -33,7 +33,7 @@ export class MyHirePage implements OnInit {
   }
 
   ngOnInit() {
-    this._api.getDefault('wyporzyczeniaUzytkownika').then((data: ApiResponse) => {
+    this._api.getDefault('wyporzyczeniaUzytkownikaAktywne').then((data: ApiResponse) => {
       const dataList: Array<Hire> = data.value;
       dataList.forEach(hire => {
         const hireTmp = new Hire();
@@ -47,16 +47,12 @@ export class MyHirePage implements OnInit {
     });
   }
 
-  close() {
-    console.log(false)
-    this.modalPlaceIsOpen = false
-  }
 
   returnHire(): void {
     this.modalPlaceIsOpen = false;
     setTimeout(() => {
 
-      this.router.navigate(['../hire/return-hire/' + this.selectedHireInModal.id + "/" + this.selectedHireInModal.nazwa_elementu]);
+      this.router.navigate(['../hire/return-hire']);
     }, 10);
   }
 
