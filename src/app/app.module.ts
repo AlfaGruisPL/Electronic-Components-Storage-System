@@ -15,6 +15,7 @@ import {LoginGuard} from './_quards/login.guard';
 import {LeaveGuard} from './_quards/leave.guard';
 import {IonicStorageModule} from '@ionic/storage-angular';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {Insomnia} from '@awesome-cordova-plugins/insomnia/ngx';
 
 @NgModule({
 
@@ -25,7 +26,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
   providers: [{
     provide: RouteReuseStrategy,
     useClass: IonicRouteStrategy
-  }, LeaveGuard, BarcodeScanner, HttpService, ApiService, HTTP, Network, LoginGuard],
+  }, LeaveGuard, BarcodeScanner, HttpService, ApiService, HTTP, Network, LoginGuard, Insomnia],
   bootstrap: [AppComponent],
 })
 export class AppModule {

@@ -25,7 +25,7 @@ export class LoginService {
       promiseArr.push(storage.get('password'));
       Promise.all(promiseArr).then(fromStorage => {
         if (fromStorage[0].length > 0 && fromStorage[1].length > 0) {
-          this.logInF(fromStorage[0], fromStorage[1], true).then(() => {
+          this.logInF(fromStorage[0], fromStorage[1], true, true).then(() => {
             resolve(true);
           }).catch(() => {
             reject(false);
@@ -42,15 +42,17 @@ export class LoginService {
   }
 
 
-  public logInF(login: string, password: string, saveToLocalStorage: boolean): Promise<boolean> {
+  public logInF(login: string, password: string, saveToLocalStorage: boolean, hideCommunicate = false): Promise<boolean> {
     return new Promise(async (resolve, reject) => {
       this.api.login(login, password).then(async data => {
-        const toast = await this.toastController.create({
-          message: 'Logowanie udane',
-          duration: 200,
-          position: 'bottom'
-        });
-        toast.present();
+        if (hideCommunicate === false) {
+          const toast = await this.toastController.create({
+            message: 'Logowanie udane',
+            duration: 200,
+            position: 'bottom'
+          });
+          toast.present();
+        }
         if (saveToLocalStorage === true) {
           const storage = await this.localStorage.create();
           storage.set('login', login);

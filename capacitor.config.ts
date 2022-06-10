@@ -1,10 +1,12 @@
-import { CapacitorConfig } from '@capacitor/cli';
+import {CapacitorConfig} from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'io.ionic.magazynMobile',
   appName: 'Magazyn',
   webDir: 'www',
   bundledWebRuntime: false,
+  loggingBehavior: 'none',
+  hideLogs: true,
   cordova: {
     preferences: {
       ScrollEnabled: 'false',
@@ -13,7 +15,8 @@ const config: CapacitorConfig = {
       FadeSplashScreenDuration: '300',
       SplashShowOnlyFirstTime: 'true',
       SplashScreen: 'screen',
-      SplashScreenDelay: '1'
+      SplashScreenDelay: '1',
+
     }
   }
 };
