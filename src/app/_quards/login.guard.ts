@@ -2,23 +2,24 @@ import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree} from '@angular/router';
 import {Observable} from 'rxjs';
 import {ApiService} from '../_services/api.service';
-import {LoginService} from "../_services/login.service";
+import {LoginService} from '../_services/login.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginGuard implements CanActivate {
+  private i = 0;
+
   constructor(private api: ApiService, private router: Router, private loginService: LoginService) {
   }
-
-  private i = 0
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    // sprawdzenie, czy aplikacja jest już zalogowana do API
     if (this.api.tokenExist()) {
       if (this.i === 0) {
-        console.log('%cZnaleziono token ', 'color: green');
+        console.log('%cUżytkownik zalogowany', 'color: green');
         this.i = 2;
       }
       return true;

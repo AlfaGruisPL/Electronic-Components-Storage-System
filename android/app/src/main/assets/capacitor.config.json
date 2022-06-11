@@ -11,7 +11,7 @@
 			"BackupWebStorage": "none",
 			"SplashMaintainAspectRatio": "true",
 			"FadeSplashScreenDuration": "300",
-			"SplashShowOnlyFirstTime": "false",
+			"SplashShowOnlyFirstTime": "true",
 			"SplashScreen": "screen",
 			"SplashScreenDelay": "1"
 		}
