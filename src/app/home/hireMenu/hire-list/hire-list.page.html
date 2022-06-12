@@ -21,7 +21,7 @@
 </ion-footer>
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let hire of hireList" class="">
+    <ion-item *ngFor="let hire of hireList | paginate: { itemsPerPage:10, currentPage: cp }" class="">
       <ion-label>
         <h2>
           {{hire.nazwa_elementu}}
@@ -40,6 +40,14 @@
 
     </ion-item>
   </ion-list>
+
+  <pagination-controls (pageChange)="cp = $event"
+
+                       class="pagpag"
+                       maxSize="6"
+                       nextLabel=""
+                       previousLabel=""
+  ></pagination-controls>
 </ion-content>
 
 <ion-modal

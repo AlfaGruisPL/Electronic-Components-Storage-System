@@ -1,20 +1,23 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
 
-import { IonicModule } from '@ionic/angular';
+import {IonicModule} from '@ionic/angular';
 
-import { HireListPageRoutingModule } from './hire-list-routing.module';
+import {HireListPageRoutingModule} from './hire-list-routing.module';
 
-import { HireListPage } from './hire-list.page';
+import {HireListPage} from './hire-list.page';
+import {NgxPaginationModule} from "ngx-pagination";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HireListPageRoutingModule
+    HireListPageRoutingModule,
+    NgxPaginationModule
   ],
   declarations: [HireListPage]
 })
-export class HireListPageModule {}
+export class HireListPageModule {
+}

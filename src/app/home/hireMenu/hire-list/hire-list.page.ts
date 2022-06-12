@@ -3,6 +3,7 @@ import {FooterService} from "../../../_services/footer.service";
 import {ApiService} from "../../../_services/api.service";
 import {Hire} from "../../../_modal/hire";
 import {ApiResponse} from "../../../_modal/api-response";
+import {LoadingController} from "@ionic/angular";
 
 @Component({
   selector: 'app-hire-list',
@@ -10,11 +11,14 @@ import {ApiResponse} from "../../../_modal/api-response";
   styleUrls: ['./hire-list.page.scss'],
 })
 export class HireListPage implements OnInit {
+  public cp = 1;
   public hireList: Array<Hire> = [];
   public modalPlaceIsOpen = false;
   public selectedHireInModal: Hire = new Hire();
 
-  constructor(public _footer: FooterService, private _api: ApiService) {
+  constructor(public _footer: FooterService,
+              private _api: ApiService,
+              public loadingController: LoadingController) {
   }
 
   ngOnInit() {

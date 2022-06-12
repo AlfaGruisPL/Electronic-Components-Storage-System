@@ -14,7 +14,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./my-hire.page.scss'],
 })
 export class MyHirePage implements OnInit {
-  // @ts-ignore
+  public cp = 1;
   public hireList: Array<Hire> = [];
   public modalPlaceIsOpen = false;
   public selectedHireInModal: Hire | undefined;

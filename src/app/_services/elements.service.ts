@@ -3,6 +3,7 @@ import {BehaviorSubject} from 'rxjs';
 import {ApiResponse} from '../_modal/api-response';
 import {ElementClass} from '../_modal/element';
 import {ApiService} from './api.service';
+import {ApiEndPoint} from '../_modal/api-end-point';
 
 @Injectable({
   providedIn: 'root'
@@ -15,14 +16,14 @@ export class ElementsService {
 
   loadFromDataBase(): Promise<Array<ElementClass>> {
     return new Promise<Array<ElementClass>>(((resolve, reject) => {
-      this._api.getDefault("elementy").then((dane: ApiResponse) => {
+      this._api.getDefault(ApiEndPoint.elementy).then((dane: ApiResponse) => {
         const val: Array<ElementClass> = dane.value;
         this.elementsList.next(val);
         resolve(val);
       }).catch(error => {
-        reject([])
-      })
-    }))
+        reject([]);
+      });
+    }));
 
   }
 }

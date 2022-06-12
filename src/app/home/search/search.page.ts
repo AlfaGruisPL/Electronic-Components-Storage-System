@@ -4,7 +4,8 @@ import {ElementClass} from 'src/app/_modal/element';
 import {Miejsce} from 'src/app/_modal/miejsce';
 import {ElementsService} from 'src/app/_services/elements.service';
 import {PlacesService} from 'src/app/_services/places.service';
-import {FooterService} from "../../_services/footer.service";
+import {FooterService} from '../../_services/footer.service';
+import {LoadingService} from "../../_services/loading.service";
 
 @Component({
   selector: 'app-search',
@@ -16,28 +17,32 @@ export class SearchPage implements OnInit {
   public findListPlace: Array<Miejsce> = [];
   public displayElements = true;
   public displayPlaces = false;
-  private searchInput = ""
+  private searchInput = '';
 
-  constructor(public _footer: FooterService, public _elements: ElementsService, private _router: Router, public _places: PlacesService) {
+
+  constructor(public _footer: FooterService, public _elements: ElementsService, private _router: Router, public _places: PlacesService,
+              public loading: LoadingService) {
   }
 
   ngOnInit() {
-    var promise = [];
+    this.loading.create();
+    const promise = [];
     promise.push(this._elements.loadFromDataBase());
     promise.push(this._places.loadFromDataBase());
     Promise.all(promise).then(val => {
       this.checkList();
+      this.loading.dismiss();
     }).catch(error => {
       console.log(error);
-    })
+    });
   }
 
   goToElement(id: number): void {
-    this._router.navigate(['../information/k_' + id + "/brak"]);
+    this._router.navigate(['../information/k_' + id + '/brak']);
   }
 
   goToPlace(id: number | string): void {
-    this._router.navigate(['../information/&_' + id + "/brak"]);
+    this._router.navigate(['../information/&_' + id + '/brak']);
   }
 
   checkList() {
@@ -47,7 +52,7 @@ export class SearchPage implements OnInit {
           return true;
         }
         return false;
-      })
+      });
     } else {
 
       this.findList = this._elements.elementsList.value;
@@ -58,7 +63,7 @@ export class SearchPage implements OnInit {
         return true;
       }
       return false;
-    })
+    });
 
 
   }

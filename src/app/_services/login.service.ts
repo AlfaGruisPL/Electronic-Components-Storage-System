@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import {Storage} from "@ionic/storage-angular";
-import {AlertController, ToastController} from "@ionic/angular";
-import {Router} from "@angular/router";
-import {ApiService} from "./api.service";
+import {Storage} from '@ionic/storage-angular';
+import {AlertController, ToastController} from '@ionic/angular';
+import {Router} from '@angular/router';
+import {ApiService} from './api.service';
 
 @Injectable({
   providedIn: 'root'

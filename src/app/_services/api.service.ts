@@ -5,6 +5,7 @@ import {Storage} from '@ionic/storage-angular';
 import {Router} from '@angular/router';
 import {ApiResponse} from '../_modal/api-response';
 import {HttpHeaders} from '@angular/common/http';
+import {ApiEndPoint} from "../_modal/api-end-point";
 
 @Injectable({
   providedIn: 'root'
@@ -39,7 +40,7 @@ export class ApiService {
     }));
   }
 
-  public getDefault(postfix: string): Promise<ApiResponse | any> {
+  public getDefault(postfix: string | ApiEndPoint): Promise<ApiResponse | any> {
     return new Promise<Array<ApiResponse>>((resolve, reject) => {
       this._http.get(postfix, this.getHeader(), this.token).then(next => {
         resolve(next);

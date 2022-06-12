@@ -69,7 +69,8 @@ export class HirePage {
   }
 
   scanElement(): void {
-    this.qrCode.getInfoAdv('Zeskanuj miejsce docelowe:', 'K_3').then(k => {
+    this.qrCode.getInfoAdv('Zeskanuj miejsce docelowe:', 'no').then(k => {
+      console.log(k);
       this.elementID = k.text.split('_')[1];
       this.api.getDefault('elementInfo/' + this.elementID).then(data => {
         console.log(data);

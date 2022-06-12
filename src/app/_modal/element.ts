@@ -1,7 +1,7 @@
 export class ElementClass {
   id: number;
   nazwa: string;
-  nazwa_orignalna: string;
+  nazwa_oryginalna: string;
   opis: string;
   sprawnosc: string;
   mozliwosc_wypozyczania: string;

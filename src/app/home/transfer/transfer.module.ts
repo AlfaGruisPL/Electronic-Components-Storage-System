@@ -7,7 +7,7 @@ import {IonicModule} from '@ionic/angular';
 import {TransferPageRoutingModule} from './transfer-routing.module';
 
 import {TransferPage} from './transfer.page';
-import {NgxPaginationModule} from "ngx-pagination";
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   imports: [
