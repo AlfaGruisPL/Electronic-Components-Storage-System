@@ -11,8 +11,8 @@ import {LoginService} from "../_services/login.service";
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage {
-  public login = 'mateusz@s.pwste.edu.pl';
-  public password = '123456';
+  public login = '';// '/mateusz@s.pwste.edu.pl';
+  public password = ''; //'123456';
   badPassword = false;
   badLogin = false;
   public keedPass = false;

@@ -14,6 +14,7 @@ export class LoadingService {
     this.loading = await this.loadingController.create({
       message: title,
       spinner: 'bubbles',
+      duration: 5000
     });
     this.loading.present();
   }

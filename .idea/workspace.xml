@@ -4,29 +4,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6d1fddc-25f1-4a98-a59b-05fb675db7de" name="Changes" comment="naprawa przenoszenia">
+    <list default="true" id="f6d1fddc-25f1-4a98-a59b-05fb675db7de" name="Changes" comment="work">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml.orig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/assets/capacitor.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/assets/capacitor.config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/_components/element-in-place-info/element-in-place-info.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_components/element-in-place-info/element-in-place-info.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/_components/element-in-place-info/element-in-place-info.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_components/element-in-place-info/element-in-place-info.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/_modal/element.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_modal/element.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/_services/api.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/api.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/_services/elements.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/elements.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/_services/login.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/login.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire-list/hire-list.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire-list/hire-list.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire-list/hire-list.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire-list/hire-list.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire-list/hire-list.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire-list/hire-list.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/search/search.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/search/search.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/transfer/transfer.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/transfer/transfer.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_services/loading.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/loading.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/information/information.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/information/information.page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/information/information.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/information/information.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/global.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/login.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/login.page.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +181,8 @@
       <workItem from="1654797154530" duration="5684000" />
       <workItem from="1654850106201" duration="23595000" />
       <workItem from="1654938486205" duration="2726000" />
-      <workItem from="1654958076792" duration="9826000" />
+      <workItem from="1654958076792" duration="11204000" />
+      <workItem from="1655147299445" duration="1338000" />
     </task>
     <task id="LOCAL-00001" summary="kolejny dzień">
       <created>1649786916461</created>
@@ -318,7 +303,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654940133343</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="work">
+      <created>1655043694670</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1655043694670</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,7 +338,8 @@
     <MESSAGE value="poprawki" />
     <MESSAGE value="Poprawa logowania oraz funkcja wypożyczania" />
     <MESSAGE value="naprawa przenoszenia" />
-    <option name="LAST_COMMIT_MESSAGE" value="naprawa przenoszenia" />
+    <MESSAGE value="work" />
+    <option name="LAST_COMMIT_MESSAGE" value="work" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

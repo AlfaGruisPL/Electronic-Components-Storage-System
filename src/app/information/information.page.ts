@@ -16,7 +16,7 @@ import {QrOut} from "../_modal/qr-out";
 })
 export class InformationPage implements OnInit {
   public mode = 'wait';
-  public element: ElementClass;
+  public element: ElementClass = new ElementClass();
   public modalPlaceIsOpen = false;
   public miejsceId: any;
   public displayDescription = false;
@@ -39,7 +39,7 @@ export class InformationPage implements OnInit {
         if (params.text.charAt(0).toUpperCase() == 'K' && params.text.charAt(1) == '_') {
           this.mode = 'element';
           this._api.getDefault(ApiEndPoint.elementInfo + '/' + params.text.split('_')[1]).then(data => {
-            this.element = data.value[0];
+            Object.assign(this.element, data.value[0]);
             this.loading.dismiss();
           });
         } else if (params.text.charAt(0).toUpperCase() == '&' && params.text.charAt(1) == '_') {

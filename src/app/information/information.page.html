@@ -41,11 +41,11 @@
 </ion-content>
 -->
 <ion-content *ngIf="mode=='miejsca'">
-  <!--
-    <ng-container *ngIf="miejsca[0]?.nazwa.length <=0 else wyszukiwanie">
-      <h4>Miejsca nie znaleziono w bazie danych</h4>
-    </ng-container>
-  -->
+
+  <ng-container *ngIf="miejsca[0]?.nazwa.length <=0 else wyszukiwanie">
+    <h4>Miejsca nie znaleziono w bazie danych</h4>
+  </ng-container>
+
   <ng-template #wyszukiwanie>
     <table>
       <tr>
@@ -74,11 +74,11 @@
 </ion-content>
 
 <ion-content *ngIf="mode=='element'">
-  <ng-container *ngIf="element?.nazwa.length <=0">
+  <ng-container *ngIf="element?.nazwa?.length <=0">
     <h4>Elementu nie znaleziono w bazie danych</h4>
   </ng-container>
 
-  <ng-container *ngIf="element?.nazwa.length > 0">
+  <ng-container *ngIf="element?.nazwa?.length > 0">
     <table>
       <tr>
         <td><label>Nazwa:</label></td>
@@ -146,6 +146,7 @@
 <app-element-in-place-info [mode]="this.mode"
                            [setData]="modalID"
                            [title]="modalTitle"
+                           [elementName]="element.nazwa"
                            [modalPlaceIsOpen]="modalPlaceIsOpen">
 </app-element-in-place-info>
 
