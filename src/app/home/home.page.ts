@@ -9,7 +9,7 @@ import {QrcodeService} from '../_services/qrcode.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  constructor(private _api: ApiService, private _router: Router, private _qr: QrcodeService) {
+  constructor(public _api: ApiService, private _router: Router, private _qr: QrcodeService) {
   }
 
   public logOut(): void {

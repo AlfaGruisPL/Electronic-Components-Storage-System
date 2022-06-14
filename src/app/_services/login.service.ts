@@ -45,6 +45,7 @@ export class LoginService {
   public logInF(login: string, password: string, saveToLocalStorage: boolean, hideCommunicate = false): Promise<boolean> {
     return new Promise(async (resolve, reject) => {
       this.api.login(login, password).then(async data => {
+
         if (hideCommunicate === false) {
           const toast = await this.toastController.create({
             message: 'Logowanie udane',

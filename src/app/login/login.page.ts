@@ -87,7 +87,11 @@ export class LoginPage {
       this.badPassword = false;
     }
     if (this.login.length > 0 && this.password.length > 0) {
-      this.loginService.logInF(this.login, this.password, this.keedPass);
+      this.loginService.logInF(this.login, this.password, this.keedPass).then(dane => {
+
+      }).catch(error => {
+        console.log(error)
+      });
     }
 
   }

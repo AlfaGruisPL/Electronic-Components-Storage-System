@@ -2,6 +2,7 @@
   <ion-toolbar>
     <ion-title>
       Dostępne opcje:
+      <ng-container *ngIf="_api.isAdmin()">(administrator)</ng-container>
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -36,7 +37,7 @@
       <ion-icon name="wallet-outline"></ion-icon>
       <label>Wypożyczenia</label>
     </ion-button>
-    <ion-button (click)="toTransfer()" color="light" class="icon">
+    <ion-button (click)="toTransfer()" color="light" class="icon" *ngIf="_api.isAdmin();">
       <ion-icon name="swap-horizontal-outline"></ion-icon>
       <label>Przenoszenia</label>
     </ion-button>

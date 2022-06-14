@@ -5,16 +5,22 @@ import {Storage} from '@ionic/storage-angular';
 import {Router} from '@angular/router';
 import {ApiResponse} from '../_modal/api-response';
 import {HttpHeaders} from '@angular/common/http';
-import {ApiEndPoint} from "../_modal/api-end-point";
+import {ApiEndPoint} from '../_modal/api-end-point';
+import {Login} from '../_modal/login';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
   private token = '';
+  private isAdminVal = false;
   private _storage: Storage | null = null;
 
   constructor(private storage: Storage, private _http: HttpService, private http: HTTP, private _router: Router) {
+  }
+
+  isAdmin(): boolean {
+    return this.isAdminVal;
   }
 
   login(email: string, password: string): Promise<boolean> {
@@ -23,7 +29,14 @@ export class ApiService {
       json['email'] = email;
       json['password'] = password;
 
-      this._http.post('login', json, this.getHeader()).then(data => {
+      this._http.post('login', json, this.getHeader()).then((data: Login) => {
+        console.log(data);
+        const find = data.group.find(group => {
+          return group.group_id === '2';
+        });
+        console.log(find)
+        this.isAdminVal = find !== undefined;
+        //  this.isAdminVal = data.isAdmin === 1;
         this.token = data.token;
         resolve(true);
       }).catch(
