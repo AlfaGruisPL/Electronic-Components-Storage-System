@@ -4,10 +4,58 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
-</ion-content>
 
 <ion-footer class="ion-no-border" style="display: flex;justify-content: center">
 
+  <ion-tab-button (click)="_footer.getInfo()">
+    <ion-icon name="eye-outline"></ion-icon>
+    <ion-label>Zbadaj</ion-label>
+  </ion-tab-button>
+
+
+  <ion-tab-button (click)="_footer.ToLogin()">
+    <ion-icon name="person-add-outline"></ion-icon>
+    <ion-label>Logowanie</ion-label>
+  </ion-tab-button>
+
+  <!--
+    <ion-tab-button>
+      <ion-icon name="information-circle"></ion-icon>
+      <ion-label>bla bla bla</ion-label>
+    </ion-tab-button>
+    -->
+</ion-footer>
+
+
+<ion-content>
+  <table>
+    <tr *ngFor="let x of ['Imie','Nazwisko','Email','Nr indeksu']">
+      <td colspan="2">
+        <ion-item>
+          <ion-label position="floating">{{x}}</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+
+      </td>
+    </tr>
+    <tr>
+      <td colspan="">
+        <ion-item>
+          <ion-label position="floating">Podaj hasło</ion-label>
+          <ion-input #password type="password"></ion-input>
+          <ion-button size="small" (mousedown)="password.type='text'" (mouseout)="password.type='password'">
+            <ion-icon name="search-outline"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2"><input type="password" #password2>
+
+      </td>
+
+    </tr>
+
+  </table>
+</ion-content>
 

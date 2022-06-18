@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FooterService} from "../_services/footer.service";
 
 @Component({
   selector: 'app-register',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterPage implements OnInit {
 
-  constructor() { }
+  constructor(public _footer: FooterService,) {
+  }
 
   ngOnInit() {
   }
 
 }
+

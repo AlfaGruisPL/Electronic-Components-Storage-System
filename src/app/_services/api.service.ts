@@ -23,22 +23,18 @@ export class ApiService {
     return this.isAdminVal;
   }
 
-  login(email: string, password: string): Promise<boolean> {
-    return new Promise<boolean>(((resolve, reject) => {
+  login(email: string, password: string): Promise<Login> {
+    return new Promise<Login>(((resolve, reject) => {
       const json = {};
       json['email'] = email;
       json['password'] = password;
 
       this._http.post('login', json, this.getHeader()).then((data: Login) => {
-        console.log(data);
-        const find = data.group.find(group => {
-          return group.group_id === '2';
-        });
-        console.log(find)
+        const find = data.group.find(group => group.group_id === '2');
         this.isAdminVal = find !== undefined;
         //  this.isAdminVal = data.isAdmin === 1;
         this.token = data.token;
-        resolve(true);
+        resolve(data);
       }).catch(
         error => {
           if (error.status == '401') {

@@ -18,7 +18,7 @@ export class FooterService {
   }
 
   getRegisterPage(): void {
-
+    this._router.navigate(['/register']);
   }
 
   ToLogin(): void {

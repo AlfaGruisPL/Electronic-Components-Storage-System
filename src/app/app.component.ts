@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Plugins} from '@capacitor/core';
 import {LoginService} from "./_services/login.service";
-import {LoadingController} from "@ionic/angular";
 import {Insomnia} from "@awesome-cordova-plugins/insomnia/ngx";
 
 const {SplashScreen} = Plugins;
@@ -12,7 +11,7 @@ const {SplashScreen} = Plugins;
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(private loginService: LoginService, public loadingController: LoadingController, private insomnia: Insomnia) {
+  constructor(private loginService: LoginService, private insomnia: Insomnia) {
   }
 
   componentDidLoad() {
@@ -30,15 +29,13 @@ export class AppComponent implements OnInit {
       );
 
 
-    const loading = await this.loadingController.create({
-      message: 'Trwa automatyczne logowanie...',
-    });
-    await loading.present();
-    this.loginService.checkStorage().then(() => {
-      loading.dismiss();
-    }).catch(() => {
-      loading.dismiss();
-    });
+    this.loginService.startApp();
+
+    /*    this.loginService.checkStorage().then(() => {
+          loading.dismiss();
+        }).catch(() => {
+          loading.dismiss();
+        });*/
 
   }
 }

@@ -19,12 +19,12 @@ export class LoginGuard implements CanActivate {
     // sprawdzenie, czy aplikacja jest już zalogowana do API
     if (this.api.tokenExist()) {
       if (this.i === 0) {
-        console.log('%cUżytkownik zalogowany', 'color: green');
+        // console.log('%cUżytkownik zalogowany', 'color: green');
         this.i = 2;
       }
       return true;
     } else {
-      console.log('%cBrak tokenu- próba logowania', 'color: green');
+      console.log('%cBrak tokenu- próba logowania', 'color: pink');
       return new Promise((resolve, reject) => {
         this.loginService.checkStorage().then(data => {
           console.log('%cZalogowano automatycznie', 'color: green');
@@ -37,5 +37,4 @@ export class LoginGuard implements CanActivate {
       });
     }
   }
-
 }

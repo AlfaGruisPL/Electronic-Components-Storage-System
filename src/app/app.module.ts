@@ -23,10 +23,11 @@ import {Insomnia} from '@awesome-cordova-plugins/insomnia/ngx';
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, FormsModule, NgxPaginationModule,
     IonicStorageModule.forRoot()],
-  providers: [{
-    provide: RouteReuseStrategy,
-    useClass: IonicRouteStrategy
-  }, LeaveGuard, BarcodeScanner, HttpService, ApiService, HTTP, Network, LoginGuard, Insomnia],
+  providers: [
+    {
+      provide: RouteReuseStrategy,
+      useClass: IonicRouteStrategy
+    }, LeaveGuard, BarcodeScanner, HttpService, ApiService, HTTP, Network, LoginGuard, Insomnia],
   bootstrap: [AppComponent],
 })
 export class AppModule {

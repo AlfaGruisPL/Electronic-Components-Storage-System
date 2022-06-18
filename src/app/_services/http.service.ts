@@ -1,9 +1,8 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 import {HTTP} from '@ionic-native/http/ngx';
 import {Capacitor} from '@capacitor/core';
-import {Network} from '@awesome-cordova-plugins/network/ngx';
 import {ToastController} from '@ionic/angular';
 
 @Injectable({
@@ -13,7 +12,7 @@ export class HttpService {
   private adresApi = 'https://www.magazynapi.efennec.cfolks.pl/index.php/';
 
 
-  constructor(private _http: HttpClient, private http: HTTP, private network: Network, public toastController: ToastController) {
+  constructor(private _http: HttpClient, private http: HTTP, public toastController: ToastController) {
   }
 
   post(url: string, body: any, options: any): Promise<any> {
@@ -71,15 +70,13 @@ export class HttpService {
           duration: 4000
         });
         toast.present();
-      }, 1)
-
+      }, 1);
     }
     return data;
-
   }
 
   private post_(url: string, body: any, options: any): Observable<any> {
-    return this._http.post(url, body, options)
+    return this._http.post(url, body, options);
   }
 
   private get_(url: string, options: any): Observable<any> {
