@@ -28,7 +28,8 @@
 
 
 <ion-content>
-  <table>
+  <h2>&nbsp;Uzupełnij dane:</h2>
+  <table style="width: 100%;">
     <tr *ngFor="let x of ['Imie','Nazwisko','Email','Nr indeksu']">
       <td colspan="2">
         <ion-item>
@@ -39,21 +40,32 @@
       </td>
     </tr>
     <tr>
-      <td colspan="">
+      <td colspan="2">
         <ion-item>
           <ion-label position="floating">Podaj hasło</ion-label>
-          <ion-input #password type="password"></ion-input>
-          <ion-button size="small" (mousedown)="password.type='text'" (mouseout)="password.type='password'">
-            <ion-icon name="search-outline"></ion-icon>
-          </ion-button>
+          <div style="display:flex;width: 100%;">
+
+            <ion-input #password type="password"></ion-input>
+            <ion-button size="small" (mousedown)="password.type='text'" (mouseout)="password.type='password'">
+              <ion-icon name="search-outline"></ion-icon>
+            </ion-button>
+          </div>
         </ion-item>
       </td>
     </tr>
     <tr>
-      <td colspan="2"><input type="password" #password2>
+      <td colspan="2">
+        <ion-item style="width: 100%;">
+          <ion-label position="floating">Powtórz hasło</ion-label>
+          <div style="display:flex;width: 100%;">
 
+            <ion-input #password2 type="password" style="width: 100%;"></ion-input>
+            <ion-button size="small" (mousedown)="password2.type='text'" (mouseout)="password2.type='password'">
+              <ion-icon name="search-outline"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-item>
       </td>
-
     </tr>
 
   </table>
