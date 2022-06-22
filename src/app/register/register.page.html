@@ -30,22 +30,47 @@
 <ion-content>
   <h2>&nbsp;Uzupełnij dane:</h2>
   <table style="width: 100%;">
-    <tr *ngFor="let x of ['Imie','Nazwisko','Email','Nr indeksu']">
+    <tr>
       <td colspan="2">
         <ion-item>
-          <ion-label position="floating">{{x}}</ion-label>
-          <ion-input></ion-input>
+          <ion-label position="floating">Imie</ion-label>
+          <ion-input [(ngModel)]="user.imie" autocomplete="name"></ion-input>
         </ion-item>
-
       </td>
     </tr>
+    <tr>
+      <td colspan="2">
+        <ion-item>
+          <ion-label position="floating">Nazwisko</ion-label>
+          <ion-input [(ngModel)]="user.nazwisko" min="4"></ion-input>
+        </ion-item>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input [(ngModel)]="user.email" pattern="email" inputmode="email"></ion-input>
+        </ion-item>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <ion-item>
+          <ion-label position="floating">Nr indeksu</ion-label>
+          <ion-input [(ngModel)]="user.nr_indeksu"></ion-input>
+        </ion-item>
+      </td>
+    </tr>
+
+
     <tr>
       <td colspan="2">
         <ion-item>
           <ion-label position="floating">Podaj hasło</ion-label>
           <div style="display:flex;width: 100%;">
 
-            <ion-input #password type="password"></ion-input>
+            <ion-input #password type="password" [(ngModel)]="user.haslo"></ion-input>
             <ion-button size="small" (mousedown)="password.type='text'" (mouseout)="password.type='password'">
               <ion-icon name="search-outline"></ion-icon>
             </ion-button>
@@ -59,7 +84,7 @@
           <ion-label position="floating">Powtórz hasło</ion-label>
           <div style="display:flex;width: 100%;">
 
-            <ion-input #password2 type="password" style="width: 100%;"></ion-input>
+            <ion-input #password2 type="password" [(ngModel)]="user.haslo2" style="width: 100%;"></ion-input>
             <ion-button size="small" (mousedown)="password2.type='text'" (mouseout)="password2.type='password'">
               <ion-icon name="search-outline"></ion-icon>
             </ion-button>
@@ -67,7 +92,11 @@
         </ion-item>
       </td>
     </tr>
-
+    <tr>
+      <td style="float: right;margin: 20px">
+        <ion-button color="success" (click)="register()">Zarejestruj</ion-button>
+      </td>
+    </tr>
   </table>
 </ion-content>
 

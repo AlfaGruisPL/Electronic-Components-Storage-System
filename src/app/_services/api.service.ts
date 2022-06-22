@@ -68,7 +68,9 @@ export class ApiService {
   }
 
   public postDefault(postfix: string, dane: any): Promise<ApiResponse | any> {
-    dane['token'] = this.token;
+    if (this.token.length > 10) {
+      dane['token'] = this.token;
+    }
     return new Promise<Array<ApiResponse>>((resolve, reject) => {
       this._http.post(postfix, dane, this.getHeader()).then(next => {
         resolve(next);
@@ -79,6 +81,7 @@ export class ApiService {
           this._router.navigate(['']);
           alert('Wylogowanie automatyczne: ' + error.status);
         }
+
         reject(error);
       });
     });
@@ -98,12 +101,14 @@ export class ApiService {
   }
 
   private getHeader(): any {
+
+    // @ts-ignore
     var httpOptions = {
       headers: new HttpHeaders({
         'Cache-Control': 'no-cache, no-store, must-revalidate, post-check=0, pre-check=0',
         Pragma: 'no-cache',
         Expires: '0',
-        token: this.token
+        token: this.token.length > 10 ? this.token : ""
       })
     };
 

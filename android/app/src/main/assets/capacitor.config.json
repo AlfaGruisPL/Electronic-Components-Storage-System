@@ -1,10 +1,9 @@
 {
-	"appId": "io.ionic.magazynMobile",
-	"appName": "Magazyn",
+	"appId": "io.ionic.debbugmagazynMobile",
+	"appName": "debbug",
 	"webDir": "www",
 	"bundledWebRuntime": false,
 	"loggingBehavior": "none",
-	"hideLogs": true,
 	"cordova": {
 		"preferences": {
 			"ScrollEnabled": "false",

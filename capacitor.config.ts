@@ -6,7 +6,6 @@ const config: CapacitorConfig = {
   webDir: 'www',
   bundledWebRuntime: false,
   loggingBehavior: 'none',
-  hideLogs: true,
   cordova: {
     preferences: {
       ScrollEnabled: 'false',

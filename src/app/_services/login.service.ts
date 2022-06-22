@@ -69,8 +69,9 @@ export class LoginService {
         if (hideCommunicate === false) {
           const toast = await this.toastController.create({
             message: 'Logowanie udane',
-            duration: 200,
-            position: 'bottom'
+            duration: 400,
+            position: 'bottom',
+            icon: 'key-outline'
           });
           toast.present();
         }
@@ -82,25 +83,34 @@ export class LoginService {
         this.router.navigate(['home']);
         resolve(new Date().getTime() - t1);
       }).catch(async data => {
-
         let toast;
         switch (data.status) {
+          case 425:
+            toast = await this.toastController.create({
+              message: 'Twoje konto nie zostało potwierdzone, sprawdź swoją skrzynkę pocztową oraz potwierdź swoje konto',
+              duration: 4000,
+              icon: 'key-outline'
+            });
+            break;
           case 423:
             toast = await this.toastController.create({
-              message: 'Twoje konto jest zostało dezaktywowane',
-              duration: 2000
+              message: 'Twoje konto zostało dezaktywowane',
+              duration: 2000,
+              icon: 'key-outline'
             });
             break;
           case 424:
             toast = await this.toastController.create({
               message: 'Twoje konto jest zarchiwizowane',
-              duration: 2000
+              duration: 2000,
+              icon: 'key-outline'
             });
             break;
           default:
             toast = await this.toastController.create({
-              message: 'Logowanie nie udane',
-              duration: 2000
+              message: 'Podane dane logowania nie są poprawne',
+              duration: 2000,
+              icon: 'key-outline'
             });
             break;
         }

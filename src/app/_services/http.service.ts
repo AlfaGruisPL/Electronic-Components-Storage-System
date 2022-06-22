@@ -16,6 +16,7 @@ export class HttpService {
   }
 
   post(url: string, body: any, options: any): Promise<any> {
+
     return new Promise(((resolve, reject) => {
       if (Capacitor.isNativePlatform() == false) {
         this.post_(this.adresApi + url, body, options).subscribe(next => {
@@ -27,10 +28,10 @@ export class HttpService {
       } else { //mobile
         var encoded = btoa(JSON.stringify(body));
         this.http.setServerTrustMode('nocheck');
-        this.http.post(this.adresApi + url + '?data=' + encoded, {}, {}).then(a => {
-          resolve(JSON.parse(a['data']));
-        }).catch(b => {
-          reject(this.errorAnalize(b));
+        this.http.post(this.adresApi + url + '?data=' + encoded, {}, {}).then(k => {
+          resolve(JSON.parse(k['data']));
+        }).catch(error => {
+          reject(this.errorAnalize(error));
         });
 
       }
