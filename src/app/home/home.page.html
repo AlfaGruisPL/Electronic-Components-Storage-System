@@ -1,14 +1,20 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
+      <ion-menu-toggle>
+        <ion-icon name="reorder-three-outline"></ion-icon>
+      </ion-menu-toggle>
       Dostępne opcje:
       <ng-container *ngIf="_api.isAdmin()">(administrator)</ng-container>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content [fullscreen]="false">
   <div id="container" class="container">
+
+
     <ion-button (click)="ToSearch()" color="light" class="icon">
       <ion-icon name="search-outline"></ion-icon>
       <label>Wyszukaj
@@ -24,3 +30,4 @@
     </ion-button>
   </div>
 </ion-content>
+

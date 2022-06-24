@@ -7,35 +7,15 @@
     <list default="true" id="f6d1fddc-25f1-4a98-a59b-05fb675db7de" name="Changes" comment="work">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/app/src/main/assets/capacitor.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/assets/capacitor.config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/_modal/qr-out.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_modal/qr-out.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/_modal/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_modal/user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_components/footer/footer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_components/footer/footer.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_modal/page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_modal/page.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/_services/footer.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/footer.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/_services/http.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/http.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/_services/qrcode.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/qrcode.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire-list/hire-list.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire-list/hire-list.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire-list/hire-list.page.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire.page.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/return-hire/return-hire.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/return-hire/return-hire.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hireMenu.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hireMenu.page.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/home/home.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/home.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/home.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/home.page.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/home/home.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/home.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/search/search.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/search/search.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/information/information.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/information/information.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/login/login.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/login.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/login/login.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/login.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/register/register.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/register/register.page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/register/register.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/register/register.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/global.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -264,7 +244,7 @@
       <workItem from="1655675838503" duration="2493000" />
       <workItem from="1655884496194" duration="16578000" />
       <workItem from="1655972292648" duration="19702000" />
-      <workItem from="1656062875500" duration="5872000" />
+      <workItem from="1656062875500" duration="18158000" />
     </task>
     <task id="LOCAL-00001" summary="kolejny dzień">
       <created>1649786916461</created>
@@ -420,7 +400,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655908803445</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="work">
+      <created>1656076188302</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1656076188302</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

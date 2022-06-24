@@ -4,6 +4,7 @@ import {ApiService} from '../_services/api.service';
 import {QrcodeService} from '../_services/qrcode.service';
 import {FooterService} from '../_services/footer.service';
 import {Page} from '../_modal/page';
+import {MenuController} from "@ionic/angular";
 
 @Component({
   selector: 'app-home',
@@ -11,11 +12,16 @@ import {Page} from '../_modal/page';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  constructor(public _api: ApiService, private _router: Router, private _qr: QrcodeService, private footer: FooterService) {
+  constructor(public _api: ApiService, private _router: Router, private _qr: QrcodeService, private footer: FooterService, private menu: MenuController) {
+  }
+
+  ionViewDidEnter() {
+    this.footer.footerSetPage.next(Page.home);
   }
 
   ionViewWillEnter() {
-    this.footer.footerSetPage.next(Page.home);
+
+    //this.footer.footerSetPage.next(Page.home);
   }
 
   getInfo(): void {

@@ -6,29 +6,37 @@
   </ion-tab-button>
 
   <ion-tab-button (click)="footer.back()"
-                  *ngIf="footer.footerSetPage.getValue() == Page.nextHome ">
+                  *ngIf="footer.backButton">
     <ion-icon name="arrow-back-outline"></ion-icon>
     <ion-label>Cofnij</ion-label>
   </ion-tab-button>
 
 
-  <ion-tab-button (click)="footer.getRegisterPage()" *ngIf="footer.footerSetPage.getValue()== Page.login">
+  <ion-tab-button (click)="footer.getRegisterPage()" *ngIf="footer.registerButton">
     <ion-icon name="person-add-outline"></ion-icon>
     <ion-label>Rejestracja</ion-label>
   </ion-tab-button>
 
-  <ion-tab-button (click)="footer.ToLogin()" *ngIf="footer.footerSetPage.getValue()== Page.register">
+  <ion-tab-button (click)="footer.ToLogin()" *ngIf="footer.logInButton">
     <ion-icon name="person-add-outline"></ion-icon>
     <ion-label>Logowanie</ion-label>
   </ion-tab-button>
 
-  <ion-tab-button (click)="footer.tologOut()" *ngIf="footer.footerSetPage.getValue()== Page.home">
+  <ion-tab-button (click)="footer.tologOut()"
+                  *ngIf="footer.logOutButton">
     <ion-icon name="person-add-outline"></ion-icon>
     <ion-label>Wyloguj</ion-label>
   </ion-tab-button>
 
-  <ion-tab-button>
-    <ion-icon name="information-circle"></ion-icon>
-    <ion-label>Informacje</ion-label>
+  <ion-tab-button (click)="footer.ToMenu()" *ngIf="footer.menuButton">
+    <ion-icon name="apps-outline"></ion-icon>
+    <ion-label>Menu</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button
+    *ngIf="footer.settingsButton "
+    (click)="footer.goToSettings();">
+    <ion-icon name="settings-outline"></ion-icon>
+    <ion-label>Ustawienia</ion-label>
   </ion-tab-button>
 </ion-footer>

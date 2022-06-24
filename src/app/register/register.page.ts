@@ -4,6 +4,7 @@ import {User} from "../_modal/user";
 import {ApiService} from "../_services/api.service";
 import {ToastController} from "@ionic/angular";
 import {Router} from "@angular/router";
+import {Page} from "../_modal/page";
 
 @Component({
   selector: 'app-register',
@@ -20,9 +21,10 @@ export class RegisterPage implements OnInit {
               private router: Router) {
   }
 
-  /**
-   * test
-   */
+  ionViewWillEnter() {
+    this._footer.footerSetPage.next(Page.register);
+  }
+
   ngOnInit() {
   }
 
@@ -30,7 +32,7 @@ export class RegisterPage implements OnInit {
     const toast = await this.toastController.create({
       message: 'Dane nie są prawidłowe',
       duration: 2000,
-      //      icon: 'checkmark-done-outline'
+      icon: 'alert-outline'
     });
     toast.present();
   }
@@ -45,7 +47,7 @@ export class RegisterPage implements OnInit {
       const toast = await this.toastController.create({
         message: 'Podany adres email nie należy do adresów należących do uczelni PWSTE Jarosław',
         duration: 2000,
-        //      icon: 'checkmark-done-outline'
+        icon: 'alert-outline'
       });
       toast.present();
       return;
@@ -67,6 +69,7 @@ export class RegisterPage implements OnInit {
     json['nr_indeksu'] = this.user.nr_indeksu;
     json['nazwisko'] = this.user.nazwisko;
     this.api.postDefault('register', json).then(async data => {
+      this.buttonDisabled = false;
       const toast = await this.toastController.create({
         message: 'Konto zostało zarejestrowane, na podany adres email został wysłany email z linkiem potwierdzającym',
         duration: 7000,
@@ -75,14 +78,16 @@ export class RegisterPage implements OnInit {
       this.router.navigate(['/login'])
       toast.present();
     }).catch(async error => {
+      this.buttonDisabled = false;
       if (String(error['status']) === '425') {
         const toast = await this.toastController.create({
           message: 'Podany adres email jest już zarejestrowany',
           duration: 2000,
+          icon: 'alert-outline'
         });
         toast.present();
       }
-      this.buttonDisabled = false;
+
     })
   }
 }

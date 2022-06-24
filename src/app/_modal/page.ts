@@ -3,4 +3,6 @@ export enum Page {
   register,
   home,
   nextHome,
+  settings,
+  page
 }

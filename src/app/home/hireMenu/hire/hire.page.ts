@@ -18,7 +18,6 @@ export class HirePage {
   public modalPlaceIsOpen = false;
   customPopoverOptions: any = {
     header: 'Wybierz czas wypożyczenia',
-    //subHeader: 'Select your hair color',
     message: 'W przypadku nie oddania na czas, istnieje możliwości przydłużenia wypożyczenia'
   };
 
