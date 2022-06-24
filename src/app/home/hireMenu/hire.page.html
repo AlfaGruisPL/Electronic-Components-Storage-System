@@ -4,26 +4,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-footer class="ion-no-border" style="display: flex;justify-content: center">
-  <ion-tab-button (click)="_footer.back()">
-    <ion-icon name="arrow-back-outline"></ion-icon>
-    <ion-label>Cofnij</ion-label>
-  </ion-tab-button>
-
-  <ion-tab-button (click)="_footer.getInfo()">
-    <ion-icon name="eye-outline"></ion-icon>
-    <ion-label>Zbadaj</ion-label>
-  </ion-tab-button>
-
-  <ion-tab-button (click)="_footer.ToMenu()">
-    <ion-icon name="person-add-outline"></ion-icon>
-    <ion-label>Menu</ion-label>
-  </ion-tab-button>
-</ion-footer>
-
 
 <ion-content [fullscreen]="true">
-  <div id="container">
+  <div id="container" class="container">
     <ion-button (click)="returnHire();" color="light" class="icon">
       <ion-icon name="open-outline"></ion-icon>
       <label>Zwróć

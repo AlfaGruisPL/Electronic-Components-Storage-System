@@ -29,9 +29,20 @@ export class HttpService {
         var encoded = btoa(JSON.stringify(body));
         this.http.setServerTrustMode('nocheck');
         this.http.post(this.adresApi + url + '?data=' + encoded, {}, {}).then(k => {
-          resolve(JSON.parse(k['data']));
+          try {
+            resolve(JSON.parse(k['data']));
+          } catch (error) {
+            reject(k);
+          }
         }).catch(error => {
-          reject(this.errorAnalize(error));
+          //console.log(JSON.parse(error['error']))
+          this.errorAnalize(error);
+          try {
+            reject(JSON.parse(error['error']));
+          } catch (err) {
+            console.log(error);
+            reject(false);
+          }
         });
 
       }

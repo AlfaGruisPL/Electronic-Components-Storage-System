@@ -1,81 +1,68 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Wyporzyczanie:</ion-title>
+    <ion-title>Wypożyczanie:</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-footer class="ion-no-border" style="display: flex;justify-content: center">
-  <ion-tab-button (click)="_footer.back()">
-    <ion-icon name="arrow-back-outline"></ion-icon>
-    <ion-label>Cofnij</ion-label>
-  </ion-tab-button>
 
-  <ion-tab-button (click)="_footer.getInfo()">
-    <ion-icon name="eye-outline"></ion-icon>
-    <ion-label>Zbadaj</ion-label>
-  </ion-tab-button>
-
-  <ion-tab-button (click)="_footer.ToMenu()">
-    <ion-icon name="person-add-outline"></ion-icon>
-    <ion-label>Menu</ion-label>
-  </ion-tab-button>
-</ion-footer>
 
 <ion-content>
-  <h3 *ngIf="rules else accept" style="color:#78c900;"> Kliknij na przycisk aby wypożyczyć:</h3>
-  <ng-template #accept>
-    <h3 style="color: #ff2424">Aby kontynuować zaakceptuj regulamin:</h3>
+  <div class='container'>
+    <h3 *ngIf="rules else accept" style="color:#78c900;"> Kliknij na przycisk aby wypożyczyć:</h3>
+    <ng-template #accept>
+      <h3 style="color: #ff2424">Aby kontynuować zaakceptuj regulamin:</h3>
 
-  </ng-template>
-  <button (click)="HireAccept()" *ngIf="elementID !== ''" [disabled]="!rules" class="ScanButton accept "
-          style="margin-left: auto;margin-right: auto;font-size: 167px;">
-    <ion-icon name="checkmark-outline"></ion-icon>
-  </button>
+    </ng-template>
+    <button (click)="HireAccept()" *ngIf="elementID !== ''" [disabled]="!rules" class="ScanButton accept "
+            style="margin-left: auto;margin-right: auto;font-size: 167px;">
+      <ion-icon name="checkmark-outline"></ion-icon>
+    </button>
 
-  <table class="tableInfo" style="width: 100%;">
-    <tr>
-      <td colspan="2" style="font-size: 25px;padding-top: 20px;padding-bottom: 20px">
-        <ion-checkbox [(ngModel)]="rules" color="danger" style=" width: 24px;height: 24px;"></ion-checkbox>
-        Akceptacja
-        <a (click)="modalPlaceIsOpen = true" class="reg">
+    <table class="tableInfo" style="width: 100%;">
+      <tr>
+        <td colspan="2" style="font-size: 25px;padding-top: 20px;padding-bottom: 20px">
+          <ion-checkbox [(ngModel)]="rules" color="danger" style=" width: 24px;height: 24px;"></ion-checkbox>
+          Akceptacja
+          <a (click)="modalPlaceIsOpen = true" class="reg">
 
-          Regulaminu
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Planowany czas wypożyczenia:
-      </td>
-      <td>
-        <ion-item>
-          <ion-select [(ngModel)]="hireTime" [interfaceOptions]="customPopoverOptions" interface="popover"
-                      placeholder="Wybierz czas">
-            <ion-select-option value="31">1 miesiąc</ion-select-option>
-            <ion-select-option value="7">1 tydzień</ion-select-option>
-            <ion-select-option value="3">3 dni</ion-select-option>
-          </ion-select>
-        </ion-item>
-      </td>
-    </tr>
+            Regulaminu
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Planowany czas wypożyczenia:
+        </td>
+        <td>
+          <ion-item>
+            <ion-select [(ngModel)]="hireTime" [interfaceOptions]="customPopoverOptions" interface="popover"
+                        placeholder="Wybierz czas">
+              <ion-select-option value="31">1 miesiąc</ion-select-option>
+              <ion-select-option value="7">1 tydzień</ion-select-option>
+              <ion-select-option value="3">3 dni</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </td>
+      </tr>
 
 
-    <tr>
-      <td>
-        Uwagi:
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2">
-        <ion-textarea
-          placeholder="Wpisz tutaj uwagi dostępne dla zarządzającego magazynem"
-          rows="11"
-          spellcheck="true" style="border:1px solid grey;width: 100%" wrap="soft"
-        ></ion-textarea>
+      <tr>
+        <td>
+          Uwagi:
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <ion-textarea
+            placeholder="Wpisz tutaj uwagi dostępne dla zarządzającego magazynem"
+            rows="11"
+            spellcheck="true" style="border:1px solid grey;width: 100%" wrap="soft"
+          ></ion-textarea>
 
-      </td>
-    </tr>
+        </td>
+      </tr>
 
-  </table>
+    </table>
+  </div>
 </ion-content>
 
 <ion-modal

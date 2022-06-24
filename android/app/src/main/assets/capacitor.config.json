@@ -1,6 +1,6 @@
 {
-	"appId": "io.ionic.debbugmagazynMobile",
-	"appName": "debbug",
+	"appId": "io.ionic.magazynMobile",
+	"appName": "Magazyn",
 	"webDir": "www",
 	"bundledWebRuntime": false,
 	"loggingBehavior": "none",
@@ -14,5 +14,8 @@
 			"SplashScreen": "screen",
 			"SplashScreenDelay": "1"
 		}
+	},
+	"server": {
+		"url": "http://10.68.6.87:8100"
 	}
 }

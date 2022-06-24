@@ -5,31 +5,6 @@
   </ion-toolbar>
 </ion-header>
 
-
-<ion-footer class="ion-no-border" style="display: flex;justify-content: center">
-  <ion-tab-button (click)="_footer.back()">
-    <ion-icon name="arrow-back-outline"></ion-icon>
-    <ion-label>Cofnij</ion-label>
-  </ion-tab-button>
-
-  <ion-tab-button (click)="_footer.getInfo()">
-    <ion-icon name="eye-outline"></ion-icon>
-    <ion-label>Zbadaj</ion-label>
-  </ion-tab-button>
-
-  <ion-tab-button (click)="_footer.ToMenu()" *ngIf="_api.tokenExist()">
-    <ion-icon name="person-add-outline"></ion-icon>
-    <ion-label>Menu</ion-label>
-  </ion-tab-button>
-
-  <ion-tab-button (click)="_footer.ToLogin()" *ngIf="!_api.tokenExist()">
-    <ion-icon name="person-add-outline"></ion-icon>
-    <ion-label>Logowanie</ion-label>
-  </ion-tab-button>
-
-
-</ion-footer>
-
 <!--
 <ion-content *ngIf="mode=='wait'">
   <div
@@ -41,102 +16,103 @@
 </ion-content>
 -->
 <ion-content *ngIf="mode=='miejsca'">
+  <div class="container">
+    <ng-container *ngIf="miejsca[0]?.nazwa.length <=0 else wyszukiwanie">
+      <h4>Miejsca nie znaleziono w bazie danych</h4>
+    </ng-container>
 
-  <ng-container *ngIf="miejsca[0]?.nazwa.length <=0 else wyszukiwanie">
-    <h4>Miejsca nie znaleziono w bazie danych</h4>
-  </ng-container>
+    <ng-template #wyszukiwanie>
+      <table>
+        <tr>
+          <td><label>Nazwa:</label></td>
+          <td><span>{{miejsca[miejsca.length - 1]?.nazwa}}</span></td>
+        </tr>
+        <tr>
+          <td><label>Lokalizacja:</label></td>
+          <td>
+            <ion-button (click)="openModalPlace(miejsca[miejsca.length -1]?.id,'Lokalizacja miejsca')">
+              <ion-icon name="help-outline"></ion-icon>
+            </ion-button>
+          </td>
+        </tr>
+      </table>
+      <div class="elementImageDiv">
+        <label>Zdjęcie miejsca:</label>
+        <img class="elementImage"
+             src="https://www.creativehobby.pl/pol_pl_Wykrojnik-do-papieru-Krolik-Kroliczek-4-3x7-8-cm-36277_3.jpg">
 
-  <ng-template #wyszukiwanie>
-    <table>
-      <tr>
-        <td><label>Nazwa:</label></td>
-        <td><span>{{miejsca[miejsca.length - 1]?.nazwa}}</span></td>
-      </tr>
-      <tr>
-        <td><label>Lokalizacja:</label></td>
-        <td>
-          <ion-button (click)="openModalPlace(miejsca[miejsca.length -1]?.id,'Lokalizacja miejsca')">
-            <ion-icon name="help-outline"></ion-icon>
-          </ion-button>
-        </td>
-      </tr>
-    </table>
-    <div class="elementImageDiv">
-      <label>Zdjęcie miejsca:</label>
-      <img class="elementImage"
-           src="https://www.creativehobby.pl/pol_pl_Wykrojnik-do-papieru-Krolik-Kroliczek-4-3x7-8-cm-36277_3.jpg">
+      </div>
 
-    </div>
+    </ng-template>
 
-  </ng-template>
-
-
+  </div>
 </ion-content>
 
 <ion-content *ngIf="mode=='element'">
-  <ng-container *ngIf="element?.nazwa?.length <=0">
-    <h4>Elementu nie znaleziono w bazie danych</h4>
-  </ng-container>
+  <div class="container">
+    <ng-container *ngIf="element?.nazwa?.length <=0">
+      <h4>Elementu nie znaleziono w bazie danych</h4>
+    </ng-container>
 
-  <ng-container *ngIf="element?.nazwa?.length > 0">
-    <table>
-      <tr>
-        <td><label>Nazwa:</label></td>
-        <td><span>{{element?.nazwa}}</span></td>
-      </tr>
-      <tr>
-        <td><label>Nazwa orginalna:</label></td>
-        <td *ngIf="element?.nazwa_oryginalna?.length > 0 else brak"><span>{{element?.nazwa_oryginalna}}</span></td>
-      </tr>
-      <tr>
-        <td><label>Kategoria :</label></td>
-        <td><span>{{element?.nazwa_kategorii}}</span></td>
-      </tr>
-      <tr>
-        <td><label>Możliwość wyporzyczenia:</label></td>
-        <td><span *ngIf="element?.mozliwosc_wypozyczania == 0">Nie</span>
-          <span *ngIf="element?.mozliwosc_wypozyczania == 1">Tak</span></td>
-      </tr>
-    </table>
-    <div class="elementImageDiv">
-      <label>Zdjęcie elementu:</label>
-      <img class="elementImage"
-           src="https://www.creativehobby.pl/pol_pl_Wykrojnik-do-papieru-Krolik-Kroliczek-4-3x7-8-cm-36277_3.jpg">
+    <ng-container *ngIf="element?.nazwa?.length > 0">
+      <table>
+        <tr>
+          <td><label>Nazwa:</label></td>
+          <td><span>{{element?.nazwa}}</span></td>
+        </tr>
+        <tr>
+          <td><label>Nazwa orginalna:</label></td>
+          <td *ngIf="element?.nazwa_oryginalna?.length > 0 else brak"><span>{{element?.nazwa_oryginalna}}</span></td>
+        </tr>
+        <tr>
+          <td><label>Kategoria :</label></td>
+          <td><span>{{element?.nazwa_kategorii}}</span></td>
+        </tr>
+        <tr>
+          <td><label>Możliwość wyporzyczenia:</label></td>
+          <td><span *ngIf="element?.mozliwosc_wypozyczania == 0">Nie</span>
+            <span *ngIf="element?.mozliwosc_wypozyczania == 1">Tak</span></td>
+        </tr>
+      </table>
+      <div class="elementImageDiv">
+        <label>Zdjęcie elementu:</label>
+        <img class="elementImage"
+             src="https://www.creativehobby.pl/pol_pl_Wykrojnik-do-papieru-Krolik-Kroliczek-4-3x7-8-cm-36277_3.jpg">
 
-    </div>
-    <table>
+      </div>
+      <table>
 
-      <tr>
-        <td><label>Lokalizacja podstawowa:</label>
-        </td>
-        <td *ngIf="element?.nazwa_miejsca_podstawowego?.length > 0 else brak"><span
-          style="display: flex;align-items: center">{{element?.nazwa_miejsca_podstawowego}}
-          <ion-button (click)="openModalPlace(element.id_lokalizacji_podstawowej,'Lokalizacja podstawowa')">
+        <tr>
+          <td><label>Lokalizacja podstawowa:</label>
+          </td>
+          <td *ngIf="element?.nazwa_miejsca_podstawowego?.length > 0 else brak"><span
+            style="display: flex;align-items: center">{{element?.nazwa_miejsca_podstawowego}}
+            <ion-button (click)="openModalPlace(element.id_lokalizacji_podstawowej,'Lokalizacja podstawowa')">
           <ion-icon name="help-outline"></ion-icon>
         </ion-button></span>
 
-        </td>
-      </tr>
-      <tr>
-        <td><label>Lokalizacja tymczasowa:</label></td>
-        <td *ngIf="element?.nazwa_lokalizacji?.length > 0 else brak"><span
-          style="display: flex;align-items: center">{{element?.nazwa_lokalizacji}}&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td><label>Lokalizacja tymczasowa:</label></td>
+          <td *ngIf="element?.nazwa_lokalizacji?.length > 0 else brak"><span
+            style="display: flex;align-items: center">{{element?.nazwa_lokalizacji}}&nbsp;&nbsp;&nbsp;
           <ion-button (click)="openModalPlace(element.lokalizacjaIdMiejsca,'Aktualna lokalizacja')">
           <ion-icon name="help-outline"></ion-icon>
       </ion-button></span></td>
-      </tr>
-      <tr>
-        <td><label>Opis:</label></td>
-        <td [ngClass]="{'tdWithButton':!displayDescription}">
-          <ion-button (click)="displayDescription = !displayDescription" *ngIf="!displayDescription" color="success">
-            Wyświetl
-          </ion-button>
+        </tr>
+        <tr>
+          <td><label>Opis:</label></td>
+          <td [ngClass]="{'tdWithButton':!displayDescription}">
+            <ion-button (click)="displayDescription = !displayDescription" *ngIf="!displayDescription" color="success">
+              Wyświetl
+            </ion-button>
 
-          <span><p *ngIf="displayDescription"> {{element?.opis}}</p></span></td>
-      </tr>
-    </table>
-  </ng-container>
-
+            <span><p *ngIf="displayDescription"> {{element?.opis}}</p></span></td>
+        </tr>
+      </table>
+    </ng-container>
+  </div>
 </ion-content>
 <ng-template #brak>
   <td><span>- - - Brak - - -</span></td>

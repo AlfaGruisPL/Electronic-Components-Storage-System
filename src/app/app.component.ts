@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Plugins} from '@capacitor/core';
 import {LoginService} from "./_services/login.service";
 import {Insomnia} from "@awesome-cordova-plugins/insomnia/ngx";
+import {FooterService} from "./_services/footer.service";
+import {Page} from "./_modal/page";
 
 const {SplashScreen} = Plugins;
 
@@ -11,12 +13,12 @@ const {SplashScreen} = Plugins;
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(private loginService: LoginService, private insomnia: Insomnia) {
+  constructor(private loginService: LoginService, private insomnia: Insomnia, private footer: FooterService) {
   }
 
   componentDidLoad() {
     SplashScreen.hide(); //niby przyśpiesza ładowanie
-
+    this.footer.footerSetPage.next(Page.login)
   }
 
 

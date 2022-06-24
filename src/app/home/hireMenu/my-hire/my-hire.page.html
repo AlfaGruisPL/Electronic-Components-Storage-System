@@ -3,52 +3,39 @@
     <ion-title>Moje aktywne wypożyczenia:</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-footer class="ion-no-border" style="display: flex;justify-content: center">
-  <ion-tab-button (click)="_footer.back()">
-    <ion-icon name="arrow-back-outline"></ion-icon>
-    <ion-label>Cofnij</ion-label>
-  </ion-tab-button>
 
-  <ion-tab-button (click)="_footer.getInfo()">
-    <ion-icon name="eye-outline"></ion-icon>
-    <ion-label>Zbadaj</ion-label>
-  </ion-tab-button>
-
-  <ion-tab-button (click)="_footer.ToMenu()">
-    <ion-icon name="person-add-outline"></ion-icon>
-    <ion-label>Menu</ion-label>
-  </ion-tab-button>
-</ion-footer>
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let hire of hireList  | paginate: { itemsPerPage:10, currentPage: cp }" class="">
-      <ion-label>
-        <h2>{{hire.nazwa_elementu}}</h2>
-        <p>
-          <ion-icon name="enter-outline"></ion-icon>
-          {{hire.od_kiedy| date:'y/LL/dd'}} </p>
+  <div class="container">
+    <ion-list>
+      <ion-item *ngFor="let hire of hireList  | paginate: { itemsPerPage:10, currentPage: cp }" class="">
+        <ion-label>
+          <h2>{{hire.nazwa_elementu}}</h2>
+          <p>
+            <ion-icon name="enter-outline"></ion-icon>
+            {{hire.od_kiedy| date:'y/LL/dd'}} </p>
 
-      </ion-label>
-      <ion-note class="hireListNote"
-                [ngClass]="{'HireAlert': hire.timeToReturn() <= 3, 'HireWarning':hire.timeToReturn() > 3 && hire.timeToReturn() < 7}"
-                slot="end">
+        </ion-label>
+        <ion-note class="hireListNote"
+                  [ngClass]="{'HireAlert': hire.timeToReturn() <= 3, 'HireWarning':hire.timeToReturn() > 3 && hire.timeToReturn() < 7}"
+                  slot="end">
         <span class="hireListEndText">
         Termin: {{hire.timeToReturn()}} dni
         </span>
-        <ion-button (click)="openModal(hire)" color="tertiary" class="hireListOption">Opcje</ion-button>
+          <ion-button (click)="openModal(hire)" color="tertiary" class="hireListOption">Opcje</ion-button>
 
-      </ion-note>
+        </ion-note>
 
-    </ion-item>
-  </ion-list>
+      </ion-item>
+    </ion-list>
 
-  <pagination-controls (pageChange)="cp = $event"
+    <pagination-controls (pageChange)="cp = $event"
 
-                       class="pagpag"
-                       maxSize="6"
-                       nextLabel=""
-                       previousLabel=""
-  ></pagination-controls>
+                         class="pagpag"
+                         maxSize="6"
+                         nextLabel=""
+                         previousLabel=""
+    ></pagination-controls>
+  </div>
 </ion-content>
 
 <ion-modal

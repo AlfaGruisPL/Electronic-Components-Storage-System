@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {ApiService} from '../_services/api.service';
 import {QrcodeService} from '../_services/qrcode.service';
+import {FooterService} from '../_services/footer.service';
+import {Page} from '../_modal/page';
 
 @Component({
   selector: 'app-home',
@@ -9,12 +11,11 @@ import {QrcodeService} from '../_services/qrcode.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  constructor(public _api: ApiService, private _router: Router, private _qr: QrcodeService) {
+  constructor(public _api: ApiService, private _router: Router, private _qr: QrcodeService, private footer: FooterService) {
   }
 
-  public logOut(): void {
-    this._api.clearToken();
-    this._router.navigate(['/'])
+  ionViewWillEnter() {
+    this.footer.footerSetPage.next(Page.home);
   }
 
   getInfo(): void {
@@ -24,16 +25,19 @@ export class HomePage {
   }
 
   ToSearch(): void {
+    this.footer.footerSetPage.next(Page.nextHome);
     // eslint-disable-next-line no-underscore-dangle
     this._router.navigate(['../search']);
   }
 
   toHire(): void {
+    this.footer.footerSetPage.next(Page.nextHome);
     // eslint-disable-next-line no-underscore-dangle
     this._router.navigate(['../hire']);
   }
 
   toTransfer(): void {
+    this.footer.footerSetPage.next(Page.nextHome);
     // eslint-disable-next-line no-underscore-dangle
 
     this._router.navigate(['../transfer']);

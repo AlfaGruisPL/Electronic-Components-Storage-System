@@ -68,6 +68,9 @@ ion-footer {
   }
 }
 
+.container {
+  height: calc(100% - 50px);
+}
 
 .ScanButton {
   border: 2px solid white;

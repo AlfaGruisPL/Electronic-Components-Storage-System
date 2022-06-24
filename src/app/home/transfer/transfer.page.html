@@ -5,164 +5,146 @@
 </ion-header>
 
 
-<ion-footer class="ion-no-border" style="display: flex;justify-content: center">
-  <ion-tab-button (click)="_footer.back()">
-    <ion-icon name="arrow-back-outline"></ion-icon>
-    <ion-label>Cofnij</ion-label>
-  </ion-tab-button>
-
-  <ion-tab-button (click)="_footer.getInfo()">
-    <ion-icon name="eye-outline"></ion-icon>
-    <ion-label>Zbadaj</ion-label>
-  </ion-tab-button>
-
-  <ion-tab-button (click)="_footer.ToMenu()">
-    <ion-icon name="person-add-outline"></ion-icon>
-    <ion-label>Menu</ion-label>
-  </ion-tab-button>
-</ion-footer>
-
-
 <ion-content>
-
-  <ng-container *ngIf="state ===0">
-    <div class="menu">
-      <h3>Aby rozpocząć przenoszenie zeskanuj element:</h3>
-      <button (click)="scanElement()" class="nextButton ">
-        <ion-icon name="search-outline"></ion-icon>
-        <ion-icon name="cube-outline"></ion-icon>
-      </button>
-    </div>
-    <br>
-    <ion-list-header>
-      <ion-label style="font-size: 25px">Historia przenoszeń</ion-label>
-    </ion-list-header>
-    <ion-list>
-      <ion-item *ngFor="let transfer of transferList | paginate: { itemsPerPage:6, currentPage: cp }">
-        <ion-label>
-          <h2 style="margin-bottom:2px;margin-top: 2px;">{{transfer.nazwaElementu}}
-          </h2>
-          <span class="textInList">
+  <div class="container">
+    <ng-container *ngIf="state ===0">
+      <div class="menu">
+        <h3>Aby rozpocząć przenoszenie zeskanuj element:</h3>
+        <button (click)="scanElement()" class="nextButton ">
+          <ion-icon name="search-outline"></ion-icon>
+          <ion-icon name="cube-outline"></ion-icon>
+        </button>
+      </div>
+      <br>
+      <ion-list-header>
+        <ion-label style="font-size: 25px">Historia przenoszeń</ion-label>
+      </ion-list-header>
+      <ion-list>
+        <ion-item *ngFor="let transfer of transferList | paginate: { itemsPerPage:6, currentPage: cp }">
+          <ion-label>
+            <h2 style="margin-bottom:2px;margin-top: 2px;">{{transfer.nazwaElementu}}
+            </h2>
+            <span class="textInList">
 
            <!--   <ion-icon name="arrow-up-outline"></ion-icon>-->
             <ion-icon name="exit-outline"></ion-icon>&nbsp;<a (click)="toPlace(transfer.id_miejsca_przed)"
                                                               class="listButton">{{transfer.nazawa_miejsca_przed}}</a>
             <br>
-            <!--  <ion-icon name="arrow-down-outline"></ion-icon>-->
+              <!--  <ion-icon name="arrow-down-outline"></ion-icon>-->
             <ion-icon name="enter-outline"></ion-icon>&nbsp;<a (click)="toPlace(transfer.id_miejsca_po)"
                                                                class="listButton">{{transfer.nazawa_miejsca_po}}</a>
          </span>
-        </ion-label>
+          </ion-label>
 
-        <ion-note slot="end">
-          {{transfer.kiedy| date :'dd.LL.y H:mm'}}
-        </ion-note>
-      </ion-item>
-    </ion-list>
-    <div>
+          <ion-note slot="end">
+            {{transfer.kiedy| date :'dd.LL.y H:mm'}}
+          </ion-note>
+        </ion-item>
+      </ion-list>
+      <div>
 
-      <!--   autoHide="true"-->
-      <pagination-controls (pageChange)="cp = $event"
+        <!--   autoHide="true"-->
+        <pagination-controls (pageChange)="cp = $event"
 
-                           class="pagpag"
-                           maxSize="6"
-                           nextLabel=""
-                           previousLabel=""
-      ></pagination-controls>
+                             class="pagpag"
+                             maxSize="6"
+                             nextLabel=""
+                             previousLabel=""
+        ></pagination-controls>
 
-    </div>
+      </div>
 
-  </ng-container>
-  <ng-container *ngIf="state ===1">
-    <div class="menu">
-      <h3>Zeskanuj miejsce docelowe:</h3>
-      <button (click)="scanTargetPlace()" class="nextButton ">
-        <ion-icon name="search-outline"></ion-icon>
-        <ion-icon name="earth-outline"></ion-icon>
+    </ng-container>
+    <ng-container *ngIf="state ===1">
+      <div class="menu">
+        <h3>Zeskanuj miejsce docelowe:</h3>
+        <button (click)="scanTargetPlace()" class="nextButton ">
+          <ion-icon name="search-outline"></ion-icon>
+          <ion-icon name="earth-outline"></ion-icon>
 
-      </button>
-    </div>
-  </ng-container>
+        </button>
+      </div>
+    </ng-container>
 
-  <ng-container *ngIf="state ===2">
-    <div class="menu">
-      <h3>Podsumowanie:</h3>
-      <table class="menuTable">
-        <tr>
-          <td>
-            <label>Nazwa elementu:</label>
-          </td>
-          <td>
-            {{element.nazwa}}
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label> Miejsce pierwotne:</label>
-          </td>
-          <td>
-            {{element.nazwa_lokalizacji}}
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label> Miejsce docelowe:</label>
-          </td>
-          <td>
-            {{miejsce?.nazwa}}
-          </td>
-        </tr>
-      </table>
-      <button (click)="accept()" [disabled]="buttonAccept" class="nextButton ">
-        <ion-icon name="checkmark-outline" style="color: green;"></ion-icon>
-        <span>Zaakceptuj</span>
-      </button>
-
-
-      <h4>Uwagi</h4>
-      <ion-textarea
-        [(ngModel)]="description"
-
-        placeholder="Wpisz tutaj uwagi dostępne do zarządzającego magazynem"
-        rows="11"
-        spellcheck="true" style="border:1px solid grey" wrap="soft"
-      >
-      </ion-textarea>
-    </div>
+    <ng-container *ngIf="state ===2">
+      <div class="menu">
+        <h3>Podsumowanie:</h3>
+        <table class="menuTable">
+          <tr>
+            <td>
+              <label>Nazwa elementu:</label>
+            </td>
+            <td>
+              {{element.nazwa}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label> Miejsce pierwotne:</label>
+            </td>
+            <td>
+              {{element.nazwa_lokalizacji}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label> Miejsce docelowe:</label>
+            </td>
+            <td>
+              {{miejsce?.nazwa}}
+            </td>
+          </tr>
+        </table>
+        <button (click)="accept()" [disabled]="buttonAccept" class="nextButton ">
+          <ion-icon name="checkmark-outline" style="color: green;"></ion-icon>
+          <span>Zaakceptuj</span>
+        </button>
 
 
-  </ng-container>
+        <h4>Uwagi</h4>
+        <ion-textarea
+          [(ngModel)]="description"
 
-  <ng-container *ngIf="state ===3">
-    <div class="menu">
-      <h3>Podsumowanie:</h3>
-      <table class="menuTable">
-        <tr>
-          <td>
-            Nazwa elementu:
-          </td>
-          <td>
-            {{element.nazwa}}
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Miejsce pierwotne:
-          </td>
-          <td>
-            {{element.nazwa_lokalizacji}}
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Miejsce docelowe:
-          </td>
-          <td>
-            {{miejsce?.nazwa}}
-          </td>
-        </tr>
-      </table>
-    </div>
-  </ng-container>
+          placeholder="Wpisz tutaj uwagi dostępne do zarządzającego magazynem"
+          rows="11"
+          spellcheck="true" style="border:1px solid grey" wrap="soft"
+        >
+        </ion-textarea>
+      </div>
 
+
+    </ng-container>
+
+    <ng-container *ngIf="state ===3">
+      <div class="menu">
+        <h3>Podsumowanie:</h3>
+        <table class="menuTable">
+          <tr>
+            <td>
+              Nazwa elementu:
+            </td>
+            <td>
+              {{element.nazwa}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Miejsce pierwotne:
+            </td>
+            <td>
+              {{element.nazwa_lokalizacji}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Miejsce docelowe:
+            </td>
+            <td>
+              {{miejsce?.nazwa}}
+            </td>
+          </tr>
+        </table>
+      </div>
+    </ng-container>
+  </div>
 </ion-content>

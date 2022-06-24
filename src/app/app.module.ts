@@ -16,10 +16,11 @@ import {LeaveGuard} from './_quards/leave.guard';
 import {IonicStorageModule} from '@ionic/storage-angular';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {Insomnia} from '@awesome-cordova-plugins/insomnia/ngx';
+import {FooterComponent} from "./_components/footer/footer.component";
 
 @NgModule({
 
-  declarations: [AppComponent],
+  declarations: [AppComponent, FooterComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, FormsModule, NgxPaginationModule,
     IonicStorageModule.forRoot()],

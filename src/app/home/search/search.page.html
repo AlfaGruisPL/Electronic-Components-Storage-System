@@ -4,56 +4,40 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-footer class="ion-no-border" style="display: flex;justify-content: center">
-  <ion-tab-button (click)="_footer.back()">
-    <ion-icon name="arrow-back-outline"></ion-icon>
-    <ion-label>Cofnij</ion-label>
-  </ion-tab-button>
-
-  <ion-tab-button (click)="_footer.getInfo()">
-    <ion-icon name="eye-outline"></ion-icon>
-    <ion-label>Zbadaj</ion-label>
-  </ion-tab-button>
-
-  <ion-tab-button (click)="_footer.ToMenu()">
-    <ion-icon name="person-add-outline"></ion-icon>
-    <ion-label>Menu</ion-label>
-  </ion-tab-button>
-</ion-footer>
-
 
 <ion-content>
-  <label class="searchLabel">Wyszukaj:</label><input (keyup)="checkList()" [(ngModel)]="searchInput"
-                                                     class="searchText"
-                                                     type="text">
-  <ion-item-divider class="searchListTitle">
-    <div style="position: relative; width: 100%">
-      <ion-label>
-        Elementy:
-        <ion-toggle [(ngModel)]="displayElements" color="primary"
-                    style="position: absolute;  top:-10px;right:6px"></ion-toggle>
-      </ion-label>
-    </div>
-  </ion-item-divider>
-  <ion-list *ngIf="displayElements">
-    <ion-item (click)="goToElement(element.id)" *ngFor="let element of findList" class="searchList">
-      <ion-label>{{element.nazwa}}</ion-label>
-    </ion-item>
-  </ion-list>
-  <ion-item-divider>
-    <div style="position: relative;width: 100%">
-      <ion-label>
-        Miejsca:
-        <ion-toggle [(ngModel)]="displayPlaces" color="primary"
-                    style="position: absolute;  top:-10px;right: 6px"></ion-toggle>
-      </ion-label>
-    </div>
-  </ion-item-divider>
-  <ion-list *ngIf="displayPlaces">
-    <ion-item (click)="goToPlace(place.id)" *ngFor="let place of findListPlace" class="searchList">
-      <ion-label>{{place.nazwa}}</ion-label>
-    </ion-item>
-  </ion-list>
-
-
+  <div class="container">
+    <label class="searchLabel">Wyszukaj:</label><input (keyup)="checkList()" [(ngModel)]="searchInput"
+                                                       class="searchText"
+                                                       type="text">
+    <ion-item-divider class="searchListTitle">
+      <div style="position: relative; width: 100%">
+        <ion-label>
+          Elementy:
+          <ion-toggle [(ngModel)]="displayElements" color="primary"
+                      style="position: absolute;  top:-10px;right:6px"></ion-toggle>
+        </ion-label>
+      </div>
+    </ion-item-divider>
+    {{displayElements}}
+    <ion-list *ngIf="displayElements">
+      <ion-item (click)="goToElement(element.id)" *ngFor="let element of findList" class="searchList">
+        <ion-label>{{element.nazwa}}</ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-item-divider>
+      <div style="position: relative;width: 100%">
+        <ion-label>
+          Miejsca:
+          <ion-toggle [(ngModel)]="displayPlaces" color="primary"
+                      style="position: absolute;  top:-10px;right: 6px"></ion-toggle>
+        </ion-label>
+      </div>
+    </ion-item-divider>
+    <ion-list *ngIf="displayPlaces">
+      <ion-item (click)="goToPlace(place.id)" *ngFor="let place of findListPlace" class="searchList">
+        <ion-label>{{place.nazwa}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>

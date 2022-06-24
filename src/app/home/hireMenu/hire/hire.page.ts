@@ -4,6 +4,7 @@ import {QrcodeService} from "../../../_services/qrcode.service";
 import {ApiService} from "../../../_services/api.service";
 import {ToastController} from "@ionic/angular";
 import {Router} from "@angular/router";
+import {QrMode} from "../../../_modal/qr-out";
 
 @Component({
   selector: 'app-hire',
@@ -70,11 +71,16 @@ export class HirePage {
 
   scanElement(): void {
     this.qrCode.getInfoAdv('Zeskanuj miejsce docelowe:', 'no').then(k => {
-      console.log(k);
-      this.elementID = k.text.split('_')[1];
-      this.api.getDefault('elementInfo/' + this.elementID).then(data => {
-        console.log(data);
-      });
+      if (k.mode !== QrMode.other) {
+        this.elementID = k.text.split('_')[1];
+        this.api.getDefault('elementInfo/' + this.elementID).then(data => {
+          console.log(data);
+        });
+      } else {
+        this._footer.back();
+      }
+    }).catch(() => {
+      this._footer.back();
     });
   }
 }

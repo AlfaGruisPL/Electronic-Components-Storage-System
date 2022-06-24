@@ -26,8 +26,39 @@ export class RegisterPage implements OnInit {
   ngOnInit() {
   }
 
-  register(): void {
-    //this.user
+  private async dataError(): Promise<void> {
+    const toast = await this.toastController.create({
+      message: 'Dane nie są prawidłowe',
+      duration: 2000,
+      //      icon: 'checkmark-done-outline'
+    });
+    toast.present();
+  }
+
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  async register(): Promise<void> {
+    if (!this.user.checkData()) {
+      this.dataError();
+      return;
+    }
+    if (!this.user.checkEmail()) {
+      const toast = await this.toastController.create({
+        message: 'Podany adres email nie należy do adresów należących do uczelni PWSTE Jarosław',
+        duration: 2000,
+        //      icon: 'checkmark-done-outline'
+      });
+      toast.present();
+      return;
+    }
+
+    if (!this.user.checkPassword()) {
+      this.dataError();
+      return;
+    }
+    if (!this.user.passwordRegCheck()) {
+      this.dataError();
+      return;
+    }
     this.buttonDisabled = true;
     const json = {};
     json['imie'] = this.user.imie;
@@ -43,8 +74,14 @@ export class RegisterPage implements OnInit {
       });
       this.router.navigate(['/login'])
       toast.present();
-    }).catch(error => {
-      console.log(error)
+    }).catch(async error => {
+      if (String(error['status']) === '425') {
+        const toast = await this.toastController.create({
+          message: 'Podany adres email jest już zarejestrowany',
+          duration: 2000,
+        });
+        toast.present();
+      }
       this.buttonDisabled = false;
     })
   }

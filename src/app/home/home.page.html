@@ -7,27 +7,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-footer class="ion-no-border" style="display: flex;justify-content: center">
-
-  <ion-tab-button (click)="getInfo()">
-    <ion-icon name="eye-outline"></ion-icon>
-    <ion-label>Zbadaj</ion-label>
-  </ion-tab-button>
-
-  <ion-tab-button (click)="logOut()">
-    <ion-icon name="person-add-outline"></ion-icon>
-    <ion-label>Wyloguj</ion-label>
-  </ion-tab-button>
-
-  <ion-tab-button>
-    <ion-icon name="information-circle"></ion-icon>
-    <ion-label>Ustawienia</ion-label>
-  </ion-tab-button>
-</ion-footer>
-
-
-<ion-content [fullscreen]="true">
-  <div id="container">
+<ion-content [fullscreen]="false">
+  <div id="container" class="container">
     <ion-button (click)="ToSearch()" color="light" class="icon">
       <ion-icon name="search-outline"></ion-icon>
       <label>Wyszukaj

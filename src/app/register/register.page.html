@@ -5,34 +5,12 @@
 </ion-header>
 
 
-<ion-footer class="ion-no-border" style="display: flex;justify-content: center">
-
-  <ion-tab-button (click)="_footer.getInfo()">
-    <ion-icon name="eye-outline"></ion-icon>
-    <ion-label>Zbadaj</ion-label>
-  </ion-tab-button>
-
-
-  <ion-tab-button (click)="_footer.ToLogin()">
-    <ion-icon name="person-add-outline"></ion-icon>
-    <ion-label>Logowanie</ion-label>
-  </ion-tab-button>
-
-  <!--
-    <ion-tab-button>
-      <ion-icon name="information-circle"></ion-icon>
-      <ion-label>bla bla bla</ion-label>
-    </ion-tab-button>
-    -->
-</ion-footer>
-
-
 <ion-content>
   <h2>&nbsp;Uzupełnij dane:</h2>
   <table style="width: 100%;">
     <tr>
       <td colspan="2">
-        <ion-item>
+        <ion-item [ngClass]="{'badInput':!user.imieGood}">
           <ion-label position="floating">Imie</ion-label>
           <ion-input [(ngModel)]="user.imie" autocomplete="name"></ion-input>
         </ion-item>
@@ -40,7 +18,7 @@
     </tr>
     <tr>
       <td colspan="2">
-        <ion-item>
+        <ion-item [ngClass]="{'badInput':!user.nazwiskoGood}">
           <ion-label position="floating">Nazwisko</ion-label>
           <ion-input [(ngModel)]="user.nazwisko" min="4"></ion-input>
         </ion-item>
@@ -48,15 +26,15 @@
     </tr>
     <tr>
       <td colspan="2">
-        <ion-item>
+        <ion-item [ngClass]="{'badInput':!user.emailGood}">
           <ion-label position="floating">Email</ion-label>
-          <ion-input [(ngModel)]="user.email" pattern="email" inputmode="email"></ion-input>
+          <ion-input [(ngModel)]="user.email" inputmode="email"></ion-input>
         </ion-item>
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <ion-item>
+        <ion-item [ngClass]="{'badInput':!user.nr_indeksuGood}">
           <ion-label position="floating">Nr indeksu</ion-label>
           <ion-input [(ngModel)]="user.nr_indeksu"></ion-input>
         </ion-item>
@@ -66,7 +44,7 @@
 
     <tr>
       <td colspan="2">
-        <ion-item>
+        <ion-item [ngClass]="{'badInput':!user.hasloGood}">
           <ion-label position="floating">Podaj hasło</ion-label>
           <div style="display:flex;width: 100%;">
 
@@ -80,7 +58,7 @@
     </tr>
     <tr>
       <td colspan="2">
-        <ion-item style="width: 100%;">
+        <ion-item style="width: 100%;" [ngClass]="{'badInput':!user.haslo2Good}">
           <ion-label position="floating">Powtórz hasło</ion-label>
           <div style="display:flex;width: 100%;">
 
@@ -90,6 +68,23 @@
             </ion-button>
           </div>
         </ion-item>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" style="color: red" *ngIf="!user.checkPasswordVal">
+        Podane hasła nie są jednakowe
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" style="color: #a8a8a8">
+        Wymagania hasła:
+        <ul>
+          <li [ngStyle]="{'color':user.bigReg}">Minimum 1 duża litera</li>
+          <li [ngStyle]="{'color':user.smallReg}">Minimum 1 mała litera</li>
+          <li [ngStyle]="{'color':user.numberReg}">Minimum 1 liczba</li>
+          <li [ngStyle]="{'color':user.specialReg}">Minimum 1 znak specialny</li>
+
+        </ul>
       </td>
     </tr>
     <tr>
