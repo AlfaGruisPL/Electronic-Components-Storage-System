@@ -6,21 +6,27 @@
 
 <ion-content>
   <ion-list>
-    <ion-item>
+    <ion-item button (click)="changeProfil.open()">
       <ion-icon slot="start" name="person-outline"></ion-icon>
-      Zmień dane
+      Dane konta
     </ion-item>
-    <ion-item>
+    <ion-item button (click)="changePassword.open()">
       <ion-icon slot="start" name="sync-outline"></ion-icon>
       Zmień hasło
     </ion-item>
-    <ion-item>
-      <ion-icon slot="start" name="information-circle"></ion-icon>
+    <ion-item button (click)="information.open()">
+      <ion-icon slot="start" name="alert-circle-outline"></ion-icon>
       Informacje
     </ion-item>
-    <ion-item>
-      <ion-icon slot="start" name="information-outline"></ion-icon>
-      Informacje
+    <ion-item button (click)="dezactiveAccount()">
+      <ion-icon slot="start" name="close-outline"></ion-icon>
+      Dezaktywuj konto
     </ion-item>
   </ion-list>
 </ion-content>
+
+
+<app-change-password #changePassword></app-change-password>
+<app-change-profil #changeProfil></app-change-profil>
+<app-settings-information #information></app-settings-information>
+

@@ -8,6 +8,7 @@ import {Router} from "@angular/router";
 import {ApiResponse} from "../../_modal/api-response";
 import {Transfer} from "../../_modal/transfer";
 import {FooterService} from "../../_services/footer.service";
+import {LoadingService} from "../../_services/loading.service";
 
 @Component({
   selector: 'app-transfer',
@@ -32,6 +33,7 @@ export class TransferPage implements OnInit {
     private _api: ApiService,
     private alertController: AlertController,
     public _footer: FooterService,
+    private loading: LoadingService,
     private router: Router) {
   }
 
@@ -40,10 +42,12 @@ export class TransferPage implements OnInit {
   }
 
   getList(): void {
+    this.loading.create();
     this._api.getDefault('transferForUser').then((data: ApiResponse) => {
       // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
       const values = <Array<Transfer>>data.value;
       this.transferList = values;
+      this.loading.dismiss();
     });
   }
 

@@ -1,0 +1,22 @@
+.settings-modal {
+  ion-header {
+    margin-bottom: 8px;
+
+    ion-title {
+      border-bottom: 1px solid white;
+
+      h1 {
+        width: min-content;
+        width: 200px;
+        float: left;
+        display: block;
+        margin-top: 10px;
+        font-size: 24px;
+      }
+
+      ion-button {
+        margin-top: 10px;
+      }
+    }
+  }
+}

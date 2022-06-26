@@ -14,7 +14,7 @@ import {Page} from "../_modal/page";
 })
 export class LoginPage implements OnInit {
   public login = 'mateusz@s.pwste.edu.pl';// '/';
-  public password = '123456'; //'';
+  public password = 'kK1!'; //'';
   badPassword = false;
   badLogin = false;
   public keedPass = false;

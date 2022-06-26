@@ -1,0 +1,29 @@
+<ion-modal class="settings-modal"
+           [animated]="true"
+           [isOpen]="modalIsOpen"
+           [swipeToClose]="true">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>
+          <h1>
+            Informacje:
+          </h1>
+          <ion-button (click)="modalIsOpen = false;" color="success" style="float: right">
+            Zamknij
+          </ion-button>
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+
+      <table style="width: 100%;">
+        <tr>
+          <th style="text-align: left">Podaj dane:</th>
+        </tr>
+      </table>
+
+    </ion-content>
+
+  </ng-template>
+</ion-modal>

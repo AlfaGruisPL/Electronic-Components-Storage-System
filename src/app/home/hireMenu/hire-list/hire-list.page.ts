@@ -3,7 +3,7 @@ import {FooterService} from "../../../_services/footer.service";
 import {ApiService} from "../../../_services/api.service";
 import {Hire} from "../../../_modal/hire";
 import {ApiResponse} from "../../../_modal/api-response";
-import {LoadingController} from "@ionic/angular";
+import {LoadingService} from "../../../_services/loading.service";
 
 @Component({
   selector: 'app-hire-list',
@@ -18,17 +18,21 @@ export class HireListPage implements OnInit {
 
   constructor(public _footer: FooterService,
               private _api: ApiService,
-              public loadingController: LoadingController) {
+              public loading: LoadingService) {
   }
 
   ngOnInit() {
-    this._api.getDefault('wyporzyczeniaUzytkownikaHistoria').then((data: ApiResponse) => {
+    this.loading.create();
+    this._api.getDefault('wypozyczeniaUzytkownikaHistoria').then((data: ApiResponse) => {
       const dataList: Array<Hire> = data.value;
       dataList.forEach(hire => {
         const hireTmp = new Hire();
         Object.assign(hireTmp, hire);
         this.hireList.push(hireTmp);
       });
+      this.loading.dismiss();
+    }).catch(error => {
+      console.error("Api: wypozyczeniaUzytkownikaHistoria ", error)
     });
   }
 

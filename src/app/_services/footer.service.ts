@@ -68,6 +68,10 @@ export class FooterService {
             this.settingsButton = true;
             this.menuButton = true;
             break;
+          case Page.page:
+            this.backButton = true;
+            this.settingsButton = true;
+            break;
         }
       }, 2)
     });

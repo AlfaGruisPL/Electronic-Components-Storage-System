@@ -14,7 +14,6 @@ import {QrMode} from "../../../_modal/qr-out";
 export class HirePage {
   public hireTime = '31';
   public elementID = '';
-  public rules = false;
   public modalPlaceIsOpen = false;
   customPopoverOptions: any = {
     header: 'Wybierz czas wypożyczenia',
@@ -34,20 +33,11 @@ export class HirePage {
 
   ionViewDidLeave() {
     this.elementID = '';
-    this.rules = false;
   }
 
   // eslint-disable-next-line @typescript-eslint/naming-convention
   async HireAccept(): Promise<void> {
-    if (this.rules === false) {
-      const toast = await this.toastController.create({
-        message: 'Aby wyporzyczyć element musisz zaakceptować regulamin',
-        duration: 700,
-        position: 'top'
-      });
-      toast.present();
-      return;
-    }
+
     this.api.getDefault('hire/' + this.elementID + '/' + this.hireTime).then(async dane => {
       console.log(dane);
       const toast = await this.toastController.create({
@@ -69,7 +59,7 @@ export class HirePage {
   }
 
   scanElement(): void {
-    this.qrCode.getInfoAdv('Zeskanuj miejsce docelowe:', 'no').then(k => {
+    this.qrCode.getInfoAdv('Zeskanuj elementy który chcesz wypożyczyć:', 'no').then(k => {
       if (k.mode !== QrMode.other) {
         this.elementID = k.text.split('_')[1];
         this.api.getDefault('elementInfo/' + this.elementID).then(data => {

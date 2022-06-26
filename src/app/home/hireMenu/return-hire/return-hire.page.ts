@@ -7,6 +7,8 @@ import {QrMode, QrOut} from "../../../_modal/qr-out";
 import {Router} from "@angular/router";
 import {ApiResponse} from "../../../_modal/api-response";
 import {Miejsce} from "../../../_modal/miejsce";
+import {ToastController} from "@ionic/angular";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-return-hire',
@@ -22,19 +24,19 @@ export class ReturnHirePage implements OnInit {
   public targetPlace: Array<Miejsce> = []
   public returnHireButton = true;
 
-  constructor(private router: Router, private api: ApiService, private qrScaner: QrcodeService) {
+  constructor(private router: Router,
+              private api: ApiService,
+              private qrScaner: QrcodeService,
+              public toastController: ToastController,
+              public location: Location
+  ) {
   }
 
   ngOnInit() {
-    /* this.activateRoute.paramMap.subscribe(params => {
-       //this.state = 1;
-       // this.element.nazwa = params.get('nazwa');
-       this.api.getDefault('wyporzyczenieUzytkownika/' + params.get('id')).then((hire: ApiResponse) => {
-         Object.assign(this.hire, hire.value[0]);
-         this.elementId = this.hire.id_elementu;
+  }
 
-       });
-     });*/
+  ionViewWillEnter() {
+    this.scanElement();
   }
 
   scanPlace() {
@@ -64,12 +66,14 @@ export class ReturnHirePage implements OnInit {
             this.checkElementIsHire(this.element.id);
           }
         });
-      } else {
+      } else if (data.mode === QrMode.place) {
         this.isNotElement();
+        this.location.back()
+
       }
 
     }).catch(data => {
-      console.log(data);
+      this.location.back()
     });
   }
 
@@ -81,6 +85,7 @@ export class ReturnHirePage implements OnInit {
         message: 'Element został zwrócony poprawnie. Proszę odłożyć element do zeskanowanego miejsca',
         buttons: ['Rozumiem']
       });
+
       this.router.navigate(['../hire']);
       await alert.present();
     }).catch(async error => {
@@ -94,7 +99,7 @@ export class ReturnHirePage implements OnInit {
   }
 
   private checkElementIsHire(id: number) {
-    this.api.getDefault('wyporzyczenieElementuDlaUzytkownika/' + id).then((val: ApiResponse) => {
+    this.api.getDefault('wypozyczenieElementuDlaUzytkownika/' + id).then((val: ApiResponse) => {
       this.element = val.value2[0];
       if (val.value.length > 0) {
         Object.assign(this.hire, val.value[0]);
@@ -107,39 +112,66 @@ export class ReturnHirePage implements OnInit {
 
 
   private async notFoundElementInHire() {
-    const alert = await this.qrScaner.alertController.create({
-      header: 'UWAGA',
-      message: 'Element ' + this.element.nazwa + ' nie jest wypożyczony',
-      buttons: ['Rozumiem']
+    const toast = await this.toastController.create({
+      header: 'Zeskanowany element nie jest wypożyczony',
+      message: 'Nazwa elementu: ' + this.element.nazwa,
+      duration: 3000,
+      icon: 'alert-circle-outline'
     });
-    await alert.present();
+    toast.present();
+    /*
+        const alert = await this.qrScaner.alertController.create({
+          header: 'UWAGA',
+          message: 'Element ' + this.element.nazwa + ' nie jest wypożyczony',
+          buttons: ['Rozumiem']
+        });
+        await alert.present();*/
   }
 
   private async notFoundElement() {
+    const toast = await this.toastController.create({
+      header: 'Element nie został odnaleziony w systemie magazynowania',
+      duration: 3000,
+      icon: 'alert-circle-outline'
+    });
+    toast.present();
+    /*
     const alert = await this.qrScaner.alertController.create({
       header: 'UWAGA',
       message: 'Element nie został odnaleziony w systemie magazynowania',
       buttons: ['Rozumiem']
     });
-    await alert.present();
+    await alert.present();*/
   }
 
   private async isNotElement() {
-    const alert = await this.qrScaner.alertController.create({
-      header: 'UWAGA',
-      message: 'Zeskanowany kod nie należy do grupy elementów',
-      buttons: ['Rozumiem']
+    const toast = await this.toastController.create({
+      header: 'Zeskanowany kod nie należy do grupy elementów',
+      duration: 3000,
+      icon: 'alert-circle-outline'
     });
-    await alert.present();
+    toast.present();
+    /*  const alert = await this.qrScaner.alertController.create({
+        header: 'UWAGA',
+        message: 'Zeskanowany kod nie należy do grupy elementów',
+        buttons: ['Rozumiem']
+      });
+      await alert.present();*/
   }
 
   private async isNotPlace() {
+    const toast = await this.toastController.create({
+      header: 'Zeskanowany kod nie należy do grupy miejsc',
+      duration: 3000,
+      icon: 'alert-circle-outline'
+    });
+    /*
     const alert = await this.qrScaner.alertController.create({
       header: 'UWAGA',
       message: 'Zeskanowany kod nie należy do grupy miejsc',
       buttons: ['Rozumiem']
     });
-    await alert.present();
+    await alert.present();*/
   }
 
 

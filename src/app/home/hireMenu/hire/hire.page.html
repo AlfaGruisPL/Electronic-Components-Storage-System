@@ -7,11 +7,7 @@
 
 <ion-content>
   <div class='container'>
-    <h3 *ngIf="rules else accept" style="color:#78c900;"> Kliknij na przycisk aby wypożyczyć:</h3>
-    <ng-template #accept>
-      <h3 style="color: #ff2424">Aby kontynuować zaakceptuj regulamin:</h3>
-
-    </ng-template>
+    <h3 style="color:#78c900;"> Kliknij na przycisk aby wypożyczyć:</h3>
     <button (click)="HireAccept()" *ngIf="elementID !== ''" [disabled]="!rules" class="ScanButton accept "
             style="margin-left: auto;margin-right: auto;font-size: 167px;">
       <ion-icon name="checkmark-outline"></ion-icon>
@@ -64,75 +60,3 @@
     </table>
   </div>
 </ion-content>
-
-<ion-modal
-  [animated]="true"
-  [isOpen]="modalPlaceIsOpen"
-  [swipeToClose]="true">
-  <ng-template>
-    <ion-header class="toolbar_rules">
-
-      <h1>
-        Regulamin
-      </h1>
-      <ion-button (click)="modalPlaceIsOpen = false" color="success">
-        Zamknij
-      </ion-button>
-    </ion-header>
-    <ion-content>
-      <div style="padding: 10px;width: 100%;height: 100%;">
-        <ng-container *ngFor="let k of [1,2,3,4]">
-
-          Proin finibus tellus in diam consequat dictum.<br>
-          Proin finibus tellus in diam consequat dictum.<br>
-          Proin finibus tellus in diam consequat dictum.<br>
-          Proin finibus tellus in diam consequat dictum.<br>
-          <p>
-          </p>
-          <ul>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-            <li>Vestibulum quis lorem viverra, congue erat sit amet, dignissim tortor.</li>
-          </ul>
-          <p></p>
-          <p>
-          </p>
-          <ul>
-            <li>Proin finibus tellus in diam consequat dictum.</li>
-            <li>Sed ullamcorper enim id mollis porttitor.</li>
-            <li>Curabitur bibendum mauris sit amet dolor tristique, ut tristique orci volutpat.</li>
-          </ul>
-          <p></p>
-          <p>
-          </p>
-          <ul>
-            <li>In ullamcorper felis ut sagittis sollicitudin.</li>
-            <li>In interdum massa eu mi mollis placerat.</li>
-          </ul>
-          <p></p>
-          <p>
-          </p>
-          <ul>
-            <li>Phasellus fringilla turpis ac justo vulputate, ut tincidunt felis laoreet.</li>
-          </ul>
-          <p></p>
-          <p>
-          </p>
-          <ul>
-            <li>In ut urna sed nulla pellentesque tristique.</li>
-            <li>Curabitur nec enim porta, faucibus est ac, luctus justo.</li>
-          </ul>
-        </ng-container>
-        Proin finibus tellus in diam consequat dictum.<br>
-        Proin finibus tellus in diam consequat dictum.<br>
-        Proin finibus tellus in diam consequat dictum.<br>
-        Proin finibus tellus in diam consequat dictum.<br>
-
-
-        <br>
-        <br>
-      </div>
-
-    </ion-content>
-
-  </ng-template>
-</ion-modal>

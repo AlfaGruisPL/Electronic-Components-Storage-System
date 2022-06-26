@@ -8,6 +8,7 @@ import {ApiResponse} from "../_modal/api-response";
 import {LoadingService} from "../_services/loading.service";
 import {ApiEndPoint} from "../_modal/api-end-point";
 import {QrOut} from "../_modal/qr-out";
+import {Page} from "../_modal/page";
 
 @Component({
   selector: 'app-information',
@@ -32,7 +33,12 @@ export class InformationPage implements OnInit {
   ) {
   }
 
+  ionViewDidEnter() {
+    this._footer.footerSetPage.next(Page.page);
+  }
+
   ngOnInit() {
+
     this.loading.create();
     this.route.params.subscribe(
       (params: QrOut) => {

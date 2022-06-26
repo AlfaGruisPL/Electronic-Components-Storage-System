@@ -6,6 +6,7 @@ import {Hire} from "../../../_modal/hire";
 import {QrcodeService} from "../../../_services/qrcode.service";
 import {QrOut} from "../../../_modal/qr-out";
 import {Router} from "@angular/router";
+import {LoadingService} from "../../../_services/loading.service";
 
 
 @Component({
@@ -19,7 +20,7 @@ export class MyHirePage implements OnInit {
   public modalPlaceIsOpen = false;
   public selectedHireInModal: Hire | undefined;
 
-  constructor(public _footer: FooterService, private _api: ApiService, private qrCode: QrcodeService, private router: Router) {
+  constructor(public _footer: FooterService, private _api: ApiService, private qrCode: QrcodeService, private router: Router, private loading: LoadingService) {
   }
 
   public openModal(hire: Hire): void {
@@ -33,7 +34,9 @@ export class MyHirePage implements OnInit {
   }
 
   ngOnInit() {
-    this._api.getDefault('wyporzyczeniaUzytkownikaAktywne').then((data: ApiResponse) => {
+    this.loading.create();
+    this._api.getDefault('wypozyczeniaUzytkownikaAktywne').then((data: ApiResponse) => {
+      this.loading.dismiss();
       const dataList: Array<Hire> = data.value;
       dataList.forEach(hire => {
         const hireTmp = new Hire();

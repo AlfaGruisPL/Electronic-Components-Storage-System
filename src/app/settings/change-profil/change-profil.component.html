@@ -1,0 +1,64 @@
+<ion-modal class="settings-modal"
+           [animated]="true"
+           [isOpen]="modalIsOpen"
+           [swipeToClose]="true">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>
+          <h1>
+            Dane konta:
+          </h1>
+          <ion-button (click)="modalIsOpen = false;" color="success" style="float: right">
+            Zamknij
+          </ion-button>
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+
+      <table style="width: 100%;">
+        <tr>
+          <td colspan="2">
+            <ion-item [ngClass]="{'badInput':!user.imieGood}">
+              <ion-label position="floating">Imie</ion-label>
+              <ion-input [(ngModel)]="user.imie" autocomplete="name" [disabled]="true"></ion-input>
+            </ion-item>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <ion-item [ngClass]="{'badInput':!user.nazwiskoGood}">
+              <ion-label position="floating">Nazwisko</ion-label>
+              <ion-input [(ngModel)]="user.nazwisko" [disabled]="true"></ion-input>
+            </ion-item>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <ion-item [ngClass]="{'badInput':!user.emailGood}">
+              <ion-label position="floating">Email</ion-label>
+              <ion-input [(ngModel)]="user.email" inputmode="email" [disabled]="true"></ion-input>
+            </ion-item>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <ion-item [ngClass]="{'badInput':!user.nr_indeksuGood}">
+              <ion-label position="floating">Nr indeksu</ion-label>
+              <ion-input [(ngModel)]="user.nr_indeksu" [disabled]="true"></ion-input>
+            </ion-item>
+          </td>
+        </tr>
+        <tr>
+          <td style="float: right;margin: 20px">
+            <ion-button color="success" [disabled]="true">Zmień dane
+            </ion-button>
+          </td>
+        </tr>
+      </table>
+
+    </ion-content>
+
+  </ng-template>
+</ion-modal>

@@ -44,7 +44,7 @@ export class QrcodeService {
         resultDisplayDuration: 0,
       }).then(async (barcodeData: QrOut) => {
         if (barcodeData.cancelled == true) {
-          console.log(barcodeData)
+          console.log('Anulowano skanowanie');
           reject(undefined);
           return;
         }
@@ -64,8 +64,8 @@ export class QrcodeService {
           });
           toast.present();
           barcodeData.mode = QrMode.other;
-          resolve(barcodeData);
         }
+        resolve(barcodeData);
       }).catch(async err => {
         const alert = await this.alertController.create({
           header: 'UWAGA',

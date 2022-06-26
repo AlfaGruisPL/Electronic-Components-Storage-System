@@ -97,7 +97,6 @@ export class ApiService {
     this._storage.clear();
     this.token = '';
     this._router.navigate(['/login'])
-    console.log(1)
   }
 
   private getHeader(): any {

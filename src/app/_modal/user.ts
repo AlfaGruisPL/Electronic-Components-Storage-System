@@ -1,12 +1,12 @@
 export class User {
-  imie? = 'Korneliia';
-  nazwisko = 'Mushak';
+  imie? = '';//'Korneliia';
+  nazwisko = '';// 'Mushak';
   // eslint-disable-next-line @typescript-eslint/naming-convention
-  nr_indeksu = 's37269';
+  nr_indeksu = '';//'s37269';
   tytul = '';
-  email = 's37219@s.pwste.edu.pl';
-  haslo = 'kK1!';
-  haslo2 = 'kK1!';
+  email = '';//'s37219@s.pwste.edu.pl';
+  haslo = ''; //'kK1!';
+  haslo2 = '';// 'kK1!';
 
   imieGood = true;
   nazwiskoGood = true;
@@ -18,7 +18,7 @@ export class User {
   haslo2Good = true;
   status: Status = 0;
   passwordRegCheckVal = false;
-  checkPasswordVal = true
+  checkPasswordVal = true;
 
   numberReg = '#a8a8a8';
   bigReg = '#a8a8a8';

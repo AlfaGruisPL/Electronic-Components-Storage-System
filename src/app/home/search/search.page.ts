@@ -6,6 +6,7 @@ import {ElementsService} from 'src/app/_services/elements.service';
 import {PlacesService} from 'src/app/_services/places.service';
 import {FooterService} from '../../_services/footer.service';
 import {LoadingService} from "../../_services/loading.service";
+import {Page} from "../../_modal/page";
 
 @Component({
   selector: 'app-search',
@@ -22,6 +23,10 @@ export class SearchPage implements OnInit {
 
   constructor(public _footer: FooterService, public _elements: ElementsService, private _router: Router, public _places: PlacesService,
               public loading: LoadingService) {
+  }
+
+  ionViewDidEnter() {
+    this._footer.footerSetPage.next(Page.nextHome);
   }
 
   ngOnInit() {
