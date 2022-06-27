@@ -3,11 +3,13 @@ import {Storage} from '@ionic/storage-angular';
 import {AlertController, LoadingController, ToastController} from '@ionic/angular';
 import {Router} from '@angular/router';
 import {ApiService} from './api.service';
+import {ActionPerformed, PushNotifications, PushNotificationSchema, Token} from "@capacitor/push-notifications";
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
+  public firebaseToken = '';
 
   constructor(private localStorage: Storage,
               public toastController: ToastController,
@@ -62,62 +64,116 @@ export class LoginService {
 
 
   public logInF(login: string, password: string, saveToLocalStorage: boolean, hideCommunicate = false): Promise<number> {
+
     var t1 = new Date().getTime();
     return new Promise(async (resolve, reject) => {
-      this.api.login(login, password).then(async data => {
+      //oczekiwanie na token urządzenia w celu wysyłania powiadomień
+      this.OpenNotificationChanel().then(() => {
+        this.api.login(login, password, this.firebaseToken).then(async data => {
 
-        if (hideCommunicate === false) {
-          const toast = await this.toastController.create({
-            message: 'Logowanie udane',
-            duration: 400,
-            position: 'bottom',
-            icon: 'key-outline'
-          });
+          if (hideCommunicate === false) {
+            const toast = await this.toastController.create({
+              message: 'Logowanie udane',
+              duration: 400,
+              position: 'bottom',
+              icon: 'key-outline'
+            });
+            toast.present();
+          }
+          if (saveToLocalStorage === true) {
+            const storage = await this.localStorage.create();
+            storage.set('login', login);
+            storage.set('password', password);
+          }
+          this.router.navigate(['home']);
+
+          resolve(new Date().getTime() - t1);
+        }).catch(async data => {
+          let toast;
+          switch (data.status) {
+            case 425:
+              toast = await this.toastController.create({
+                message: 'Twoje konto nie zostało potwierdzone, sprawdź swoją skrzynkę pocztową oraz potwierdź swoje konto',
+                duration: 4000,
+                icon: 'key-outline'
+              });
+              break;
+            case 423:
+              toast = await this.toastController.create({
+                message: 'Twoje konto zostało dezaktywowane',
+                duration: 2000,
+                icon: 'key-outline'
+              });
+              break;
+            case 424:
+              toast = await this.toastController.create({
+                message: 'Twoje konto jest zarchiwizowane',
+                duration: 2000,
+                icon: 'key-outline'
+              });
+              break;
+            default:
+              toast = await this.toastController.create({
+                message: 'Podane dane logowania nie są poprawne',
+                duration: 2000,
+                icon: 'key-outline'
+              });
+              break;
+          }
           toast.present();
-        }
-        if (saveToLocalStorage === true) {
-          const storage = await this.localStorage.create();
-          storage.set('login', login);
-          storage.set('password', password);
-        }
-        this.router.navigate(['home']);
-        resolve(new Date().getTime() - t1);
-      }).catch(async data => {
-        let toast;
-        switch (data.status) {
-          case 425:
-            toast = await this.toastController.create({
-              message: 'Twoje konto nie zostało potwierdzone, sprawdź swoją skrzynkę pocztową oraz potwierdź swoje konto',
-              duration: 4000,
-              icon: 'key-outline'
-            });
-            break;
-          case 423:
-            toast = await this.toastController.create({
-              message: 'Twoje konto zostało dezaktywowane',
-              duration: 2000,
-              icon: 'key-outline'
-            });
-            break;
-          case 424:
-            toast = await this.toastController.create({
-              message: 'Twoje konto jest zarchiwizowane',
-              duration: 2000,
-              icon: 'key-outline'
-            });
-            break;
-          default:
-            toast = await this.toastController.create({
-              message: 'Podane dane logowania nie są poprawne',
-              duration: 2000,
-              icon: 'key-outline'
-            });
-            break;
-        }
-        toast.present();
-        reject(new Date().getTime() - t1);
-
+          reject(new Date().getTime() - t1);
+        });
       });
+    });
+
+  }
+
+  OpenNotificationChanel(): Promise<boolean> {
+
+    PushNotifications.requestPermissions().then(result => {
+      if (result.receive === 'granted') {
+        console.log('%cPushNotifications granted', 'color:magenta');
+        // Register with Apple / Google to receive push via APNS/FCM
+        PushNotifications.register();
+      } else {
+        console.log('%cPushNotifications not granted', 'color:magenta');
+      }
+    });
+
+
+    // On success, we should be able to receive notifications
+
+
+    // Some issue with our setup and push will not work
+    PushNotifications.addListener('registrationError',
+      (error: any) => {
+        console.log('%cError on registration: ' + JSON.stringify(error), 'color:magenta');
+      }
+    );
+
+    // Show us the notification payload if the app is open on our device
+    PushNotifications.addListener('pushNotificationReceived',
+      (notification: PushNotificationSchema) => {
+        console.log('%cPush received: ' + JSON.stringify(notification), 'color:magenta');
+      }
+    );
+
+    // Method called when tapping on a notification
+    PushNotifications.addListener('pushNotificationActionPerformed',
+      (notification: ActionPerformed) => {
+        console.log('%cPush action performed: ' + JSON.stringify(notification), 'color:magenta');
+      }
+    );
+
+    return new Promise((resolve) => {
+      PushNotifications.addListener('registration',
+        (token: Token) => {
+          console.log('%cPush registration success, token: ' + token.value, 'color:magenta')
+          this.firebaseToken = token.value;
+          resolve(true);
+          //alert('Push registration success, token: ' + token.value);
+        }
+      );
     });
   }
 }

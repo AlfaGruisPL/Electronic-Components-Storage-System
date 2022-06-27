@@ -7,6 +7,7 @@ import {ApiResponse} from '../_modal/api-response';
 import {HttpHeaders} from '@angular/common/http';
 import {ApiEndPoint} from '../_modal/api-end-point';
 import {Login} from '../_modal/login';
+import {ToastController} from "@ionic/angular";
 
 @Injectable({
   providedIn: 'root'
@@ -16,19 +17,23 @@ export class ApiService {
   private isAdminVal = false;
   private _storage: Storage | null = null;
 
-  constructor(private storage: Storage, private _http: HttpService, private http: HTTP, private _router: Router) {
+  constructor(private storage: Storage,
+              private _http: HttpService,
+              private http: HTTP,
+              private _router: Router,
+              private toastController: ToastController) {
   }
 
   isAdmin(): boolean {
     return this.isAdminVal;
   }
 
-  login(email: string, password: string): Promise<Login> {
+  login(email: string, password: string, firebaseToken): Promise<Login> {
     return new Promise<Login>(((resolve, reject) => {
       const json = {};
       json['email'] = email;
       json['password'] = password;
-
+      json['firebaseToken'] = firebaseToken;
       this._http.post('login', json, this.getHeader()).then((data: Login) => {
         const find = data.group.find(group => group.group_id === '2');
         this.isAdminVal = find !== undefined;
@@ -37,6 +42,7 @@ export class ApiService {
         resolve(data);
       }).catch(
         error => {
+          console.log(error)
           if (error.status == '401') {
             this.clearToken();
             this._router.navigate(['']);
@@ -91,12 +97,30 @@ export class ApiService {
     return this.token.length > 5;
   }
 
+//todo zmienic nazwę i dać do login service
   public async clearToken() {
-    const storage = await this.storage.create();
-    this._storage = storage;
-    this._storage.clear();
-    this.token = '';
-    this._router.navigate(['/login'])
+    this.getDefault('logout').then(async k => {
+
+      const toast = await this.toastController.create({
+        message: 'Wylogowanie udane',
+        duration: 2000,
+        icon: 'key-outline'
+      });
+      toast.present();
+      const storage = await this.storage.create();
+      this._storage = storage;
+      this._storage.clear();
+      this.token = '';
+      this._router.navigate(['/login'])
+    }).catch(async error => {
+      const toast = await this.toastController.create({
+        message: 'Wylogowanie nie udane',
+        duration: 2000,
+        icon: 'key-outline'
+      });
+      toast.present();
+    })
+
   }
 
   private getHeader(): any {

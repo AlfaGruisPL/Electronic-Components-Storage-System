@@ -5,6 +5,7 @@ import {Insomnia} from "@awesome-cordova-plugins/insomnia/ngx";
 import {FooterService} from "./_services/footer.service";
 import {Page} from "./_modal/page";
 
+
 const {SplashScreen} = Plugins;
 
 @Component({
@@ -13,7 +14,9 @@ const {SplashScreen} = Plugins;
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(private loginService: LoginService, private insomnia: Insomnia, private footer: FooterService) {
+  constructor(private loginService: LoginService, private insomnia: Insomnia,
+              private footer: FooterService,
+  ) {
   }
 
   componentDidLoad() {
@@ -23,6 +26,10 @@ export class AppComponent implements OnInit {
 
 
   async ngOnInit() {
+    /*
+      
+    */
+
     //! zabezpieczenie przed usypianiem się aplikacji !!!!!!!!!!!!!
     this.insomnia.keepAwake()
       .then(

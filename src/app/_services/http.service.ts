@@ -63,11 +63,22 @@ export class HttpService {
         data['token'] = token;
         var encoded = btoa(JSON.stringify(data));
         this.http.setServerTrustMode('nocheck');
-        this.http.get(this.adresApi + url + '?data=' + encoded, {}, {}).then(a => {
-          resolve(JSON.parse(a['data']));
-        }).catch(b => {
-          alert(JSON.stringify(b));
-          reject(this.errorAnalize(b));
+        this.http.get(this.adresApi + url + '?data=' + encoded, {}, {}).then(k => {
+          try {
+            resolve(JSON.parse(k['data']));
+          } catch (error) {
+            reject(k);
+          }
+        }).catch(error => {
+          reject(this.errorAnalize(error));
+          try {
+            reject(JSON.parse(error['error']));
+          } catch (err) {
+            console.log(error);
+            reject(false);
+          }
+
+
         });
 
       }
