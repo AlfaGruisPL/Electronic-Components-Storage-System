@@ -6,7 +6,7 @@ import {BehaviorSubject} from 'rxjs';
 import {Page} from '../_modal/page';
 import {ApiService} from './api.service';
 import {QrMode} from '../_modal/qr-out';
-import {ToastController} from '@ionic/angular';
+import {Platform, ToastController} from '@ionic/angular';
 import {filter} from 'rxjs/operators';
 
 @Injectable({
@@ -30,13 +30,17 @@ export class FooterService {
               private _qr: QrcodeService,
               private location: Location,
               private _api: ApiService,
+              private platform: Platform,
               public toastController: ToastController) {
+    //tworzenie tablicy poprzednich stron
     this._router.events.pipe(
       filter((event) => event instanceof NavigationEnd)
     ).subscribe((event: NavigationEnd) => {
       this.BackHistory.push(event.url);
-      // console.info(this.BackHistory);
     });
+
+    //uruchomienie nasłuchiwacza i przejęcie przycisku cofania
+    this.backObserver();
 
 
     this.footerSetPage.subscribe(val => {
@@ -76,6 +80,7 @@ export class FooterService {
       }, 2)
     });
   }
+
 
   getInfo(): void {
     if (!this.stoper()) {
@@ -135,7 +140,8 @@ export class FooterService {
     if (!this.stoper()) {
       return;
     }
-    this.location.back();
+    this.backFunction();
+    //this.location.back();
   }
 
   goToSettings() {
@@ -145,4 +151,23 @@ export class FooterService {
     this._router.navigate(['/settings']);
     this.footerSetPage.next(Page.settings);
   }
+
+  private backObserver() {
+    this.platform.backButton.subscribeWithPriority(1000, () => {
+      this.backFunction();
+    });
+  }
+
+  private backFunction() {
+    if (this.BackHistory[this.BackHistory.length - 2] !== '/login' && this.BackHistory[this.BackHistory.length - 1] !== '/home') {
+      this.location.back();
+      this.BackHistory.pop();
+    } else {
+      console.log('%cCofanie zablokowane', 'color:silver');
+    }
+    if (this.BackHistory.length > 10) {
+      this.BackHistory.shift();
+    }
+  }
+
 }

@@ -35,7 +35,7 @@ export class LoginPage implements OnInit {
 
 
   async ionViewWillEnter() {
-    console.log(this._api.tokenExist())
+    console.log(this._api.tokenExist());
     this._footer.footerSetPage.next(Page.login);
     if (this._api.tokenExist() == true) {
       const alertI = await this.alertController.create({
