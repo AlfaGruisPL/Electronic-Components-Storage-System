@@ -4,6 +4,7 @@ import {LoginService} from "./_services/login.service";
 import {Insomnia} from "@awesome-cordova-plugins/insomnia/ngx";
 import {FooterService} from "./_services/footer.service";
 import {Page} from "./_modal/page";
+import {CameraPreview} from "@awesome-cordova-plugins/camera-preview/ngx";
 
 
 const {SplashScreen} = Plugins;
@@ -15,19 +16,22 @@ const {SplashScreen} = Plugins;
 })
 export class AppComponent implements OnInit {
   constructor(private loginService: LoginService, private insomnia: Insomnia,
-              private footer: FooterService,
+              private footer: FooterService, private cameraPreview: CameraPreview
   ) {
   }
 
   componentDidLoad() {
+
     SplashScreen.hide(); //niby przyśpiesza ładowanie
     this.footer.footerSetPage.next(Page.login)
+
   }
 
 
   async ngOnInit() {
+    this.cameraPreview.stopCamera();
     /*
-      
+
     */
 
     //! zabezpieczenie przed usypianiem się aplikacji !!!!!!!!!!!!!

@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Dodawanie zdjęć elementów</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content style="display: flex">
+  <div *ngIf="displayView" style="width: 100%;" [ngStyle]="{'height':viewHeight}"></div>
+  <img id="img" [src]="path" style="width: 100%;float:left;">
+
+
+  <!--  <button (click)="getPhoto()">Zrób zdjęcie</button>-->
+  <ion-button shape="round" (click)="takeFoto()">
+    <ion-icon name="checkmark-done-outline"></ion-icon>
+  </ion-button>
+  <ion-progress-bar [value]="sendInfo"></ion-progress-bar>
+  {{sendInfo}}
+</ion-content>

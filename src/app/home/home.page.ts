@@ -45,7 +45,14 @@ export class HomePage {
   toTransfer(): void {
     this.footer.footerSetPage.next(Page.nextHome);
     // eslint-disable-next-line no-underscore-dangle
-
     this._router.navigate(['../transfer']);
   }
+
+  toPhotography(): void {
+    this.footer.footerSetPage.next(Page.nextHome);
+    // eslint-disable-next-line no-underscore-dangle
+    this._router.navigate(['../photography']);
+  }
+
+
 }

@@ -36,8 +36,15 @@ const routes: Routes = [
     loadChildren: () => import('./home/hireMenu/hire.module').then(m => m.HirePageModule)
   },
   {
+    canActivate: [LoginGuard],
     path: 'settings',
     loadChildren: () => import('./settings/settings.module').then(m => m.SettingsPageModule)
+  },
+  {
+    //! psuje robienie zdję
+    canActivate: [LoginGuard],
+    path: 'photography',
+    loadChildren: () => import('./home/photography/photography.module').then(m => m.PhotographyPageModule)
   },
   {
     path: '',

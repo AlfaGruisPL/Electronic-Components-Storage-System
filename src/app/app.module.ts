@@ -17,6 +17,7 @@ import {IonicStorageModule} from '@ionic/storage-angular';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {Insomnia} from '@awesome-cordova-plugins/insomnia/ngx';
 import {FooterComponent} from './_components/footer/footer.component';
+import {CameraPreview} from '@awesome-cordova-plugins/camera-preview/ngx';
 
 @NgModule({
 
@@ -28,7 +29,7 @@ import {FooterComponent} from './_components/footer/footer.component';
     {
       provide: RouteReuseStrategy,
       useClass: IonicRouteStrategy
-    }, LeaveGuard, , BarcodeScanner, HttpService, ApiService, HTTP, Network, LoginGuard, Insomnia],
+    }, LeaveGuard, , BarcodeScanner, HttpService, ApiService, HTTP, Network, LoginGuard, Insomnia, CameraPreview],
   bootstrap: [AppComponent],
 })
 export class AppModule {

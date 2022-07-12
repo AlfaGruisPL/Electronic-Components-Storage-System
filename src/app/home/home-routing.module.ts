@@ -8,6 +8,7 @@ const routes: Routes = [
     component: HomePage,
   }
 
+
 ];
 
 @NgModule({

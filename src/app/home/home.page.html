@@ -28,6 +28,13 @@
       <ion-icon name="swap-horizontal-outline"></ion-icon>
       <label>Przenoszenia</label>
     </ion-button>
+
+    <ion-button (click)="toPhotography()" color="light" class="icon" *ngIf="_api.isAdmin();">
+      <ion-icon name="camera-outline"></ion-icon>
+      <label style="font-size: 13px">Fotografowanie<br>elementów</label>
+    </ion-button>
+
+
   </div>
 </ion-content>
 
