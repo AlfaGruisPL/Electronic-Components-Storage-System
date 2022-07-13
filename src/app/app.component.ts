@@ -29,7 +29,11 @@ export class AppComponent implements OnInit {
 
 
   async ngOnInit() {
-    this.cameraPreview.stopCamera();
+    this.cameraPreview.stopCamera().then(data => {
+      console.log(data)
+    }).catch(data => {
+      console.log(data)
+    });
     /*
 
     */

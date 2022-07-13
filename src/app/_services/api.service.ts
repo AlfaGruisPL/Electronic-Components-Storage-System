@@ -93,6 +93,26 @@ export class ApiService {
     });
   }
 
+  public patchDefault(postfix: string, dane: any): Promise<ApiResponse | any> {
+    if (this.token.length > 10) {
+      dane['token'] = this.token;
+    }
+    return new Promise<Array<ApiResponse>>((resolve, reject) => {
+      this._http.patch(postfix, dane, this.getHeader()).then(next => {
+        resolve(next);
+
+      }).catch(error => {
+        if (error.status === '401') {
+          this.clearToken();
+          this._router.navigate(['']);
+          alert('Wylogowanie automatyczne: ' + error.status);
+        }
+
+        reject(error);
+      });
+    });
+  }
+
   public tokenExist(): boolean {
     return this.token.length > 5;
   }

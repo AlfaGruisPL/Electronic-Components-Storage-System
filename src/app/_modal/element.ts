@@ -12,5 +12,5 @@ export class ElementClass {
   nazwa_lokalizacji: string;
   nazwa_miejsca_podstawowego: string;
   id_lokalizacji?: number;
-
+  id_zdjecia?: number;
 }

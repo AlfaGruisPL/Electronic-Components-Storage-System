@@ -6,14 +6,41 @@
 
 
 <ion-content style="display: flex">
-  <div *ngIf="displayView" style="width: 100%;" [ngStyle]="{'height':viewHeight}"></div>
-  <img id="img" [src]="path" style="width: 100%;float:left;">
+  <div *ngIf="state === 0"></div>
 
 
-  <!--  <button (click)="getPhoto()">Zrób zdjęcie</button>-->
-  <ion-button shape="round" (click)="takeFoto()">
-    <ion-icon name="checkmark-done-outline"></ion-icon>
-  </ion-button>
-  <ion-progress-bar [value]="sendInfo"></ion-progress-bar>
-  {{sendInfo}}
+  <div *ngIf="state === 1">
+    <div *ngIf="displayView" style="width: 100%;" [ngStyle]="{'height':viewHeight}"></div>
+    <ion-button shape="round" (click)="takeFoto()">
+      <ion-icon name="checkmark-done-outline"></ion-icon>
+      Zrób zdjęcie
+    </ion-button>
+
+  </div>
+  <div *ngIf="state === 2">
+    <img id="img" [src]="path" style="width: 100%;float:left;">
+    <ion-list style="float: left;width: 100%">
+      <ion-item>
+        <ion-label position="floating">Nazwa</ion-label>
+        <ion-input [(ngModel)]="imageName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-button shape="round" (click)="sendFoto()" *ngIf="displayButton">
+          Wyślij zdjęcie
+        </ion-button>
+
+        <ion-button shape="round" (click)="state1()" *ngIf="displayButton">
+          Zrób zdjęcie ponownie
+        </ion-button>
+      </ion-item>
+    </ion-list>
+
+
+    <ng-container *ngIf="FileService.sendInfo.getValue() != 0">
+      Wysyłanie:
+      <ion-progress-bar [value]="FileService.sendInfo.getValue()"></ion-progress-bar>
+    </ng-container>
+
+
+  </div>
 </ion-content>

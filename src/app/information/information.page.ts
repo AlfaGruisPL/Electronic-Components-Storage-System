@@ -9,6 +9,8 @@ import {LoadingService} from "../_services/loading.service";
 import {ApiEndPoint} from "../_modal/api-end-point";
 import {QrOut} from "../_modal/qr-out";
 import {Page} from "../_modal/page";
+import {Platform} from "@ionic/angular";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-information',
@@ -24,17 +26,28 @@ export class InformationPage implements OnInit {
   public modalTitle = '';
   public modalID = 0;
   public miejsca: Array<Miejsce> = [];
+  private sub: Subscription;
 
   constructor(private route: ActivatedRoute,
               private _router: Router,
               public _api: ApiService,
               public _footer: FooterService,
-              private loading: LoadingService
-  ) {
+              private loading: LoadingService,
+              private platform: Platform) {
+    this.sub = this.platform.backButton.subscribeWithPriority(10001, () => {
+      console.log('%cModal back button handler', 'color:yellow');
+      this.modalPlaceIsOpen = false;
+
+    });
   }
 
   ionViewDidEnter() {
     this._footer.footerSetPage.next(Page.page);
+  }
+
+  ionViewWillLeave() {
+    //console.log("unsub")
+    this.sub.unsubscribe();
   }
 
   ngOnInit() {
