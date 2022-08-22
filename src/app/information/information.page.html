@@ -36,10 +36,10 @@
           </td>
         </tr>
       </table>
-      <div class="elementImageDiv">
+      <div class="elementImageDiv" *ngIf="miejsca[miejsca.length -1]?.toString().length>0">
         <label>Zdjęcie miejsca:</label>
         <img class="elementImage"
-             src="https://www.creativehobby.pl/pol_pl_Wykrojnik-do-papieru-Krolik-Kroliczek-4-3x7-8-cm-36277_3.jpg">
+             [src]="'http://magazynapi.efennec.cfolks.pl/index.php/image/'+miejsca[miejsca.length -1]?.id_zdjecia">
 
       </div>
 

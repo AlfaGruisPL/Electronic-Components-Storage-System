@@ -6,7 +6,6 @@ import {FooterService} from "./_services/footer.service";
 import {Page} from "./_modal/page";
 import {CameraPreview} from "@awesome-cordova-plugins/camera-preview/ngx";
 
-
 const {SplashScreen} = Plugins;
 
 @Component({
@@ -29,6 +28,8 @@ export class AppComponent implements OnInit {
 
 
   async ngOnInit() {
+
+
     this.cameraPreview.stopCamera().then(data => {
       console.log(data)
     }).catch(data => {

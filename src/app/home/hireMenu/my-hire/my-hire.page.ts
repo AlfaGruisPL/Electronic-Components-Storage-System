@@ -7,6 +7,8 @@ import {QrcodeService} from "../../../_services/qrcode.service";
 import {QrOut} from "../../../_modal/qr-out";
 import {Router} from "@angular/router";
 import {LoadingService} from "../../../_services/loading.service";
+import {Subscription} from "rxjs";
+import {Platform} from "@ionic/angular";
 
 
 @Component({
@@ -19,8 +21,14 @@ export class MyHirePage implements OnInit {
   public hireList: Array<Hire> = [];
   public modalPlaceIsOpen = false;
   public selectedHireInModal: Hire | undefined;
+  private sub: Subscription;
 
-  constructor(public _footer: FooterService, private _api: ApiService, private qrCode: QrcodeService, private router: Router, private loading: LoadingService) {
+  constructor(public _footer: FooterService,
+              private _api: ApiService,
+              private qrCode: QrcodeService,
+              private platform: Platform,
+              private router: Router,
+              private loading: LoadingService) {
   }
 
   public openModal(hire: Hire): void {
@@ -28,10 +36,17 @@ export class MyHirePage implements OnInit {
     setTimeout(() => {
       this.selectedHireInModal = hire;
       this.modalPlaceIsOpen = true;
+      this._footer.backObserver(true).then(k => this.modalPlaceIsOpen = k);
     }, 10);
 
 
   }
+
+  ionViewDidEnter() {
+    // eslint-disable-next-line no-underscore-dangle
+    // this._footer.footerSetPage.next(Page.nextHome);
+  }
+
 
   ngOnInit() {
     this.loading.create();
@@ -43,6 +58,7 @@ export class MyHirePage implements OnInit {
         Object.assign(hireTmp, hire);
         this.hireList.push(hireTmp);
       });
+      console.log(this.hireList)
       this.hireList = this.hireList.sort((k1: Hire, k2: Hire) => {
         return k1.timeToReturn() < k2.timeToReturn() ? -1 : 1;
         return 0;
@@ -50,6 +66,9 @@ export class MyHirePage implements OnInit {
     });
   }
 
+
+  ionViewWillLeave() {
+  }
 
   returnHire(): void {
     this.modalPlaceIsOpen = false;

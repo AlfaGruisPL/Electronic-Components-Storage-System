@@ -4,18 +4,24 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6d1fddc-25f1-4a98-a59b-05fb675db7de" name="Changes" comment="wysyłanie zdjęć">
-      <change afterPath="$PROJECT_DIR$/src/app/_services/file.service.ts" afterDir="false" />
+    <list default="true" id="f6d1fddc-25f1-4a98-a59b-05fb675db7de" name="Changes" comment="Praca">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/splash.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/splash.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/_components/element-in-place-info/element-in-place-info.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_components/element-in-place-info/element-in-place-info.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/_modal/element.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_modal/element.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/_services/api.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/api.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/_services/http.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/http.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_components/element-in-place-info/element-in-place-info.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_components/element-in-place-info/element-in-place-info.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_modal/hire.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_modal/hire.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_services/footer.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/footer.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_services/qrcode.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/qrcode.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/photography/photography.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/photography/photography.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire-list/hire-list.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire-list/hire-list.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire-list/hire-list.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire-list/hire-list.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/home/photography/photography.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/photography/photography.page.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/information/information.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/information/information.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/information/information.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/information/information.page.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/information/information.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/information/information.page.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -95,8 +101,11 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\alfag\Desktop\~MagazynMobile" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\alfag\Desktop\~MagazynMobile\www\lottie" />
+    </key>
   </component>
-  <component name="RunManager" selected="Shell Script.Wyślid debug wifi">
+  <component name="RunManager" selected="Shell Script.Start">
     <configuration name="Tests (app)" type="JavaScriptTestRunnerKarma">
       <config-file value="$PROJECT_DIR$/karma.conf.js" />
       <karma-package-dir value="$PROJECT_DIR$/node_modules/@angular/cli" />
@@ -118,7 +127,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Wyślid debug wifi" type="ShConfigurationType">
-      <option name="SCRIPT_TEXT" value="ionic capacitor run android --target adb-6db211d0-eWB02d._adb-tls-connect._tcp --debug  -l --external    " />
+      <option name="SCRIPT_TEXT" value="ionic capacitor run android --target adb-6db211d0-eWB02d._adb-tls-connect._tcp. --debug  -l --external    " />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
       <option name="SCRIPT_PATH" value="" />
       <option name="SCRIPT_OPTIONS" value="" />
@@ -148,7 +157,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Wyślij na telefon wifi" type="ShConfigurationType">
-      <option name="SCRIPT_TEXT" value="ionic capacitor run android --target adb-6db211d0-eWB02d._adb-tls-connect._tcp " />
+      <option name="SCRIPT_TEXT" value="ionic capacitor run android --target adb-6db211d0-eWB02d._adb-tls-connect._tcp. " />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
       <option name="SCRIPT_PATH" value="" />
       <option name="SCRIPT_OPTIONS" value="" />
@@ -260,6 +269,18 @@
       <workItem from="1656581651019" duration="14000" />
       <workItem from="1657617941280" duration="27783000" />
       <workItem from="1657698639743" duration="16987000" />
+      <workItem from="1657735078338" duration="723000" />
+      <workItem from="1657781124797" duration="628000" />
+      <workItem from="1657960281083" duration="12461000" />
+      <workItem from="1658054238731" duration="153000" />
+      <workItem from="1658067170220" duration="633000" />
+      <workItem from="1658067969499" duration="925000" />
+      <workItem from="1658219069249" duration="18000" />
+      <workItem from="1658301627017" duration="2789000" />
+      <workItem from="1658500093165" duration="594000" />
+      <workItem from="1660637979967" duration="2118000" />
+      <workItem from="1660678958855" duration="94000" />
+      <workItem from="1660897030443" duration="362000" />
     </task>
     <task id="LOCAL-00001" summary="kolejny dzień">
       <created>1649786916461</created>
@@ -481,7 +502,9 @@
     <MESSAGE value="naprawa przenoszenia" />
     <MESSAGE value="work" />
     <MESSAGE value="wysyłanie zdjęć" />
-    <option name="LAST_COMMIT_MESSAGE" value="wysyłanie zdjęć" />
+    <MESSAGE value="Test" />
+    <MESSAGE value="Praca" />
+    <option name="LAST_COMMIT_MESSAGE" value="Praca" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

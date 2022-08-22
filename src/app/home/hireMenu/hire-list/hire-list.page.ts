@@ -4,6 +4,8 @@ import {ApiService} from "../../../_services/api.service";
 import {Hire} from "../../../_modal/hire";
 import {ApiResponse} from "../../../_modal/api-response";
 import {LoadingService} from "../../../_services/loading.service";
+import {Subscription} from "rxjs";
+import {Platform} from "@ionic/angular";
 
 @Component({
   selector: 'app-hire-list',
@@ -15,9 +17,11 @@ export class HireListPage implements OnInit {
   public hireList: Array<Hire> = [];
   public modalPlaceIsOpen = false;
   public selectedHireInModal: Hire = new Hire();
+  private sub: Subscription;
 
   constructor(public _footer: FooterService,
               private _api: ApiService,
+              private platform: Platform,
               public loading: LoadingService) {
   }
 
@@ -34,13 +38,21 @@ export class HireListPage implements OnInit {
     }).catch(error => {
       console.error("Api: wypozyczeniaUzytkownikaHistoria ", error)
     });
+
+
   }
+
+
+  ionViewWillLeave() {
+  }
+
 
   openModal(selected: Hire) {
     this.selectedHireInModal = selected;
     this.modalPlaceIsOpen = false;
     setTimeout(() => {
       this.modalPlaceIsOpen = true;
+      this._footer.backObserver(true).then(k => this.modalPlaceIsOpen = k);
     }, 10);
 
   }

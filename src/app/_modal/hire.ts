@@ -37,9 +37,9 @@ export class Hire {
     if (this.id === 0) {
       return 0;
     }
-    const hireTime = new Date(this.od_kiedy).getTime() + this.planowany_czas_oddania * 24 * 60 * 60;
+    const hireTime = new Date(this.planowany_czas_oddania).getTime();
     var k = (new Date().getTime() - hireTime) / (1000 * 60 * 60 * 24);
-    k = k - this.planowany_czas_oddania;
+
     k = k * -1;
     return Math.round(k);
   }

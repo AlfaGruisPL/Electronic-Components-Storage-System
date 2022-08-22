@@ -35,3 +35,5 @@ workspace.xml
 /.idea
 /.idea/
 /android/
+
+resources/android/**/*

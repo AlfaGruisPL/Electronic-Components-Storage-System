@@ -47,7 +47,7 @@
       <ion-toolbar>
         <ion-title>
           <span style="padding-top: 8px;float: left;display: block">Opcje wypożyczenia:</span>
-          <ion-button (click)="modalPlaceIsOpen = false" color="success" style="float: right">
+          <ion-button (click)="_footer.closeModalAndResetBackObserver()" color="success" style="float: right">
             Zamknij
           </ion-button>
         </ion-title>
@@ -69,7 +69,7 @@
         </tr>
         <tr>
           <td>Planowana data oddania:</td>
-          <td>{{selectedHireInModal?.returnTime() | date:'y/LL/d, HH:mm'}}</td>
+          <td>{{selectedHireInModal?.planowany_czas_oddania | date:'y/LL/d, HH:mm'}}</td>
         </tr>
         <tr *ngIf="selectedHireInModal?.timeToReturn() >= 0 else template2">
           <td>Ilość dni do oddania:</td>

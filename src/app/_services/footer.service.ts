@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {QrcodeService} from './qrcode.service';
 import {Location} from '@angular/common';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, Subscription} from 'rxjs';
 import {Page} from '../_modal/page';
 import {ApiService} from './api.service';
 import {QrMode} from '../_modal/qr-out';
@@ -22,7 +22,7 @@ export class FooterService {
   public backButton = false;
   public registerButton = false;
   public menuButton = false;
-
+  private backSub: Subscription;
   private lastClick = new Date().getTime();
 
   constructor(private _router: Router,
@@ -77,7 +77,7 @@ export class FooterService {
             this.settingsButton = true;
             break;
         }
-      }, 2)
+      }, 2);
     });
   }
 
@@ -152,9 +152,39 @@ export class FooterService {
     this.footerSetPage.next(Page.settings);
   }
 
-  private backObserver() {
-    this.platform.backButton.subscribeWithPriority(1000, () => {
-      this.backFunction();
+  public closeModalAndResetBackObserver() {
+    this.resetBackPromise.next(true);
+    this.backObserver();
+  }
+
+  private resetBackPromise: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
+  public backObserver(modal: boolean = false): Promise<boolean> {
+
+    return new Promise<boolean>((resolve) => {
+      var sub = this.resetBackPromise.subscribe(resetSignal => {
+        if (resetSignal) {
+          console.log('%c ResetSignal Modal back button handler, switch to back mode', 'color:yellow');
+          resolve(false);
+          this.resetBackPromise.next(false);
+          sub.unsubscribe();
+
+        }
+      });
+      if (!modal) {
+        this.backSub = this.platform.backButton.subscribeWithPriority(1000, () => {
+          this.backFunction();
+          sub.unsubscribe();
+          resolve(true);
+        });
+      } else {
+        this.backSub = this.platform.backButton.subscribeWithPriority(1000, () => {
+          this.backObserver();
+          sub.unsubscribe();
+          console.log('%cModal back button handler, switch to back mode', 'color:yellow');
+          resolve(false);
+        });
+      }
     });
   }
 
@@ -162,6 +192,7 @@ export class FooterService {
     if (this.BackHistory[this.BackHistory.length - 2] !== '/login' && this.BackHistory[this.BackHistory.length - 1] !== '/home') {
       this.location.back();
       this.BackHistory.pop();
+      console.log("Cofnij")
     } else {
       console.log('%cCofanie zablokowane', 'color:silver');
     }

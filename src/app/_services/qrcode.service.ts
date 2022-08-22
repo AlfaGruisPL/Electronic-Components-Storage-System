@@ -60,7 +60,7 @@ export class QrcodeService {
             message: 'Zeskanowana wartość: ' + barcodeData.text,
             duration: 4500,
             icon: 'information-circle',
-            position: 'bottom',
+            position: 'top',
           });
           toast.present();
           barcodeData.mode = QrMode.other;

@@ -27,7 +27,8 @@ export class PhotographyPage implements OnInit {
   sendImageId = 0;
   imageData = '';
   imageName = 'Zdjecie';
-  elementId = 0
+  elementId = 0;
+  placeId = 0;
 
   constructor(private sanitizer: DomSanitizer,
               private cameraPreview: CameraPreview,
@@ -79,17 +80,34 @@ export class PhotographyPage implements OnInit {
     this.displayButton = false;
     this.FileService.sendImage(this.imageData, this.imageName + '.png').then(k => {
       this.sendImageId = k;
-      this.api.getDefault('elementImageID/' + this.elementId + '/' + this.sendImageId).then(async data => {
+      var title = '';
+      var id = 0;
+      if (this.placeId !== 0) {
+        title = 'miejceImageID';
+        id = this.placeId;
+      } else {
+        id = this.elementId;
+        title = 'elementImageID';
+      }
+      this.api.getDefault(title + '/' + id + '/' + this.sendImageId).then(async data => {
         this.location.back();
         const toast = await this.toastController.create({
-          header: 'Zdjęcie elementu zostało ustawione',
+          header: 'Zdjęcie elementu/miejsca zostało ustawione',
           //message: 'Zeskanowana wartość',
           duration: 3500,
           icon: 'information-circle',
           position: 'bottom',
         });
         toast.present();
-      }).catch(error => {
+      }).catch(async error => {
+        const toast = await this.toastController.create({
+          header: 'Zdjęcie elementu/miejsca nie zostało ustawione',
+          //message: 'Zeskanowana wartość',
+          duration: 3500,
+          icon: 'alert-outline',
+          position: 'bottom',
+        });
+        toast.present();
         console.log(error)
       })
     })
@@ -133,9 +151,9 @@ export class PhotographyPage implements OnInit {
       if (k.cancelled) {
         this.location.back();
       }
-      if (k.mode != QrMode.element) {
+      if (k.mode != QrMode.element && k.mode != QrMode.place) {
         const toast = await this.toastController.create({
-          header: 'Zeskanowany kod nie jest elementem',
+          header: 'Zeskanowany kod nie jest elementem lub miejscem',
           //message: 'Zeskanowana wartość',
           duration: 3500,
           icon: 'information-circle',
@@ -145,7 +163,13 @@ export class PhotographyPage implements OnInit {
         toast.present();
         return;
       }
-      this.elementId = k.id
+      if (k.mode === QrMode.element) {
+        this.elementId = k.id;
+        this.placeId = 0;
+      } else if (k.mode === QrMode.place) {
+        this.placeId = k.id;
+        this.elementId = 0;
+      }
       console.log(k);
       this.state1();
 

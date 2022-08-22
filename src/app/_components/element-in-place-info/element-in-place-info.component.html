@@ -3,13 +3,13 @@
   [isOpen]="modalPlaceIsOpen"
   [swipeToClose]="true">
   <ng-template>
- 
+
 
     <ion-header>
 
       <ion-toolbar>
         <ion-title>
-          <ion-button (click)="modalPlaceIsOpen = false;" color="success" style="float: right">
+          <ion-button (click)="_footer.closeModalAndResetBackObserver()" color="success" style="float: right">
             Zamknij
           </ion-button>
         </ion-title>

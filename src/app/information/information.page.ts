@@ -34,20 +34,10 @@ export class InformationPage implements OnInit {
               public _footer: FooterService,
               private loading: LoadingService,
               private platform: Platform) {
-    this.sub = this.platform.backButton.subscribeWithPriority(10001, () => {
-      console.log('%cModal back button handler', 'color:yellow');
-      this.modalPlaceIsOpen = false;
-
-    });
   }
 
   ionViewDidEnter() {
     this._footer.footerSetPage.next(Page.page);
-  }
-
-  ionViewWillLeave() {
-    //console.log("unsub")
-    this.sub.unsubscribe();
   }
 
   ngOnInit() {
@@ -76,7 +66,12 @@ export class InformationPage implements OnInit {
   openModalPlace(id: number | string, title: string): void {
     this.modalTitle = title;
     this.modalID = Number(id);
-    this.modalPlaceIsOpen = !this.modalPlaceIsOpen;
+    this.modalPlaceIsOpen = true;
+
+    this._footer.backObserver(true).then(k => {
+      this.modalPlaceIsOpen = k;
+      console.log(k)
+    });
   }
 
   private getMiejsce(id: number | string): void {

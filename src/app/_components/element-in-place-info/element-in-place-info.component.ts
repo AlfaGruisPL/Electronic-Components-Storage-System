@@ -4,6 +4,7 @@ import {Miejsce} from '../../_modal/miejsce';
 import {ApiService} from '../../_services/api.service';
 import {ElementsService} from '../../_services/elements.service';
 import {ApiEndPoint} from '../../_modal/api-end-point';
+import {FooterService} from "../../_services/footer.service";
 
 
 @Component({
@@ -37,11 +38,13 @@ export class ElementInPlaceInfoComponent implements OnInit {
   public idMiejscaVal: any;
   public miejsca: Array<Miejsce> = [];
 
-  constructor(private _api: ApiService, public elementService: ElementsService) {
+  constructor(private _api: ApiService, public elementService: ElementsService, private _footer: FooterService) {
   }
 
   open() {
-    this.modalPlaceIsOpen = true;
+
+   
+    //this.modalPlaceIsOpen = true;
   }
 
   /*
