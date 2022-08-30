@@ -53,7 +53,7 @@ export class TransferPage implements OnInit {
 
   scanElement(): void {
     this.qrCode.getInfoAdv('Zeskanuj element:', 'K_3').then(k => {
-      this.elementID = k.text.split('_')[1];
+      this.elementID = k.text.split(':')[1];
       this._api.getDefault('elementInfo/' + this.elementID).then(async data => {
         if (data.value[0] != undefined) {
           this.element = data.value[0];
@@ -73,7 +73,7 @@ export class TransferPage implements OnInit {
 
   scanTargetPlace(): void {
     this.qrCode.getInfoAdv('Zeskanuj miejsce docelowe:', '0_9').then(k => {
-      this.placeID = k.text.split('_')[1];
+      this.placeID = k.text.split(':')[1];
 
       this._api.getDefault('miejsce/' + this.placeID).then(async data => {
         if (data.value[0] != undefined) {
@@ -93,7 +93,7 @@ export class TransferPage implements OnInit {
   }
 
   accept(): void {
-    this.buttonAccept = true;
+    this.buttonAccept = false;
     const dane: any = {};
     dane['uwagi'] = this.description;
     this._api.postDefault('transfer/' + this.elementID + '/' + this.placeID, dane).then(async data => {

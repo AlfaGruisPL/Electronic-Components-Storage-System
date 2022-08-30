@@ -5,24 +5,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6d1fddc-25f1-4a98-a59b-05fb675db7de" name="Changes" comment="Praca">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/icon/drawable-hdpi-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-hdpi-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/icon/drawable-ldpi-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-ldpi-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/icon/drawable-mdpi-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-mdpi-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/icon/drawable-xhdpi-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-xhdpi-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/icon/drawable-xxhdpi-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-xxhdpi-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/icon/drawable-xxxhdpi-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-xxxhdpi-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-hdpi-screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-land-hdpi-screen.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-ldpi-screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-land-ldpi-screen.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-mdpi-screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-land-mdpi-screen.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-xhdpi-screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-land-xhdpi-screen.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-xxhdpi-screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-land-xxhdpi-screen.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-xxxhdpi-screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-land-xxxhdpi-screen.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-hdpi-screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-hdpi-screen.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-ldpi-screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-ldpi-screen.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-mdpi-screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-mdpi-screen.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-xhdpi-screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-xhdpi-screen.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxhdpi-screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxhdpi-screen.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxxhdpi-screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxxhdpi-screen.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/icon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/splash.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/splash.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/_components/element-in-place-info/element-in-place-info.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_components/element-in-place-info/element-in-place-info.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/_components/element-in-place-info/element-in-place-info.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_components/element-in-place-info/element-in-place-info.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/_modal/hire.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_modal/hire.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/_services/footer.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/footer.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/_services/qrcode.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/qrcode.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire-list/hire-list.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire-list/hire-list.page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire-list/hire-list.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire-list/hire-list.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/photography/photography.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/photography/photography.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/information/information.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/information/information.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire.page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/return-hire/return-hire.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/return-hire/return-hire.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/return-hire/return-hire.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/return-hire/return-hire.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/home.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/home.page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/search/search.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/search/search.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/search/search.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/search/search.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/information/information.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/information/information.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/login.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/login.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/login.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/login.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/global.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +126,7 @@
       <recent name="C:\Users\alfag\Desktop\~MagazynMobile\www\lottie" />
     </key>
   </component>
-  <component name="RunManager" selected="Shell Script.Start">
+  <component name="RunManager" selected="Shell Script.Wyślid debug wifi">
     <configuration name="Tests (app)" type="JavaScriptTestRunnerKarma">
       <config-file value="$PROJECT_DIR$/karma.conf.js" />
       <karma-package-dir value="$PROJECT_DIR$/node_modules/@angular/cli" />
@@ -281,6 +302,11 @@
       <workItem from="1660637979967" duration="2118000" />
       <workItem from="1660678958855" duration="94000" />
       <workItem from="1660897030443" duration="362000" />
+      <workItem from="1661161562237" duration="101000" />
+      <workItem from="1661199046728" duration="5000" />
+      <workItem from="1661251104140" duration="621000" />
+      <workItem from="1661886400726" duration="7516000" />
+      <workItem from="1661895053324" duration="206000" />
     </task>
     <task id="LOCAL-00001" summary="kolejny dzień">
       <created>1649786916461</created>
@@ -471,7 +497,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657659138756</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Praca">
+      <created>1661161622103</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1661161622103</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -505,6 +538,10 @@
     <MESSAGE value="Test" />
     <MESSAGE value="Praca" />
     <option name="LAST_COMMIT_MESSAGE" value="Praca" />
+  </component>
+  <component name="XPathView.XPathProjectComponent">
+    <history />
+    <find-history />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

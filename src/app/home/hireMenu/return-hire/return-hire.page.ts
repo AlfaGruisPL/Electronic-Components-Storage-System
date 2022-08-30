@@ -23,6 +23,7 @@ export class ReturnHirePage implements OnInit {
   public elementId: number = 0;
   public targetPlace: Array<Miejsce> = []
   public returnHireButton = true;
+  public modalPlaceIsOpen = false;
 
   constructor(private router: Router,
               private api: ApiService,
@@ -43,8 +44,10 @@ export class ReturnHirePage implements OnInit {
     this.qrScaner.getInfoAdv('Zeskanuj miejsce odłożenia elementu', '&_3').then((data: QrOut) => {
       if (data.mode === QrMode.place) {
         this.api.getDefault('miejsce/' + data.id).then((apiOut: ApiResponse) => {
+
           this.targetPlace = apiOut.value;
           this.returnHireButton = false;
+          console.log(apiOut)
         });
         this.state = 2;
 
@@ -56,7 +59,7 @@ export class ReturnHirePage implements OnInit {
   }
 
   scanElement() {
-    this.qrScaner.getInfoAdv('Zeskanuj element który chcesz oddać', '&_3').then(async (data: QrOut) => {
+    this.qrScaner.getInfoAdv('Zeskanuj element który chcesz oddać', 'element:3').then(async (data: QrOut) => {
       if (data.mode === QrMode.element) {
         this.api.getDefault('elementInfo/' + data.id).then((val: ApiResponse) => {
           if (val.value.length === 0) {

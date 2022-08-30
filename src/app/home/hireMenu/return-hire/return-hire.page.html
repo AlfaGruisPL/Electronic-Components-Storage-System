@@ -41,7 +41,7 @@
             </td>
             <td>
               {{hire.nazwa_miejsca_przed}}
-              <ion-button (click)="modal.open()">
+              <ion-button (click)="modal.open()" *ngIf="false">
                 <ion-icon name="help-outline"></ion-icon>
               </ion-button>
             </td>
@@ -49,13 +49,6 @@
 
         </table>
 
-
-        <app-element-in-place-info [mode]="'miejce'"
-                                   #modal
-                                   [idMiejsca]="hire?.id_miejsca_przed"
-                                   [title]="'Poprzednia lokalizacja'"
-                                   [modalPlaceIsOpen]="modalPlaceIsOpen">
-        </app-element-in-place-info>
         <br>
 
       </div>
@@ -82,21 +75,23 @@
         </tr>
         <tr *ngIf="hire?.timeToReturn() >= 0 else template2">
           <td>Ilość dni do oddania:</td>
-          <td>{{hire?.timeToReturn()}} dni</td>
+          <td> {{hire?.timeToReturn()}} dni</td>
         </tr>
         <ng-template #template2>
           <tr>
             <td>Przekroczony czas oddania:</td>
-            <td>{{-1 * hire?.timeToReturn()}} dni</td>
+            <td> {{-1 * hire?.timeToReturn()}} dni</td>
           </tr>
         </ng-template>
         <tr>
           <td>Wybrana lokalizacja docelowa</td>
           <td>
             {{targetPlace[targetPlace?.length - 1]?.nazwa}}
+
+
           </td>
         </tr>
-        <tr>
+        <tr *ngIf="false">
           <td colspan="2">
             <ion-textarea
               placeholder="Wpisz tutaj uwagi dostępne dla zarządzającego magazynem"

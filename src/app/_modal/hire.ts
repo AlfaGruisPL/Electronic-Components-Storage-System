@@ -50,11 +50,11 @@ export class Hire {
     }
 
     const time = new Date(this.od_kiedy).getTime() + this.planowany_czas_oddania * 24 * 60 * 60;
-    return new Date(time)
+    return new Date(this.planowany_czas_oddania);
   }
 
   returnTimeExceeded(): number {
-    return Math.round((new Date(this.kiedy_oddane).getTime() - new Date(this.od_kiedy).getTime()) / (1000 * 60 * 60 * 24)) - this.planowany_czas_oddania;
+    return Math.round((new Date(this.kiedy_oddane).getTime() - new Date(this.planowany_czas_oddania).getTime()) / (1000 * 60 * 60 * 24)) - this.planowany_czas_oddania;
   }
 }
 

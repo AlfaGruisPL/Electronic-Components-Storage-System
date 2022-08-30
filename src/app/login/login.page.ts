@@ -13,8 +13,8 @@ import {Page} from "../_modal/page";
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  public login = 'mateusz@s.pwste.edu.pl';// '/';
-  public password = 'kK1!'; //'';
+  public login = 's37269@s.pwste.edu.pl';// '/';
+  public password = 'zaq12WSX!'; //'';
   badPassword = false;
   badLogin = false;
   public keedPass = false;

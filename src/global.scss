@@ -73,7 +73,11 @@ ion-footer {
 }
 
 .container {
-  height: calc(100% - 50px);
+  //height: calc(100% - 50px);
+  padding-bottom: 50px;
+  width: 100%;
+  float: left;
+
 }
 
 .ScanButton {

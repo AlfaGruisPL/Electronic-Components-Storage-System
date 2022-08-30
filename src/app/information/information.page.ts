@@ -45,15 +45,15 @@ export class InformationPage implements OnInit {
     this.loading.create();
     this.route.params.subscribe(
       (params: QrOut) => {
-        if (params.text.charAt(0).toUpperCase() == 'K' && params.text.charAt(1) == '_') {
+        if (params.text.split(':')[0] === 'element') {
           this.mode = 'element';
-          this._api.getDefault(ApiEndPoint.elementInfo + '/' + params.text.split('_')[1]).then(data => {
+          this._api.getDefault(ApiEndPoint.elementInfo + '/' + params.text.split(':')[1]).then(data => {
             Object.assign(this.element, data.value[0]);
             this.loading.dismiss();
           });
-        } else if (params.text.charAt(0).toUpperCase() == '&' && params.text.charAt(1) == '_') {
+        } else if (params.text.split(':')[0] === 'miejsce') {
           this.mode = 'miejsca';
-          this.miejsceId = params.text.split('_')[1];
+          this.miejsceId = params.text.split(':')[1];
           this.getMiejsce(this.miejsceId);
         } else {
           this.mode = 'nieZnane';

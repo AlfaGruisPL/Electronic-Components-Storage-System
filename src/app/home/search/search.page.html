@@ -19,7 +19,6 @@
         </ion-label>
       </div>
     </ion-item-divider>
-    {{displayElements}}
     <ion-list *ngIf="displayElements">
       <ion-item (click)="goToElement(element.id)" *ngFor="let element of findList" class="searchList">
         <ion-label>{{element.nazwa}}</ion-label>

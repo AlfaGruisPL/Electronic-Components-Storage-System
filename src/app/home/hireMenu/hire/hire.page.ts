@@ -61,7 +61,7 @@ export class HirePage {
   scanElement(): void {
     this.qrCode.getInfoAdv('Zeskanuj elementy który chcesz wypożyczyć:', 'no').then(k => {
       if (k.mode !== QrMode.other) {
-        this.elementID = k.text.split('_')[1];
+        this.elementID = k.text.split(':')[1];
         this.api.getDefault('elementInfo/' + this.elementID).then(data => {
           console.log(data);
         });

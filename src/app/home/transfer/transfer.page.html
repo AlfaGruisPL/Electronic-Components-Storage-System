@@ -5,8 +5,8 @@
 </ion-header>
 
 
-<ion-content>
-  <div class="container">
+<ion-content [fullscreen]="false">
+  <div class="container" style="float: left">
     <ng-container *ngIf="state ===0">
       <div class="menu">
         <h3>Aby rozpocząć przenoszenie zeskanuj element:</h3>
@@ -51,7 +51,6 @@
                              nextLabel=""
                              previousLabel=""
         ></pagination-controls>
-
       </div>
 
     </ng-container>

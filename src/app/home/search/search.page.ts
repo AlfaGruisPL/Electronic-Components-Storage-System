@@ -43,11 +43,11 @@ export class SearchPage implements OnInit {
   }
 
   goToElement(id: number): void {
-    this._router.navigate(['../information/k_' + id + '/brak']);
+    this._router.navigate(['../information/element:' + id + '/brak']);
   }
 
   goToPlace(id: number | string): void {
-    this._router.navigate(['../information/&_' + id + '/brak']);
+    this._router.navigate(['../information/miejsce:' + id + '/brak']);
   }
 
   checkList() {

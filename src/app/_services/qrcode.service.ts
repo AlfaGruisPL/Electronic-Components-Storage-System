@@ -28,7 +28,7 @@ export class QrcodeService {
           buttons: ['Rozumiem']
         });
 
-        resolve({text: '&_9', format: 'brak'});
+        resolve({text: 'element:9', format: 'brak'});
         await alert.present();
         reject(err);
       });
@@ -43,17 +43,21 @@ export class QrcodeService {
         prompt: promptText,
         resultDisplayDuration: 0,
       }).then(async (barcodeData: QrOut) => {
-        if (barcodeData.cancelled == true) {
+        if (barcodeData.cancelled === true) {
           console.log('Anulowano skanowanie');
           reject(undefined);
           return;
         }
-        if (barcodeData.text.charAt(0).toUpperCase() === 'K' && barcodeData.text.charAt(1) === '_') {
+        console.log(123)
+        console.log(barcodeData)
+        if (barcodeData.text.split(':')[0] === 'element') {
           barcodeData.mode = QrMode.element;
-          barcodeData.id = Number(barcodeData.text.split('_')[1]);
-        } else if (barcodeData.text.charAt(0).toUpperCase() === '&' && barcodeData.text.charAt(1) === '_') {
+          barcodeData.id = Number(barcodeData.text.split(':')[1]);
+
+
+        } else if (barcodeData.text.split(':')[0] === 'miejsce') {
           barcodeData.mode = QrMode.place;
-          barcodeData.id = Number(barcodeData.text.split('_')[1]);
+          barcodeData.id = Number(barcodeData.text.split(':')[1]);
         } else {
           const toast = await this.toastController.create({
             header: 'Element lub miejsce nie zostało rozpoznane w zeskanowany kodzie',
@@ -63,6 +67,7 @@ export class QrcodeService {
             position: 'top',
           });
           toast.present();
+
           barcodeData.mode = QrMode.other;
         }
         resolve(barcodeData);

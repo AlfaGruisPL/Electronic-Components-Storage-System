@@ -33,6 +33,7 @@ export class HireListPage implements OnInit {
         const hireTmp = new Hire();
         Object.assign(hireTmp, hire);
         this.hireList.push(hireTmp);
+
       });
       this.loading.dismiss();
     }).catch(error => {
