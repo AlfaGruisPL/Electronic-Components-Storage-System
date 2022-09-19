@@ -1,4 +1,10 @@
 export class User {
+  id?;
+  dataDolaczenia?;
+  zarchiwizowany?: string;
+  aktywny?: string;
+
+
   imie? = '';//'Korneliia';
   nazwisko = '';// 'Mushak';
   // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -24,6 +30,7 @@ export class User {
   bigReg = '#a8a8a8';
   smallReg = '#a8a8a8';
   specialReg = '#a8a8a8';
+
 
   checkEmail(): boolean {
     // eslint-disable-next-line eqeqeq

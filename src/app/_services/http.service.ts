@@ -81,7 +81,7 @@ export class HttpService {
     }));
   }
 
-  get(url: string, options: any, token = ''): Promise<any> {
+  get(url: string, options: any, token = '', timeout: number): Promise<any> {
     return new Promise(((resolve, reject) => {
       if (Capacitor.isNativePlatform() == false) { //mobile
         this.get_(this.adresApi + url, options).subscribe(next => {
@@ -95,6 +95,7 @@ export class HttpService {
         data['token'] = token;
         var encoded = btoa(JSON.stringify(data));
         this.http.setServerTrustMode('nocheck');
+        this.http.setRequestTimeout(timeout)
         this.http.get(this.adresApi + url + '?data=' + encoded, {}, {}).then(k => {
           try {
             resolve(JSON.parse(k['data']));

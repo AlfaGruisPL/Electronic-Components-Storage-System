@@ -1,19 +1,105 @@
+.container {
+  //padding-bottom: 0px !important;
+}
+
 #container {
   height: calc(100%);
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-between;
+  position: relative;
 
-  ion-button {
-    border: 2px solid white;
-    width: 50vw;
+  .settigns {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    border-radius: 50% !important;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border: 1px solid #2a2a2a;
+
+    ion-icon {
+      font-size: 24px;
+    }
+  }
+
+  .logOut {
+    top: 8px;
+    right: 8px;
+    position: absolute;
+    border-radius: 50% !important;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border: 1px solid #2a2a2a;
+
+    ion-icon {
+      padding-left: 5px;
+      font-size: 24px;
+    }
+  }
+
+  .info {
+    h1 {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      font-size: 45px;
+      color: #1faf58;
+      text-align: center;
+    }
+
+    h2 {
+      color: #1faf58;
+      margin: 0;
+      padding: 0;
+      font-weight: normal;
+      width: 100%;
+      text-align: center;
+      padding-bottom: 10px;
+
+      border-bottom: 1px solid #727272;
+    }
+
+    padding-top: 20px;
+
+    table {
+      width: calc(100% - 20px);
+      margin: 20px 10px 0 10px;
+
+      tr {
+        th {
+          text-align: center;
+          padding-bottom: 10px;
+        }
+
+        td {
+          padding-bottom: 6px;
+
+          &:nth-of-type(2) {
+            padding-left: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  .menu {
+    padding-bottom: 30px;
     display: flex;
+    align-content: center;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    height: 50vw;
 
-
+    ion-button {
+      border: 2px solid white;
+      width: 40vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 40vw;
+    }
   }
 }
 

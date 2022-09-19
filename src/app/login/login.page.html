@@ -4,24 +4,33 @@
       <span>
       <ion-icon name="logo-ionic"></ion-icon>
       </span>
-      Logowanie do magazynu
+      Połączenie z serwerem:
+
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 
 <ion-content>
-  <div class="loginDiv">
+  <div class="loginBanner">
+    <h1>Magazyn</h1>
+    <img src="assets/boxNunus.png">
+  </div>
+  <div class="loginDiv" style="position: absolute">
+
     <table>
       <tr>
-        <th colspan="2"><h1>Logowanie</h1></th>
+        <th colspan="2"><h1>Logowanie
+
+
+        </h1></th>
       </tr>
       <tr>
-        <td>Login:</td>
+        <td class="tdlabel"><label>Login:</label></td>
         <td><input [(ngModel)]="login" [ngClass]="{'bad':badLogin}" class="loginInput" type="email"></td>
       </tr>
       <tr>
-        <td>Hasło:</td>
+        <td class="tdlabel"><label>Hasło:</label></td>
         <td><input [(ngModel)]="password" [ngClass]="{'bad':badPassword}" class="loginInput" type="password"></td>
       </tr>
       <tr>

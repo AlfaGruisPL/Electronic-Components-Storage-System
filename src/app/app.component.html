@@ -3,3 +3,52 @@
   ></ion-router-outlet>
   <app-footer></app-footer>
 </ion-app>
+<div class="Icons">
+  <button id="key-trigger" class="keyIconButton">
+    <ion-icon class="keyIcon" *ngIf="_api.isAdmin()" name="key-outline"></ion-icon>
+  </button>
+</div>
+
+
+<div class="signal" [ngClass]="{'noSignal': lastSerwerResponse>=3,'waiting':_api.timeArray.length === 0}"
+     *ngIf="_api.singalDisplay">
+  <span style="font-size: 10px">
+  </span>
+  <button id="signal-trigger" class="signalIconButton">
+    <div class="bar" [ngClass]="{'lowSignal': returnTime()>5000}"></div>
+    <div class="bar" [ngClass]="{'lowSignal': returnTime()>3000}"></div>
+    <div class="bar" [ngClass]="{'lowSignal': returnTime()>1500}"></div>
+    <div class="bar" [ngClass]="{'lowSignal': returnTime()>700}"></div>
+    <div class="bar" [ngClass]="{'lowSignal': returnTime()>400}"></div>
+  </button>
+</div>
+<ion-popover trigger="key-trigger" triggerAction="click">
+  <ng-template>
+    <ion-content class="ion-padding">Posiadasz uprawnienia administratora</ion-content>
+  </ng-template>
+</ion-popover>
+
+<ion-popover trigger="signal-trigger" triggerAction="click">
+  <ng-template>
+    <ion-content class="ion-padding" style="font-size: 13px">
+      <table class="signalStatTable">
+        <tr>
+          <th colspan="2">Statystyki połączenia:</th>
+        </tr>
+        <tr>
+          <td>Opóźnienie komunikacji:</td>
+          <td> {{_api.timeArray.length > 0 ? returnTime() : '000'}}ms</td>
+        </tr>
+        <tr>
+          <td>Stabilność połączenia:</td>
+          <td>
+            {{[0].indexOf(lastSerwerResponse) != -1 ? 'Stabilne' : ''}}
+            {{[1, 2, 3, 4, 5, 6].indexOf(lastSerwerResponse) != -1 ? 'niepewne' : ''}}
+            {{lastSerwerResponse >= 6 ? 'Brak' : ''}}
+          </td>
+        </tr>
+      </table>
+
+    </ion-content>
+  </ng-template>
+</ion-popover>

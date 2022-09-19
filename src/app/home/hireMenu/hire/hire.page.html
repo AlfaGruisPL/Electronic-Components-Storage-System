@@ -6,31 +6,31 @@
 
 
 <ion-content>
-  <div class='container'>
-    <h3 style="color:#78c900;"> Kliknij na przycisk aby wypożyczyć:</h3>
-    <button (click)="HireAccept()" *ngIf="elementID !== ''" class="ScanButton accept "
-            style="margin-left: auto;margin-right: auto;font-size: 167px;">
-      <ion-icon name="checkmark-outline"></ion-icon>
-    </button>
+  <div class='container' id="panel1" *ngIf="state==1">
 
     <table class="tableInfo" style="width: 100%;">
-      <tr *ngIf="false">
-        <td colspan="2" style="font-size: 25px;padding-top: 20px;padding-bottom: 20px">
-          <ion-checkbox [(ngModel)]="rules" color="danger" style=" width: 24px;height: 24px;"></ion-checkbox>
-          Akceptacja
-          <a (click)="modalPlaceIsOpen = true" class="reg">
-
-            Regulaminu
-          </a>
+      <tr>
+        <td>
+          Wybierz administratora upoważniejącego
+        </td>
+        <td>
+          <ion-item>
+            <ion-select [(ngModel)]="selectedAdmin" [interfaceOptions]="optionsAdminList" interface="popover"
+                        placeholder="Wybierz administratora">
+              <ion-select-option *ngFor="let k of adminList"
+                                 [value]="k.id">{{k.imie}} {{k.nazwisko}}</ion-select-option>
+            </ion-select>
+          </ion-item>
         </td>
       </tr>
+
       <tr>
         <td>
           Planowany czas wypożyczenia:
         </td>
         <td>
           <ion-item>
-            <ion-select [(ngModel)]="hireTime" [interfaceOptions]="customPopoverOptions" interface="popover"
+            <ion-select [(ngModel)]="hireTime" [interfaceOptions]="options" interface="popover"
                         placeholder="Wybierz czas">
               <ion-select-option value="31">1 miesiąc</ion-select-option>
               <ion-select-option value="7">1 tydzień</ion-select-option>
@@ -57,6 +57,20 @@
         </td>
       </tr>
 
+
     </table>
+    <h3 style="color:#78c900;"> Kliknij na przycisk aby wypożyczyć:</h3>
+    <button (click)="HireAccept()" *ngIf="elementID !== ''" class="ScanButton accept " [disabled]="selectedAdmin == 0"
+            style="margin-left: auto;margin-right: auto;font-size: 167px;">
+      <ion-icon name="checkmark-outline"></ion-icon>
+    </button>
+
+  </div>
+  <div class='container' id="panel2" *ngIf="state==2">
+
+    <img src="assets/animation/lock/icons8-lock(1).gif" *ngIf="lock"
+         style="position: absolute;top:5px;left:5px; width:100%">
+    <img src="assets/animation/lock/icons8-lock(3).gif" *ngIf="unLock"
+         style="position: absolute;top:1px;left:1px; width:100%">
   </div>
 </ion-content>

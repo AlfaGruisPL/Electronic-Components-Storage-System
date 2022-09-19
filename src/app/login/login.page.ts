@@ -13,11 +13,12 @@ import {Page} from "../_modal/page";
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  public login = 's37269@s.pwste.edu.pl';// '/';
-  public password = 'zaq12WSX!'; //'';
+  public login = 'mateusz@gmail.com'//'s37269@s.pwste.edu.pl';// '/';
+  public password = 'zaq1@WSX'//'zaq12WSX!'; //'';
   badPassword = false;
   badLogin = false;
   public keedPass = false;
+
 
   constructor(private loginService: LoginService,
               private _router: Router,
@@ -35,6 +36,7 @@ export class LoginPage implements OnInit {
 
 
   async ionViewWillEnter() {
+
     console.log(this._api.tokenExist());
     this._footer.footerSetPage.next(Page.login);
     if (this._api.tokenExist() == true) {

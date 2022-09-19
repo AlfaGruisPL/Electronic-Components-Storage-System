@@ -1,0 +1,110 @@
+$signal-height: 17px;
+
+
+.Icons {
+  position: fixed;
+  top: 5px;
+  right: 35px;
+
+  .keyIconButton {
+    background: transparent;
+    padding: 0;
+  }
+
+  .keyIcon {
+
+    font-size: 17px;
+  }
+}
+
+.signal {
+  position: fixed;
+  top: 4px;
+  right: 4px;
+  width: 26px;
+
+
+  span {
+    right: 5px;
+    top: 17px;
+    position: absolute;
+  }
+
+  &.waiting:not(.lowSignal) {
+    button {
+      .bar {
+        border: 1px solid #adadad !important;
+        background: rgba(203, 203, 203, 0.32) !important;
+      }
+    }
+  }
+
+  &.noSignal {
+    button {
+      .bar {
+        background: transparent !important;
+        border: 1px solid red !important;
+      }
+    }
+  }
+
+  .signalIconButton {
+    position: relative;
+
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    display: flex;
+    align-items: end;
+    float: right;
+
+
+    .bar {
+      margin-left: 1px;
+      width: 4px;
+      height: 16px;
+      background: darkgreen;
+
+
+      &.lowSignal:not(.waiting) {
+        background: #1f1f1f !important;
+      }
+
+
+      border: 1px solid darkgreen;
+
+
+      &:nth-of-type(1) {
+        height: calc($signal-height / 5);
+      }
+
+      &:nth-of-type(2) {
+        height: calc($signal-height / 2.9);
+      }
+
+      &:nth-of-type(3) {
+        height: calc($signal-height / 2);
+      }
+
+      &:nth-of-type(4) {
+        height: calc($signal-height / 1.4);
+      }
+
+      &:nth-of-type(5) {
+        height: calc($signal-height / 1);
+      }
+    }
+  }
+}
+
+.signalStatTable {
+  tr {
+    &:not(:last-child) {
+      td, th {
+        padding-bottom: 7px;
+      }
+    }
+
+  }
+}

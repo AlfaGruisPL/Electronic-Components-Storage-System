@@ -13,4 +13,5 @@ export class ElementClass {
   nazwa_miejsca_podstawowego: string;
   id_lokalizacji?: number;
   id_zdjecia?: number;
+  aktualnieWypozyczony?: string;
 }

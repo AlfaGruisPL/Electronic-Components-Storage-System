@@ -1,31 +1,82 @@
-ion-content{
+ion-title {
+  font-size: 15px;
+}
+
+ion-content {
   height: 100%;
   width: 100%;
   display: flex;
   float: left;
 }
-.loginDiv{
+
+.loginBanner {
   width: 100%;
-  height: 100%;
+  height: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
-  table{
-    tr{
-      td{
+  border-bottom: 1px solid #1f1f1f;
+  flex-wrap: wrap;
+  background: #1f1f1f;
+  box-shadow: 0 4px 16px 12px #1f1f1f;
 
-        .loginInput{
-          margin: 10px !important;
+  h1 {
+    text-align: center;
+    width: 100%;
+    text-shadow: 2px 2px 5px white;
+    font-size: calc(100vw / 7);
+    letter-spacing: 7px;
+  }
+
+  img {
+    float: left;
+    height: 171px;
+  }
+}
+
+.loginDiv {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  table {
+    width: 96%;
+    text-align: center;
+
+    tr {
+
+      .tdlabel {
+
+        //       background: #00af00;
+        width: max-content;
+
+        label {
+          text-align: right;
+          float: right;
+          //    background: red;
         }
+      }
+
+      td {
+        .loginInput {
+          width: 80%;
+          margin: 10px 10px 10px 0 !important;
+        }
+
         font-size: 20px;
       }
-      .loginButton{
+
+      .loginButton {
+        margin-right: 30px;
         padding-top: 10px;
         float: right;
       }
     }
   }
 }
-.bad{
-  border:3px solid red
+
+.bad {
+  border: 3px solid red
 }

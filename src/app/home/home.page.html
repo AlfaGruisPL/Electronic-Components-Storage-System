@@ -4,8 +4,8 @@
       <ion-menu-toggle>
         <ion-icon name="reorder-three-outline"></ion-icon>
       </ion-menu-toggle>
-      Dostępne opcje:
-      <ng-container *ngIf="_api.isAdmin()">(administrator)</ng-container>
+      Panel użytkownika:
+      <!--     <ng-container *ngIf="_api.isAdmin()">(administrator)</ng-container>-->
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,26 +13,54 @@
 
 <ion-content [fullscreen]="false">
   <div id="container" class="container">
+    <button class="settigns">
+      <ion-icon slot="icon-only" name="settings-outline" style="color:white;"></ion-icon>
+    </button>
 
 
-    <ion-button (click)="ToSearch()" color="light" class="icon">
-      <ion-icon name="search-outline"></ion-icon>
-      <label>Wyszukaj
-      </label>
-    </ion-button>
-    <ion-button (click)="toHire()" color="light" class="icon">
-      <ion-icon name="wallet-outline"></ion-icon>
-      <label>Wypożyczenia</label>
-    </ion-button>
-    <ion-button (click)="toTransfer()" color="light" class="icon" *ngIf="_api.isAdmin();">
-      <ion-icon name="swap-horizontal-outline"></ion-icon>
-      <label>Przenoszenia</label>
-    </ion-button>
+    <button class="logOut">
+      <ion-icon slot="icon-only" name="log-out-outline" style="color:white;"></ion-icon>
+    </button>
+    <div class="info">
+      <h1>Witaj</h1>
+      <h2>Mateusz Osikowski</h2>
+      <table>
+        <tr>
+          <th colspan="2">Statystki</th>
+        </tr>
+        <tr>
+          <td>Aktywne wypożyczenia</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>Zaległe wypożyczenia</td>
+          <td>5</td>
+        </tr>
 
-    <ion-button (click)="toPhotography()" color="light" class="icon" *ngIf="_api.isAdmin();">
-      <ion-icon name="camera-outline"></ion-icon>
-      <label style="font-size: 13px">Fotografowanie<br>elementów</label>
-    </ion-button>
+      </table>
+    </div>
+    <div class="menu">
+
+
+      <ion-button (click)="ToSearch()" color="light" class="icon">
+        <ion-icon name="search-outline"></ion-icon>
+        <label>Wyszukaj
+        </label>
+      </ion-button>
+      <ion-button (click)="toHire()" color="light" class="icon">
+        <ion-icon name="wallet-outline"></ion-icon>
+        <label>Wypożyczenia</label>
+      </ion-button>
+      <ion-button (click)="toTransfer()" color="light" class="icon" *ngIf="_api.isAdmin();">
+        <ion-icon name="swap-horizontal-outline"></ion-icon>
+        <label>Przenoszenia</label>
+      </ion-button>
+
+      <ion-button (click)="toPhotography()" color="light" class="icon" *ngIf="_api.isAdmin();">
+        <ion-icon name="camera-outline"></ion-icon>
+        <label style="font-size: 13px">Fotografowanie<br>elementów</label>
+      </ion-button>
+    </div>
 
 
   </div>

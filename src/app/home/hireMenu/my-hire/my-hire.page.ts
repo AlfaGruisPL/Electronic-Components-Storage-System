@@ -32,10 +32,12 @@ export class MyHirePage implements OnInit {
   }
 
   public openModal(hire: Hire): void {
+
     this.modalPlaceIsOpen = false;
     setTimeout(() => {
       this.selectedHireInModal = hire;
       this.modalPlaceIsOpen = true;
+      this._api.singalDisplay = false;
       this._footer.backObserver(true).then(k => this.modalPlaceIsOpen = k);
     }, 10);
 

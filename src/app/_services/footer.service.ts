@@ -154,6 +154,7 @@ export class FooterService {
 
   public closeModalAndResetBackObserver() {
     this.resetBackPromise.next(true);
+    this._api.singalDisplay = true;
     this.backObserver();
   }
 
@@ -174,6 +175,7 @@ export class FooterService {
       if (!modal) {
         this.backSub = this.platform.backButton.subscribeWithPriority(1000, () => {
           this.backFunction();
+          this._api.singalDisplay = true;
           sub.unsubscribe();
           resolve(true);
         });
@@ -181,6 +183,7 @@ export class FooterService {
         this.backSub = this.platform.backButton.subscribeWithPriority(1000, () => {
           this.backObserver();
           sub.unsubscribe();
+          this._api.singalDisplay = true;
           console.log('%cModal back button handler, switch to back mode', 'color:yellow');
           resolve(false);
         });

@@ -5,7 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6d1fddc-25f1-4a98-a59b-05fb675db7de" name="Changes" comment="Praca">
+      <change afterPath="$PROJECT_DIR$/src/assets/animation/lock/icons8-lock(1).gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/animation/lock/icons8-lock(3).gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/box.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_modal/api-end-point.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_modal/api-end-point.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_modal/element.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_modal/element.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_modal/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_modal/user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_services/api.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/api.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_services/footer.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/footer.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_services/http.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/http.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire-list/hire-list.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire-list/hire-list.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/home.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/home.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/home.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/home.page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/login.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/login.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/login.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/login.page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/login.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/login.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/settings/settings.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/settings/settings.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/global.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +81,7 @@
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="27C6AmCzNNaUCZypcGiYrcx05m3" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -69,7 +94,8 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/alfag/Desktop/~MagazynMobile&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/alfag/Desktop/~MagazynMobile/src/app/home/hireMenu/hire&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -82,9 +108,13 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\alfag\Desktop\~MagazynMobile\src\app\home\hireMenu\hire" />
+      <recent name="C:\Users\alfag\Desktop\~MagazynMobile\test" />
       <recent name="C:\Users\alfag\Desktop\~MagazynMobile" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\alfag\Desktop\~MagazynMobile\src\assets" />
+      <recent name="C:\Users\alfag\Desktop\~MagazynMobile\src\assets\animation\lock" />
       <recent name="C:\Users\alfag\Desktop\~MagazynMobile\www\lottie" />
     </key>
   </component>
@@ -223,7 +253,19 @@
       <workItem from="1661199046728" duration="5000" />
       <workItem from="1661251104140" duration="621000" />
       <workItem from="1661886400726" duration="7516000" />
-      <workItem from="1661895053324" duration="848000" />
+      <workItem from="1661895053324" duration="1374000" />
+      <workItem from="1661932337330" duration="1594000" />
+      <workItem from="1662819107168" duration="6426000" />
+      <workItem from="1662884590262" duration="3047000" />
+      <workItem from="1662905713624" duration="6263000" />
+      <workItem from="1662931993588" duration="1334000" />
+      <workItem from="1662979615505" duration="594000" />
+      <workItem from="1663193873080" duration="949000" />
+      <workItem from="1663339817219" duration="820000" />
+      <workItem from="1663405395145" duration="20392000" />
+      <workItem from="1663495456984" duration="3464000" />
+      <workItem from="1663516633779" duration="6829000" />
+      <workItem from="1663577622852" duration="3509000" />
     </task>
     <task id="LOCAL-00001" summary="kolejny dzień">
       <created>1649786916461</created>
@@ -428,7 +470,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661895668738</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Praca">
+      <created>1661895934551</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1661895934551</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

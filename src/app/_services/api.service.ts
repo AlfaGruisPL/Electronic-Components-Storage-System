@@ -16,6 +16,9 @@ export class ApiService {
   private token = '';
   private isAdminVal = false;
   private _storage: Storage | null = null;
+  public singalDisplay: boolean = true;
+  public timeArray: Array<number> = [];
+
 
   constructor(private storage: Storage,
               private _http: HttpService,
@@ -55,11 +58,12 @@ export class ApiService {
     }));
   }
 
-  public getDefault(postfix: string | ApiEndPoint): Promise<ApiResponse | any> {
+  public getDefault(postfix: string | ApiEndPoint, timeout: number = 60): Promise<ApiResponse | any> {
+    const time1 = new Date().getTime();
     return new Promise<Array<ApiResponse>>((resolve, reject) => {
-      this._http.get(postfix, this.getHeader(), this.token).then(next => {
+      this._http.get(postfix, this.getHeader(), this.token, timeout).then(next => {
         resolve(next);
-
+        this.timeArray.push(new Date().getTime() - time1);
       }).catch(error => {
         if (error.status === 401) {
 
@@ -77,10 +81,11 @@ export class ApiService {
     if (this.token.length > 10) {
       dane['token'] = this.token;
     }
+    const time1 = new Date().getTime();
     return new Promise<Array<ApiResponse>>((resolve, reject) => {
       this._http.post(postfix, dane, this.getHeader()).then(next => {
         resolve(next);
-
+        this.timeArray.push(new Date().getTime() - time1);
       }).catch(error => {
         if (error.status === '401') {
           this.clearToken();
@@ -131,6 +136,7 @@ export class ApiService {
       this._storage = storage;
       this._storage.clear();
       this.token = '';
+      this.isAdminVal = false;
       this._router.navigate(['/login'])
     }).catch(async error => {
       const toast = await this.toastController.create({

@@ -1,5 +1,6 @@
 export enum ApiEndPoint {
   elementy = 'elementy/',
   elementInfo = 'elementInfo/',
-  miejsce = 'miejsce/'
+  miejsce = 'miejsce/',
+  listaAdministratowow = 'listaAdministratorow/'
 }
