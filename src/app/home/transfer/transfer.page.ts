@@ -92,6 +92,7 @@ export class TransferPage implements OnInit {
     });
   }
 
+
   accept(): void {
     this.buttonAccept = false;
     const dane: any = {};
@@ -110,6 +111,6 @@ export class TransferPage implements OnInit {
   }
 
   toPlace(id: number): void {
-    this.router.navigate(['information/O_' + id + '/brak']);
+    this.router.navigate(['information/miejsce:' + id + '/brak']);
   }
 }

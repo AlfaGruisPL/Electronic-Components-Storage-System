@@ -17,13 +17,15 @@ export class FooterService {
   public BackHistory: Array<string> = [];
   public logInButton = false;
   public logOutButton = false;
-  public settingsButton = false;
   public exploreButton = false;
   public backButton = false;
+  public settingsButton = false;
   public registerButton = false;
   public menuButton = false;
   private backSub: Subscription;
   private lastClick = new Date().getTime();
+  public bannerHidden = false;
+  public bannerIconDisplay = true;
 
   constructor(private _router: Router,
               private activeRoute: ActivatedRoute,
@@ -49,7 +51,7 @@ export class FooterService {
         this.logInButton = false;
         this.logOutButton = false;
         this.settingsButton = false;
-        this.exploreButton = false;
+        this.exploreButton = true;
         this.backButton = false;
         this.registerButton = false;
         this.menuButton = false;
@@ -58,29 +60,60 @@ export class FooterService {
             this.registerButton = true;
             break;
           case Page.register:
-            this.logInButton = true;
+            this.exploreButton = false;
             break;
           case Page.home:
-            this.logOutButton = true;
-            this.settingsButton = true;
-            break;
-          case Page.settings:
-            this.backButton = true;
-            break;
-          case Page.nextHome:
-            //this.backButton = true;
+            // this.logOutButton = true;
             this.settingsButton = true;
             this.menuButton = true;
             break;
-          case Page.page:
+          case Page.settings:
             this.backButton = true;
+            this.menuButton = true;
             this.settingsButton = true;
             break;
+          default:
+            this.backButton = true;
+            this.menuButton = true;
+            this.settingsButton = true;
+            break;
+          /*   case Page.nextHome:
+               //this.backButton = true;
+               this.settingsButton = true;
+               this.menuButton = true;
+               break;
+             case Page.page:
+               this.backButton = true;
+               this.settingsButton = true;
+               break;*/
         }
       }, 2);
     });
   }
 
+  private timer: any;
+
+  showBanner() {
+    this.bannerHidden = false;
+    clearTimeout(this.timer)
+  }
+
+  hideBanner(time: number) {
+    clearTimeout(this.timer)
+    setTimeout(() => {
+      this.bannerHidden = true;
+    }, 60);
+    this.timer = setTimeout(() => {
+      this.bannerHidden = false;
+
+    }, time + 490);
+  }
+
+  toSearch(): void {
+    this.footerSetPage.next(Page.nextHome);
+    // eslint-disable-next-line no-underscore-dangle
+    this._router.navigate(['../search']);
+  }
 
   getInfo(): void {
     if (!this.stoper()) {
@@ -131,9 +164,11 @@ export class FooterService {
     if (!this.stoper()) {
       return;
     }
-    this._api.clearToken();
+    this._api.clearToken().then(() => {
+      this.footerSetPage.next(Page.login);
+    });
     this._router.navigate(['/']);
-    this.footerSetPage.next(Page.login);
+
   }
 
   back(): void {
@@ -154,7 +189,7 @@ export class FooterService {
 
   public closeModalAndResetBackObserver() {
     this.resetBackPromise.next(true);
-    this._api.singalDisplay = true;
+    this.bannerIconDisplay = true;
     this.backObserver();
   }
 
@@ -175,7 +210,7 @@ export class FooterService {
       if (!modal) {
         this.backSub = this.platform.backButton.subscribeWithPriority(1000, () => {
           this.backFunction();
-          this._api.singalDisplay = true;
+          this.bannerIconDisplay = true;
           sub.unsubscribe();
           resolve(true);
         });
@@ -183,7 +218,7 @@ export class FooterService {
         this.backSub = this.platform.backButton.subscribeWithPriority(1000, () => {
           this.backObserver();
           sub.unsubscribe();
-          this._api.singalDisplay = true;
+          this.bannerIconDisplay = true;
           console.log('%cModal back button handler, switch to back mode', 'color:yellow');
           resolve(false);
         });
@@ -192,6 +227,14 @@ export class FooterService {
   }
 
   private backFunction() {
+    console.log(this.BackHistory[this.BackHistory.length - 1])
+    if (this.BackHistory[this.BackHistory.length - 1] === '/register') {
+      this.location.back();
+      this.BackHistory.pop();
+      console.log("Cofnij _ specialny przypadek rejestracji")
+      return;
+    }
+
     if (this.BackHistory[this.BackHistory.length - 2] !== '/login' && this.BackHistory[this.BackHistory.length - 1] !== '/home') {
       this.location.back();
       this.BackHistory.pop();

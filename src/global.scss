@@ -124,3 +124,38 @@ ion-footer {
   }
 }
 
+ion-toast.betterToast {
+  z-index: 34434;
+  --background: #F4F4FA;
+  --box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
+  --color: #4b4a50;
+}
+
+ion-toast.betterToast::part(container) {
+  background-color: #676767;
+}
+
+ion-toast.betterToast::part(icon) {
+  color: #1aff00;
+  margin: 0;
+  padding: 0;
+  font-size: 35px;
+}
+
+ion-toast.betterToast::part(message) {
+  font-style: italic;
+  color: #ffffff;
+  line-height: 1.2;
+  border-right: 1px solid rgba(245, 245, 245, 0.4);
+}
+
+ion-toast.betterToast::part(button) {
+  //border-left: 1px solid #d2d2d2;
+  background: rgba(253, 253, 253, 0.11);
+  color: #1aff00;
+  padding-left: 5px;
+  padding-right: 5px;
+  box-shadow: 1px 1px 1px 1px rgba(245, 245, 245, 0.4);
+  //border: 1px solid rgba(245, 245, 245, 0.4);
+  font-size: 15px;
+}

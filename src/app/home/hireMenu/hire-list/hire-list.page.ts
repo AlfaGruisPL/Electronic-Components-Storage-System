@@ -53,7 +53,7 @@ export class HireListPage implements OnInit {
     this.modalPlaceIsOpen = false;
     setTimeout(() => {
       this.modalPlaceIsOpen = true;
-      this._api.singalDisplay = false;
+      this._footer.bannerIconDisplay = false;
       this._footer.backObserver(true).then(k => this.modalPlaceIsOpen = k);
     }, 10);
 

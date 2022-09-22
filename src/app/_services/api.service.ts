@@ -7,18 +7,16 @@ import {ApiResponse} from '../_modal/api-response';
 import {HttpHeaders} from '@angular/common/http';
 import {ApiEndPoint} from '../_modal/api-end-point';
 import {Login} from '../_modal/login';
-import {ToastController} from "@ionic/angular";
+import {ToastController} from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
+  public timeArray: Array<number> = [];
   private token = '';
   private isAdminVal = false;
   private _storage: Storage | null = null;
-  public singalDisplay: boolean = true;
-  public timeArray: Array<number> = [];
-
 
   constructor(private storage: Storage,
               private _http: HttpService,
@@ -31,12 +29,16 @@ export class ApiService {
     return this.isAdminVal;
   }
 
-  login(email: string, password: string, firebaseToken): Promise<Login> {
+  login(email: string, password: string, firebaseToken, saveToLocalStorage: boolean): Promise<Login> {
+
     return new Promise<Login>(((resolve, reject) => {
       const json = {};
       json['email'] = email;
+      // json['id'] = this.deviseID;
       json['password'] = password;
-      json['firebaseToken'] = firebaseToken;
+      if (saveToLocalStorage) {
+        json['firebaseToken'] = firebaseToken;
+      }
       this._http.post('login', json, this.getHeader()).then((data: Login) => {
         const find = data.group.find(group => group.group_id === '2');
         this.isAdminVal = find !== undefined;
@@ -123,31 +125,50 @@ export class ApiService {
   }
 
 //todo zmienic nazwę i dać do login service
-  public async clearToken() {
-    this.getDefault('logout').then(async k => {
-
-      const toast = await this.toastController.create({
-        message: 'Wylogowanie udane',
-        duration: 2000,
-        icon: 'key-outline'
-      });
-      toast.present();
-      const storage = await this.storage.create();
-      this._storage = storage;
-      this._storage.clear();
-      this.token = '';
-      this.isAdminVal = false;
-      this._router.navigate(['/login'])
-    }).catch(async error => {
-      const toast = await this.toastController.create({
-        message: 'Wylogowanie nie udane',
-        duration: 2000,
-        icon: 'key-outline'
-      });
-      toast.present();
+  public async clearToken(): Promise<boolean> {
+    return new Promise((resolve, reject) => {
+      this.getDefault('logout').then(async k => {
+        const toast = await this.toastController.create({
+          message: 'Wylogowanie udane',
+          duration: 2000,
+          icon: 'key-outline',
+          position: 'top',
+          cssClass: 'betterToast',
+          buttons: [
+            {
+              text: 'Schowaj',
+              role: 'cancel'
+            }
+          ],
+        });
+        toast.present();
+        const storage = await this.storage.create();
+        this._storage = storage;
+        this._storage.clear();
+        this.token = '';
+        this.isAdminVal = false;
+        resolve(true)
+        this._router.navigate(['/login'])
+      }).catch(async error => {
+        const toast = await this.toastController.create({
+          message: 'Wylogowanie nie udane',
+          duration: 2000,
+          icon: 'key-outline',
+          position: 'top',
+          cssClass: 'betterToast',
+          buttons: [
+            {
+              text: 'Schowaj',
+              role: 'cancel'
+            }
+          ],
+        });
+        reject(false);
+        toast.present();
+      })
     })
-
   }
+
 
   private getHeader(): any {
 

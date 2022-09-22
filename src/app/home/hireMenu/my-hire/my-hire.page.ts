@@ -37,7 +37,7 @@ export class MyHirePage implements OnInit {
     setTimeout(() => {
       this.selectedHireInModal = hire;
       this.modalPlaceIsOpen = true;
-      this._api.singalDisplay = false;
+      this._footer.bannerIconDisplay = false;
       this._footer.backObserver(true).then(k => this.modalPlaceIsOpen = k);
     }, 10);
 
@@ -60,7 +60,6 @@ export class MyHirePage implements OnInit {
         Object.assign(hireTmp, hire);
         this.hireList.push(hireTmp);
       });
-      console.log(this.hireList)
       this.hireList = this.hireList.sort((k1: Hire, k2: Hire) => {
         return k1.timeToReturn() < k2.timeToReturn() ? -1 : 1;
         return 0;

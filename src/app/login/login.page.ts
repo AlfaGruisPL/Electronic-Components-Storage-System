@@ -75,7 +75,7 @@ export class LoginPage implements OnInit {
     }
     if (this.login.length > 0 && this.password.length > 0) {
       this.loginService.logInF(this.login, this.password, this.keedPass).then(dane => {
-        //console.log(dane)
+        this._footer.footerSetPage.next(Page.home);
       }).catch(error => {
         console.log(error)
       });

@@ -67,10 +67,10 @@ export class InformationPage implements OnInit {
     this.modalTitle = title;
     this.modalID = Number(id);
     this.modalPlaceIsOpen = true;
-
+    this._footer.bannerIconDisplay = false;
     this._footer.backObserver(true).then(k => {
       this.modalPlaceIsOpen = k;
-      console.log(k)
+
     });
   }
 

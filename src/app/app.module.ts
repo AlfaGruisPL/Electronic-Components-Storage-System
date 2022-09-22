@@ -24,6 +24,10 @@ import {CameraPreview} from '@awesome-cordova-plugins/camera-preview/ngx';
   declarations: [AppComponent, FooterComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, FormsModule, NgxPaginationModule,
+    IonicModule.forRoot({
+      rippleEffect: true,
+      mode: 'md'
+    }),
     IonicStorageModule.forRoot()],
   providers: [
     {

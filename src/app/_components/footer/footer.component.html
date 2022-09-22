@@ -1,5 +1,29 @@
 <ion-footer collapse="fade" class="ion-no-border" style="display: flex;justify-content: center">
+  <ion-tab-button (click)="footer.getInfo()" *ngIf="footer.exploreButton">
+    <ion-icon name="eye-outline"></ion-icon>
+    <ion-label>Skanuj</ion-label>
+  </ion-tab-button>
+  <ion-tab-button (click)="footer.ToMenu()" *ngIf="footer.menuButton">
+    <ion-icon name="apps-outline"></ion-icon>
+    <ion-label>Menu</ion-label>
+  </ion-tab-button>
+  <!-- <ion-tab-button
+     (click)="footer.goToSettings();" *ngIf="footer.settingsButton">
+     <ion-icon name="settings-outline"></ion-icon>
+     <ion-label>Ustawienia</ion-label>
+   </ion-tab-button>-->
+  <ion-tab-button
+    (click)="footer.toSearch();" *ngIf="footer.settingsButton">
+    <ion-icon name="search-outline"></ion-icon>
+    <ion-label>Wyszukaj</ion-label>
+  </ion-tab-button>
 
+  <ion-tab-button (click)="footer.getRegisterPage()" *ngIf="footer.registerButton">
+    <ion-icon name="person-add-outline"></ion-icon>
+    <ion-label>Rejestracja</ion-label>
+  </ion-tab-button>
+
+  <!--
   <ion-tab-button (click)="footer.getInfo()">
     <ion-icon name="eye-outline"></ion-icon>
     <ion-label>Zbadaj</ion-label>
@@ -39,4 +63,6 @@
     <ion-icon name="settings-outline"></ion-icon>
     <ion-label>Ustawienia</ion-label>
   </ion-tab-button>
+
+  -->
 </ion-footer>

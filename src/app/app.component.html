@@ -3,7 +3,7 @@
   ></ion-router-outlet>
   <app-footer></app-footer>
 </ion-app>
-<div class="Icons">
+<div class="Icons" *ngIf="!footer.bannerHidden && footer.bannerIconDisplay">
   <button id="key-trigger" class="keyIconButton">
     <ion-icon class="keyIcon" *ngIf="_api.isAdmin()" name="key-outline"></ion-icon>
   </button>
@@ -11,10 +11,10 @@
 
 
 <div class="signal" [ngClass]="{'noSignal': lastSerwerResponse>=3,'waiting':_api.timeArray.length === 0}"
-     *ngIf="_api.singalDisplay">
+     *ngIf="footer.bannerIconDisplay">
   <span style="font-size: 10px">
   </span>
-  <button id="signal-trigger" class="signalIconButton">
+  <button id="signal-trigger" class="signalIconButton" *ngIf="!footer.bannerHidden">
     <div class="bar" [ngClass]="{'lowSignal': returnTime()>5000}"></div>
     <div class="bar" [ngClass]="{'lowSignal': returnTime()>3000}"></div>
     <div class="bar" [ngClass]="{'lowSignal': returnTime()>1500}"></div>
@@ -37,13 +37,13 @@
         </tr>
         <tr>
           <td>Opóźnienie komunikacji:</td>
-          <td> {{_api.timeArray.length > 0 ? returnTime() : '000'}}ms</td>
+          <td> {{_api.timeArray.length > 0 ? returnTime() : '0'}}ms</td>
         </tr>
         <tr>
           <td>Stabilność połączenia:</td>
           <td>
             {{[0].indexOf(lastSerwerResponse) != -1 ? 'Stabilne' : ''}}
-            {{[1, 2, 3, 4, 5, 6].indexOf(lastSerwerResponse) != -1 ? 'niepewne' : ''}}
+            {{[1, 2, 3, 4, 5].indexOf(lastSerwerResponse) != -1 ? 'niepewne' : ''}}
             {{lastSerwerResponse >= 6 ? 'Brak' : ''}}
           </td>
         </tr>

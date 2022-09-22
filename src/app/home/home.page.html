@@ -13,12 +13,12 @@
 
 <ion-content [fullscreen]="false">
   <div id="container" class="container">
-    <button class="settigns">
+    <button class="settigns" (click)="footer.goToSettings()">
       <ion-icon slot="icon-only" name="settings-outline" style="color:white;"></ion-icon>
     </button>
 
 
-    <button class="logOut">
+    <button class="logOut" (click)="footer.tologOut();">
       <ion-icon slot="icon-only" name="log-out-outline" style="color:white;"></ion-icon>
     </button>
     <div class="info">

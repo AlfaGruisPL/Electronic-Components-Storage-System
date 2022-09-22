@@ -94,11 +94,25 @@
 
     ion-button {
       border: 2px solid white;
-      width: 40vw;
+      width: 37vw;
+      height: 37vw;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 40vw;
+
+      &:nth-child(odd) {
+        margin-right: 8px;
+      }
+
+      &:nth-child(even) {
+        margin-left: 8px;
+      }
+
+      &:nth-child(n+3) {
+        margin-top: 10px;
+      }
+
+
     }
   }
 }

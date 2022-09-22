@@ -135,10 +135,41 @@ export class HirePage implements OnInit {
       if (k.mode === QrMode.element) {
         this.elementID = k.text.split(':')[1];
         this.api.getDefault('elementInfo/' + this.elementID).then(async (data: ApiResponse) => {
+          console.log(data)
+          if (data.value[0].wypozyczenieOczekujeNaPotwierdzenie == '1') {
+            const alert = await this.alertController.create({
+              header: 'Uwaga',
+              message: 'Element niedostępny, aktualnie oczekuje na potwierdzenie wypożyczenia dla innego użytkownika',
+              buttons: ['Rozumiem']
+            });
+            await alert.present();
+            const toast = await this.toastController.create({
+              message: 'Element niedostępny, aktualnie oczekuje na potwierdzenie wypożyczenia dla innego użytkownika',
+              duration: 334000,
+              position: 'top',
+              icon: 'alert-outline',
+              cssClass: 'betterToast',
+              buttons: [
+                {
+                  text: 'Schowaj',
+                  role: 'cancel',
+                  handler: () => {
+                    this._footer.showBanner();
+                  }
+                }
+              ],
+            });
+            this._footer.hideBanner(334000);
+            toast.present();
+
+
+            this.router.navigate(['/hire']);
+            return;
+          }
           if (data.value[0].aktualnieWypozyczony == '1') {
             const alert = await this.alertController.create({
               header: 'Uwaga',
-              message: 'Element jest aktualnie wypożyczony przez innego użytkownika',
+              message: 'Element niedostępny, został już wypożyczony przez innego użytkownika',
               buttons: ['Rozumiem']
             });
             await alert.present();
@@ -155,6 +186,7 @@ export class HirePage implements OnInit {
             this.router.navigate(['/hire']);
             return;
           }
+
 
         });
       } else {

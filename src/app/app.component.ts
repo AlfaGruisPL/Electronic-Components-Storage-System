@@ -6,6 +6,7 @@ import {FooterService} from "./_services/footer.service";
 import {Page} from "./_modal/page";
 import {CameraPreview} from "@awesome-cordova-plugins/camera-preview/ngx";
 import {ApiService} from "./_services/api.service";
+import {Platform, ToastController} from "@ionic/angular";
 
 const {SplashScreen} = Plugins;
 
@@ -18,9 +19,11 @@ export class AppComponent implements OnInit {
   intervalStop: any;
   isDev = false;
   lastSerwerResponse = 0;
+  appInBackground = false;
 
   constructor(private loginService: LoginService, private insomnia: Insomnia, private _api: ApiService,
-              private footer: FooterService, private cameraPreview: CameraPreview
+              private footer: FooterService, private cameraPreview: CameraPreview,
+              public platform: Platform, private toastController: ToastController
   ) {
   }
 
@@ -40,8 +43,11 @@ export class AppComponent implements OnInit {
     clearInterval(this.intervalStop);
   }
 
-  timerStart() {
+  timerStart(): void {
     this.intervalStop = setInterval(() => {
+      if (this.appInBackground) {
+        return;
+      }
       this.sendTimer();
       if (this._api.timeArray.length >= 10) {
         this._api.timeArray.reverse();
@@ -65,6 +71,7 @@ export class AppComponent implements OnInit {
       }
     }).catch(() => {
       this.lastSerwerResponse += 1;
+      this._api.timeArray = [];
     });
   }
 
@@ -84,9 +91,32 @@ export class AppComponent implements OnInit {
     }).catch(data => {
       console.log(data)
     });
-    /*
+    /* const toast = await this.toastController.create({
+       message: 'Element niedostępny, aktualnie oczekuje na potwierdzenie wypożyczenia dla innego użytkownika',
+       duration: 334000,
+       position: 'top',
+       icon: 'alert-outline',
+       cssClass: 'betterToast',
+       buttons: [
+         {
+           text: 'Schowaj',
+           role: 'cancel',
+           handler: () => {
+             this.footer.showBanner();
+           }
+         }
+       ],
+     });
+     this.footer.hideBanner(334000);
+     toast.present();*/
+    this.platform.resume.subscribe(async () => {
+      this.appInBackground = false;
+    });
 
-    */
+    this.platform.pause.subscribe(async () => {
+      this.appInBackground = true;
+    });
+
 
     //! zabezpieczenie przed usypianiem się aplikacji !!!!!!!!!!!!!
     this.insomnia.keepAwake()

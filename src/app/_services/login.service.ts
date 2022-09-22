@@ -4,6 +4,7 @@ import {AlertController, LoadingController, ToastController} from '@ionic/angula
 import {Router} from '@angular/router';
 import {ApiService} from './api.service';
 import {ActionPerformed, PushNotifications, PushNotificationSchema, Token} from "@capacitor/push-notifications";
+import {FooterService} from "./footer.service";
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,7 @@ export class LoginService {
               public alertController: AlertController,
               public loadingController: LoadingController,
               private router: Router,
+              private footer: FooterService,
               private api: ApiService) {
   }
 
@@ -69,16 +71,28 @@ export class LoginService {
     return new Promise(async (resolve, reject) => {
       //oczekiwanie na token urządzenia w celu wysyłania powiadomień
       this.OpenNotificationChanel().then(() => {
-        this.api.login(login, password, this.firebaseToken).then(async data => {
+        this.api.login(login, password, this.firebaseToken, saveToLocalStorage).then(async data => {
 
           if (hideCommunicate === false) {
+
             const toast = await this.toastController.create({
               message: 'Logowanie udane',
               duration: 400,
-              position: 'bottom',
-              icon: 'key-outline'
+              position: 'top',
+              icon: 'key-outline',
+              cssClass: 'betterToast',
+              buttons: [
+                {
+                  text: 'Schowaj',
+                  role: 'cancel',
+                  handler: () => {
+                    this.footer.showBanner();
+                  }
+                }
+              ],
             });
             toast.present();
+            this.footer.hideBanner(400);
           }
           if (saveToLocalStorage === true) {
             const storage = await this.localStorage.create();
@@ -95,29 +109,77 @@ export class LoginService {
               toast = await this.toastController.create({
                 message: 'Twoje konto nie zostało potwierdzone, sprawdź swoją skrzynkę pocztową oraz potwierdź swoje konto',
                 duration: 4000,
-                icon: 'key-outline'
+                icon: 'key-outline',
+                position: 'top',
+                cssClass: 'betterToast',
+                buttons: [
+                  {
+                    text: 'Schowaj',
+                    role: 'cancel',
+                    handler: () => {
+                      this.footer.showBanner();
+                    }
+                  }
+                ],
               });
+              this.footer.hideBanner(4000);
               break;
             case 423:
               toast = await this.toastController.create({
                 message: 'Twoje konto zostało dezaktywowane',
                 duration: 2000,
-                icon: 'key-outline'
+                icon: 'key-outline',
+                position: 'top',
+                cssClass: 'betterToast',
+                buttons: [
+                  {
+                    text: 'Schowaj',
+                    role: 'cancel',
+                    handler: () => {
+                      this.footer.showBanner();
+                    }
+                  }
+                ],
               });
+              this.footer.hideBanner(2000);
               break;
             case 424:
               toast = await this.toastController.create({
                 message: 'Twoje konto jest zarchiwizowane',
                 duration: 2000,
-                icon: 'key-outline'
+                icon: 'key-outline',
+                position: 'top',
+                cssClass: 'betterToast',
+                buttons: [
+                  {
+                    text: 'Schowaj',
+                    role: 'cancel',
+                    handler: () => {
+                      this.footer.showBanner();
+                    }
+                  }
+                ],
               });
               break;
             default:
               toast = await this.toastController.create({
                 message: 'Podane dane logowania nie są poprawne',
                 duration: 2000,
-                icon: 'key-outline'
+                icon: 'key-outline',
+                position: 'top',
+                cssClass: 'betterToast',
+                buttons: [
+                  {
+                    text: 'Schowaj',
+                    role: 'cancel',
+                    handler: () => {
+                      this.footer.showBanner();
+                    }
+                  },
+
+                ],
               });
+              this.footer.hideBanner(2000);
               break;
           }
           toast.present();

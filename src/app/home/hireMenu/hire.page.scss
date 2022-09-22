@@ -1,18 +1,74 @@
+ion-title {
+  color: #1faf58;
+
+  font-weight: bolder;
+  width: 100%;
+  //  text-align: center;
+  padding-bottom: 10px;
+
+}
+
 #container {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-between;
+  position: relative;
 
-  ion-button {
-    border: 2px solid white;
-    width: 40vw;
+
+  .info {
+    padding-top: 20px;
+
+    table {
+      width: calc(100% - 20px);
+      margin: 20px 10px 0 10px;
+
+      tr {
+        th {
+          text-align: center;
+          padding-bottom: 10px;
+        }
+
+        td {
+          padding-bottom: 6px;
+
+          &:nth-of-type(2) {
+            padding-left: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  .menu {
+    padding-bottom: 30px;
     display: flex;
+    align-content: center;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    height: 40vw;
 
+    ion-button {
+      border: 2px solid white;
+      width: 37vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 37vw;
+
+      &:nth-child(odd) {
+        margin-right: 8px;
+      }
+
+      &:nth-child(even) {
+        margin-left: 8px;
+      }
+
+      &:nth-child(n+3) {
+        margin-top: 10px;
+      }
+
+
+    }
   }
 }
 
@@ -36,5 +92,6 @@
   ion-icon {
     color: #1faf58;
     font-size: 74px;
+    padding-bottom: 15px;
   }
 }

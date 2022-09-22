@@ -12,7 +12,11 @@ import {MenuController} from "@ionic/angular";
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  constructor(public _api: ApiService, private _router: Router, private _qr: QrcodeService, private footer: FooterService, private menu: MenuController) {
+  constructor(public _api: ApiService,
+              private _router: Router,
+              private _qr: QrcodeService,
+              private footer: FooterService,
+              private menu: MenuController) {
   }
 
   ionViewDidEnter() {
