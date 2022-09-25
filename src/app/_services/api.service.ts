@@ -79,6 +79,28 @@ export class ApiService {
     });
   }
 
+  public delete(postfix: string, daneParametr: any): Promise<ApiResponse | any> {
+    const dane = {};
+    const time1 = new Date().getTime();
+    return new Promise<Array<ApiResponse>>((resolve, reject) => {
+      if (this.token.length > 10) {
+        dane['token'] = this.token;
+      }
+      this._http.delete(postfix, dane, this.getHeader()).then(next => {
+        // @ts-ignore
+        resolve(next);
+        this.timeArray.push(new Date().getTime() - time1);
+      }).catch(error => {
+        if (error.status === '401') {
+          this.clearToken();
+          this._router.navigate(['']);
+          alert('Wylogowanie automatyczne: ' + error.status);
+        }
+        reject(error);
+      });
+    });
+  }
+
   public postDefault(postfix: string, dane: any): Promise<ApiResponse | any> {
     if (this.token.length > 10) {
       dane['token'] = this.token;

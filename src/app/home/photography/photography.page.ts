@@ -10,6 +10,7 @@ import {ToastController} from "@ionic/angular";
 import {QrMode} from "../../_modal/qr-out";
 import {Page} from "../../_modal/page";
 import {FooterService} from "../../_services/footer.service";
+import {ToastService} from "../../_services/toast.service";
 
 @Component({
   selector: 'app-photography',
@@ -37,6 +38,7 @@ export class PhotographyPage implements OnInit {
               private api: ApiService,
               private _footer: FooterService,
               private qr: QrcodeService,
+              private toast: ToastService,
               private toastController: ToastController) {
 
   }
@@ -81,6 +83,7 @@ export class PhotographyPage implements OnInit {
     this.FileService.sendImage(this.imageData, this.imageName + '.png').then(k => {
       this.sendImageId = k;
       var title = '';
+      var titleDelete = '';
       var id = 0;
       if (this.placeId !== 0) {
         title = 'miejceImageID';
@@ -91,26 +94,12 @@ export class PhotographyPage implements OnInit {
       }
       this.api.getDefault(title + '/' + id + '/' + this.sendImageId).then(async data => {
         this.location.back();
-        const toast = await this.toastController.create({
-          header: 'Zdjęcie elementu/miejsca zostało ustawione',
-          //message: 'Zeskanowana wartość',
-          duration: 3500,
-          icon: 'information-circle',
-          position: 'bottom',
-        });
-        toast.present();
+        this.imageSendSuccess();
       }).catch(async error => {
-        const toast = await this.toastController.create({
-          header: 'Zdjęcie elementu/miejsca nie zostało ustawione',
-          //message: 'Zeskanowana wartość',
-          duration: 3500,
-          icon: 'alert-outline',
-          position: 'bottom',
-        });
-        toast.present();
-        console.log(error)
-      })
-    })
+        this.imageSendFail();
+        console.log(error);
+      });
+    });
   }
 
   async getPhoto() {
@@ -143,6 +132,16 @@ export class PhotographyPage implements OnInit {
       console.log(data)
     });
     this.displayView = true;
+  }
+
+  public state1() {
+    this.cameraPreview.stopCamera();
+    setTimeout(() => {
+      this.getPhoto();
+      setTimeout(() => {
+        this.state = 1;
+      }, 10);
+    }, 10);
   }
 
   private state0() {
@@ -179,14 +178,21 @@ export class PhotographyPage implements OnInit {
     });
   }
 
-  public state1() {
-    this.cameraPreview.stopCamera();
-    setTimeout(() => {
-      this.getPhoto();
-      setTimeout(() => {
-        this.state = 1;
-      }, 10);
-    }, 10);
+  private async imageSendSuccess(): Promise<void> {
+    this.toast.toast({
+      message: 'Zdjęcie elementu/miejsca zostało ustawione',
+      //message: 'Zeskanowana wartość',
+      duration: 4500,
+      icon: 'information-circle',
+      //position: 'bottom',
+    })
   }
 
+  private async imageSendFail(): Promise<void> {
+    this.toast.toast({
+      message: 'Zdjęcie elementu/miejsca nie zostało ustawione',
+      duration: 4500,
+      icon: 'alert-outline',
+    });
+  }
 }

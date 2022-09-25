@@ -81,40 +81,42 @@ export class HttpService {
     }));
   }
 
+  delete(url: string, data: any, option = '') {
+    return new Promise((resolve, reject) => {
+      console.log(data)
+      console.log(JSON.stringify(data))
+      var encoded = btoa(JSON.stringify(data));
+      console.log(encoded)
+      this.http.delete(this.adresApi + url + '?data=' + encoded, {}, {}).then(k => {
+        resolve(JSON.parse(k['data']));
+      })
+    });
+
+  }
+
+
   get(url: string, options: any, token = '', timeout: number): Promise<any> {
     return new Promise(((resolve, reject) => {
-      if (Capacitor.isNativePlatform() == false) { //mobile
-        this.get_(this.adresApi + url, options).subscribe(next => {
-            resolve(next)
-          },
-          error => {
-            reject(error);
-          });
-      } else {
-        var data = {};
-        data['token'] = token;
-        var encoded = btoa(JSON.stringify(data));
-        this.http.setServerTrustMode('nocheck');
-        this.http.setRequestTimeout(timeout)
-        this.http.get(this.adresApi + url + '?data=' + encoded, {}, {}).then(k => {
-          try {
-            resolve(JSON.parse(k['data']));
-          } catch (error) {
-            reject(k);
-          }
-        }).catch(error => {
-          reject(this.errorAnalize(error));
-          try {
-            reject(JSON.parse(error['error']));
-          } catch (err) {
-            console.log(error);
-            reject(false);
-          }
-
-
-        });
-
-      }
+      var data = {};
+      data['token'] = token;
+      var encoded = btoa(JSON.stringify(data));
+      this.http.setServerTrustMode('nocheck');
+      this.http.setRequestTimeout(timeout)
+      this.http.get(this.adresApi + url + '?data=' + encoded, {}, {}).then(k => {
+        try {
+          resolve(JSON.parse(k['data']));
+        } catch (error) {
+          reject(k);
+        }
+      }).catch(error => {
+        reject(this.errorAnalize(error));
+        try {
+          reject(JSON.parse(error['error']));
+        } catch (err) {
+          console.log(error);
+          reject(false);
+        }
+      });
     }));
   }
 

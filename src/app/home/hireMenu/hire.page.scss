@@ -1,10 +1,10 @@
 ion-title {
-  color: #1faf58;
+  //color: #1faf58;
 
-  font-weight: bolder;
+  //  font-weight: bolder;
   width: 100%;
   //  text-align: center;
-  padding-bottom: 10px;
+  //  padding-bottom: 10px;
 
 }
 
@@ -41,19 +41,20 @@ ion-title {
   }
 
   .menu {
-    padding-bottom: 30px;
+    padding-bottom: 10px;
     display: flex;
     align-content: center;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
 
     ion-button {
       border: 2px solid white;
-      width: 37vw;
+      width: 47vw;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 37vw;
+      height: 31vw;
+
 
       &:nth-child(odd) {
         margin-right: 8px;
@@ -73,6 +74,7 @@ ion-title {
 }
 
 .icon {
+
   position: relative;
   background-color: #242424;
   box-shadow: 1px 1px 3px 1px #606060;
@@ -92,6 +94,6 @@ ion-title {
   ion-icon {
     color: #1faf58;
     font-size: 74px;
-    padding-bottom: 15px;
+    padding-bottom: 37px;
   }
 }

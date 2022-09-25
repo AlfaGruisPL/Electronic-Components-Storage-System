@@ -16,6 +16,8 @@ export class FileService {
 
 
   sendImage(file: string, name: string): Promise<number> {
+    this.sendCompleate.next(false)
+    this.sendInfo.next(0)
     this.time = new Date().getTime();
     const cut = 5500;
     const max = Math.round(file.length / cut);
@@ -98,7 +100,7 @@ export class FileService {
       data['file_part'] = part;
 
 
-      this.api.postDefault('file', data).then(response => {
+      this.api.postDefault('image', data).then(response => {
         //  console.log(response);
         this.sendInfo.next(i / max);
         if (part !== ')') {

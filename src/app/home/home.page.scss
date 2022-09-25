@@ -86,19 +86,20 @@
   }
 
   .menu {
-    padding-bottom: 30px;
+    padding-bottom: 10px;
     display: flex;
     align-content: center;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
 
     ion-button {
       border: 2px solid white;
-      width: 37vw;
-      height: 37vw;
+      width: 47vw;
       display: flex;
       justify-content: center;
       align-items: center;
+      height: 31vw;
+
 
       &:nth-child(odd) {
         margin-right: 8px;
@@ -118,9 +119,7 @@
 }
 
 .icon {
-  //display: flex;
-  //flex-direction: column !important;
-  //justify-content: space-between !important;
+
   position: relative;
   background-color: #242424;
   box-shadow: 1px 1px 3px 1px #606060;
@@ -134,11 +133,12 @@
   label {
     position: absolute;
     bottom: 6px;
-    font-size: 15px;
+    font-size: 14px;
   }
 
   ion-icon {
     color: #1faf58;
     font-size: 74px;
+    padding-bottom: 37px;
   }
 }

@@ -94,17 +94,18 @@ export class FooterService {
   private timer: any;
 
   showBanner() {
-    this.bannerHidden = false;
     clearTimeout(this.timer)
+    this.bannerIconDisplay = true;
+
   }
 
   hideBanner(time: number) {
     clearTimeout(this.timer)
     setTimeout(() => {
-      this.bannerHidden = true;
+      this.bannerIconDisplay = false;
     }, 60);
     this.timer = setTimeout(() => {
-      this.bannerHidden = false;
+      this.bannerIconDisplay = true;
 
     }, time + 490);
   }

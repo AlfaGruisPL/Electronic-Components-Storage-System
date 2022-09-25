@@ -3,30 +3,38 @@
   ></ion-router-outlet>
   <app-footer></app-footer>
 </ion-app>
-<div class="Icons" *ngIf="!footer.bannerHidden && footer.bannerIconDisplay">
-  <button id="key-trigger" class="keyIconButton">
-    <ion-icon class="keyIcon" *ngIf="_api.isAdmin()" name="key-outline"></ion-icon>
-  </button>
-</div>
+<div [ngStyle]="{'visibility':footer.bannerIconDisplay?'visible':'hidden'}">
+
+  <div class="Icons">
+    <div [ngStyle]="{'display':_api.isAdmin()?'block':'none'}">
+      <button id="key-trigger" class="keyIconButton">
+        <ion-icon class="keyIcon" name="key-outline"></ion-icon>
+      </button>
+    </div>
+  </div>
 
 
-<div class="signal" [ngClass]="{'noSignal': lastSerwerResponse>=3,'waiting':_api.timeArray.length === 0}"
-     *ngIf="footer.bannerIconDisplay">
+  <div class="signal" [ngClass]="{'noSignal': lastSerwerResponse>=3,'waiting':_api.timeArray.length === 0}">
   <span style="font-size: 10px">
   </span>
-  <button id="signal-trigger" class="signalIconButton" *ngIf="!footer.bannerHidden">
-    <div class="bar" [ngClass]="{'lowSignal': returnTime()>5000}"></div>
-    <div class="bar" [ngClass]="{'lowSignal': returnTime()>3000}"></div>
-    <div class="bar" [ngClass]="{'lowSignal': returnTime()>1500}"></div>
-    <div class="bar" [ngClass]="{'lowSignal': returnTime()>700}"></div>
-    <div class="bar" [ngClass]="{'lowSignal': returnTime()>400}"></div>
-  </button>
+    <button id="signal-trigger" class="signalIconButton"
+    >
+      <div class="bar" [ngClass]="{'lowSignal': returnTime()>5000}"></div>
+      <div class="bar" [ngClass]="{'lowSignal': returnTime()>3000}"></div>
+      <div class="bar" [ngClass]="{'lowSignal': returnTime()>1500}"></div>
+      <div class="bar" [ngClass]="{'lowSignal': returnTime()>700}"></div>
+      <div class="bar" [ngClass]="{'lowSignal': returnTime()>400}"></div>
+    </button>
+  </div>
 </div>
+
+
 <ion-popover trigger="key-trigger" triggerAction="click">
   <ng-template>
     <ion-content class="ion-padding">Posiadasz uprawnienia administratora</ion-content>
   </ng-template>
 </ion-popover>
+
 
 <ion-popover trigger="signal-trigger" triggerAction="click">
   <ng-template>

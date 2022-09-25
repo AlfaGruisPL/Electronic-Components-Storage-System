@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {ApiService} from './api.service';
 import {ActionPerformed, PushNotifications, PushNotificationSchema, Token} from "@capacitor/push-notifications";
 import {FooterService} from "./footer.service";
+import {ToastService} from "./toast.service";
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,7 @@ export class LoginService {
               public toastController: ToastController,
               public alertController: AlertController,
               public loadingController: LoadingController,
+              private toast: ToastService,
               private router: Router,
               private footer: FooterService,
               private api: ApiService) {
@@ -75,24 +77,29 @@ export class LoginService {
 
           if (hideCommunicate === false) {
 
-            const toast = await this.toastController.create({
+            this.toast.toast({
               message: 'Logowanie udane',
-              duration: 400,
-              position: 'top',
+              duration: 3500,
               icon: 'key-outline',
-              cssClass: 'betterToast',
-              buttons: [
-                {
-                  text: 'Schowaj',
-                  role: 'cancel',
-                  handler: () => {
-                    this.footer.showBanner();
-                  }
-                }
-              ],
-            });
-            toast.present();
-            this.footer.hideBanner(400);
+            })
+            /*    const toast = await this.toastController.create({
+                  message: 'Logowanie udane',
+                  duration: 2500,
+                  position: 'top',
+                  icon: 'key-outline',
+                  cssClass: 'betterToast',
+                  buttons: [
+                    {
+                      text: 'Schowaj',
+                      role: 'cancel',
+                      handler: () => {
+                        this.footer.showBanner();
+                      }
+                    }
+                  ],
+                });
+                toast.present();
+                this.footer.hideBanner(400);*/
           }
           if (saveToLocalStorage === true) {
             const storage = await this.localStorage.create();
