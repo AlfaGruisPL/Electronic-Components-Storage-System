@@ -4,7 +4,7 @@ import {QrcodeService} from "../../../_services/qrcode.service";
 import {ApiService} from "../../../_services/api.service";
 import {AlertController, LoadingController, ToastController} from "@ionic/angular";
 import {Router} from "@angular/router";
-import {QrMode} from "../../../_modal/qr-out";
+import {QrMode, QrOut} from "../../../_modal/qr-out";
 import {ApiEndPoint} from "../../../_modal/api-end-point";
 import {User} from "../../../_modal/user";
 import {ApiResponse} from "../../../_modal/api-response";
@@ -130,70 +130,65 @@ export class HirePage implements OnInit {
 
   }
 
-  scanElement(): void {
-    this.qrCode.getInfoAdv('Zeskanuj elementy który chcesz wypożyczyć:', 'no').then(k => {
-      if (k.mode === QrMode.element) {
-        this.elementID = k.text.split(':')[1];
-        this.api.getDefault('elementInfo/' + this.elementID).then(async (data: ApiResponse) => {
-          console.log(data)
-          if (data.value[0].wypozyczenieOczekujeNaPotwierdzenie == '1') {
-            const alert = await this.alertController.create({
-              header: 'Uwaga',
-              message: 'Element niedostępny, aktualnie oczekuje na potwierdzenie wypożyczenia dla innego użytkownika',
-              buttons: ['Rozumiem']
-            });
-            await alert.present();
-            const toast = await this.toastController.create({
-              message: 'Element niedostępny, aktualnie oczekuje na potwierdzenie wypożyczenia dla innego użytkownika',
-              duration: 334000,
-              position: 'top',
-              icon: 'alert-outline',
-              cssClass: 'betterToast',
-              buttons: [
-                {
-                  text: 'Schowaj',
-                  role: 'cancel',
-                  handler: () => {
-                    this._footer.showBanner();
-                  }
-                }
-              ],
-            });
-            this._footer.hideBanner(334000);
-            toast.present();
-
-
-            this.router.navigate(['/hire']);
-            return;
-          }
-          if (data.value[0].aktualnieWypozyczony == '1') {
-            const alert = await this.alertController.create({
-              header: 'Uwaga',
-              message: 'Element niedostępny, został już wypożyczony przez innego użytkownika',
-              buttons: ['Rozumiem']
-            });
-            await alert.present();
-            this.router.navigate(['/hire']);
-            return;
-          }
-          if (data.value[0].mozliwosc_wypozyczania == '0') {
-            const alert = await this.alertController.create({
-              header: 'Uwaga',
-              message: 'Administrator nie zezwala na wypożyczenie tego elementu',
-              buttons: ['Rozumiem']
-            });
-            await alert.present();
-            this.router.navigate(['/hire']);
-            return;
-          }
-
-
-        });
-      } else {
-        this._footer.back();
-      }
-    }).catch(() => {
+  async scanElement(): Promise<void> {
+    try {
+      var k: QrOut = await this.qrCode.getInfoAdv('Zeskanuj elementy który chcesz wypożyczyć:', 'no');
+    } catch (error) {
       this._footer.back();
-    });
+      return;
+    }
+    if (k.mode !== QrMode.element) {
+      return;
+    }
+    this.elementID = k.text.split(':')[1];
+    try {
+      var data: ApiResponse = await this.api.getDefault('elementInfo/' + this.elementID);
+    } catch (error) {
+      alert('elementInfo error')
+      return;
+    }
+    console.log(data)
+    if (data.value[0].wypozyczenieOczekujeNaPotwierdzenie == '1') {
+      const toast = await this.toastController.create({
+        message: 'Element niedostępny, aktualnie oczekuje na potwierdzenie wypożyczenia dla innego użytkownika',
+        duration: 4000,
+        position: 'top',
+        icon: 'alert-outline',
+        cssClass: 'betterToast',
+        buttons: [
+          {
+            text: 'Schowaj',
+            role: 'cancel',
+            handler: () => {
+              this._footer.showBanner();
+            }
+          }
+        ],
+      });
+      this._footer.hideBanner(334000);
+      toast.present();
+      this.router.navigate(['/hire']);
+      return;
+    }
+    if (data.value[0].aktualnieWypozyczony == '1') {
+      const alert = await this.alertController.create({
+        header: 'Uwaga',
+        message: 'Element niedostępny, został już wypożyczony przez innego użytkownika',
+        buttons: ['Rozumiem']
+      });
+      await alert.present();
+      this.router.navigate(['/hire']);
+      return;
+    }
+    if (data.value[0].mozliwosc_wypozyczania == '0') {
+      const alert = await this.alertController.create({
+        header: 'Uwaga',
+        message: 'Administrator nie zezwala na wypożyczenie tego elementu',
+        buttons: ['Rozumiem']
+      });
+      await alert.present();
+      this.router.navigate(['/hire']);
+      return;
+    }
   }
 }

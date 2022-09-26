@@ -83,7 +83,7 @@ export class FileService {
   }
 
   private sendPart(max: number, i: number, image: string, cut, name: string): Promise<any> {
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
       const data = {};
       data['file_name'] = name;
       data['file_data'] = image.substring(i * cut, (i + 1) * cut);
@@ -99,22 +99,25 @@ export class FileService {
       }
       data['file_part'] = part;
 
+      try {
+        var response = await this.api.postDefault('image', data)
+        console.log(response)
+      } catch (error) {
+        console.log(error)
+        return;
+      }
+      //  console.log(response);
+      this.sendInfo.next(i / max);
+      if (part !== ')') {
+        this.sendPart(max, i + 1, image, cut, name);
+      } else {
+        this.sendResponse = response['id'];
+        this.sendInfo.next(1);
+        this.sendCompleate.next(true);
+      }
+      resolve(true);
 
-      this.api.postDefault('image', data).then(response => {
-        //  console.log(response);
-        this.sendInfo.next(i / max);
-        if (part !== ')') {
-          this.sendPart(max, i + 1, image, cut, name);
-        } else {
-          this.sendResponse = response['id'];
-          this.sendInfo.next(1);
-          this.sendCompleate.next(true);
-        }
-        resolve(true);
-      }).catch(error => {
-        console.log(error);
-      })
-    })
+    });
   }
 
 }
