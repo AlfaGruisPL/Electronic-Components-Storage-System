@@ -94,7 +94,7 @@ export class HirePage implements OnInit {
   waitForCheck() {
     this.state = 2;
     this.timer = setInterval(() => {
-      this.api.getDefault('sprawdzeniePotwierdzenia').then(async (data: ApiResponse) => {
+      this.api.getDefault('sprawdzeniePotwierdzenia/' + this.elementID).then(async (data: ApiResponse) => {
         if (data.value[0] === '0') {
           const loading = await this.loadingController.create({
             message: 'Oczekiwanie na potwierdzenie',

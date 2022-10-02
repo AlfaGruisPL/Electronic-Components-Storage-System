@@ -13,7 +13,7 @@
         <td>
           Wybierz administratora upoważniejącego
         </td>
-        <td>
+        <td *ngIf="!api.isAdmin()">
           <ion-item>
             <ion-select [(ngModel)]="selectedAdmin" [interfaceOptions]="optionsAdminList" interface="popover"
                         placeholder="Wybierz administratora">
@@ -21,6 +21,9 @@
                                  [value]="k.id">{{k.imie}} {{k.nazwisko}}</ion-select-option>
             </ion-select>
           </ion-item>
+        </td>
+        <td *ngIf="api.isAdmin()">
+          -------------
         </td>
       </tr>
 
@@ -60,7 +63,8 @@
 
     </table>
     <h3 style="color:#78c900;"> Kliknij na przycisk aby wypożyczyć:</h3>
-    <button (click)="HireAccept()" *ngIf="elementID !== ''" class="ScanButton accept " [disabled]="selectedAdmin == 0"
+    <button (click)="HireAccept()" *ngIf="elementID !== ''" class="ScanButton accept "
+            [disabled]="!(selectedAdmin == 1 || api.isAdmin() == true)"
             style="margin-left: auto;margin-right: auto;font-size: 167px;">
       <ion-icon name="checkmark-outline"></ion-icon>
     </button>

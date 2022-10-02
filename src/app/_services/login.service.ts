@@ -3,7 +3,7 @@ import {Storage} from '@ionic/storage-angular';
 import {AlertController, LoadingController, ToastController} from '@ionic/angular';
 import {Router} from '@angular/router';
 import {ApiService} from './api.service';
-import {ActionPerformed, PushNotifications, PushNotificationSchema, Token} from "@capacitor/push-notifications";
+import {ActionPerformed, PushNotifications, PushNotificationSchema, Token,} from "@capacitor/push-notifications";
 import {FooterService} from "./footer.service";
 import {ToastService} from "./toast.service";
 
@@ -198,7 +198,6 @@ export class LoginService {
   }
 
   OpenNotificationChanel(): Promise<boolean> {
-
     PushNotifications.requestPermissions().then(result => {
       if (result.receive === 'granted') {
         console.log('%cPushNotifications granted', 'color:magenta');

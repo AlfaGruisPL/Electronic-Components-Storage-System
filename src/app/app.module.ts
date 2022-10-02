@@ -33,7 +33,7 @@ import {CameraPreview} from '@awesome-cordova-plugins/camera-preview/ngx';
     {
       provide: RouteReuseStrategy,
       useClass: IonicRouteStrategy
-    }, LeaveGuard, , BarcodeScanner, HttpService, ApiService, HTTP, Network, LoginGuard, Insomnia, CameraPreview],
+    }, LeaveGuard, BarcodeScanner, HttpService, ApiService, HTTP, Network, LoginGuard, Insomnia, CameraPreview],
   bootstrap: [AppComponent],
 })
 export class AppModule {
