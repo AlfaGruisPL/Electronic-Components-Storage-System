@@ -20,6 +20,7 @@ export class HirePage implements OnInit {
   public modalPlaceIsOpen = false;
   public adminList: Array<User> = [];
   public selectedAdmin = 0;
+  public opis = '';
   lock = false;
   unLock = false;
   public state = 1;
@@ -76,10 +77,15 @@ export class HirePage implements OnInit {
   // eslint-disable-next-line @typescript-eslint/naming-convention
   async HireAccept() {
     this.state = 2;
-
-    this.api.getDefault('wypozyczenieElementu/' + this.elementID + '/' + this.hireTime + '/' + this.selectedAdmin).then(async dane => {
+    const dane = {
+      opis: this.opis
+    };
+    // eslint-disable-next-line @typescript-eslint/no-shadow
+    this.api.postDefault('wypozyczenieElementu/' + this.elementID + '/' + this.hireTime + '/' + this.selectedAdmin, dane).then(async dane => {
+      console.log(dane)
       this.waitForCheck();
     }).catch(async error => {
+      console.log(error)
       const alert = await this.alertController.create({
         header: 'Błąd',
         message: 'Wypożyczenie nie udane',
