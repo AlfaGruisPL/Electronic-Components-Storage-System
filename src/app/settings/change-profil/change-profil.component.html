@@ -1,6 +1,6 @@
 <ion-modal class="settings-modal"
            [animated]="true"
-           [isOpen]="modalIsOpen"
+           [isOpen]="modalPlaceIsOpen"
            [swipeToClose]="true">
   <ng-template>
     <ion-header>
@@ -9,7 +9,7 @@
           <h1>
             Dane konta:
           </h1>
-          <ion-button (click)="modalIsOpen = false;" color="success" style="float: right">
+          <ion-button (click)="_footer.closeModalAndResetBackObserver()" color="success" style="float: right">
             Zamknij
           </ion-button>
         </ion-title>
@@ -21,39 +21,66 @@
         <tr>
           <td colspan="2">
             <ion-item [ngClass]="{'badInput':!user.imieGood}">
-              <ion-label position="floating">Imie</ion-label>
-              <ion-input [(ngModel)]="user.imie" autocomplete="name" [disabled]="true"></ion-input>
+              <ion-label position="floating">Imie:</ion-label>
+              <ion-input [(ngModel)]="user.imie" autocomplete="name" [disabled]="!editMode"></ion-input>
             </ion-item>
           </td>
         </tr>
         <tr>
           <td colspan="2">
             <ion-item [ngClass]="{'badInput':!user.nazwiskoGood}">
-              <ion-label position="floating">Nazwisko</ion-label>
-              <ion-input [(ngModel)]="user.nazwisko" [disabled]="true"></ion-input>
+              <ion-label position="floating">Nazwisko:</ion-label>
+              <ion-input [(ngModel)]="user.nazwisko" [disabled]="!editMode"></ion-input>
             </ion-item>
           </td>
         </tr>
         <tr>
           <td colspan="2">
             <ion-item [ngClass]="{'badInput':!user.emailGood}">
-              <ion-label position="floating">Email</ion-label>
-              <ion-input [(ngModel)]="user.email" inputmode="email" [disabled]="true"></ion-input>
+              <ion-label position="floating">Email:</ion-label>
+              <ion-input [(ngModel)]="user.email" inputmode="email" [disabled]="!editMode"></ion-input>
             </ion-item>
           </td>
         </tr>
         <tr>
           <td colspan="2">
             <ion-item [ngClass]="{'badInput':!user.nr_indeksuGood}">
-              <ion-label position="floating">Nr indeksu</ion-label>
-              <ion-input [(ngModel)]="user.nr_indeksu" [disabled]="true"></ion-input>
+              <ion-label position="floating">Nr indeksu:</ion-label>
+              <ion-input [(ngModel)]="user.nr_indeksu" [disabled]="!editMode"></ion-input>
+            </ion-item>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <ion-item [ngClass]="{'badInput':!user.nr_indeksuGood}">
+              <ion-label position="floating">Data rejestracji:</ion-label>
+              <ion-input [(ngModel)]="user.dataDolaczenia" [disabled]="true"></ion-input>
+            </ion-item>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <ion-item [ngClass]="{'badInput':!user.nr_indeksuGood}">
+              <ion-label position="floating">Rok rozpoczęcia studiów:</ion-label>
+              <ion-input [(ngModel)]="user.rok_rozpoczecia" [disabled]="!editMode"></ion-input>
+            </ion-item>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <ion-item [ngClass]="{'badInput':!user.nr_indeksuGood}">
+              <ion-label position="floating">Rok zakończenia studiów:</ion-label>
+              <ion-input [(ngModel)]="user.rok_zakonczenia" [disabled]="!editMode"></ion-input>
             </ion-item>
           </td>
         </tr>
         <tr>
           <td style="float: right;margin: 20px">
-            <ion-button color="success" [disabled]="true">Zmień dane
+            <ion-button color="success" (click)="editMode = true" *ngIf="!editMode">Zmień dane</ion-button>
+            <ion-button color="danger" (click)="editMode = false;getData()" *ngIf="editMode" style="margin-right: 10px">
+              Anuluj edycje
             </ion-button>
+            <ion-button color="success" (click)="saveData()" *ngIf="editMode">Zapisz dane</ion-button>
           </td>
         </tr>
       </table>

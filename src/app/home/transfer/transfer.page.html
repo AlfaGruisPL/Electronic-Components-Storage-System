@@ -6,21 +6,25 @@
 
 
 <ion-content [fullscreen]="false">
-  <div class="container" style="float: left">
+  <div class="container transfer" id="containerTran" style="float: left">
+
+    <!-------------------------------------------------------->
     <ng-container *ngIf="state ===0">
-      <div class="menu">
+      <div class="menu " id="buttonTran">
         <h3>Aby rozpocząć przenoszenie zeskanuj element:</h3>
         <button (click)="scanElement()" class="nextButton ">
-          <ion-icon name="search-outline"></ion-icon>
-          <ion-icon name="cube-outline"></ion-icon>
+          <div class="icon">
+            <ion-icon name="search-outline"></ion-icon>
+            <ion-icon name="cube-outline"></ion-icon>
+          </div>
+          <span>Skanowanie</span>
         </button>
       </div>
-      <br>
       <ion-list-header>
         <ion-label style="font-size: 25px">Historia przenoszeń</ion-label>
       </ion-list-header>
       <ion-list>
-        <ion-item *ngFor="let transfer of transferList | paginate: { itemsPerPage:6, currentPage: cp }"
+        <ion-item *ngFor="let transfer of transferList | paginate: { itemsPerPage:getHeight(), currentPage: cp }"
                   style="position: relative">
           <ion-label>
             <h2 style="margin-bottom:2px;margin-top: 2px;">{{transfer.nazwaElementu}}
@@ -37,8 +41,9 @@
          </span>
           </ion-label>
 
-          <ion-note slot="end" style="position: absolute;right: 7px;top: 0">
-            {{transfer.kiedy| date :'dd.LL.y H:mm'}}
+          <ion-note slot="end" style="text-align: right">
+            {{transfer.kiedy| date :'dd.LL.y'}}<br>
+            {{transfer.kiedy| date :'H:mm'}}
           </ion-note>
         </ion-item>
       </ion-list>
@@ -48,13 +53,14 @@
         <pagination-controls (pageChange)="cp = $event"
 
                              class="pagpag"
-                             maxSize="6"
+                             [maxSize]="6"
                              nextLabel=""
                              previousLabel=""
         ></pagination-controls>
       </div>
 
     </ng-container>
+    <!-------------------------------------------------------->
     <ng-container *ngIf="state ===1">
       <div class="menu">
         <h3>Zeskanuj miejsce docelowe:</h3>
@@ -64,8 +70,22 @@
 
         </button>
       </div>
+      <table style="margin: 10px;width: 100%;">
+        <tr>
+          <td>Id:</td>
+          <td>{{element.id}}</td>
+        </tr>
+        <tr>
+          <td>Nazwa elementu</td>
+          <td>{{element.nazwa}}</td>
+        </tr>
+        <tr>
+          <td>Nazwa orginalna elementu</td>
+          <td>{{element.nazwa_oryginalna}}</td>
+        </tr>
+      </table>
     </ng-container>
-
+    <!-------------------------------------------------------->
     <ng-container *ngIf="state ===2">
       <div class="menu">
         <h3>Podsumowanie:</h3>
@@ -114,7 +134,7 @@
 
 
     </ng-container>
-
+    <!-------------------------------------------------------->
     <ng-container *ngIf="state ===3">
       <div class="menu">
         <h3>Podsumowanie:</h3>
@@ -146,5 +166,6 @@
         </table>
       </div>
     </ng-container>
+    <!-------------------------------------------------------->
   </div>
 </ion-content>

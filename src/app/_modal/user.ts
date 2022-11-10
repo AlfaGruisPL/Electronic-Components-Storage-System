@@ -25,7 +25,8 @@ export class User {
   status: Status = 0;
   passwordRegCheckVal = false;
   checkPasswordVal = true;
-
+  rok_zakonczenia = '';
+  rok_rozpoczecia = '';
   numberReg = '#a8a8a8';
   bigReg = '#a8a8a8';
   smallReg = '#a8a8a8';
@@ -41,7 +42,7 @@ export class User {
     if (splited == null) {
       return false;
     }
-    if (splited[1].length > 0) {
+    if (splited[1] === undefined || splited[1].length > 0) {
       return false;
 
     }

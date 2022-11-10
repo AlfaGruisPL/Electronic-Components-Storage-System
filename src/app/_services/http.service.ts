@@ -9,7 +9,7 @@ import {ToastController} from '@ionic/angular';
   providedIn: 'root'
 })
 export class HttpService {
-  private adresApi = 'https://www.magazynapi.efennec.cfolks.pl/index.php/';
+  private adresApi = 'http://rad-bk.pwste.edu.pl:24280/api/index.php/';
 
 
   constructor(private _http: HttpClient, private http: HTTP, public toastController: ToastController) {
@@ -83,7 +83,6 @@ export class HttpService {
 
   delete(url: string, data: any, option = '') {
     return new Promise((resolve, reject) => {
-      console.log(data)
       console.log(JSON.stringify(data))
       var encoded = btoa(JSON.stringify(data));
       console.log(encoded)

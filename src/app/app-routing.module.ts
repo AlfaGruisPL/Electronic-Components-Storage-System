@@ -41,7 +41,11 @@ const routes: Routes = [
     loadChildren: () => import('./settings/settings.module').then(m => m.SettingsPageModule)
   },
   {
-    //! psuje robienie zdję
+    canActivate: [LoginGuard],
+    path: 'notifications',
+    loadChildren: () => import('./home/notifications/notifications.module').then(m => m.NotificationsPageModule)
+  },
+  {
     canActivate: [LoginGuard],
     path: 'photography',
     loadChildren: () => import('./home/photography/photography.module').then(m => m.PhotographyPageModule)

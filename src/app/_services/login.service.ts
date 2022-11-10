@@ -222,6 +222,11 @@ export class LoginService {
     // Show us the notification payload if the app is open on our device
     PushNotifications.addListener('pushNotificationReceived',
       (notification: PushNotificationSchema) => {
+
+        this.toast.toast({
+          message: notification.title + ':    ' + notification.body,
+          duration: 4500,
+        });
         console.log('%cPush received: ' + JSON.stringify(notification), 'color:magenta');
       }
     );

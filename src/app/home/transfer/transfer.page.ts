@@ -9,6 +9,7 @@ import {ApiResponse} from "../../_modal/api-response";
 import {Transfer} from "../../_modal/transfer";
 import {FooterService} from "../../_services/footer.service";
 import {LoadingService} from "../../_services/loading.service";
+import {ToastService} from "../../_services/toast.service";
 
 @Component({
   selector: 'app-transfer',
@@ -32,17 +33,23 @@ export class TransferPage implements OnInit {
     private qrCode: QrcodeService,
     private _api: ApiService,
     private alertController: AlertController,
+    private toastServise: ToastService,
     public _footer: FooterService,
     private loading: LoadingService,
     private router: Router) {
   }
 
+  getHeight(): number {
+    return Math.floor((document.getElementById('containerTran').clientHeight - 91 - document.getElementById('buttonTran').clientHeight) / 86);
+  }
+
   ngOnInit() {
+    this.loading.create();
     this.getList();
   }
 
   getList(): void {
-    this.loading.create();
+
     this._api.getDefault('transferForUser').then((data: ApiResponse) => {
       // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
       const values = <Array<Transfer>>data.value;
@@ -86,6 +93,8 @@ export class TransferPage implements OnInit {
             buttons: ['Rozumiem']
           });
           await alert.present();
+
+
           this.state = 1;
         }
       });
@@ -98,19 +107,26 @@ export class TransferPage implements OnInit {
     const dane: any = {};
     dane['uwagi'] = this.description;
     this._api.postDefault('transfer/' + this.elementID + '/' + this.placeID, dane).then(async data => {
-      const alert = await this.alertController.create({
-        header: 'Informacja',
+      await this.toastServise.toast({
         message: 'Przenoszenie zakończone sukcesem',
-        buttons: ['Rozumiem']
+        duration: 2500,
+        icon: 'arrow-redo-outline'
       });
-      await alert.present();
+      /*
+            const alert = await this.alertController.create({
+              header: 'Informacja',
+              message: 'Przenoszenie zakończone sukcesem',
+              buttons: ['Rozumiem']
+            });
+            await alert.present();
+        */
       this.state = 0;
       this.getList();
     });
     console.log(this.placeID);
   }
 
-  toPlace(id: number): void {
+  toPlace(id: number | string): void {
     this.router.navigate(['information/miejsce:' + id + '/brak']);
   }
 }

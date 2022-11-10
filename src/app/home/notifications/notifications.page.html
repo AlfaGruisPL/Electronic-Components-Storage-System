@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Powiadomienia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pociągnij aby odświeżyć"
+      refreshingSpinner="circles"
+      refreshingText="Odświeżanie...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <div id="containerNot" class="container notification">
+    <ion-card style="" id="card">
+      <ion-card-header>
+        <ion-card-title>{{selectedNotification.tytul}}</ion-card-title>
+        <ion-card-subtitle>{{selectedNotification.data}} - {{selectedNotification.administrator}}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        {{selectedNotification.tresc}}
+      </ion-card-content>
+    </ion-card>
+    <ion-list style="height: auto;overflow-y: auto" id="listNot">
+      <ion-item
+        *ngFor="let notification of notificationList  | paginate: { itemsPerPage:getHeight(), currentPage: cp } ; last as last"
+        button detail="true" detail-icon="caret-forward-outline"
+        (click)="selectNotification(notification)"
+
+        [ngClass]="{'przeczytane':notification.odebrane==='1'}">
+        <ion-label>
+          <h2>{{notification.tytul}}</h2>
+          <p>
+            {{notification.data}} --  {{notification.tresc}}</p>
+
+        </ion-label>
+
+        <ion-button
+          color="success" size="small"
+          *ngIf="notification.odebrane==='0'"
+          (click)="notification.odebrane='1'"
+          class="hireListOption">
+
+          <ion-icon name="eye-outline"></ion-icon>
+        </ion-button>
+        <ion-icon *ngIf="notification.odebrane==='1'" name="checkmark-circle-outline"
+                  style="margin-right: 5px"></ion-icon>
+      </ion-item>
+    </ion-list>
+    <pagination-controls (pageChange)="cp = $event"
+
+                         class="pagpag"
+                         [maxSize]="6"
+                         nextLabel=""
+                         previousLabel=""
+    ></pagination-controls>
+  </div>
+
+</ion-content>

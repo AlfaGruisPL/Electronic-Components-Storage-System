@@ -3,7 +3,7 @@
 }
 
 #container {
-  height: calc(100%);
+  
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -46,12 +46,12 @@
       margin: 0;
       padding: 0;
       font-size: 45px;
-      color: #1faf58;
+      //color: #1faf58;
       text-align: center;
     }
 
     h2 {
-      color: #1faf58;
+      //color: #1faf58;
       margin: 0;
       padding: 0;
       font-weight: normal;
@@ -59,10 +59,10 @@
       text-align: center;
       padding-bottom: 10px;
 
-      border-bottom: 1px solid #727272;
+      // border-bottom: 1px solid #727272;
     }
 
-    padding-top: 20px;
+    // padding-top: 20px;
 
     table {
       width: calc(100% - 20px);
@@ -143,5 +143,111 @@
     color: #1faf58;
     font-size: 74px;
     padding-bottom: 20px;
+  }
+}
+
+.iconsdiv {
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+
+  .help {
+    right: 5px;
+    font-size: 20px;
+    top: 5px;
+    position: absolute;
+  }
+
+  .box {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    ion-icon {
+      padding-bottom: 5px;
+      font-size: 30px;
+    }
+
+    span {
+      font-size: 30px;
+      color: #008100;
+      font-weight: bold;
+
+    }
+  }
+}
+
+h3 {
+  text-align: center;
+  margin: 0;
+  padding: 7px 0 0 0;
+  font-size: 20px;
+  border-bottom: 2px dashed #457000;
+  line-height: 0.1em;
+
+  span {
+    background: var(--ion-background-color);
+    padding: 0 10px;
+  }
+}
+
+h4 {
+  margin: 10px 0 0 10px;
+
+  height: 10px;
+  padding: 7px 0 0 0;
+  font-size: 15px;
+  border-top: 2px dashed #375700;
+  position: relative;
+  text-align: center;
+
+  span {
+    text-align: center;
+    position: relative;
+    background: var(--ion-background-color);
+    top: -18px
+  }
+}
+
+.spacerUderNotify {
+  border-top: 2px dashed #213100;
+  width: 100%;
+  float: left;
+  height: 10px;
+  margin-bottom: 10px;
+}
+
+.helpTable {
+  width: 100%;
+
+  tr {
+
+    padding-bottom: 7px;
+
+
+    &:not(:last-child) {
+      border-bottom: 1px solid #7a7a7a;
+    }
+
+    td:first-child {
+      padding-right: 10px;
+      font-size: 20px;
+      height: auto;
+      padding-left: 5px;
+
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      //padding-top: 7px;
+    }
+
+    td:last-child {
+      font-size: 14px;
+    }
   }
 }

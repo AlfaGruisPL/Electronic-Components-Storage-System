@@ -7,16 +7,17 @@ import {IonicModule} from '@ionic/angular';
 import {InformationPageRoutingModule} from './information-routing.module';
 
 import {InformationPage} from './information.page';
-import {ElementInPlaceInfoComponent} from '../_components/element-in-place-info/element-in-place-info.component';
+import {ReturnHirePageModule} from "../home/hireMenu/return-hire/return-hire.module";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    InformationPageRoutingModule
+    InformationPageRoutingModule,
+    ReturnHirePageModule
   ],
-  declarations: [InformationPage, ElementInPlaceInfoComponent]
+  declarations: [InformationPage]//ElementInPlaceInfoComponent
 })
 export class InformationPageModule {
 }

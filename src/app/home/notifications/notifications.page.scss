@@ -1,0 +1,16 @@
+.przeczytane {
+  color: #d2d2d2;
+}
+
+ion-item:not(.przeczytane) {
+  color: #b5bfff;
+}
+
+ion-card {
+
+  box-shadow: 0 0 10px 8px var(--backgroundOwnColor);
+}
+
+.container {
+  background: var(--ion-item-background);
+}

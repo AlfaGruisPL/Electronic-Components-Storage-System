@@ -16,6 +16,9 @@ import {ElementInPlaceInfoComponent} from "../../../_components/element-in-place
     IonicModule,
     ReturnHirePageRoutingModule
   ],
+  exports: [
+    ElementInPlaceInfoComponent
+  ],
   declarations: [ReturnHirePage, ElementInPlaceInfoComponent]
 })
 export class ReturnHirePageModule {

@@ -7,6 +7,7 @@ import {Page} from "./_modal/page";
 import {CameraPreview} from "@awesome-cordova-plugins/camera-preview/ngx";
 import {ApiService} from "./_services/api.service";
 import {Platform, ToastController} from "@ionic/angular";
+import {ScreenOrientation} from '@ionic-native/screen-orientation/ngx';
 
 const {SplashScreen} = Plugins;
 
@@ -21,8 +22,8 @@ export class AppComponent implements OnInit {
   lastSerwerResponse = 0;
   appInBackground = false;
 
-  constructor(private loginService: LoginService, private insomnia: Insomnia, private _api: ApiService,
-              private footer: FooterService, private cameraPreview: CameraPreview,
+  constructor(private loginService: LoginService, private insomnia: Insomnia, public _api: ApiService,
+              public footer: FooterService, private cameraPreview: CameraPreview, private screenOrientation: ScreenOrientation,
               public platform: Platform, private toastController: ToastController
   ) {
   }
@@ -36,6 +37,7 @@ export class AppComponent implements OnInit {
   }
 
   async ionViewWillEnter() {
+    //window.screen.orientation.lock('portrait');
 
   }
 
@@ -77,12 +79,12 @@ export class AppComponent implements OnInit {
 
   componentDidLoad() {
     SplashScreen.hide(); //niby przyśpiesza ładowanie
-    this.footer.footerSetPage.next(Page.login)
-
+    this.footer.footerSetPage.next(Page.login);
   }
 
 
   async ngOnInit() {
+    await this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT_PRIMARY)
     this.isDev = isDevMode();
     this.sendTimer();
     this.timerStart();
@@ -91,48 +93,18 @@ export class AppComponent implements OnInit {
     }).catch(data => {
       console.log(data)
     });
-    /* const toast = await this.toastController.create({
-       message: 'Element niedostępny, aktualnie oczekuje na potwierdzenie wypożyczenia dla innego użytkownika',
-       duration: 334000,
-       position: 'top',
-       icon: 'alert-outline',
-       cssClass: 'betterToast',
-       buttons: [
-         {
-           text: 'Schowaj',
-           role: 'cancel',
-           handler: () => {
-             this.footer.showBanner();
-           }
-         }
-       ],
-     });
-     this.footer.hideBanner(334000);
-     toast.present();*/
     this.platform.resume.subscribe(async () => {
       this.appInBackground = false;
     });
-
     this.platform.pause.subscribe(async () => {
       this.appInBackground = true;
     });
-
-
     //! zabezpieczenie przed usypianiem się aplikacji !!!!!!!!!!!!!
     this.insomnia.keepAwake()
       .then(
         () => console.log('%cAnty sleep success', 'color:yellow'),
         reason => console.log('%cAnty sleep error', 'color:yellow')
       );
-
-
     this.loginService.startApp();
-
-    /*    this.loginService.checkStorage().then(() => {
-          loading.dismiss();
-        }).catch(() => {
-          loading.dismiss();
-        });*/
-
   }
 }

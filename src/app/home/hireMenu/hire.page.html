@@ -7,29 +7,15 @@
 
 <ion-content [fullscreen]="true">
   <div id="container" class="container">
-    <div class="info">
+    <div class="info" id="info" style="height: inherit">
+      <!-- <h6 style="text-align: center">Ostatnie wypożyczenia</h6>-->
+      <div style="overflow-y:auto ;height: inherit; max-height: 150px">
+        <ion-content style="overflow:scroll">
 
-      <table>
-        <tr>
-          <th colspan="2">Twoje wypożyczenia:</th>
-        </tr>
-        <tr>
-          <td>Aktywne wypożyczenia</td>
-          <td>3</td>
-        </tr>
-        <tr>
-          <td>Zaległe wypożyczenia</td>
-          <td>5</td>
-        </tr>
-      </table>
-      <h6 style="text-align: center">Zaległe wypożyczenia !!!</h6>
-      <ion-list>
-        <ion-item>
-          Arduino
-        </ion-item>
-      </ion-list>
+        </ion-content>
+      </div>
     </div>
-    <div class="menu">
+    <div class="menu" id="menuButton">
       <ion-button (click)="toHire();" color="light" class="icon">
         <ion-icon name="open-outline"></ion-icon>
         <label>Wypożycz<br>element

@@ -5,9 +5,58 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6d1fddc-25f1-4a98-a59b-05fb675db7de" name="Changes" comment="Praca">
+      <change afterPath="$PROJECT_DIR$/src/theme/theme.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_components/element-in-place-info/element-in-place-info.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_components/element-in-place-info/element-in-place-info.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_components/element-in-place-info/element-in-place-info.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_components/element-in-place-info/element-in-place-info.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_components/footer/footer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_components/footer/footer.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_modal/hire.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_modal/hire.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_modal/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_modal/user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_services/file.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/file.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_services/http.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/http.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_services/login.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/login.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire-list/hire-list.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire-list/hire-list.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire-list/hire-list.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire-list/hire-list.page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire-list/hire-list.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire-list/hire-list.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire.page.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hireMenu.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hireMenu.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/return-hire/return-hire.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/return-hire/return-hire.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/return-hire/return-hire.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/return-hire/return-hire.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/home.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/home.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/home.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/home.page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/home.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/home.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/photography/photography.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/photography/photography.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/search/search.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/search/search.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/search/search.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/search/search.page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/search/search.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/search/search.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/transfer/transfer.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/information/information.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/information/information.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/information/information.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/information/information.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/information/information.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/information/information.page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/login.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/login.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/settings/change-password/change-password.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/settings/change-password/change-password.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/settings/change-password/change-password.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/settings/change-password/change-password.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/settings/change-profil/change-profil.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/settings/change-profil/change-profil.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/settings/change-profil/change-profil.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/settings/change-profil/change-profil.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/settings/information/information.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/settings/information/information.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/settings/information/information.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/settings/information/information.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/settings/settings.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/settings/settings.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/global.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +111,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
@@ -78,7 +128,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\alfag\\Desktop\\~MagazynMobile\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -90,6 +140,7 @@
       <recent name="C:\Users\alfag\Desktop\~MagazynMobile" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\alfag\Desktop\~MagazynMobile\src\theme" />
       <recent name="C:\Users\alfag\Desktop\~MagazynMobile\src\assets" />
       <recent name="C:\Users\alfag\Desktop\~MagazynMobile\src\assets\animation\lock" />
       <recent name="C:\Users\alfag\Desktop\~MagazynMobile\www\lottie" />
@@ -255,6 +306,34 @@
       <workItem from="1664132194897" duration="5298000" />
       <workItem from="1664220304199" duration="4109000" />
       <workItem from="1664713729064" duration="9577000" />
+      <workItem from="1665083106733" duration="1447000" />
+      <workItem from="1665130892175" duration="3151000" />
+      <workItem from="1665306131334" duration="1190000" />
+      <workItem from="1665387317524" duration="50000" />
+      <workItem from="1665833237766" duration="297000" />
+      <workItem from="1665834680525" duration="7271000" />
+      <workItem from="1665913870953" duration="6680000" />
+      <workItem from="1665948701179" duration="1811000" />
+      <workItem from="1666003820721" duration="16215000" />
+      <workItem from="1666082726068" duration="658000" />
+      <workItem from="1666085359646" duration="22702000" />
+      <workItem from="1666168247505" duration="25295000" />
+      <workItem from="1666260172334" duration="17000" />
+      <workItem from="1666260482911" duration="6583000" />
+      <workItem from="1666385796667" duration="2947000" />
+      <workItem from="1666426281344" duration="4411000" />
+      <workItem from="1666455919344" duration="2668000" />
+      <workItem from="1666515143041" duration="4564000" />
+      <workItem from="1666597159819" duration="1532000" />
+      <workItem from="1666643199532" duration="885000" />
+      <workItem from="1666681959264" duration="88000" />
+      <workItem from="1666812666015" duration="4291000" />
+      <workItem from="1666857514396" duration="1869000" />
+      <workItem from="1667074688747" duration="2121000" />
+      <workItem from="1667077076595" duration="2582000" />
+      <workItem from="1667682089544" duration="466000" />
+      <workItem from="1667751959770" duration="15000" />
+      <workItem from="1668070804666" duration="5104000" />
     </task>
     <task id="LOCAL-00001" summary="kolejny dzień">
       <created>1649786916461</created>

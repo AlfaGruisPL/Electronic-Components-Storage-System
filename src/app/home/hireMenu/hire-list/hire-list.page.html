@@ -5,7 +5,15 @@
 </ion-header>
 
 <ion-content [fullscreen]="false">
-  <div class="container">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pociągnij aby odświeżyć"
+      refreshingSpinner="circles"
+      refreshingText="Odświeżanie...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <div class="container hireHistoryNowList">
     <ion-list>
       <ion-item *ngFor="let hire of hireList | paginate: { itemsPerPage:10, currentPage: cp }" class="">
         <ion-label>
@@ -15,13 +23,24 @@
           <p>
             <ion-icon name="enter-outline"></ion-icon>
             {{hire.od_kiedy| date:'y/LL/dd'}} &nbsp;&nbsp;
-            <ion-icon name="exit-outline"></ion-icon>
-            {{hire.kiedy_oddane | date:'y/LL/dd'}}</p>
+            <ng-container *ngIf="hire.potwierdzony == '1'">
+              <ion-icon name="exit-outline"></ion-icon>
+              {{hire.kiedy_oddane | date:'y/LL/dd'}}
+            </ng-container>
+          </p>
         </ion-label>
+        <span class="hireListEndText" *ngIf="hire.potwierdzony === '-1'" style="color: #980f00;">
+      Odrzucone
+        </span>
+        <span class="hireListEndText" *ngIf="hire.potwierdzony === '-2'" style="color: #797900;">
+      Anulowane
+        </span>
         <ion-note class="hireListNote"
                   [ngClass]="{'HireAlert': hire.timeToReturn() <= 3, 'HireWarning':hire.timeToReturn() > 3 && hire.timeToReturn() < 7}"
                   slot="end">
-          <ion-button (click)="openModal(hire)" color="tertiary" class="hireListOption">Informacje</ion-button>
+          <ion-button [disabled]="hire.potwierdzony != '1'" (click)="openModal(hire)" color="tertiary"
+                      class="hireListOption">Informacje
+          </ion-button>
         </ion-note>
 
       </ion-item>
@@ -30,7 +49,7 @@
     <pagination-controls (pageChange)="cp = $event"
 
                          class="pagpag"
-                         maxSize="6"
+                         [maxSize]="6"
                          nextLabel=""
                          previousLabel=""
     ></pagination-controls>

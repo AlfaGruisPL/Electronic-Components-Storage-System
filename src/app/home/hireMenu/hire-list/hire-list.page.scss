@@ -1,3 +1,6 @@
+.container {
+  height: calc(100% - 100px);
+}
 
 .hireTableInfo {
   tr {
@@ -15,6 +18,12 @@
       padding-bottom: 7px;
     }
   }
+}
+
+.hireListEndText {
+  position: absolute;
+  right: 137px;
+  bottom: 16px;
 }
 
 .hireListOption {

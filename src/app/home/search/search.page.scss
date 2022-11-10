@@ -1,17 +1,20 @@
-.searchList{
-  &:hover{
+.searchList {
+  &:hover {
     cursor: pointer;
     background-color: black;
   }
 }
-.searchLabel{
+
+.searchLabel {
   padding-left: 5px;
   padding-right: 10px;
 }
-.searchText{
+
+.searchText {
   margin-top: 5px;
-  margin-botton: 20px;
+  margin-bottom: 20px;
 }
-.searchListTitle{
-  margin-top:20px;
+
+.searchListTitle {
+  margin-top: 20px;
 }

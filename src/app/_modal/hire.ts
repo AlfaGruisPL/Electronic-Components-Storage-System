@@ -12,6 +12,7 @@ export class Hire {
   public nazwa_miejsca_przed?: string;
   public id_miejsca_po?: number;
   public nazwa_miejsca_po?: string;
+  public potwierdzony?: string = 'null';
 
 
   constructor(id: number = 0, id_elementu: number = 0, id_uzytkownika: number = 0, od_kiedy: string = "",

@@ -21,30 +21,94 @@
     <button class="logOut" (click)="footer.tologOut();">
       <ion-icon slot="icon-only" name="log-out-outline" style="color:white;"></ion-icon>
     </button>
-    <div class="info">
-      <h1>Witaj</h1>
-      <h2>Mateusz Osikowski</h2>
-      <table>
-        <tr>
-          <th colspan="2">Statystki</th>
-        </tr>
-        <tr>
-          <td>Aktywne wypożyczenia</td>
-          <td>3</td>
-        </tr>
-        <tr>
-          <td>Zaległe wypożyczenia</td>
-          <td>5</td>
-        </tr>
+    <div class="info" id="info2" style="height: min-content">
+      <h1>
+        <span style="font-size: 30px;position: relative">
+        Witaj
+        </span>
+      </h1>
+      <h2>{{imieNazwisko}}</h2>
+      <h3><span>Podsumowanie</span></h3>
+      <div class="iconsdiv">
 
-      </table>
+        <ion-icon class="help" id="help" name="help-circle-outline"></ion-icon>
+        <div class="box" id="hireNumber">
+          <div>
+            <ion-icon name="cube-outline"></ion-icon>
+            <ion-icon name="arrow-redo-outline"></ion-icon>
+          </div>
+          <span>{{iloscWypozyczen}} </span>
+        </div>
+
+
+        <div class="box" id="afterTimeHireNumber">
+          <div>
+            <ion-icon name="arrow-redo-outline"></ion-icon>
+            <ion-icon name="alert-circle-outline"></ion-icon>
+          </div>
+          <span> {{zalegleWypozyczenia}} </span>
+        </div>
+
+        <div class="box">
+          <div>
+            <ion-icon name="arrow-redo-outline"></ion-icon>
+            <ion-icon name="stats-chart-outline"></ion-icon>
+          </div>
+          <span> {{sumaWypozyczen}} </span>
+        </div>
+        <div class="box">
+          <div>
+
+            <ion-icon name="file-tray-full-outline"></ion-icon>
+            <ion-icon name="alert-circle-outline"></ion-icon>
+          </div>
+          <span> {{notificationsList.length}} </span>
+        </div>
+      </div>
     </div>
-    <div class="menu">
 
 
-      <ion-button (click)="ToSearch()" color="light" class="icon">
-        <ion-icon name="search-outline"></ion-icon>
-        <label>Wyszukaj
+    <h4 id="autoTitle" style="margin-bottom: 10px"><span>Powiadomienia:</span></h4>
+    <div id="auto" style="width: 100%;overflow-x:auto ; ">
+      <!--   <ion-scroll scrollY="true" style="overflow-y:auto ">-->
+      <ion-list style="background:transparent;padding: 0">
+        <ng-container *ngIf="notificationsList.length == 0">
+          <h5 style="text-align: center">Brak powiadomień</h5>
+        </ng-container>
+        <ion-item *ngFor="let k of notificationsList" style="--background:transparent">
+          <ion-label>
+            <h2>{{k.tytul}}</h2>
+            <p>
+              {{k.tresc}}</p>
+
+          </ion-label>
+          <ion-note class="hireListNote"
+                    slot="end">
+            {{k.data}}
+
+          </ion-note>
+          <ion-button
+            color="success" size="small"
+            *ngIf="k.odebrane=='0'"
+            (click)="setNotifivationAsReaded(k)"
+            class="hireListOption">
+
+            <ion-icon name="eye-outline"></ion-icon>
+          </ion-button>
+          <ion-icon *ngIf="k.odebrane=='1'" name="checkmark-circle-outline" style="margin-right: 5px"></ion-icon>
+
+        </ion-item>
+
+      </ion-list>
+      <!-- </ion-scroll>-->
+    </div>
+    <div style="" class="spacerUderNotify"></div>
+    <div id="menu" class="menu">
+
+
+      <ion-button (click)="ToNotifications()" color="light" class="icon">
+        <ion-icon name="file-tray-stacked-outline"></ion-icon>
+        <label>Powiadomienia
         </label>
       </ion-button>
       <ion-button (click)="toHire()" color="light" class="icon">
@@ -66,3 +130,50 @@
   </div>
 </ion-content>
 
+
+<ion-popover trigger="help" triggerAction="click">
+  <ng-template>
+    <table class="helpTable">
+      <tr>
+        <td>
+          <div>
+            <ion-icon name="cube-outline"></ion-icon>
+            <ion-icon name="arrow-redo-outline"></ion-icon>
+            :
+          </div>
+        </td>
+        <td>Aktualnie wypożyczone elementy</td>
+      </tr>
+      <tr>
+        <td>
+          <div>
+            <ion-icon name="arrow-redo-outline"></ion-icon>
+            <ion-icon name="alert-circle-outline"></ion-icon>
+            :
+          </div>
+        </td>
+        <td>Wypożyczenia z przekroczonym czasem oddania</td>
+      </tr>
+      <tr>
+        <td>
+          <div>
+            <ion-icon name="arrow-redo-outline"></ion-icon>
+            <ion-icon name="stats-chart-outline"></ion-icon>
+            :
+          </div>
+        </td>
+        <td>Całkowita suma wypożyczonych elementów</td>
+      </tr>
+      <tr>
+        <td>
+          <div>
+            <ion-icon name="file-tray-full-outline"></ion-icon>
+            <ion-icon name="alert-circle-outline"></ion-icon>
+            :
+          </div>
+        </td>
+        <td>Nieodebrane powiadomienia</td>
+      </tr>
+    </table>
+  </ng-template>
+</ion-popover>

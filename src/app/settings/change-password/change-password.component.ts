@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {User} from "../../_modal/user";
 import {ToastController} from "@ionic/angular";
 import {ApiService} from "../../_services/api.service";
+import {FooterService} from "../../_services/footer.service";
 
 @Component({
   selector: 'app-change-password',
@@ -9,20 +10,23 @@ import {ApiService} from "../../_services/api.service";
   styleUrls: ['./change-password.component.scss', '../settings.page.scss'],
 })
 export class ChangePasswordComponent implements OnInit {
-  passwordModalIsOpen = false
-  changePasswordButtonDisabled = false
+  passwordModalIsOpen = false;
+  changePasswordButtonDisabled = false;
   public user: User = new User();
+  public modalPlaceIsOpen = false;
 
-  constructor(private toastController: ToastController, private api: ApiService) {
+  constructor(private toastController: ToastController, private api: ApiService, public _footer: FooterService) {
   }
 
   ngOnInit() {
   }
 
   open(): void {
-    this.passwordModalIsOpen = false;
+    this.modalPlaceIsOpen = false;
     setTimeout(() => {
-      this.passwordModalIsOpen = true;
+      this.modalPlaceIsOpen = true;
+      this._footer.bannerIconDisplay = false;
+      this._footer.backObserver(true).then(k => this.modalPlaceIsOpen = k);
     }, 10);
   }
 

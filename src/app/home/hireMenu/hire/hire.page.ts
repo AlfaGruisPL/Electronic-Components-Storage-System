@@ -35,7 +35,7 @@ export class HirePage implements OnInit {
 
   constructor(public _footer: FooterService,
               private qrCode: QrcodeService,
-              private api: ApiService,
+              public api: ApiService,
               private router: Router,
               private loadingController: LoadingController,
               private alertController: AlertController,
@@ -101,7 +101,9 @@ export class HirePage implements OnInit {
     this.state = 2;
     this.timer = setInterval(() => {
       this.api.getDefault('sprawdzeniePotwierdzenia/' + this.elementID).then(async (data: ApiResponse) => {
-        if (data.value[0] === '0') {
+        console.log(data.value)
+        // @ts-ignore
+        if (data.value == 0) {
           const loading = await this.loadingController.create({
             message: 'Oczekiwanie na potwierdzenie',
             duration: 2000
@@ -116,7 +118,9 @@ export class HirePage implements OnInit {
           });
           toast.present();
 
-        } else {
+        }
+        // @ts-ignore
+        if (data.value == 1) {
           clearTimeout(this.timer);
           this.lock = false;
           this.unLock = false;
@@ -131,7 +135,25 @@ export class HirePage implements OnInit {
           }, 1300);
 
         }
-      })
+        // @ts-ignore
+        if (data.value == -1) {
+          clearTimeout(this.timer);
+          this.lock = false;
+          this.unLock = false;
+          setTimeout(async () => {
+            this.router.navigate(['/hire']);
+            const alert = await this.alertController.create({
+              header: 'Alert',
+              message: 'Wypożyczenie zostało odrzucone',
+              buttons: ['Rozumiem']
+            });
+            await alert.present();
+          }, 1300);
+
+        }
+      });
+
+
     }, 2000);
 
   }

@@ -8,7 +8,8 @@ import {QrOut} from "../../../_modal/qr-out";
 import {Router} from "@angular/router";
 import {LoadingService} from "../../../_services/loading.service";
 import {Subscription} from "rxjs";
-import {Platform} from "@ionic/angular";
+import {AlertController, Platform} from "@ionic/angular";
+import {ToastService} from "../../../_services/toast.service";
 
 
 @Component({
@@ -28,6 +29,8 @@ export class MyHirePage implements OnInit {
               private qrCode: QrcodeService,
               private platform: Platform,
               private router: Router,
+              private alertController: AlertController,
+              private toast: ToastService,
               private loading: LoadingService) {
   }
 
@@ -44,29 +47,49 @@ export class MyHirePage implements OnInit {
 
   }
 
+  private getDataInterval: any;
+
   ionViewDidEnter() {
     // eslint-disable-next-line no-underscore-dangle
     // this._footer.footerSetPage.next(Page.nextHome);
   }
 
+  ionViewDidLeave() {
+    clearInterval(this.getDataInterval);
+  }
 
   ngOnInit() {
     this.loading.create();
-    this._api.getDefault('wypozyczeniaUzytkownikaAktywne').then((data: ApiResponse) => {
-      this.loading.dismiss();
-      const dataList: Array<Hire> = data.value;
-      dataList.forEach(hire => {
-        const hireTmp = new Hire();
-        Object.assign(hireTmp, hire);
-        this.hireList.push(hireTmp);
-      });
-      this.hireList = this.hireList.sort((k1: Hire, k2: Hire) => {
-        return k1.timeToReturn() < k2.timeToReturn() ? -1 : 1;
-        return 0;
-      });
-    });
+    this.getData();
+    this.getDataInterval = setInterval(() => this.getData(), 5000);
   }
 
+  private k = 0
+
+  getData(): Promise<any> {
+    return new Promise<any>((resolve) => {
+      console.log(1)
+      this._api.getDefault('wypozyczeniaUzytkownikaAktywne').then((data: ApiResponse) => {
+        this.loading.dismiss();
+        const tempHireList = [];
+        const dataList: Array<Hire> = data.value;
+        dataList.forEach(hire => {
+          const hireTmp = new Hire();
+          Object.assign(hireTmp, hire);
+          tempHireList.push(hireTmp);
+        });
+        if (JSON.stringify(this.hireList) !== JSON.stringify(tempHireList)) {
+          this.hireList = tempHireList;
+        }
+        this.k++;
+        this.hireList = this.hireList.sort((k1: Hire, k2: Hire) => {
+          return k1.timeToReturn() < k2.timeToReturn() ? -1 : 1;
+          return 0;
+        });
+        resolve(true);
+      });
+    })
+  }
 
   ionViewWillLeave() {
   }
@@ -83,6 +106,49 @@ export class MyHirePage implements OnInit {
     this.qrCode.getInfoAdv('Zeskanuj miejsce docelowe', 'K_3').then((data: QrOut) => {
       console.log(data.text);
     });
+  }
+
+  async cancelHire(hire: Hire) {
+    const alertI = await this.alertController.create({
+      header: 'Uwaga',
+      subHeader: 'Czy na pewno chcesz anulować wypożyczenie?',
+      message: hire.nazwa_elementu,
+      buttons: [
+        {
+          text: 'Nie',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+
+          }
+        }, {
+          text: 'Tak',
+          handler: async () => {
+            try {
+              var odp = await this._api.getDefault('/anulowanieWypozyczenia/' + hire.id);
+            } catch (k) {
+              console.log('error');
+            }
+            if (odp['value'] == "1") {
+              this.toast.toast({
+                message: 'Wypożyczenie anulowane',
+                duration: 3500,
+                icon: 'close-circle-outline',
+              });
+              this.hireList = this.hireList.filter(k => k.id != hire.id);
+            }
+          }
+        }
+      ]
+    });
+    alertI.present();
+  }
+
+
+  async doRefresh(event) {
+    console.log('Begin async operation');
+    await this.getData()
+    event.target.complete();
   }
 }
 

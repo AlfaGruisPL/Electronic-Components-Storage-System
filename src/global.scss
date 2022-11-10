@@ -25,16 +25,18 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
+
 html, body, .ion-app, .ion-content {
   background-color: transparent !important;
 }
 
+/*
 ion-footer {
   // background-color: #8a2500 !important;
   background-color: #1c4000 !important;
 
 }
-
+*/
 .ion-header {
   ion-toolbar {
     --background: #8a2500 !important;
@@ -75,8 +77,8 @@ ion-footer {
 }
 
 .container {
-  //height: calc(100% - 50px);
-  padding-bottom: 50px;
+  height: calc(100% - 50px);
+  // padding-bottom: 50px;
   width: 100%;
   float: left;
   // background: #282536;
@@ -115,10 +117,10 @@ ion-footer {
 
   .pagination-next, .pagination-previous {
     a {
-      color: red !important;
+      color: #1aff00 !important;
 
       &:hover {
-        color: red;
+        color: #1aff00;
         cursor: pointer;
       }
     }
@@ -160,4 +162,46 @@ ion-toast.betterToast::part(button) {
   box-shadow: 1px 1px 1px 1px rgba(245, 245, 245, 0.4);
   //border: 1px solid rgba(245, 245, 245, 0.4);
   font-size: 15px;
+}
+
+.hireHistoryNowList, .notification {
+  ion-list {
+    height: 100%;
+  }
+}
+
+* {
+  --borderColor: #023d00;
+}
+
+.hireHistoryNowList, .notification, .transfer {
+  ion-list {
+    ion-item {
+      --borderColor: #023d00;
+      border-bottom: 1px dashed var(--borderColor);
+
+      &:last-child {
+        border-bottom: 2px solid var(--borderColor);
+      }
+    }
+  }
+}
+
+.tableColor {
+  tr {
+    border-bottom: 1px dashed var(--borderColor);
+
+    &:last-child {
+      border-bottom: 2px solid var(--borderColor);
+    }
+  }
+}
+
+.native-input[disabled].sc-ion-input-md {
+  opacity: 0.6
+}
+
+.item-has-value .label-floating.sc-ion-label-md-h {
+  opacity: 0.9;
+  color: #0c8a00;
 }

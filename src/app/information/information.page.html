@@ -55,7 +55,7 @@
     </ng-container>
 
     <ng-container *ngIf="element?.nazwa?.length > 0">
-      <table>
+      <table class="tableColor">
         <tr>
           <td><label>Nazwa:</label></td>
           <td><span>{{element?.nazwa}}</span></td>
@@ -70,8 +70,11 @@
         </tr>
         <tr>
           <td><label>Możliwość wyporzyczenia:</label></td>
-          <td><span *ngIf="element?.mozliwosc_wypozyczania == 0">Nie</span>
-            <span *ngIf="element?.mozliwosc_wypozyczania == 1">Tak</span></td>
+          <td>
+            ???
+          </td>
+          <!-- <span *ngIf="element?.mozliwosc_wypozyczania === 0">Nie</span>
+          <span *ngIf="element?.mozliwosc_wypozyczania === 1">Tak</span></td>-->
         </tr>
         <tr>
           <td colspan="2">

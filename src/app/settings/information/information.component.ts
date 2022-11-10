@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {FooterService} from "../../_services/footer.service";
 
 @Component({
   selector: 'app-settings-information',
@@ -6,15 +7,17 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./information.component.scss', '../settings.page.scss'],
 })
 export class InformationComponent implements OnInit {
-  public modalIsOpen = false;
+  public modalPlaceIsOpen = false;
 
-  constructor() {
+  constructor(public _footer: FooterService) {
   }
 
   open(): void {
-    this.modalIsOpen = false;
+    this.modalPlaceIsOpen = false;
     setTimeout(() => {
-      this.modalIsOpen = true;
+      this.modalPlaceIsOpen = true;
+      this._footer.bannerIconDisplay = false;
+      this._footer.backObserver(true).then(k => this.modalPlaceIsOpen = k);
     }, 10);
   }
 

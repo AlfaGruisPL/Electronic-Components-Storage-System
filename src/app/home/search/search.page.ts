@@ -18,7 +18,7 @@ export class SearchPage implements OnInit {
   public findListPlace: Array<Miejsce> = [];
   public displayElements = true;
   public displayPlaces = false;
-  private searchInput = '';
+  public searchInput = ''
 
 
   constructor(public _footer: FooterService, public _elements: ElementsService, private _router: Router, public _places: PlacesService,

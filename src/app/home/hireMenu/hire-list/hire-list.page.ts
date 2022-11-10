@@ -25,22 +25,44 @@ export class HireListPage implements OnInit {
               public loading: LoadingService) {
   }
 
+  private getDataInterval: any;
+
+
+  ionViewDidLeave() {
+    clearInterval(this.getDataInterval);
+  }
+
   ngOnInit() {
     this.loading.create();
-    this._api.getDefault('wypozyczeniaUzytkownikaHistoria').then((data: ApiResponse) => {
-      const dataList: Array<Hire> = data.value;
-      dataList.forEach(hire => {
-        const hireTmp = new Hire();
-        Object.assign(hireTmp, hire);
-        this.hireList.push(hireTmp);
+    this.getData();
+    this.getDataInterval = setInterval(() => this.getData(), 5000)
 
+
+  }
+
+  getData(): Promise<any> {
+    return new Promise<any>((resolve) => {
+
+      this._api.getDefault('wypozyczeniaUzytkownikaHistoria').then((data: ApiResponse) => {
+        const dataList: Array<Hire> = data.value;
+        const tempHireList = [];
+        dataList.forEach(hire => {
+          const hireTmp = new Hire();
+          Object.assign(hireTmp, hire);
+          tempHireList.push(hireTmp);
+
+        });
+        if (JSON.stringify(this.hireList) !== JSON.stringify(tempHireList)) {
+          this.hireList = tempHireList;
+        }
+
+        resolve(true);
+        this.loading.dismiss();
+      }).catch(error => {
+        console.error("Api: wypozyczeniaUzytkownikaHistoria ", error)
+        return (false);
       });
-      this.loading.dismiss();
-    }).catch(error => {
-      console.error("Api: wypozyczeniaUzytkownikaHistoria ", error)
-    });
-
-
+    })
   }
 
 
@@ -57,5 +79,12 @@ export class HireListPage implements OnInit {
       this._footer.backObserver(true).then(k => this.modalPlaceIsOpen = k);
     }, 10);
 
+  }
+
+
+  async doRefresh(event) {
+    console.log('Begin async operation');
+    await this.getData()
+    event.target.complete();
   }
 }

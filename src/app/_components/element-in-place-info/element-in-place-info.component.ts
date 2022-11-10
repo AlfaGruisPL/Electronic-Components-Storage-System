@@ -38,12 +38,12 @@ export class ElementInPlaceInfoComponent implements OnInit {
   public idMiejscaVal: any;
   public miejsca: Array<Miejsce> = [];
 
-  constructor(private _api: ApiService, public elementService: ElementsService, private _footer: FooterService) {
+  constructor(private _api: ApiService, public elementService: ElementsService, public _footer: FooterService) {
   }
 
   open() {
 
-   
+
     //this.modalPlaceIsOpen = true;
   }
 

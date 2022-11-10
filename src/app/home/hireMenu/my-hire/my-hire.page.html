@@ -5,7 +5,16 @@
 </ion-header>
 
 <ion-content>
-  <div class="container">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pociągnij aby odświeżyć"
+      refreshingSpinner="circles"
+      refreshingText="Odświeżanie...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <div class="container hireHistoryNowList">
+
     <ion-list>
       <ion-item *ngFor="let hire of hireList  | paginate: { itemsPerPage:10, currentPage: cp }" class="">
         <ion-label>
@@ -16,13 +25,24 @@
 
         </ion-label>
         <ion-note class="hireListNote"
-                  [ngClass]="{'HireAlert': hire.timeToReturn() <= 3, 'HireWarning':hire.timeToReturn() > 3 && hire.timeToReturn() < 7}"
                   slot="end">
-        <span class="hireListEndText">
+        <span class="hireListEndText"
+              [ngClass]="{'HireAlert': hire.timeToReturn() <= 3, 'HireWarning':hire.timeToReturn() > 3 && hire.timeToReturn() < 7}"
+              *ngIf="hire.potwierdzony === '1'">
         Termin: {{hire.timeToReturn()}} dni
         </span>
-          <ion-button (click)="openModal(hire)" color="tertiary" class="hireListOption">Opcje</ion-button>
+          <span class="hireListEndText" *ngIf="hire.potwierdzony === '0'" style="color:#008612;">
+   Oczekuje<ion-spinner class="hireWaitingSpinner" name="dots"></ion-spinner>
+        </span>
 
+          <ion-button [disabled]="hire.potwierdzony.toString()  == '-1'" *ngIf="hire.potwierdzony.toString()  != '0'"
+                      (click)="openModal(hire)" color="tertiary"
+                      class="hireListOption">Opcje
+          </ion-button>
+          <ion-button [disabled]="hire.potwierdzony.toString()  == '-1'" *ngIf="hire.potwierdzony.toString() == '0'"
+                      (click)="cancelHire(hire)" color="warning"
+                      class="hireListOption">Anuluj
+          </ion-button>
         </ion-note>
 
       </ion-item>
@@ -31,7 +51,7 @@
     <pagination-controls (pageChange)="cp = $event"
 
                          class="pagpag"
-                         maxSize="6"
+                         [maxSize]="6"
                          nextLabel=""
                          previousLabel=""
     ></pagination-controls>

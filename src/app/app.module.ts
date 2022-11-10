@@ -18,6 +18,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {Insomnia} from '@awesome-cordova-plugins/insomnia/ngx';
 import {FooterComponent} from './_components/footer/footer.component';
 import {CameraPreview} from '@awesome-cordova-plugins/camera-preview/ngx';
+import {ScreenOrientation} from '@ionic-native/screen-orientation/ngx';
 
 @NgModule({
 
@@ -29,7 +30,7 @@ import {CameraPreview} from '@awesome-cordova-plugins/camera-preview/ngx';
       mode: 'md'
     }),
     IonicStorageModule.forRoot()],
-  providers: [
+  providers: [ScreenOrientation,
     {
       provide: RouteReuseStrategy,
       useClass: IonicRouteStrategy

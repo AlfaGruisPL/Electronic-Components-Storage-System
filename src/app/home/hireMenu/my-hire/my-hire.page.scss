@@ -1,3 +1,7 @@
+.container {
+  height: calc(100% - 100px);
+}
+
 .HireWarning {
   color: greenyellow;
   font-weight: bolder;
@@ -75,3 +79,18 @@
   display: flex;
   align-items: center;
 }
+
+.hireListEndText {
+  position: absolute;
+  right: 100px;
+  bottom: 16px;
+}
+
+.hireWaitingSpinner {
+  color: #00af00;
+  font-size: 7px;
+  height: 14px;
+  position: relative;
+  top: 4px;
+}
+

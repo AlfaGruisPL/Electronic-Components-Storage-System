@@ -21,9 +21,13 @@ export class FileService {
     this.time = new Date().getTime();
     const cut = 5500;
     const max = Math.round(file.length / cut);
-    this.sendPart(max, 0, file, cut, name);
 
+
+    // this.sendPart(max, 0, file, cut, name);
+
+    this.sendFast(file, name);
     return new Promise<number>((resolve) => {
+
       const sub = this.sendCompleate.subscribe(k => {
         if (k) {
           sub.unsubscribe();
@@ -80,6 +84,91 @@ export class FileService {
          })
        })
 */
+  }
+
+  public async sendFast(file, name) {
+    console.time('kk');
+    var part = '';
+    const image = file;
+    const cut = 5500;
+    const packSize = 10;
+    console.log(image.length)
+    const max = Math.ceil(image.length / cut);
+    const data = {};
+    data['file_name'] = name;
+    data['file_time'] = this.time
+    console.log('(', max, image.substring(0 * cut, (0 + 1) * cut))
+    // await this.api.getDefault('test')
+    // początek
+    part = '(';
+    data['file_part'] = part;
+    data['file_data'] = image.substring(0 * cut, (0 + 1) * cut);
+    data['file_size'] = data['file_data'].length;
+    console.log(await this.api.postDefault('image', data))
+    console.log(data)
+
+    var daneDoPetli = [];
+    var paczki = []
+    var tmpPaczka = []
+    console.time('k');
+    var partPaczki = 1;
+    let k2 = 1;
+    for (var k = 1; k < max - 1; k++) {
+      tmpPaczka.push(image.substring(k * cut, (k + 1) * cut))
+      if (k2 >= packSize) {
+        k2 = 0;
+        paczki.push(tmpPaczka);
+        tmpPaczka = []
+      }
+      k2++;
+    }
+    if (tmpPaczka !== []) {
+      paczki.push(tmpPaczka);
+    }
+    var kpaczki = 0;
+    console.log(paczki)
+    for await (const result of paczki) {
+      console.time('paczka:' + kpaczki)
+      result.forEach(k => {
+        data['file_data'] = k
+        data['file_size'] = data['file_data'].length;
+        data['file_part'] = partPaczki++;
+        daneDoPetli.push(this.api.postDefault('image', data));
+      })
+      const odp = await Promise.all(daneDoPetli);
+      this.sendInfo.next((kpaczki * packSize) / max);
+      console.timeEnd('paczka:' + kpaczki++)
+      console.log(odp);
+      daneDoPetli = []
+      // await this.api.getDefault('test')
+    }
+
+    console.log(paczki)
+
+
+    console.timeEnd('k')
+    /*
+     */
+    //console.timeEnd('k')
+    // reszta
+    part = '' + 1;
+
+    //koniec
+    part = ')';
+    console.log(')', max, image.substring((max - 1) * cut, (max) * cut));
+    data['file_part'] = part;
+    data['file_data'] = image.substring((max - 1) * cut, (max) * cut);
+    data['file_size'] = data['file_data'].length;
+    const response = await this.api.postDefault('image', data);
+    console.log(response)
+    this.sendResponse = response['id'];
+    console.log(data)
+
+
+    console.timeEnd('kk')
+
+    this.sendInfo.next(1);
+    this.sendCompleate.next(true);
   }
 
   private sendPart(max: number, i: number, image: string, cut, name: string): Promise<any> {
