@@ -16,11 +16,13 @@ export class LoadingService {
       spinner: 'bubbles',
       duration: 5000
     });
-    this.loading.present();
+    await this.loading.present();
   }
 
   dismiss(): void {
-    this.loading.dismiss();
+    this.loading.dismiss().then(r => {
+      console.log("dismiss")
+    });
   }
 
 }

@@ -3,9 +3,9 @@ import {Storage} from '@ionic/storage-angular';
 import {AlertController, LoadingController, ToastController} from '@ionic/angular';
 import {Router} from '@angular/router';
 import {ApiService} from './api.service';
-import {ActionPerformed, PushNotifications, PushNotificationSchema, Token,} from "@capacitor/push-notifications";
 import {FooterService} from "./footer.service";
 import {ToastService} from "./toast.service";
+import {ActionPerformed, PushNotifications, PushNotificationSchema, Token} from "@capacitor/push-notifications";
 
 @Injectable({
   providedIn: 'root'
@@ -82,24 +82,6 @@ export class LoginService {
               duration: 3500,
               icon: 'key-outline',
             })
-            /*    const toast = await this.toastController.create({
-                  message: 'Logowanie udane',
-                  duration: 2500,
-                  position: 'top',
-                  icon: 'key-outline',
-                  cssClass: 'betterToast',
-                  buttons: [
-                    {
-                      text: 'Schowaj',
-                      role: 'cancel',
-                      handler: () => {
-                        this.footer.showBanner();
-                      }
-                    }
-                  ],
-                });
-                toast.present();
-                this.footer.hideBanner(400);*/
           }
           if (saveToLocalStorage === true) {
             const storage = await this.localStorage.create();
@@ -198,16 +180,39 @@ export class LoginService {
   }
 
   OpenNotificationChanel(): Promise<boolean> {
-    PushNotifications.requestPermissions().then(result => {
-      if (result.receive === 'granted') {
-        console.log('%cPushNotifications granted', 'color:magenta');
-        // Register with Apple / Google to receive push via APNS/FCM
-        PushNotifications.register();
-      } else {
-        console.log('%cPushNotifications not granted', 'color:magenta');
-      }
+    // console.log(this.firebase.getToken());
+    try {
+
+      PushNotifications.requestPermissions().then(result => {
+        if (result.receive === 'granted') {
+          console.log('%cPushNotifications granted', 'color:magenta');
+          // Register with Apple / Google to receive push via APNS/FCM
+          PushNotifications.register();
+        } else {
+          console.log('%cPushNotifications not granted', 'color:magenta');
+        }
+      });
+    } catch (k) {
+      console.log(k);
+    }
+    return new Promise((resolve) => {
+      PushNotifications.addListener('registration',
+        (token: Token) => {
+          console.log('%cPush registration success, token: ' + token.value, 'color:magenta')
+          this.firebaseToken = token.value;
+          resolve(true);
+          //alert('Push registration success, token: ' + token.value);
+        }
+      );
+      resolve(true);
     });
 
+
+    PushNotifications.addListener('registrationError',
+      (error: any) => {
+        console.log('%cError on registration: ' + JSON.stringify(error), 'color:magenta');
+      }
+    );
 
     // On success, we should be able to receive notifications
 

@@ -9,7 +9,7 @@ import {ToastController} from '@ionic/angular';
   providedIn: 'root'
 })
 export class HttpService {
-  private adresApi = 'http://rad-bk.pwste.edu.pl:24280/api/index.php/';
+  public adresApi = 'http://rad-bk.pwste.edu.pl:24280/api/index.php/';
 
 
   constructor(private _http: HttpClient, private http: HTTP, public toastController: ToastController) {

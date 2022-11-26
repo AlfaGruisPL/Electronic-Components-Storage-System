@@ -1,13 +1,13 @@
 import {Injectable} from '@angular/core';
-import {BarcodeScanner} from '@ionic-native/barcode-scanner/ngx';
+import {BarcodeScanner} from '@awesome-cordova-plugins/barcode-scanner/ngx';
 import {AlertController, ToastController} from '@ionic/angular';
 import {QrMode, QrOut} from '../_modal/qr-out';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class QrcodeService {
-
   constructor(public alertController: AlertController, private barcodeScanner: BarcodeScanner, private toastController: ToastController) {
   }
 
@@ -48,12 +48,9 @@ export class QrcodeService {
           reject(undefined);
           return;
         }
-        console.log(123)
-        console.log(barcodeData)
         if (barcodeData.text.split(':')[0] === 'element') {
           barcodeData.mode = QrMode.element;
           barcodeData.id = Number(barcodeData.text.split(':')[1]);
-
 
         } else if (barcodeData.text.split(':')[0] === 'miejsce') {
           barcodeData.mode = QrMode.place;
@@ -83,6 +80,4 @@ export class QrcodeService {
       });
     }));
   }
-
-
 }

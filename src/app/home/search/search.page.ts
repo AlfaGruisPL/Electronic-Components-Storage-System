@@ -29,8 +29,8 @@ export class SearchPage implements OnInit {
     this._footer.footerSetPage.next(Page.nextHome);
   }
 
-  ngOnInit() {
-    this.loading.create();
+  async ngOnInit() {
+    await this.loading.create();
     const promise = [];
     promise.push(this._elements.loadFromDataBase());
     promise.push(this._places.loadFromDataBase());

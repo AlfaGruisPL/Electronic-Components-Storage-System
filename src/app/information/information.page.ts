@@ -11,6 +11,7 @@ import {QrOut} from "../_modal/qr-out";
 import {Page} from "../_modal/page";
 import {Platform} from "@ionic/angular";
 import {Subscription} from "rxjs";
+import {HttpService} from "../_services/http.service";
 
 @Component({
   selector: 'app-information',
@@ -33,6 +34,7 @@ export class InformationPage implements OnInit {
               public _api: ApiService,
               public _footer: FooterService,
               private loading: LoadingService,
+              public http: HttpService,
               private platform: Platform) {
   }
 
@@ -40,15 +42,22 @@ export class InformationPage implements OnInit {
     this._footer.footerSetPage.next(Page.page);
   }
 
-  ngOnInit() {
+  async ngOnInit() {
 
-    this.loading.create();
+    await this.loading.create();
     this.route.params.subscribe(
       (params: QrOut) => {
         if (params.text.split(':')[0] === 'element') {
           this.mode = 'element';
           this._api.getDefault(ApiEndPoint.elementInfo + '/' + params.text.split(':')[1]).then(data => {
+            console.log(data)
             Object.assign(this.element, data.value[0]);
+            console.log(1)
+            this.loading.dismiss();
+
+
+          }).catch(k => {
+            console.log(2)
             this.loading.dismiss();
           });
         } else if (params.text.split(':')[0] === 'miejsce') {

@@ -80,10 +80,27 @@ export class AppComponent implements OnInit {
   componentDidLoad() {
     SplashScreen.hide(); //niby przyśpiesza ładowanie
     this.footer.footerSetPage.next(Page.login);
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+    this.toggleDarkTheme(prefersDark.matches);
+
+// Listen for changes to the prefers-color-scheme media query
+    prefersDark.addListener((mediaQuery) => this.toggleDarkTheme(mediaQuery.matches));
+
+// Add or remove the "dark" class based on if the media query matches
+
   }
 
+  toggleDarkTheme(shouldAdd) {
+    document.body.classList.toggle('dark', shouldAdd);
+  }
 
   async ngOnInit() {
+    // if (window.matchMedia('(prefers-color-scheme: dark)').matches == false) {
+
+    //   console.log(window.matchMedia('(prefers-color-scheme: dark)').matches)
+    //   }
+
     await this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT_PRIMARY)
     this.isDev = isDevMode();
     this.sendTimer();

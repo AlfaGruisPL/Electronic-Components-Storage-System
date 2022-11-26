@@ -6,12 +6,13 @@
       </span>
       Połączenie z serwerem:
 
+
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 
-<ion-content>
+<ion-content style="position: relative">
   <div class="loginBanner">
     <h1>Magazyn</h1>
     <img src="assets/boxNunus.png">
@@ -43,40 +44,13 @@
 
       <tr>
         <td></td>
-        <td class="loginButton"><input (click)="logIn()" type="button" value="Zaloguj"></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr *ngIf="false">
-        <td></td>
-        <td>
-          <ion-button color="success" (click)="keedPass=true;login = 'mateuszAdmin@s.pwste.edu.pl';logIn()"
-          >Daj mnie admina 😇
-          </ion-button>
-        </td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr *ngIf="false">
-        <td></td>
-        <td>
-          <ion-button color="success" (click)="keedPass=true;login = 'mateusz@s.pwste.edu.pl';logIn()"
-          >Daj mnie użytkownika 😨
-          </ion-button>
-        </td>
+        <td style="padding-top:30px " class="loginButton"><input (click)="logIn()" type="button" value="Zaloguj"></td>
       </tr>
     </table>
-
   </div>
-
+  <span
+    style="position: absolute;color: rgba(133,133,133,0.42);bottom: 55px;left: 5px">Wersja - 0.0.2&nbsp;&nbsp;&nbsp;&nbsp;26.11.2022</span>
 
 </ion-content>
+
 

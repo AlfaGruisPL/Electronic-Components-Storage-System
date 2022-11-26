@@ -71,10 +71,10 @@
         <tr>
           <td><label>Możliwość wyporzyczenia:</label></td>
           <td>
-            ???
+            <span *ngIf="element?.mozliwosc_wypozyczania == '0'">Nie</span>
+            <span *ngIf="element?.mozliwosc_wypozyczania == '1'">Tak</span>
           </td>
-          <!-- <span *ngIf="element?.mozliwosc_wypozyczania === 0">Nie</span>
-          <span *ngIf="element?.mozliwosc_wypozyczania === 1">Tak</span></td>-->
+
         </tr>
         <tr>
           <td colspan="2">
@@ -82,7 +82,7 @@
             <div class="elementImageDiv" *ngIf="element?.id_zdjecia?.toString().length>0">
               <label>Zdjęcie elementu:</label>
               <img class="elementImage"
-                   [src]="'http://magazynapi.efennec.cfolks.pl/index.php/image/'+element.id_zdjecia"
+                   [src]="http.adresApi+'/image/'+element.id_zdjecia"
                    alt="Brak zdjęcia">
 
             </div>
