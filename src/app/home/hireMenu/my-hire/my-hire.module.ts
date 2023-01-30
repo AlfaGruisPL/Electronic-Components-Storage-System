@@ -15,7 +15,8 @@ import {NgxPaginationModule} from "ngx-pagination";
     FormsModule,
     IonicModule,
     MyHirePageRoutingModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+
   ],
   declarations: [MyHirePage]
 })

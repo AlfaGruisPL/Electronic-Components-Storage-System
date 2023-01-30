@@ -5,24 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6d1fddc-25f1-4a98-a59b-05fb675db7de" name="Changes" comment="build test">
+      <change afterPath="$PROJECT_DIR$/src/app/_services/hire.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire-information/my-hire-information-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire-information/my-hire-information.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire-information/my-hire-information.page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire-information/my-hire-information.page.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire-information/my-hire-information.page.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/_services/http.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/http.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/_services/loading.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/loading.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_modal/element.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_modal/element.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_modal/hire.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_modal/hire.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_services/api.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/api.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_services/elements.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/elements.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/_services/login.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/login.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/_services/qrcode.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/qrcode.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire-list/hire-list.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire-list/hire-list.page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/hire/hire.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/hireMenu/my-hire/my-hire.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/search/search.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/search/search.page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/home/search/search.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/search/search.page.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/information/information.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/information/information.page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/information/information.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/information/information.page.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/login/login.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/login.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/login/login.page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/login.page.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/theme/variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/theme/variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/login.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/login.page.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,34 +96,34 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/alfag/Desktop/~MagazynMobile/platforms/android/app&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/alfag/Desktop/~MagazynMobile&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.space&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\alfag\\Desktop\\~MagazynMobile\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\alfag\Desktop\~MagazynMobile" />
       <recent name="C:\Users\alfag\Desktop\~MagazynMobile\platforms\android\app" />
       <recent name="C:\Users\alfag\Desktop\~MagazynMobile\android" />
       <recent name="C:\Users\alfag\Desktop\~MagazynMobile\src\app\home\hireMenu\hire" />
       <recent name="C:\Users\alfag\Desktop\~MagazynMobile\test" />
-      <recent name="C:\Users\alfag\Desktop\~MagazynMobile" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\alfag\Desktop\~MagazynMobile\src\app\home\hireMenu\my-hire" />
       <recent name="C:\Users\alfag\Desktop\~MagazynMobile\android\app" />
       <recent name="C:\Users\alfag\Desktop\~MagazynMobile\src\theme" />
       <recent name="C:\Users\alfag\Desktop\~MagazynMobile\src\assets" />
       <recent name="C:\Users\alfag\Desktop\~MagazynMobile\src\assets\animation\lock" />
-      <recent name="C:\Users\alfag\Desktop\~MagazynMobile\www\lottie" />
     </key>
   </component>
-  <component name="RunManager" selected="Shell Script.Start">
+  <component name="RunManager" selected="Shell Script.Wyślij na telefon">
     <configuration name="Tests (app)" type="JavaScriptTestRunnerKarma">
       <config-file value="$PROJECT_DIR$/karma.conf.js" />
       <karma-package-dir value="$PROJECT_DIR$/node_modules/@angular/cli" />
@@ -315,7 +323,12 @@
       <workItem from="1669411112249" duration="1643000" />
       <workItem from="1669413329622" duration="1482000" />
       <workItem from="1669456433319" duration="371000" />
-      <workItem from="1669458335024" duration="2678000" />
+      <workItem from="1669458335024" duration="3744000" />
+      <workItem from="1669467415609" duration="2776000" />
+      <workItem from="1669823162918" duration="68000" />
+      <workItem from="1674857821860" duration="2860000" />
+      <workItem from="1674997288826" duration="15926000" />
+      <workItem from="1675110565471" duration="9179000" />
     </task>
     <task id="LOCAL-00001" summary="kolejny dzień">
       <created>1649786916461</created>
@@ -562,7 +575,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668081206463</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="build test">
+      <created>1669463999776</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1669463999776</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

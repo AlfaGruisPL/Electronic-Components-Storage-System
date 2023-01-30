@@ -204,9 +204,9 @@ export class LoginService {
           //alert('Push registration success, token: ' + token.value);
         }
       );
-      resolve(true);
+      // resolve(true);
     });
-
+ 
 
     PushNotifications.addListener('registrationError',
       (error: any) => {
@@ -243,15 +243,15 @@ export class LoginService {
       }
     );
 
-    return new Promise((resolve) => {
-      PushNotifications.addListener('registration',
-        (token: Token) => {
-          console.log('%cPush registration success, token: ' + token.value, 'color:magenta')
-          this.firebaseToken = token.value;
-          resolve(true);
-          //alert('Push registration success, token: ' + token.value);
-        }
-      );
-    });
+    /* return new Promise((resolve) => {
+       PushNotifications.addListener('registration',
+         (token: Token) => {
+           console.log('%cPush registration success, token: ' + token.value, 'color:magenta')
+           this.firebaseToken = token.value;
+           resolve(true);
+           //alert('Push registration success, token: ' + token.value);
+         }
+       );
+     });*/
   }
 }

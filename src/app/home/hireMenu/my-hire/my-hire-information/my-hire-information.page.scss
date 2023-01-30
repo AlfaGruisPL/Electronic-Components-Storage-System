@@ -1,5 +1,5 @@
 .container {
-  height: calc(100% - 100px) !important;
+  height: calc(100% - 100px);
 }
 
 .HireWarning {
@@ -41,11 +41,11 @@
   button {
     margin-top: 50px;
     border: 2px solid white;
-    width: 30vw;
+    width: 50vw;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 30vw;
+    height: 50vw;
   }
 }
 

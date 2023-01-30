@@ -9,7 +9,7 @@ import {ApiEndPoint} from '../_modal/api-end-point';
   providedIn: 'root'
 })
 export class ElementsService {
-  public elementsList: BehaviorSubject<Array<ElementClass>> = new BehaviorSubject<Array<ElementClass>>([])
+  public elementsList: BehaviorSubject<Array<ElementClass>> = new BehaviorSubject<Array<ElementClass>>([]);
 
   constructor(private _api: ApiService) {
   }

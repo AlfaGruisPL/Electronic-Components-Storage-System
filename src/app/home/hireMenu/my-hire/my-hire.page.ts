@@ -10,6 +10,7 @@ import {LoadingService} from "../../../_services/loading.service";
 import {Subscription} from "rxjs";
 import {AlertController, Platform} from "@ionic/angular";
 import {ToastService} from "../../../_services/toast.service";
+import {HireService} from "../../../_services/hire.service";
 
 
 @Component({
@@ -20,32 +21,28 @@ import {ToastService} from "../../../_services/toast.service";
 export class MyHirePage implements OnInit {
   public cp = 1;
   public hireList: Array<Hire> = [];
-  public modalPlaceIsOpen = false;
   public selectedHireInModal: Hire | undefined;
   private sub: Subscription;
+
 
   constructor(public _footer: FooterService,
               private _api: ApiService,
               private qrCode: QrcodeService,
               private platform: Platform,
               private router: Router,
+              private hireService: HireService,
               private alertController: AlertController,
               private toast: ToastService,
               private loading: LoadingService) {
   }
 
   public openModal(hire: Hire): void {
-
-    this.modalPlaceIsOpen = false;
-    setTimeout(() => {
-      this.selectedHireInModal = hire;
-      this.modalPlaceIsOpen = true;
-      this._footer.bannerIconDisplay = false;
-      this._footer.backObserver(true).then(k => this.modalPlaceIsOpen = k);
-    }, 10);
+    this.hireService.selectedHire = hire;
+    this.router.navigate(['/hire/my-hire-information']);
 
 
   }
+
 
   private getDataInterval: any;
 
@@ -94,13 +91,6 @@ export class MyHirePage implements OnInit {
   ionViewWillLeave() {
   }
 
-  returnHire(): void {
-    this.modalPlaceIsOpen = false;
-    setTimeout(() => {
-
-      this.router.navigate(['../hire/return-hire']);
-    }, 10);
-  }
 
   scanPlace(): void {
     this.qrCode.getInfoAdv('Zeskanuj miejsce docelowe', 'K_3').then((data: QrOut) => {

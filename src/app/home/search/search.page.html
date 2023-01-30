@@ -7,34 +7,81 @@
 
 <ion-content>
   <div class="container">
-    <label class="searchLabel">Wyszukaj:</label><input (keyup)="checkList()" [(ngModel)]="searchInput"
-                                                       class="searchText"
-                                                       type="text">
-    <div style="overflow-y: auto;height: calc(100% - 45px)">
-      <ion-item-divider class="searchListTitle">
-        <div style="position: relative; width: 100%">
-          <ion-label>
-            Elementy2:
-            <ion-toggle [(ngModel)]="displayElements" color="primary"
-                        style="position: absolute;  top:-10px;right:6px"></ion-toggle>
-          </ion-label>
-        </div>
-      </ion-item-divider>
-      <ion-list *ngIf="displayElements">
+    <ion-refresher slot="fixed" style="z-index: 10000" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content
+        pullingIcon="chevron-down-circle-outline"
+        pullingText="Pociągnij aby odświeżyć"
+        refreshingSpinner="circles"
+        refreshingText="Odświeżanie...">
+      </ion-refresher-content>
+    </ion-refresher>
+
+
+    <ion-searchbar (keyup)="checkList()" [(ngModel)]="searchInput" animated="true"
+                   placeholder="Elementy/miejsca"></ion-searchbar>
+    <ion-segment [(ngModel)]="selectedType" value="default" (keyup)="checkList()">
+      <ion-segment-button value="elementy">
+        <ion-label>Elementy</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="miejsca">
+        <ion-label>Miejsca</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+
+    <div *ngIf="selectedType==='elementy'">
+      <ion-segment [(ngModel)]="elementSelectedFiler" color="tertiary" (ionChange)="checkList()">
+        <ion-segment-button value="dostepne">
+          <ion-label>Dostępne</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="niedostepne">
+          <ion-label>Niedostępne</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="wszystko">
+          <ion-label>Wszystko</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+
+      <ion-segment [(ngModel)]="elementSelectedFiler2" color="warning" (ionChange)="checkList()">
+        <ion-segment-button value="sprawne">
+          <ion-label>Sprawne</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="niesprawne">
+          <ion-label>Niesprawne</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="wszystko">
+          <ion-label>Wszystko</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+
+      <ion-list>
         <ion-item (click)="goToElement(element.id)" *ngFor="let element of findList" class="searchList">
           <ion-label>{{element.nazwa}}</ion-label>
+          <ion-note slot="end">
+            <span *ngIf="element.czyWypozyczone ==='1'">
+            wypożyczony
+            </span>
+            <span *ngIf="element.sprawnosc ==='0'">
+              &nbsp;<ion-icon name="hammer-outline"></ion-icon>
+            </span>
+          </ion-note>
+
+
         </ion-item>
       </ion-list>
-      <ion-item-divider>
-        <div style="position: relative;width: 100%">
-          <ion-label>
-            Miejsca:
-            <ion-toggle [(ngModel)]="displayPlaces" color="primary"
-                        style="position: absolute;  top:-10px;right: 6px"></ion-toggle>
-          </ion-label>
-        </div>
-      </ion-item-divider>
-      <ion-list *ngIf="displayPlaces">
+    </div>
+
+    <div *ngIf="selectedType==='miejsca'">
+      <!-- <ion-segment [(ngModel)]="placeSelectedFiler" color="tertiary" (ionChange)="checkList()">
+           <ion-segment-button value="dostepne">
+              <ion-label>Dostępne</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="niedostepne">
+              <ion-label>Niedostępne</ion-label>
+            </ion-segment-button>
+
+      </ion-segment>  -->
+      <ion-list>
         <ion-item (click)="goToPlace(place.id)" *ngFor="let place of findListPlace" class="searchList">
           <ion-label>{{place.nazwa}}</ion-label>
         </ion-item>

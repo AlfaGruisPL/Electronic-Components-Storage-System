@@ -3,6 +3,7 @@ export class ElementClass {
   nazwa: string;
   nazwa_oryginalna: string;
   opis: string;
+  czyWypozyczone: string;
   sprawnosc: string;
   mozliwosc_wypozyczania: string;
   lokalizacjaIdMiejsca: string;

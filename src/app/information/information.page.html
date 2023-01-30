@@ -69,12 +69,13 @@
           <td><span>{{element?.nazwa_kategorii}}</span></td>
         </tr>
         <tr>
-          <td><label>Możliwość wyporzyczenia:</label></td>
+          <td><label>Możliwość wypożyczenia:</label></td>
           <td>
-            <span *ngIf="element?.mozliwosc_wypozyczania == '0'">Nie</span>
-            <span *ngIf="element?.mozliwosc_wypozyczania == '1'">Tak</span>
+            <span *ngIf="element?.mozliwosc_wypozyczania === '0'">Nie</span>
+            <span *ngIf="element?.mozliwosc_wypozyczania === '1'">Tak
+            <ng-container *ngIf="element?.czyWypozyczone === '1'"> (niedostępny)</ng-container>
+              </span>
           </td>
-
         </tr>
         <tr>
           <td colspan="2">

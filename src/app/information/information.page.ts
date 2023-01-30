@@ -79,7 +79,6 @@ export class InformationPage implements OnInit {
     this._footer.bannerIconDisplay = false;
     this._footer.backObserver(true).then(k => {
       this.modalPlaceIsOpen = k;
-
     });
   }
 

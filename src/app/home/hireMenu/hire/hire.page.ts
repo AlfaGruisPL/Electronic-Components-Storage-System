@@ -78,7 +78,7 @@ export class HirePage implements OnInit {
   async HireAccept() {
     this.state = 2;
     const dane = {
-      opis: this.opis
+      opis: btoa(this.opis)
     };
     // eslint-disable-next-line @typescript-eslint/no-shadow
     this.api.postDefault('wypozyczenieElementu/' + this.elementID + '/' + this.hireTime + '/' + this.selectedAdmin, dane).then(async dane => {
@@ -99,17 +99,19 @@ export class HirePage implements OnInit {
 
   waitForCheck() {
     this.state = 2;
+    let loading;
     this.timer = setInterval(() => {
       this.api.getDefault('sprawdzeniePotwierdzenia/' + this.elementID).then(async (data: ApiResponse) => {
-        console.log(data.value)
+
         // @ts-ignore
         if (data.value == 0) {
-          const loading = await this.loadingController.create({
+          loading = await this.loadingController.create({
             message: 'Oczekiwanie na potwierdzenie',
             duration: 2000
           });
           await loading.present();
 
+          /*
           const toast = await this.toastController.create({
             header: 'Oczekiwanie na potwierdzenie',
             message: '',
@@ -117,10 +119,11 @@ export class HirePage implements OnInit {
             icon: 'alert-circle-outline'
           });
           toast.present();
-
+*/
         }
         // @ts-ignore
         if (data.value == 1) {
+          loading.dismiss();
           clearTimeout(this.timer);
           this.lock = false;
           this.unLock = false;
@@ -137,13 +140,14 @@ export class HirePage implements OnInit {
         }
         // @ts-ignore
         if (data.value == -1) {
+          loading.dismiss();
           clearTimeout(this.timer);
           this.lock = false;
           this.unLock = false;
           setTimeout(async () => {
             this.router.navigate(['/hire']);
             const alert = await this.alertController.create({
-              header: 'Alert',
+              header: 'Uwaga',
               message: 'Wypożyczenie zostało odrzucone',
               buttons: ['Rozumiem']
             });

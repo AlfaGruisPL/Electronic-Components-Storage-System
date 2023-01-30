@@ -23,6 +23,10 @@ const routes: Routes = [
   {
     path: 'return-hire',
     loadChildren: () => import('./return-hire/return-hire.module').then(m => m.ReturnHirePageModule)
+  },
+  {
+    path: 'my-hire-information',
+    loadChildren: () => import('./my-hire/my-hire-information/my-hire-information.module').then(m => m.MyHireInformationPageModule)
   }
 
 

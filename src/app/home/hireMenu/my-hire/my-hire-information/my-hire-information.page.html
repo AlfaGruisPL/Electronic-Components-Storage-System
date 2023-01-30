@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Informacje o wypożyczeniu</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container ">
+    <table class="hireTableInfo">
+      <tr>
+        <td>Nazwa:</td>
+        <td>{{hireService.selectedHire?.nazwa_elementu}}</td>
+      </tr>
+      <tr>
+        <td>Data wypożyczenia:</td>
+        <td>{{hireService.selectedHire?.od_kiedy}}</td>
+      </tr>
+      <tr>
+        <td>Miejsce pobrania:</td>
+        <td>{{hireService.selectedHire?.nazwa_miejsca_przed}}
+          <ion-button (click)="openModalPlace(hireService.selectedHire.id_miejsca_przed,'Aktualna lokalizacja')">
+            <ion-icon name="help-outline"></ion-icon>
+          </ion-button>
+        </td>
+      </tr>
+      <tr>
+        <td>Lokalizacja podstawowa:</td>
+        <td>{{hireService.selectedHire?.nazwa_lokalizacji_podstawowej}}</td>
+      </tr>
+      <tr>
+        <td>Planowana data oddania:</td>
+        <td>{{hireService.selectedHire?.planowany_czas_oddania | date:'y/LL/d, HH:mm'}}</td>
+      </tr>
+      <tr *ngIf="hireService.selectedHire?.timeToReturn() >= 0 else template2">
+        <td>Ilość dni do oddania:</td>
+        <td>{{hireService.selectedHire?.timeToReturn()}} dni</td>
+      </tr>
+      <ng-template #template2>
+        <tr>
+          <td>Przekroczony czas oddania:</td>
+          <td>{{-1 * hireService.selectedHire?.timeToReturn()}} dni</td>
+        </tr>
+      </ng-template>
+    </table>
+
+    <div id="container">
+      <button class="icon" (click)="returnHire()">
+        <ion-icon name="arrow-undo-circle-outline"></ion-icon>
+        <label>Zwróć</label>
+      </button>
+      <button class="icon">
+        <ion-icon name="sync-outline"></ion-icon>
+        <label> Przydłuż czas wypożyczenia</label>
+      </button>
+    </div>
+  </div>
+</ion-content>
+<app-element-in-place-info [mode]="'miejsce'"
+                           [setData]="modalID"
+                           [title]="modalTitle"
+                           [modalPlaceIsOpen]="modalPlaceIsOpen2">
+</app-element-in-place-info>

@@ -38,6 +38,7 @@ export class ApiService {
       json['password'] = password;
       if (saveToLocalStorage) {
         json['firebaseToken'] = firebaseToken;
+
       }
       this._http.post('login', json, this.getHeader()).then((data: Login) => {
         const find = data.group.find(group => group.group_id === '2');
