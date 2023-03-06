@@ -23,6 +23,13 @@ export class RegisterPage implements OnInit {
 
   ionViewWillEnter() {
     this._footer.footerSetPage.next(Page.register);
+    /*    this.user.imie = "kkkk"
+        this.user.email = "s37219@s.pwste.edu.pl"
+        this.user.haslo = "zaq1@WSX"
+        this.user.haslo2 = "zaq1@WSX"
+        this.user.nr_indeksu = "132131"
+        this.user.nazwisko = "asd"
+     */
   }
 
   ngOnInit() {
@@ -69,6 +76,7 @@ export class RegisterPage implements OnInit {
     json['nr_indeksu'] = this.user.nr_indeksu;
     json['nazwisko'] = this.user.nazwisko;
     this.api.postDefault('register', json).then(async data => {
+      console.log(data)
       this.buttonDisabled = false;
       const toast = await this.toastController.create({
         message: 'Konto zostało zarejestrowane, na podany adres email został wysłany email z linkiem potwierdzającym',
@@ -78,6 +86,8 @@ export class RegisterPage implements OnInit {
       this.router.navigate(['/login'])
       toast.present();
     }).catch(async error => {
+
+      console.log(error)
       this.buttonDisabled = false;
       if (String(error['status']) === '425') {
         const toast = await this.toastController.create({

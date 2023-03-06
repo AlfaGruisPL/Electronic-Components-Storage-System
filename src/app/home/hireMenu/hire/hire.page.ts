@@ -16,7 +16,7 @@ import {ApiResponse} from "../../../_modal/api-response";
 })
 export class HirePage implements OnInit {
   public hireTime = '31';
-  public elementID = '';
+  public elementIDArray = [];
   public modalPlaceIsOpen = false;
   public adminList: Array<User> = [];
   public selectedAdmin = 0;
@@ -66,7 +66,7 @@ export class HirePage implements OnInit {
 
   ionViewDidLeave() {
     clearTimeout(this.timer);
-    this.elementID = '';
+    this.elementIDArray = [];
   }
 
   animate() {
@@ -74,34 +74,52 @@ export class HirePage implements OnInit {
   }
 
 
+  addHire(): void {
+    this.scanElement();
+  }
+
   // eslint-disable-next-line @typescript-eslint/naming-convention
   async HireAccept() {
     this.state = 2;
     const dane = {
       opis: btoa(this.opis)
     };
-    // eslint-disable-next-line @typescript-eslint/no-shadow
-    this.api.postDefault('wypozyczenieElementu/' + this.elementID + '/' + this.hireTime + '/' + this.selectedAdmin, dane).then(async dane => {
-      console.log(dane)
-      this.waitForCheck();
-    }).catch(async error => {
-      console.log(error)
-      const alert = await this.alertController.create({
-        header: 'Błąd',
-        message: 'Wypożyczenie nie udane',
-        buttons: ['Rozumiem']
-      });
-      await alert.present();
-      this.router.navigate(['/hire']);
-    });
-  }
 
+    this.elementIDArray.forEach(kId => {
+      console.log(kId)
+      // eslint-disable-next-line @typescript-eslint/no-shadow
+      this.api.postDefault('wypozyczenieElementu/' + kId + '/' + this.hireTime + '/' + this.selectedAdmin, dane).then(async (dane: ApiResponse) => {
+        if (!this.api.isAdmin()) {
+          this.waitForCheck();
+        } else {
+          this.router.navigate(['/hire']);
+          const alert = await this.alertController.create({
+            header: 'Sukces',
+            message: 'Wypożyczenie udane:<br>' + dane.value2,
+            buttons: ['Rozumiem']
+          });
+          await alert.present();
+        }
+      }).catch(async error => {
+        console.log(error)
+        const alert = await this.alertController.create({
+          header: 'Błąd',
+          message: 'Wypożyczenie nie udane',
+          buttons: ['Rozumiem']
+        });
+        await alert.present();
+        this.router.navigate(['/hire']);
+      });
+
+    })
+
+  }
 
   waitForCheck() {
     this.state = 2;
     let loading;
     this.timer = setInterval(() => {
-      this.api.getDefault('sprawdzeniePotwierdzenia/' + this.elementID).then(async (data: ApiResponse) => {
+      this.api.getDefault('sprawdzeniePotwierdzenia/' + this.elementIDArray).then(async (data: ApiResponse) => {
 
         // @ts-ignore
         if (data.value == 0) {
@@ -166,16 +184,25 @@ export class HirePage implements OnInit {
     try {
       var k: QrOut = await this.qrCode.getInfoAdv('Zeskanuj elementy który chcesz wypożyczyć:', 'no');
     } catch (error) {
-      this._footer.back();
+      if (this.elementIDArray.length == 0) {
+        this._footer.back();
+      }
       return;
     }
     if (k.mode !== QrMode.element) {
       return;
     }
-    this.elementID = k.text.split(':')[1];
+    let tmpid = k.text.split(':')[1];
+    if (this.elementIDArray.indexOf(tmpid) != -1) {
+      alert('Element znajduje się już na liście ')
+      return;
+    }
+
     try {
-      var data: ApiResponse = await this.api.getDefault('elementInfo/' + this.elementID);
+      var data: ApiResponse = await this.api.getDefault('elementInfo/' + tmpid);
+
     } catch (error) {
+      console.log(error)
       alert('elementInfo error')
       return;
     }
@@ -199,7 +226,9 @@ export class HirePage implements OnInit {
       });
       this._footer.hideBanner(334000);
       toast.present();
-      this.router.navigate(['/hire']);
+      if (this.elementIDArray.length == 0) {
+        this.router.navigate(['/hire']);
+      }
       return;
     }
     if (data.value[0].aktualnieWypozyczony == '1') {
@@ -209,7 +238,9 @@ export class HirePage implements OnInit {
         buttons: ['Rozumiem']
       });
       await alert.present();
-      this.router.navigate(['/hire']);
+      if (this.elementIDArray.length == 0) {
+        this.router.navigate(['/hire']);
+      }
       return;
     }
     if (data.value[0].mozliwosc_wypozyczania == '0') {
@@ -219,8 +250,12 @@ export class HirePage implements OnInit {
         buttons: ['Rozumiem']
       });
       await alert.present();
-      this.router.navigate(['/hire']);
+      if (this.elementIDArray.length == 0) {
+        this.router.navigate(['/hire']);
+      }
       return;
     }
+
+    this.elementIDArray.push(k.text.split(':')[1]);
   }
 }

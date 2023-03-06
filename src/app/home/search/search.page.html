@@ -17,14 +17,18 @@
     </ion-refresher>
 
 
-    <ion-searchbar (keyup)="checkList()" [(ngModel)]="searchInput" animated="true"
+    <ion-searchbar (ionChange)="checkList()" [(ngModel)]="searchInput" animated="true"
                    placeholder="Elementy/miejsca"></ion-searchbar>
+
     <ion-segment [(ngModel)]="selectedType" value="default" (keyup)="checkList()">
       <ion-segment-button value="elementy">
         <ion-label>Elementy</ion-label>
       </ion-segment-button>
       <ion-segment-button value="miejsca">
         <ion-label>Miejsca</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="kategoria">
+        <ion-label>Kategoria</ion-label>
       </ion-segment-button>
     </ion-segment>
 
@@ -71,16 +75,52 @@
       </ion-list>
     </div>
 
-    <div *ngIf="selectedType==='miejsca'">
-      <!-- <ion-segment [(ngModel)]="placeSelectedFiler" color="tertiary" (ionChange)="checkList()">
-           <ion-segment-button value="dostepne">
-              <ion-label>Dostępne</ion-label>
-            </ion-segment-button>
-            <ion-segment-button value="niedostepne">
-              <ion-label>Niedostępne</ion-label>
-            </ion-segment-button>
+    <div *ngIf="selectedType==='kategoria'">
+      <ion-segment [(ngModel)]="elementSelectedFiler" color="tertiary" (ionChange)="checkList()">
+        <ion-segment-button value="dostepne">
+          <ion-label>Dostępne</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="niedostepne">
+          <ion-label>Niedostępne</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="wszystko">
+          <ion-label>Wszystko</ion-label>
+        </ion-segment-button>
+      </ion-segment>
 
-      </ion-segment>  -->
+      <ion-segment [(ngModel)]="elementSelectedFiler2" color="warning" (ionChange)="checkList()">
+        <ion-segment-button value="sprawne">
+          <ion-label>Sprawne</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="niesprawne">
+          <ion-label>Niesprawne</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="wszystko">
+          <ion-label>Wszystko</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+      <ion-list>
+        <ion-item (click)="goToElement(element.id)" *ngFor="let element of findList" class="searchList">
+          <ion-label>{{element.nazwa}} -
+            ({{element.nazwa_kategorii === null ? 'brak' : element.nazwa_kategorii }})
+          </ion-label>
+          <ion-note slot="end">
+            <span *ngIf="element.czyWypozyczone ==='1'">
+            wypożyczony
+            </span>
+            <span *ngIf="element.sprawnosc ==='0'">
+              &nbsp;<ion-icon name="hammer-outline"></ion-icon>
+            </span>
+          </ion-note>
+
+
+        </ion-item>
+      </ion-list>
+
+
+    </div>
+
+    <div *ngIf="selectedType==='miejsca'">
       <ion-list>
         <ion-item (click)="goToPlace(place.id)" *ngFor="let place of findListPlace" class="searchList">
           <ion-label>{{place.nazwa}}</ion-label>

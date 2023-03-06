@@ -13,8 +13,8 @@ import {Page} from "../_modal/page";
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  public login = 's37219@s.pwste.edu.pl'//'s37269@s.pwste.edu.pl';// '/';
-  public password = 'zaq1!WSX'//'zaq12WSX!'; //'';
+  public login = ''//'s37269@s.pwste.edu.pl';// '/';
+  public password = ''//'zaq12WSX!'; //'';
   badPassword = false;
   badLogin = false;
   public keedPass = false;
@@ -81,6 +81,50 @@ export class LoginPage implements OnInit {
       });
     }
 
+  }
+
+  async passwordReset() {
+
+
+    const alert = await this.alertController.create({    // @ts-ignore
+      header: 'Resetowanie hasła',
+      inputs: [
+        {
+          name: 'email',
+          placeholder: 'Adres email'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Anuluj',
+          role: 'cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Zresetuj',
+          handler: data => {
+            console.log(data);
+            const data2 = {
+              'email': data['email'].toString().trim().toLowerCase()
+            }
+            this._api.postDefault('/resetHasla', data2).then(async k => {
+              const alert2 = await this.alertController.create({
+                header: 'Uwaga',
+                message: 'Sprawdź pocztę e-mail',
+                buttons: ['Rozumiem']
+              });
+              await alert2.present();
+              return false;
+            }).catch(k => {
+              console.log(k)
+            })
+          }
+        }
+      ]
+    });
+    await alert.present();
   }
 
 

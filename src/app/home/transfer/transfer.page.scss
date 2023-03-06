@@ -2,8 +2,11 @@
   background: var(--ion-item-background);
 }
 
+.addElement {
+  margin-right: 10px;
+}
 
-.nextButton {
+.nextButton, .addElement {
   width: 70vw;
   display: flex;
   flex-wrap: wrap;
@@ -34,12 +37,15 @@
   }
 }
 
-.menu {
+.menu2 {
+  flex-direction: column;
+}
+
+.menu, menu2 {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  flex-direction: column;
   background: var(--backgroundOwn);
 
   .menuTable {
@@ -53,7 +59,7 @@
     }
 
     label {
-      padding-right: 30px;
+      padding-right: 15px;
     }
 
     textarea {
@@ -87,4 +93,22 @@
 
 ion-list-header {
   background: var(--backgroundOwn);
+}
+
+.elementListTable {
+  tr {
+    &:first-child {
+      tr, th {
+        border-top: 2px dashed #457000;
+        padding-top: 10px;
+      }
+    }
+  }
+
+  tr {
+    tr, th {
+      padding-top: 10px;
+      border-top: 1px dashed #457000;
+    }
+  }
 }

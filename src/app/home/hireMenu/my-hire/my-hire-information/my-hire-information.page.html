@@ -6,6 +6,13 @@
 
 <ion-content>
   <div class="container ">
+    <div class="top">
+      <h2>
+
+      </h2>
+      <img [src]="http.adresApi+'/image/'+hireService.selectedHire?.id_zdjecia"
+           alt="Brak zdjęcia">
+    </div>
     <table class="hireTableInfo">
       <tr>
         <td>Nazwa:</td>
@@ -48,10 +55,10 @@
         <ion-icon name="arrow-undo-circle-outline"></ion-icon>
         <label>Zwróć</label>
       </button>
-      <button class="icon">
-        <ion-icon name="sync-outline"></ion-icon>
-        <label> Przydłuż czas wypożyczenia</label>
-      </button>
+      <!--  <button class="icon">
+          <ion-icon name="sync-outline"></ion-icon>
+          <label> Przydłuż czas wypożyczenia</label>
+        </button>-->
     </div>
   </div>
 </ion-content>

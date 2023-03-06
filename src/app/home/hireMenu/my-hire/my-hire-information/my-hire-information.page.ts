@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {HireService} from "../../../../_services/hire.service";
 import {FooterService} from "../../../../_services/footer.service";
 import {Router} from "@angular/router";
+import {ApiService} from "../../../../_services/api.service";
+import {HttpService} from "../../../../_services/http.service";
 
 @Component({
   selector: 'app-my-hire-information',
@@ -13,8 +15,8 @@ export class MyHireInformationPage implements OnInit {
   public modalTitle = '';
   public modalID = 0;
 
-  constructor(public hireService: HireService, public _footer: FooterService,
-              private router: Router) {
+  constructor(public hireService: HireService, public _footer: FooterService, public _api: ApiService,
+              public http: HttpService, private router: Router) {
   }
 
   ngOnInit() {

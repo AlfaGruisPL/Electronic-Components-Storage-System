@@ -63,12 +63,30 @@
 
 
     </table>
+
     <h3 style="color:#78c900;"> Kliknij na przycisk aby wypożyczyć:</h3>
-    <button (click)="HireAccept()" *ngIf="elementID !== ''" class="ScanButton accept "
-            [disabled]="!(selectedAdmin != 0 || api.isAdmin() == true)"
-            style="margin-left: auto;margin-right: auto;font-size: 167px;">
-      <ion-icon name="checkmark-outline"></ion-icon>
-    </button>
+    <div style="width: 100%;display: flex;justify-content: center">
+
+      <table>
+        <tr>
+          <td style="padding-right: 10px" *ngIf="api.isAdmin()
+">
+            <button (click)="addHire()" *ngIf="elementIDArray !== ''" class="accept "
+                    [disabled]="!(selectedAdmin != 0 || api.isAdmin() == true)"
+                    style="margin-left: auto;margin-right: auto;font-size: 22px;">
+              Dodaj element:
+            </button>
+          </td>
+          <td style="padding-left: 10px">
+            <button (click)="HireAccept()" *ngIf="elementIDArray !== ''" class="moreHIre "
+                    [disabled]="!(selectedAdmin != 0 || api.isAdmin() == true)"
+                    style="margin-left: auto;margin-right: auto;font-size: 167px; ">
+              <ion-icon name="checkmark-outline"></ion-icon>
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
 
   </div>
   <div class='container' id="panel2" *ngIf="state==2">

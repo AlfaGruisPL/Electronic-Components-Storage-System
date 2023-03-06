@@ -37,6 +37,10 @@
       <tr>
         <td colspan="2">Zapamiętaj dane:&nbsp;&nbsp;&nbsp;<input [(ngModel)]="keedPass" type="checkbox"></td>
       </tr>
+      <tr>
+        <td colspan="2"><a (click)="passwordReset()">Zapomniałem hasła</a></td>
+      </tr>
+
       <tr *ngIf="badPassword == true || badLogin == true">
         <td></td>
         <td class="loginButton"><span style="color:red">Popraw dane logowania</span></td>
@@ -45,11 +49,12 @@
       <tr>
         <td></td>
         <td style="padding-top:30px " class="loginButton"><input (click)="logIn()" type="button" value="Zaloguj"></td>
-      </tr>
+
+
     </table>
   </div>
   <span
-    style="position: absolute;color: rgba(133,133,133,0.42);bottom: 55px;left: 5px">Wersja - 0.4&nbsp;&nbsp;&nbsp;&nbsp;26.11.2022</span>
+    style="position: absolute;color: rgba(133,133,133,0.42);bottom: 55px;left: 5px">Wersja - 1.5&nbsp;&nbsp;&nbsp;&nbsp;12.02.2023</span>
 
 </ion-content>
 

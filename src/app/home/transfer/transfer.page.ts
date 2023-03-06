@@ -19,10 +19,10 @@ import {ToastService} from "../../_services/toast.service";
 export class TransferPage implements OnInit {
   cp: number = 1;
   public state = 0;
-  public elementID = '';
+  public elementIDArray = [];
   public placeID = '';
   public tempData = new Date();
-  public element: ElementClass;
+  public elementArray: ElementClass[] = [];
   public miejsce: Miejsce;
   public placePrimary: Miejsce;
   public transferList: Array<Transfer> = [];
@@ -58,12 +58,42 @@ export class TransferPage implements OnInit {
     });
   }
 
+  addElement(): void {
+    this.scanElement()
+  }
+
   scanElement(): void {
-    this.qrCode.getInfoAdv('Zeskanuj element:', 'K_3').then(k => {
-      this.elementID = k.text.split(':')[1];
-      this._api.getDefault('elementInfo/' + this.elementID).then(async data => {
+    this.qrCode.getInfoAdv('Zeskanuj element:', 'K_3').then(async k => {
+      const elementID = k.text.split(':')[1];
+
+      if (this.elementArray.findIndex(k2 => String(k2.id) === elementID) !== -1) {
+        const alert = await this.alertController.create({
+          header: 'UWAGA',
+          message: 'Element jest już na liście',
+          buttons: ['Rozumiem']
+        });
+        await alert.present();
+        return;
+      }
+
+
+      this._api.getDefault('elementInfo/' + elementID).then(async data => {
         if (data.value[0] != undefined) {
-          this.element = data.value[0];
+          const tmpElement = data.value[0];
+          if (tmpElement.czyWypozyczone === '1') {
+            const alert = await this.alertController.create({
+              header: 'UWAGA',
+              message: 'Element jest aktualnie wypożyczony',
+              buttons: ['Rozumiem']
+            });
+            await alert.present();
+            if (this.elementArray.length === 0) {
+              console.log(this.elementArray)
+              this.state = 0;
+            }
+            return;
+          }
+          this.elementArray.push(data.value[0]);
           this.state = 1;
         } else {
           const alert = await this.alertController.create({
@@ -75,7 +105,8 @@ export class TransferPage implements OnInit {
           this.state = 0;
         }
       });
-    });
+    })
+
   }
 
   scanTargetPlace(): void {
@@ -103,27 +134,29 @@ export class TransferPage implements OnInit {
 
 
   accept(): void {
-    this.buttonAccept = false;
+
     const dane: any = {};
-    dane['uwagi'] = this.description;
-    this._api.postDefault('transfer/' + this.elementID + '/' + this.placeID, dane).then(async data => {
-      await this.toastServise.toast({
-        message: 'Przenoszenie zakończone sukcesem',
-        duration: 2500,
-        icon: 'arrow-redo-outline'
+    this.elementArray.forEach(elementTmp => {
+
+      this._api.postDefault('transfer/' + elementTmp.id + '/' + this.placeID, dane).then(async data => {
+        console.log(data)
+        await this.toastServise.toast({
+          message: 'Przenoszenie zakończone sukcesem',
+          duration: 2500,
+          icon: 'arrow-redo-outline'
+        });
+
+        this.state = 0;
+        this.getList();
+      }).catch(async error => {
+        await this.toastServise.toast({
+          message: 'Przenoszenie zakończone niepowodzeniem',
+          duration: 2500,
+          icon: 'arrow-redo-outline'
+        });
+        console.log(error);
       });
-      /*
-            const alert = await this.alertController.create({
-              header: 'Informacja',
-              message: 'Przenoszenie zakończone sukcesem',
-              buttons: ['Rozumiem']
-            });
-            await alert.present();
-        */
-      this.state = 0;
-      this.getList();
-    });
-    console.log(this.placeID);
+    })
   }
 
   toPlace(id: number | string): void {

@@ -8,11 +8,32 @@
 <ion-content [fullscreen]="true">
   <div id="container" class="container">
     <div class="info" id="info" style="height: inherit">
-      <!-- <h6 style="text-align: center">Ostatnie wypożyczenia</h6>-->
-      <div style="overflow-y:auto ;height: inherit; max-height: 150px">
-        <ion-content style="overflow:scroll">
+      <div style="overflow-y:auto ;height: inherit">
+        <table>
+          <tr>
+            <th colspan="2">Statystyki wypożyczeń:</th>
+          </tr>
+          <tr>
+            <td>Aktywnych:</td>
+            <td>{{hireStat.iloscWypozyczen}}</td>
+          </tr>
+          <tr>
+            <td>Średni czas:</td>
+            <td>{{hireStat.sredniCzasWypozyczeniaWDniach()}} dni</td>
+          </tr>
+          <tr>
+            <td>Czas najdłuższego:</td>
+            <td>{{hireStat.maksymalnyCzasWypozyczeniaWDniach()}} dni</td>
 
-        </ion-content>
+          </tr>
+          <tr>
+            <td>Maksymalny przekroczony czas oddania:</td>
+            <td
+              [ngStyle]="{'color':hireStat.maksymalnyPrzekroczonyCzasOddaniaWDniach() == 0?'':'red'}">{{hireStat.maksymalnyPrzekroczonyCzasOddaniaWDniach()}}
+              dni
+            </td>
+          </tr>
+        </table>
       </div>
     </div>
     <div class="menu" id="menuButton">

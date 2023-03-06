@@ -19,7 +19,7 @@
     <ion-list>
       <ion-item *ngFor="let hire of hireList  | paginate: { itemsPerPage:10, currentPage: cp }" class="">
         <ion-label>
-          <h2>{{hire.nazwa_elementu}}</h2>
+          <h2>{{hire.nazwa_elementu}}      </h2>
           <p>
             <ion-icon name="enter-outline"></ion-icon>
             {{hire.od_kiedy| date:'y/LL/dd'}} </p>

@@ -10,6 +10,7 @@ export class Hire {
   public nazwa_elementu?: string;
   public id_miejsca_przed?: number;
   public nazwa_miejsca_przed?: string;
+  public id_zdjecia?: string;
   public nazwa_lokalizacji_podstawowej?: string;
   public id_lokalizacji_podstawowej?: string;
   public id_miejsca_po?: number;

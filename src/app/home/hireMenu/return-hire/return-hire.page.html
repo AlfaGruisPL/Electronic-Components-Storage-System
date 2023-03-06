@@ -17,6 +17,7 @@
         </button>
       </div>
     </ng-container>
+
     <!-- ------------------------------------------- -->
     <ng-container *ngIf="state === 1">
       <div class="container">
@@ -26,7 +27,7 @@
           </label>
         </button>
         <br/>
-        <table>
+        <table *ngIf="element.nazwa.length > 0">
           <tr>
             <td>
               Nazwa elementu
@@ -36,19 +37,44 @@
             </td>
           </tr>
           <tr>
+            <th colspan="3">Możliwe miejsca zwrotu:</th>
+          </tr>
+          <tr>
+            <td>
+              Lokalizacja podstawowa
+            </td>
+            <td>
+              {{element.nazwa_miejsca_podstawowego}}
+
+            </td>
+            <td>
+              <ion-button (click)="openModalPlace(element.id_lokalizacji_podstawowej,'Lokalizacja podstawowa')">
+                <ion-icon name="help-outline"></ion-icon>
+              </ion-button>
+            </td>
+          </tr>
+          <tr>
             <td>
               Poprzednia lokalizacja elementu:
             </td>
             <td>
               {{hire.nazwa_miejsca_przed}}
+
               <!-- <ion-button (click)="modal.open()" *ngIf="false">
                  <ion-icon name="help-outline"></ion-icon>
                </ion-button>-->
             </td>
+            <td>
+              <ion-button (click)="openModalPlace(hire.id_miejsca_przed,'Lokalizacja poprzednia')">
+                <ion-icon name="help-outline"></ion-icon>
+              </ion-button>
+            </td>
+
           </tr>
 
         </table>
-
+        <p>Zwrot elementów jest możliwy tylko w podstawowego miejsce jego przechowywania lub do poprzedniej
+          lokalizacji.</p>
         <br>
 
       </div>
@@ -116,3 +142,11 @@
 
   </div>
 </ion-content>
+
+<app-element-in-place-info [mode]="'miejsce'"
+                           [setData]="modalID"
+                           [title]="modalTitle"
+                           [elementName]="element.nazwa"
+                           [modalPlaceIsOpen]="modalPlaceIsOpen">
+</app-element-in-place-info>
+

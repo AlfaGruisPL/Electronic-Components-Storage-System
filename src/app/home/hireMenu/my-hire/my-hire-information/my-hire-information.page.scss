@@ -1,6 +1,20 @@
 .container {
   height: calc(100% - 100px);
+
+
+  .top {
+    h2 {
+      width: 70%;
+    }
+
+    img {
+      width: 27%;
+    }
+  }
+
+
 }
+
 
 .HireWarning {
   color: greenyellow;

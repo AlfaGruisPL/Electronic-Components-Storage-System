@@ -98,6 +98,7 @@ export class PhotographyPage implements OnInit {
       this.api.getDefault(title + '/' + id + '/' + this.sendImageId).then(async data => {
         this.location.back();
         this.imageSendSuccess();
+        this.FileService.sendInfo.next(0);
       }).catch(async error => {
         this.imageSendFail();
         this.location.back();

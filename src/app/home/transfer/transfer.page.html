@@ -30,14 +30,19 @@
             <h2 style="margin-bottom:2px;margin-top: 2px;">{{transfer.nazwaElementu}}
             </h2>
             <span class="textInList">
+<img src="assets/icon/arrow.png"
+     style="filter: brightness(0) invert(1); height: 15px;transform: rotate(90deg)  scale(-1,1);position: relative; bottom: -5px;">
+         &nbsp;<a
+              (click)="toPlace(transfer.id_miejsca_po)"
+              class="listButton">{{transfer.nazawa_miejsca_po}}</a>
+              <!--   <ion-icon name="arrow-up-outline"></ion-icon>-->
 
-           <!--   <ion-icon name="arrow-up-outline"></ion-icon>-->
-            <ion-icon name="exit-outline"></ion-icon>&nbsp;<a (click)="toPlace(transfer.id_miejsca_przed)"
-                                                              class="listButton">{{transfer.nazawa_miejsca_przed}}</a>
             <br>
               <!--  <ion-icon name="arrow-down-outline"></ion-icon>-->
-            <ion-icon name="enter-outline"></ion-icon>&nbsp;<a (click)="toPlace(transfer.id_miejsca_po)"
-                                                               class="listButton">{{transfer.nazawa_miejsca_po}}</a>
+           <img src="assets/icon/arrow.png"
+                style="filter: brightness(0) invert(1); height: 15px;transform: rotate(360deg) scale(-1,1);position: relative; bottom: -1px;">&nbsp;<a
+              (click)="toPlace(transfer.id_miejsca_przed)"
+              class="listButton">{{transfer.nazawa_miejsca_przed}}</a>
          </span>
           </ion-label>
 
@@ -64,25 +69,53 @@
     <ng-container *ngIf="state ===1">
       <div class="menu">
         <h3>Zeskanuj miejsce docelowe:</h3>
-        <button (click)="scanTargetPlace()" class="nextButton ">
+        <ng-container *ngIf="_api.isAdmin()">
+
+          <button (click)="addElement()" class="addElement " style="width: 30vw; font-size: 23px">
+            Dodaj element
+
+          </button>
+          &nbsp; &nbsp; &nbsp;
+        </ng-container>
+        <button (click)="scanTargetPlace()" class="nextButton " style="width: 30vw; font-size: 38px">
           <ion-icon name="search-outline"></ion-icon>
           <ion-icon name="earth-outline"></ion-icon>
 
         </button>
       </div>
-      <table style="margin: 10px;width: 100%;">
-        <tr>
-          <td>Id:</td>
-          <td>{{element.id}}</td>
-        </tr>
-        <tr>
-          <td>Nazwa elementu</td>
-          <td>{{element.nazwa}}</td>
-        </tr>
-        <tr>
-          <td>Nazwa orginalna elementu</td>
-          <td>{{element.nazwa_oryginalna}}</td>
-        </tr>
+      <table style="margin: 10px;width: 100%;" class="elementListTable">
+        <ng-container *ngFor=" let element of elementArray">
+          <tr style="border-top: 1px dashed #457000;">
+            <th colspan="2"> Informacje o elemencie:</th>
+          </tr>
+          <tr>
+            <td>Id:</td>
+            <td>{{element.id}}</td>
+          </tr>
+          <tr>
+            <td>Nazwa elementu</td>
+            <td>{{element.nazwa}}</td>
+          </tr>
+          <tr>
+            <td>Kategoria</td>
+            <td>{{element.nazwa_kategorii}}</td>
+          </tr>
+          <tr>
+            <td>Nazwa oryginalna elementu</td>
+            <td>{{element.nazwa_oryginalna}}</td>
+          </tr>
+          <tr>
+            <td>Podstawowe miejsce:</td>
+            <td>{{element.nazwa_miejsca_podstawowego}}</td>
+          </tr>
+          <tr>
+            <td style="padding-bottom: 8px">Miejsce aktualne:</td>
+            <td style="padding-bottom: 8px">
+              {{element.nazwa_lokalizacji}}
+            </td>
+          </tr>
+        </ng-container>
+
       </table>
     </ng-container>
     <!-------------------------------------------------------->
@@ -91,52 +124,52 @@
         <h3>Podsumowanie:</h3>
         <table class="menuTable">
           <tr>
-            <td>
-              <label>Nazwa elementu:</label>
-            </td>
-            <td>
-              {{element.nazwa}}
-            </td>
+            <th colspan="2">Elementy:</th>
+          </tr>
+          <tr>
+            <td><label>Ilość elementów do przeniesienia:</label></td>
+            <td>{{this.elementArray.length}}</td>
+          </tr>
+
+          <tr>
+            <th colspan="2">Miejsce docelowe:</th>
           </tr>
           <tr>
             <td>
-              <label> Miejsce pierwotne:</label>
-            </td>
-            <td>
-              {{element.nazwa_lokalizacji}}
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <label> Miejsce docelowe:</label>
+              <label>Nazwa:</label>
             </td>
             <td>
               {{miejsce?.nazwa}}
             </td>
           </tr>
         </table>
-        <button (click)="accept()" [disabled]="buttonAccept" class="nextButton ">
+        <button (click)="accept()" class="nextButton ">
           <ion-icon name="checkmark-outline" style="color: green;"></ion-icon>
           <span>Zaakceptuj</span>
         </button>
+        <button (click)="state=1" class="nextButton ">
+          <ion-icon name="checkmark-outline" style="color: green;"></ion-icon>
+          <span>Wróc</span>
+        </button>
 
+        <!---
+                <h4>Uwagi</h4>
+                <ion-textarea
+                  [(ngModel)]="description"
 
-        <h4>Uwagi</h4>
-        <ion-textarea
-          [(ngModel)]="description"
-
-          placeholder="Wpisz tutaj uwagi dostępne do zarządzającego magazynem"
-          rows="11"
-          spellcheck="true" style="border:1px solid grey" wrap="soft"
-        >
-        </ion-textarea>
+                  placeholder="Wpisz tutaj uwagi dostępne do zarządzającego magazynem"
+                  rows="11"
+                  spellcheck="true" style="border:1px solid grey" wrap="soft"
+                >
+                </ion-textarea>
+                -->
       </div>
 
 
     </ng-container>
     <!-------------------------------------------------------->
     <ng-container *ngIf="state ===3">
-      <div class="menu">
+      <div class="menu2">
         <h3>Podsumowanie:</h3>
         <table class="menuTable">
           <tr>

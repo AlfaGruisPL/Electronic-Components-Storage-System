@@ -2,6 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {FooterService} from '../../_services/footer.service';
 import {Router} from "@angular/router";
 import {Page} from "../../_modal/page";
+import {ApiResponse} from "../../_modal/api-response";
+import {Hire} from "../../_modal/hire";
+import {ApiService} from "../../_services/api.service";
+import {HireStats} from "../../_modal/hire-stats";
 
 @Component({
   selector: 'app-hire',
@@ -9,8 +13,9 @@ import {Page} from "../../_modal/page";
   styleUrls: ['./hire.page.scss'],
 })
 export class HireMenuPage implements OnInit {
+  hireStat: HireStats = new HireStats();
 
-  constructor(public _footer: FooterService, private router: Router) {
+  constructor(public _footer: FooterService, private router: Router, private _api: ApiService) {
   }
 
   ngOnInit() {
@@ -23,7 +28,38 @@ export class HireMenuPage implements OnInit {
       }
       console.log(1)
     }, 10);
+    this.getData();
+    this._api.getDefault('wypozyczeniaStats').then((data: ApiResponse) => {
+      console.log(data)
+      Object.assign(this.hireStat, data.value);
+    })
   }
+
+
+  public hireList: Array<Hire> = [];
+
+  getData(): Promise<any> {
+    return new Promise<any>((resolve) => {
+      this._api.getDefault('wypozyczeniaUzytkownikaAktywne').then((data: ApiResponse) => {
+        const tempHireList = [];
+        const dataList: Array<Hire> = data.value;
+        dataList.forEach(hire => {
+          const hireTmp = new Hire();
+          Object.assign(hireTmp, hire);
+          tempHireList.push(hireTmp);
+        });
+        if (JSON.stringify(this.hireList) !== JSON.stringify(tempHireList)) {
+          this.hireList = tempHireList;
+        }
+        this.hireList = this.hireList.sort((k1: Hire, k2: Hire) => {
+          return k1.timeToReturn() < k2.timeToReturn() ? -1 : 1;
+          return 0;
+        });
+        resolve(true);
+      });
+    });
+  }
+
 
   ionViewDidEnter() {
     this._footer.footerSetPage.next(Page.nextHome);

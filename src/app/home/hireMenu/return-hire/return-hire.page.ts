@@ -9,6 +9,7 @@ import {ApiResponse} from "../../../_modal/api-response";
 import {Miejsce} from "../../../_modal/miejsce";
 import {ToastController} from "@ionic/angular";
 import {Location} from "@angular/common";
+import {FooterService} from "../../../_services/footer.service";
 
 @Component({
   selector: 'app-return-hire',
@@ -28,6 +29,7 @@ export class ReturnHirePage implements OnInit {
   constructor(private router: Router,
               private api: ApiService,
               private qrScaner: QrcodeService,
+              private _footer: FooterService,
               public toastController: ToastController,
               public location: Location
   ) {
@@ -43,11 +45,18 @@ export class ReturnHirePage implements OnInit {
   scanPlace() {
     this.qrScaner.getInfoAdv('Zeskanuj miejsce odłożenia elementu', '&_3').then((data: QrOut) => {
       if (data.mode === QrMode.place) {
+        if (data.id !== Number(this.element.id_lokalizacji_podstawowej) && data.id !== Number(this.hire.id_miejsca_przed)) {
+          this.isNotWalidPlace();
+          return;
+        }
+
         this.api.getDefault('miejsce/' + data.id).then((apiOut: ApiResponse) => {
+
 
           this.targetPlace = apiOut.value;
           this.returnHireButton = false;
-          console.log(apiOut)
+
+
         });
         this.state = 2;
 
@@ -62,10 +71,12 @@ export class ReturnHirePage implements OnInit {
     this.qrScaner.getInfoAdv('Zeskanuj element który chcesz oddać', 'element:3').then(async (data: QrOut) => {
       if (data.mode === QrMode.element) {
         this.api.getDefault('elementInfo/' + data.id).then((val: ApiResponse) => {
+          console.log(val)
           if (val.value.length === 0) {
             this.notFoundElement();
           } else {
-            this.element = val.value[0];
+            Object.assign(this.element, val.value[0]);
+            //this.element = val.value[0];
             this.checkElementIsHire(this.element.id);
           }
         });
@@ -101,9 +112,21 @@ export class ReturnHirePage implements OnInit {
     });
   }
 
+  modalTitle = '';
+  modalID = 0;
+
+  public openModalPlace(id: number | string, title: string): void {
+    this.modalTitle = title;
+    this.modalID = Number(id);
+    this.modalPlaceIsOpen = true;
+    this._footer.bannerIconDisplay = false;
+    this._footer.backObserver(true).then(k => {
+      this.modalPlaceIsOpen = k;
+    });
+  }
+
   private checkElementIsHire(id: number) {
     this.api.getDefault('wypozyczenieElementuDlaUzytkownika/' + id).then((val: ApiResponse) => {
-      this.element = val.value2[0];
       if (val.value.length > 0) {
         Object.assign(this.hire, val.value[0]);
         this.state = 1;
@@ -112,7 +135,6 @@ export class ReturnHirePage implements OnInit {
       }
     });
   }
-
 
   private async notFoundElementInHire() {
     const toast = await this.toastController.create({
@@ -168,6 +190,23 @@ export class ReturnHirePage implements OnInit {
       duration: 3000,
       icon: 'alert-circle-outline'
     });
+    toast.present();
+    /*
+    const alert = await this.qrScaner.alertController.create({
+      header: 'UWAGA',
+      message: 'Zeskanowany kod nie należy do grupy miejsc',
+      buttons: ['Rozumiem']
+    });
+    await alert.present();*/
+  }
+
+  private async isNotWalidPlace() {
+    const toast = await this.toastController.create({
+      header: 'Wybrane miejsce nie jest prawidłowym miejscem oddania',
+      duration: 3000,
+      icon: 'alert-circle-outline'
+    });
+    toast.present();
     /*
     const alert = await this.qrScaner.alertController.create({
       header: 'UWAGA',

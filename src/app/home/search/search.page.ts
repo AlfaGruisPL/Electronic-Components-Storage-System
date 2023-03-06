@@ -42,6 +42,8 @@ export class SearchPage implements OnInit {
     promise.push(this._elements.loadFromDataBase());
     promise.push(this._places.loadFromDataBase());
     Promise.all(promise).then(val => {
+
+
       this.checkList();
       this.loading.dismiss();
       if (event != null) {
@@ -62,12 +64,39 @@ export class SearchPage implements OnInit {
 
   checkList() {
     console.log(this._elements.elementsList.value)
+    if (this.selectedType === 'kategoria') {
+
+      this.findList = this._elements.elementsList.value.filter((k: ElementClass) => {
+        if (k.nazwa_kategorii == null) {
+          k.nazwa_kategorii = '';
+        }
+
+        if (k.nazwa_kategorii.toLowerCase().indexOf(this.searchInput.toLowerCase()) > -1) {
+          return true;
+        }
+        return false;
+      });
+      if (this.elementSelectedFiler === 'dostepne') {
+        this.findList = this.findList.filter(k => k.czyWypozyczone === '0');
+      }
+      if (this.elementSelectedFiler === 'niedostepne') {
+        this.findList = this.findList.filter(k => k.czyWypozyczone === '1');
+      }
+
+      if (this.elementSelectedFiler2 === 'sprawne') {
+        this.findList = this.findList.filter(k => k.sprawnosc === '1');
+      }
+      if (this.elementSelectedFiler2 === 'niesprawne') {
+        this.findList = this.findList.filter(k => k.sprawnosc === '0');
+      }
+      return;
+    }
+
+    console.log(1)
     if (this.searchInput.length > 0) {
       this.findList = this._elements.elementsList.value.filter(val => {
         if (val.nazwa.toLowerCase().indexOf(this.searchInput.toLowerCase()) > -1) {
-
           return true;
-
         }
         return false;
       });

@@ -9,7 +9,7 @@ ion-title {
 }
 
 #container {
- 
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -17,13 +17,31 @@ ion-title {
 
 
   .info {
-    padding-top: 20px;
 
     table {
-      width: calc(100% - 20px);
-      margin: 20px 10px 0 10px;
+      width: 100%;
+      margin: 20px 0px 0 0px;
+      border-bottom: 2px dashed #457000 !important;
 
       tr {
+        th:first-child, td:first-child {
+
+          padding-left: 10px;
+        }
+
+        th:last-child, td:last-child {
+          padding-right: 10px;
+        }
+
+        &:nth-child(2) {
+          td {
+
+            border-top: 1px dashed #457000;
+            padding-top: 8px;
+          }
+        }
+
+
         th {
           text-align: center;
           padding-bottom: 10px;

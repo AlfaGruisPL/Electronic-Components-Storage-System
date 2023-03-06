@@ -17,7 +17,16 @@ export class ElementsService {
   loadFromDataBase(): Promise<Array<ElementClass>> {
     return new Promise<Array<ElementClass>>(((resolve, reject) => {
       this._api.getDefault(ApiEndPoint.elementy).then((dane: ApiResponse) => {
-        const val: Array<ElementClass> = dane.value;
+        var val: Array<ElementClass> = dane.value;
+        val = val.sort((k1, k2) => {
+          if (k1.nazwa.toLowerCase() > k2.nazwa.toLowerCase()) {
+            return 1;
+          } else if (k1.nazwa.toLowerCase() < k2.nazwa.toLowerCase()) {
+            return -1;
+          } else {
+            return 0;
+          }
+        });
         this.elementsList.next(val);
         resolve(val);
       }).catch(error => {
