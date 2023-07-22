@@ -19,7 +19,7 @@ export class ApiService {
   private _storage: Storage | null = null;
 
   constructor(private storage: Storage,
-              private _http: HttpService,
+              public _http: HttpService,
               private http: HTTP,
               private _router: Router,
               private toastController: ToastController) {
@@ -173,6 +173,7 @@ export class ApiService {
         resolve(true)
         this._router.navigate(['/login'])
       }).catch(async error => {
+        console.log(error)
         const toast = await this.toastController.create({
           message: 'Wylogowanie nie udane',
           duration: 2000,

@@ -37,6 +37,26 @@ ion-footer {
 
 }
 */
+
+.versionToast {
+  backdrop-filter: blur(8px);
+
+  --background: #ffffff;
+  border: 1px solid black !important;
+}
+
+ion-toast.versionToast::part(button) {
+  border: 1px solid #000000 !important;
+}
+
+ion-toast.versionToast::part(message) {
+
+  font-weight: bolder !important;
+  color: rgba(255, 0, 0, 0.66);
+
+}
+
+
 .ion-header {
   ion-toolbar {
     --background: #8a2500 !important;

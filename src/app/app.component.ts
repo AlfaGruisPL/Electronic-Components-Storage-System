@@ -6,8 +6,9 @@ import {FooterService} from "./_services/footer.service";
 import {Page} from "./_modal/page";
 import {CameraPreview} from "@awesome-cordova-plugins/camera-preview/ngx";
 import {ApiService} from "./_services/api.service";
-import {Platform, ToastController} from "@ionic/angular";
+import {AlertController, Platform, ToastController} from "@ionic/angular";
 import {ScreenOrientation} from '@ionic-native/screen-orientation/ngx';
+import {App} from "@capacitor/app";
 
 const {SplashScreen} = Plugins;
 
@@ -18,13 +19,15 @@ const {SplashScreen} = Plugins;
 })
 export class AppComponent implements OnInit {
   intervalStop: any;
+  version = 7;
+  versionData = "22.07.2023";
   isDev = false;
   lastSerwerResponse = 0;
   appInBackground = false;
 
   constructor(private loginService: LoginService, private insomnia: Insomnia, public _api: ApiService,
               public footer: FooterService, private cameraPreview: CameraPreview, private screenOrientation: ScreenOrientation,
-              public platform: Platform, private toastController: ToastController
+              public platform: Platform, private toastController: ToastController, private alertController: AlertController
   ) {
   }
 
@@ -96,6 +99,34 @@ export class AppComponent implements OnInit {
   }
 
   async ngOnInit() {
+    console.log(1)
+
+    this._api._http.http.setServerTrustMode('nocheck');
+    this._api._http.http.get('http://rad-bk.pwste.edu.pl:24280/wersja.txt', {}, {}).then(async k => {
+      if (this.version < Number(k['data'])) {
+        console.log("need update")
+        const toast = await this.toastController.create({
+          message: 'Aplikacja wymaga aktualizacji <br>' +
+            '<span>Kliknij -></span><a href="http://rad-bk.pwste.edu.pl:24280/aplikacja.php"> Pobierz aktualizację !</a>',
+          // duration: 400,
+          position: 'middle',
+          icon: 'build-outline',
+          cssClass: 'versionToast',
+          buttons: [
+            {
+              text: 'Wyłącz',
+              role: 'cancel',
+              handler: () => {
+                App.exitApp();
+              }
+            }
+          ],
+        });
+        await toast.present();
+      }
+    })
+
+
     // if (window.matchMedia('(prefers-color-scheme: dark)').matches == false) {
 
     //   console.log(window.matchMedia('(prefers-color-scheme: dark)').matches)

@@ -6,6 +6,7 @@ import {FooterService} from '../_services/footer.service';
 import {LoginService} from "../_services/login.service";
 import {HttpService} from "../_services/http.service";
 import {Page} from "../_modal/page";
+import {AppComponent} from "../app.component";
 
 @Component({
   selector: 'app-login',
@@ -13,8 +14,8 @@ import {Page} from "../_modal/page";
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  public login = ''//'s37269@s.pwste.edu.pl';// '/';
-  public password = ''//'zaq12WSX!'; //'';
+  public login = '';// '/';
+  public password = ''; //'';
   badPassword = false;
   badLogin = false;
   public keedPass = false;
@@ -26,6 +27,7 @@ export class LoginPage implements OnInit {
               public alertController: AlertController,
               private _api: ApiService,
               private http: HttpService,
+              public app: AppComponent,
               public toastController: ToastController) {
   }
 

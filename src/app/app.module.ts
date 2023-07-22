@@ -19,7 +19,7 @@ import {FooterComponent} from './_components/footer/footer.component';
 import {CameraPreview} from '@awesome-cordova-plugins/camera-preview/ngx';
 import {ScreenOrientation} from '@ionic-native/screen-orientation/ngx';
 import {BarcodeScanner} from '@awesome-cordova-plugins/barcode-scanner/ngx';
-
+import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
 
 @NgModule({
 
@@ -34,8 +34,9 @@ import {BarcodeScanner} from '@awesome-cordova-plugins/barcode-scanner/ngx';
   providers: [ScreenOrientation, BarcodeScanner,
     {
       provide: RouteReuseStrategy,
+
       useClass: IonicRouteStrategy
-    }, LeaveGuard, HttpService, ApiService, HTTP, Network, LoginGuard, Insomnia, CameraPreview],
+    }, LeaveGuard, HttpService, ApiService, HTTP, Network, LoginGuard, Insomnia, CameraPreview, InAppBrowser],
   bootstrap: [AppComponent],
 })
 export class AppModule {

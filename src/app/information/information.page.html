@@ -41,7 +41,7 @@
         <div *ngIf="miejsca[miejsca.length -1]?.id_zdjecia !== null else brak2">
 
           <img class="elementImage"
-               [src]="'http://magazynapi.efennec.cfolks.pl/index.php/image/'+miejsca[miejsca.length -1]?.id_zdjecia">
+               [src]="'http://rad-bk.pwste.edu.pl:24280/api/index.php/image/'+miejsca[miejsca.length -1]?.id_zdjecia">
         </div>
         <ng-template #brak2>
           - - - Brak - - -

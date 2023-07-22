@@ -71,14 +71,14 @@
         <tr>
           <td style="padding-right: 10px" *ngIf="api.isAdmin()
 ">
-            <button (click)="addHire()" *ngIf="elementIDArray !== ''" class="accept "
+            <button (click)="addHire()" *ngIf="elementIDArray.length > 0" class="accept "
                     [disabled]="!(selectedAdmin != 0 || api.isAdmin() == true)"
                     style="margin-left: auto;margin-right: auto;font-size: 22px;">
               Dodaj element:
             </button>
           </td>
           <td style="padding-left: 10px">
-            <button (click)="HireAccept()" *ngIf="elementIDArray !== ''" class="moreHIre "
+            <button (click)="HireAccept()" *ngIf="elementIDArray.length > 0" class="moreHIre "
                     [disabled]="!(selectedAdmin != 0 || api.isAdmin() == true)"
                     style="margin-left: auto;margin-right: auto;font-size: 167px; ">
               <ion-icon name="checkmark-outline"></ion-icon>

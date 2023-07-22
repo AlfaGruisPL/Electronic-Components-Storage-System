@@ -12,7 +12,7 @@ export class HttpService {
   public adresApi = 'http://rad-bk.pwste.edu.pl:24280/api/index.php/';
 
 
-  constructor(private _http: HttpClient, private http: HTTP, public toastController: ToastController) {
+  constructor(private _http: HttpClient, public http: HTTP, public toastController: ToastController) {
   }
 
   post(url: string, body: any, options: any): Promise<any> {

@@ -4,7 +4,7 @@ import {Miejsce} from '../../_modal/miejsce';
 import {ApiService} from '../../_services/api.service';
 import {ElementsService} from '../../_services/elements.service';
 import {ApiEndPoint} from '../../_modal/api-end-point';
-import {FooterService} from "../../_services/footer.service";
+import {FooterService} from '../../_services/footer.service';
 
 
 @Component({

@@ -55,6 +55,7 @@ export class SearchPage implements OnInit {
   }
 
   goToElement(id: number): void {
+
     this._router.navigate(['../information/element:' + id + '/brak']);
   }
 

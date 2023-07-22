@@ -31,7 +31,7 @@ export class TransferPage implements OnInit {
 
   constructor(
     private qrCode: QrcodeService,
-    private _api: ApiService,
+    public _api: ApiService,
     private alertController: AlertController,
     private toastServise: ToastService,
     public _footer: FooterService,

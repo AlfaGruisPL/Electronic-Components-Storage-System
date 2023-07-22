@@ -43,16 +43,17 @@ export class InformationPage implements OnInit {
   }
 
   async ngOnInit() {
-
+    console.log(12345)
     await this.loading.create();
     this.route.params.subscribe(
       (params: QrOut) => {
         if (params.text.split(':')[0] === 'element') {
           this.mode = 'element';
+
           this._api.getDefault(ApiEndPoint.elementInfo + '/' + params.text.split(':')[1]).then(data => {
             console.log(data)
             Object.assign(this.element, data.value[0]);
-            console.log(1)
+
             this.loading.dismiss();
 
 

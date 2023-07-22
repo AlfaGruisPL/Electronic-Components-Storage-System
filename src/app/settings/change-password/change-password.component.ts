@@ -57,14 +57,14 @@ export class ChangePasswordComponent implements OnInit {
       this.changePasswordButtonDisabled = false;
       // if (String(error['status']) === '425') {
       const toast = await this.toastController.create({
-        message: 'Zmiana hasła nie udana',
+        message: 'Zmiana hasła nieudana',
         duration: 2000,
         icon: 'alert-outline'
       });
       toast.present();
       //}
 
-    })
+    });
   }
 
   private async dataError(): Promise<void> {

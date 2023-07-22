@@ -4,21 +4,17 @@ import {FormsModule} from '@angular/forms';
 
 import {IonicModule} from '@ionic/angular';
 
-import {MyHireInformationPageRoutingModule} from './my-hire-information-routing.module';
-
 import {MyHireInformationPage} from './my-hire-information.page';
-import {
-  ElementInPlaceInfoComponent
-} from "../../../../_components/element-in-place-info/element-in-place-info.component";
+import {SharedModule} from "../../../../shredModule.module";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MyHireInformationPageRoutingModule
+    SharedModule
   ],
-  declarations: [MyHireInformationPage, ElementInPlaceInfoComponent]
+  declarations: [MyHireInformationPage,]
 })
 export class MyHireInformationPageModule {
 }
