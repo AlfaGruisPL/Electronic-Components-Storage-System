@@ -16,3 +16,6 @@
 ![](https://github.com/AlfaGruisPL/MagazynMobile/blob/description/image3.jpg)
 ### Return element to magazine:
 ![](https://github.com/AlfaGruisPL/MagazynMobile/blob/description/image1.jpg)
+
+### Magazin database
+![](https://github.com/AlfaGruisPL/MagazynMobile/blob/description/database.png)
