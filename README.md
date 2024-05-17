@@ -7,3 +7,12 @@
 
 ### Platfrom:
 ![test](https://img.shields.io/badge/Android-silver?logo=android)
+
+
+
+### Login page
+![](https://github.com/AlfaGruisPL/MagazynMobile/blob/description/image4.jpg)
+### Main page
+![](https://github.com/AlfaGruisPL/MagazynMobile/blob/description/image3.jpg)
+### Return element to magazine:
+![](https://github.com/AlfaGruisPL/MagazynMobile/blob/description/image1.jpg)
